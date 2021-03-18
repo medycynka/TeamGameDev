@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718909ac1136fb343be1390c1911791a, type: 3}
+  m_Name: 1H_Sword_005
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: 3d8b9c0a783285147adbf4677e881530, type: 3}
+  itemName: Goblin Machete
+  itemId: 3
+  itemType: 0
+  modelPrefab: {fileID: 185350, guid: c9576268205bb4144a891cbfa89ff33c, type: 3}
+  isUnarmed: 0
+  pivotPositionTransform: {x: -8, y: -1.9, z: 0}
+  pivotRotationTransform: {x: 0, y: -90, z: -90}
+  backSlotPosition: {x: 4.8, y: -8.3, z: 3.3}
+  backSlotRotation: {x: 15, y: 0, z: 0}
+  backSlotScale: 1
+  baseAttack: 20
+  lightAttackDamageMult: 1
+  heavyAttackDamageMult: 1.5
+  criticalDamageMult: 2.5
+  weight: 0
+  durability: 0
+  rightHandIdle: Right_Arm_Idle_01
+  leftHandIdle: Left_Arm_Idle_01
+  thIdle: TH_Idle_01
+  ohLightAttack1: OH_Light_Attack_01
+  ohLightAttack2: OH_Light_Attack_02
+  ohLightAttack3: OH_Light_Attack_03
+  ohHeavyAttack1: OH_Heavy_Attack_01
+  ohHeavyAttack2: OH_Heavy_Attack_02
+  thLightAttack1: TH_Light_Attack_01
+  thLightAttack2: TH_Light_Attack_02
+  thLightAttack3: TH_Light_Attack_03
+  thHeavyAttack1: TH_Heavy_Attack_01
+  thHeavyAttack2: TH_Heavy_Attack_02
+  weaponArt: Parry
+  baseStamina: 15
+  ohLightAttackMultiplier: 1
+  ohHeavyAttackMultiplier: 2
+  thLightAttackMultiplier: 1.5
+  thHeavyAttackMultiplier: 2.5
+  weaponType: 0
+  meleeType: 0
+  castingType: 3
+  shootingType: 3

@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718909ac1136fb343be1390c1911791a, type: 3}
+  m_Name: Unarmed
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  itemName: Unarmed
+  itemId: 11
+  itemType: 0
+  modelPrefab: {fileID: 8638161128593808972, guid: b16e888c6532fe14b9801f061750562b,
+    type: 3}
+  isUnarmed: 1
+  pivotPositionTransform: {x: 0, y: 0, z: 0}
+  pivotRotationTransform: {x: 0, y: 0, z: 0}
+  backSlotPosition: {x: 0, y: 0, z: 0}
+  backSlotRotation: {x: 0, y: 0, z: 0}
+  backSlotScale: 1
+  baseAttack: 25
+  lightAttackDamageMult: 1
+  heavyAttackDamageMult: 1.5
+  criticalDamageMult: 2.5
+  weight: 0
+  durability: 0
+  rightHandIdle: Right Arm Empty
+  leftHandIdle: Left Arm Empty
+  thIdle: Both Arms Empty
+  ohLightAttack1: Light_Punch_01
+  ohLightAttack2: Light_Punch_01
+  ohLightAttack3: Light_Punch_01
+  ohHeavyAttack1: Heavy_Punch_01
+  ohHeavyAttack2: Heavy_Punch_01
+  thLightAttack1: 
+  thLightAttack2: 
+  thLightAttack3: 
+  thHeavyAttack1: 
+  thHeavyAttack2: 
+  weaponArt: Parry
+  baseStamina: 5
+  ohLightAttackMultiplier: 0
+  ohHeavyAttackMultiplier: 0
+  thLightAttackMultiplier: 0
+  thHeavyAttackMultiplier: 0
+  weaponType: 0
+  meleeType: 9
+  castingType: 3
+  shootingType: 3

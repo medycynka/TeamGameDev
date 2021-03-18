@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e95befab92cd0cd43ad76655769f6165, type: 3}
+  m_Name: Grand Maigc
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: 806c2f4e4121bd443a535f7551d4fa7c, type: 3}
+  itemName: Grand Magic
+  itemId: 11
+  itemType: 10
+  spellWarmUpFX: {fileID: 177120, guid: 543187520727b514db55a4fbeab2f51f, type: 3}
+  spellCastFX: {fileID: 157402, guid: b4bfc9eff08a24c46b6daef0ea947a48, type: 3}
+  spellAnimation: Heal Spell
+  focusPointCost: 60
+  spellType: 0
+  spellDescription: 
+  buffType: 2
+  buffRang: 2
+  buffAmount: 1.5

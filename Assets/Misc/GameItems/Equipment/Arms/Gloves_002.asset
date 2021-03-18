@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4cc0211a02c85498c9d8abae6e58a4, type: 3}
+  m_Name: Gloves_002
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: ebee42359785488418dd8adae108d644, type: 3}
+  itemName: Gloves_002
+  itemId: 1
+  itemType: 5
+  bodyParts: 12000000130000001400000015000000
+  partsIds: 02000000020000000200000002000000
+  removeHead: 0
+  removeHeadFeatures: 0
+  canDeactivate: 0
+  armor: 2
+  weight: 0
+  durability: 0
