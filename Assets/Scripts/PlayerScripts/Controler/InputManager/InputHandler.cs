@@ -39,6 +39,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
         public bool rightStickRightInput;
         public bool rightStickLeftInput;
         public bool estusQuickSlotUse;
+        public bool blockInput;
 
         public bool dPadUp;
         public bool dPadDown;
@@ -68,6 +69,9 @@ namespace SzymonPeszek.PlayerScripts.Controller
         private PlayerStats _playerStats;
         private WeaponSlotManager _weaponSlotManager;
         private PlayerAnimatorManager _playerAnimatorManager;
+
+        private bool _canPlayBlock = true;
+        private bool _canPlayLeftIdle = true;
 
         [Header("Camera & UI", order = 1)]
         public CameraHandler cameraHandler;
@@ -113,6 +117,8 @@ namespace SzymonPeszek.PlayerScripts.Controller
                 _playerInputActions.PlayerActions.Y.performed += i => yInput = true;
                 _playerInputActions.PlayerActions.EstusQuickSlotUse.performed += i => estusQuickSlotUse = true;
                 _playerInputActions.PlayerActions.CriticalAttack.performed += i => criticalAttackInput = true;
+                _playerInputActions.PlayerActions.Block.performed += i => blockInput = true;
+                _playerInputActions.PlayerActions.Block.canceled += i => blockInput = false;
             }
 
             _playerInputActions.Enable();
@@ -266,6 +272,24 @@ namespace SzymonPeszek.PlayerScripts.Controller
                         _playerAttacker.HandleLtAction();
                     }
                 }
+
+                _playerManager.isBlocking = blockInput;
+                
+                if (blockInput)
+                {
+                    if (_canPlayBlock)
+                    {
+                        _canPlayBlock = false;
+                        _playerAnimatorManager.anim.SetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsBlockingName], true);
+                        _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.BlockIdleName], false, true);
+                    }
+                }
+                else
+                {
+                    _canPlayBlock = true;
+                    _playerAnimatorManager.anim.SetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsBlockingName], false);
+                }
+                
                 #endregion
             }
         }

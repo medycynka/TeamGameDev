@@ -27,31 +27,27 @@ namespace SzymonPeszek.PlayerScripts
         [Header("Move Direction", order = 1)]
         public Vector3 moveDirection;
 
-        [HideInInspector]
-        public Transform myTransform;
-        [HideInInspector]
-        public PlayerAnimatorManager playerAnimatorManager;
+        [HideInInspector] public Transform myTransform;
+        [HideInInspector] public PlayerAnimatorManager playerAnimatorManager;
 
         [Header("Player Rigidbody", order = 1)]
         public new Rigidbody rigidbody;
 
         [Header("Ground & Air Detection Stats", order = 1)]
-        [SerializeField]
-        private float groundDetectionRayStartPoint = 0.5f;
-        [SerializeField]
-        private float minimumDistanceNeededToBeginFall = 1f;
-        [SerializeField]
-        private float groundDirectionRayDistance = 0.2f;
+        [SerializeField] private float groundDetectionRayStartPoint = 0.5f;
+        [SerializeField] private float minimumDistanceNeededToBeginFall = 1f;
+        [SerializeField] private float groundDirectionRayDistance = 0.2f;
         private LayerMask _ignoreForGroundCheck;
         public float inAirTimer;
 
         [Header("Movement Stats", order = 1)]
-        public float movementSpeed = 5;
-        public float walkingSpeed = 1;
-        public float sprintSpeed = 7;
-        public float rotationSpeed = 16;
-        public float fallingSpeed = 80;
-        public float jumpMult = 10;
+        public float movementSpeed = 5f;
+        public float walkingSpeed = 1f;
+        public float sprintSpeed = 7f;
+        public float rotationSpeed = 16f;
+        public float fallingSpeed = 80f;
+        public float jumpHeight = 25f;
+        [Range(2f, 10f)] public float jumpMultiplier = 5f;
 
         [Header("Next Jump Cooldown", order = 1)]
         public float nextJump = 2.0f;
@@ -341,7 +337,6 @@ namespace SzymonPeszek.PlayerScripts
             {
                 myTransform.position = _targetPosition;
             }
-
         }
 
         /// <summary>
@@ -361,14 +356,16 @@ namespace SzymonPeszek.PlayerScripts
                 {
                     nextJump -= delta;
 
-                    if (nextJump <= 0)
-                    {
-                        StartCoroutine(ResizeCollider());
-                        rigidbody.velocity = new Vector3(rigidbody.velocity.x, jumpMult, rigidbody.velocity.z);
-                        playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.JumpName], true);
-                        Quaternion jumpRotation = Quaternion.LookRotation(moveDirection);
-                        myTransform.rotation = jumpRotation;
-                    }
+                    //if (nextJump <= 0)
+                    //{
+                    StartCoroutine(ResizeCollider());
+                    rigidbody.velocity += new Vector3(moveDirection.x * jumpMultiplier,
+                        jumpHeight * jumpMultiplier, moveDirection.z * jumpMultiplier);
+                    playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.JumpName], true);
+                    Quaternion jumpRotation = Quaternion.LookRotation(moveDirection);
+                    myTransform.rotation = jumpRotation;
+                    nextJump = Time.time + 2f;
+                    //}
                 }
             }
         }

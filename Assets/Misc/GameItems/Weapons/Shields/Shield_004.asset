@@ -19,7 +19,7 @@ MonoBehaviour:
   modelPrefab: {fileID: 190032, guid: ce93da153974d3745a391c1324306687, type: 3}
   isUnarmed: 0
   pivotPositionTransform: {x: 0, y: 0, z: 0}
-  pivotRotationTransform: {x: -80, y: -75, z: -85}
+  pivotRotationTransform: {x: -60, y: -140, z: -20}
   backSlotPosition: {x: 5, y: 0, z: -35}
   backSlotRotation: {x: 0, y: 0, z: 0}
   backSlotScale: 1

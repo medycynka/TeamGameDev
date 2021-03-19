@@ -239,6 +239,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Block",
+                    "type": "Button",
+                    "id": "3fc48cb1-f1ee-471a-8b0b-b57201c231f2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -367,10 +375,21 @@
                     "name": "",
                     "id": "d4ba156b-0988-4e65-ba08-d63f499aa0c4",
                     "path": "<Keyboard>/z",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "",
                     "action": "LT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3eab68fd-6053-4b14-b302-807ebef30d02",
+                    "path": "<Keyboard>/z",
+                    "interactions": "Hold(duration=0.2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Block",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

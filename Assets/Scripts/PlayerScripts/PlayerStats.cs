@@ -131,6 +131,23 @@ namespace SzymonPeszek.PlayerScripts
         }
 
         /// <summary>
+        /// Calculate stat bar size based on max stat value (health, stamina or focus)
+        /// </summary>
+        /// <param name="maxBarValue">Maximum stat value</param>
+        /// <param name="statBarTransform">RectTransform of target stat bar</param>
+        /// <param name="anchorX">Anchor X position</param>
+        /// <param name="anchorY">Anchor Y position</param>
+        private void SetStatBarSize(float maxBarValue, RectTransform statBarTransform, float anchorX, float anchorY)
+        {
+            float currentPixelWidth = 250f * (maxBarValue / 100f);
+            float remappedPixelWidth = currentPixelWidth.Remap(100.0f, 1337.5f, 0.0f, 1.0f);
+            float widthToSet = Mathf.Lerp(250f, Screen.width - Mathf.Lerp(60, 140, remappedPixelWidth), remappedPixelWidth);
+            
+            statBarTransform.anchoredPosition = new Vector2(anchorX + (widthToSet - 250f) / 2f, anchorY);
+            statBarTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, widthToSet);
+        }
+        
+        /// <summary>
         /// Calculate maximum health points amount
         /// </summary>
         /// <returns>Maximum health points amount</returns>
@@ -150,12 +167,7 @@ namespace SzymonPeszek.PlayerScripts
             maxHealth = newHealth;
             currentHealth = maxHealth;
 
-            float currentPixelWidth = 180f * (maxHealth / 100f);
-            float remappedPixelWidth = currentPixelWidth.Remap(100.0f, 1337.5f, 0.0f, 1.0f);
-            float widthToSet = Mathf.Lerp(180.0f, Screen.width - Mathf.Lerp(60, 120, remappedPixelWidth), remappedPixelWidth);
-
-            _hpBarTransform.anchoredPosition = new Vector2(120f + (widthToSet - 180.0f) / 2f, -45f);
-            _hpBarTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, widthToSet);
+            SetStatBarSize(maxHealth, _hpBarTransform,140f, -50f);
             
             healthBar.SetMaxHealth(maxHealth);
             healthBar.SetCurrentHealth(currentHealth);
@@ -181,12 +193,7 @@ namespace SzymonPeszek.PlayerScripts
             maxStamina = newStamina;
             currentStamina = maxStamina;
 
-            float currentPixelWidth = 180f * (maxStamina / 100f);
-            float remappedPixelWidth = currentPixelWidth.Remap(100.0f, 1337.5f, 0.0f, 1.0f);
-            float widthToSet = Mathf.Lerp(180.0f, Screen.width - Mathf.Lerp(60, 120, remappedPixelWidth), remappedPixelWidth);
-
-            _staminaBarTransform.anchoredPosition = new Vector2(120f + (widthToSet - 180f) / 2f, -80f);
-            _staminaBarTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, widthToSet);
+            SetStatBarSize(maxStamina, _staminaBarTransform, 140f, -110f);
             
             staminaBar.SetMaxStamina(maxStamina);
             staminaBar.SetCurrentStamina(currentStamina);
@@ -212,12 +219,7 @@ namespace SzymonPeszek.PlayerScripts
             maxFocus = newFocus;
             currentFocus = maxFocus;
 
-            float currentPixelWidth = 180f * (maxFocus / 100f);
-            float remappedPixelWidth = currentPixelWidth.Remap(100.0f, 1337.5f, 0.0f, 1.0f);
-            float widthToSet = Mathf.Lerp(180.0f, Screen.width - Mathf.Lerp(60, 120, remappedPixelWidth), remappedPixelWidth);
-
-            _focusBarTransform.anchoredPosition = new Vector2(120f + (widthToSet - 180f) / 2f, -115f);
-            _focusBarTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, widthToSet);
+            SetStatBarSize(maxFocus, _focusBarTransform, 140f, -170f);
             
             focusBar.SetMaxFocus(maxFocus);
             focusBar.SetCurrentFocus(currentFocus);
@@ -230,7 +232,7 @@ namespace SzymonPeszek.PlayerScripts
         {
             UpdateHealthBar(SetMaxHealthFromHealthLevel());
             UpdateStaminaBar(SetMaxStaminaFromStaminaLevel());
-            //UpdateFocusBar(SetMaxFocusFromFocusLevel());
+            UpdateFocusBar(SetMaxFocusFromFocusLevel());
         }
 
         /// <summary>

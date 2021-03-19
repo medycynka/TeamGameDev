@@ -36,13 +36,13 @@ namespace SzymonPeszek.PlayerScripts
         public bool isInteracting;
 
         [Header("Helper bools", order = 2)]
-        public bool shouldRefillHealth = false;
-        public bool shouldRefillStamina = false;
-        public bool shouldRefillFocus = false;
-        public bool shouldRefillHealthBg = false;
-        public bool shouldAddJumpForce = false;
-        public bool isRestingAtBonfire = false;
-        public bool isRemovingFog = false;
+        public bool shouldRefillHealth;
+        public bool shouldRefillStamina;
+        public bool shouldRefillFocus;
+        public bool shouldRefillHealthBg;
+        public bool isRestingAtBonfire;
+        public bool isRemovingFog;
+        public bool isJumping;
 
         [Header("Player Flags", order = 2)]
         public bool isSprinting;
@@ -52,6 +52,7 @@ namespace SzymonPeszek.PlayerScripts
         public bool isUsingRightHand;
         public bool isUsingLeftHand;
         public bool isInvulnerable;
+        public bool isBlocking;
 
         [Header("Respawn Places", order = 2)]
         public GameObject quickMoveScreen;
@@ -119,18 +120,7 @@ namespace SzymonPeszek.PlayerScripts
 
         private void LateUpdate()
         {
-            _inputHandler.rollFlag = false;
-            _inputHandler.rbInput = false;
-            _inputHandler.rtInput = false;
-            _inputHandler.ltInput = false;
-            _inputHandler.dPadUp = false;
-            _inputHandler.dPadDown = false;
-            _inputHandler.dPadLeft = false;
-            _inputHandler.dPadRight = false;
-            _inputHandler.aInput = false;
-            _inputHandler.jumpInput = false;
-            _inputHandler.inventoryInput = false;
-            _inputHandler.estusQuickSlotUse = false;
+            ResetInputs();
 
             float delta = Time.fixedDeltaTime;
 
@@ -152,6 +142,22 @@ namespace SzymonPeszek.PlayerScripts
             {
                 _playerLocomotion.inAirTimer = _playerLocomotion.inAirTimer + Time.deltaTime;
             }
+        }
+
+        private void ResetInputs()
+        {
+            _inputHandler.rollFlag = false;
+            _inputHandler.rbInput = false;
+            _inputHandler.rtInput = false;
+            _inputHandler.ltInput = false;
+            _inputHandler.dPadUp = false;
+            _inputHandler.dPadDown = false;
+            _inputHandler.dPadLeft = false;
+            _inputHandler.dPadRight = false;
+            _inputHandler.aInput = false;
+            _inputHandler.jumpInput = false;
+            _inputHandler.inventoryInput = false;
+            _inputHandler.estusQuickSlotUse = false;
         }
 
         #region Checking Funkctions

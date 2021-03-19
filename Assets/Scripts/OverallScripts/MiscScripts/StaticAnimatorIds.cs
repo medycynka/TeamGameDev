@@ -18,12 +18,14 @@ namespace SzymonPeszek.Misc
         public const string IsUsingLeftHandName = "isUsingLeftHand";
         public const string IsInvulnerableName = "isInvulnerable";
         public const string IsDeadName = "isDead";
+        public const string IsBlockingName = "isBlocking";
         public const string CanRotateName = "canRotate";
         public const string EmptyName = "Empty";
         public const string LeftArmEmptyName = "Left Arm Empty";
         public const string RightArmEmptyName = "Right Arm Empty";
         public const string BothArmsEmptyName = "Both Arms Empty";
         public const string LeftArmIdleName = "Left_Arm_Idle_01";
+        public const string BlockIdleName = "Block";
         public const string RightArmIdleName = "Right_Arm_Idle_01";
         public const string BothArmsIdleName = "TH_Idle_01";
         public const string StandUpName = "Stand Up";
