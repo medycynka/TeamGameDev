@@ -48,7 +48,7 @@ TagManager:
   - Character
   - Spawner
   - Area Manager
-  - Bass Area Manager
+  - Boss Area Manager
   - Back Stab
   - Spell
   - Riposte
@@ -57,7 +57,7 @@ TagManager:
   - 
   - 
   - Collider Blocker
-  - 
+  - Force Field
   m_SortingLayers:
   - name: Default
     uniqueID: 0
