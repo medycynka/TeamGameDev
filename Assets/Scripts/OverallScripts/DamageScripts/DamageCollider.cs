@@ -91,6 +91,12 @@ namespace SzymonPeszek.Damage
                     playerStats.DealDamage(enemyStats, currentWeaponDamage);
                 }
             }
+
+            if (collision.CompareTag("Passive"))
+            {
+                collision.GetComponent<PassiveEnemyStats>()
+                    .TakeDamage(currentWeaponDamage, GetComponentInParent<PlayerStats>());
+            }
         }
     }
 }

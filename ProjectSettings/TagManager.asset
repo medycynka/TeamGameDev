@@ -25,6 +25,7 @@ TagManager:
   - Inventory Holder
   - Collision Blocker
   - Spawner
+  - Passive
   layers:
   - Default
   - TransparentFX
