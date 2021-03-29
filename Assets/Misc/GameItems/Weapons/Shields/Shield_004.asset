@@ -27,6 +27,7 @@ MonoBehaviour:
   lightAttackDamageMult: 1
   heavyAttackDamageMult: 1.5
   criticalDamageMult: 2.5
+  physicalDamageAbsorption: 10
   weight: 0
   durability: 0
   rightHandIdle: Right_Arm_Idle_01

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using SzymonPeszek.PlayerScripts;
 using UnityEngine.AI;
 
 #if UNITY_EDITOR
@@ -113,7 +114,7 @@ namespace PolyPerfect
 
 
 
-        private Color distanceColor = new Color(0f, 0f, 205f);
+        private Color distanceColor = new Color(0f, 0f, 1f);
         private Color awarnessColor = new Color(1f, 0f, 1f, 1f);
         private Color scentColor = new Color(1f, 0f, 0f, 1f);
         private Animator animator;
@@ -124,7 +125,7 @@ namespace PolyPerfect
         private int currentState = 0;
         private bool dead = false;
         private bool moving = false;
-        private bool useNavMesh = false;
+        public bool useNavMesh = false;
         private Vector3 targetLocation = Vector3.zero;
         private float currentTurnSpeed = 0f;
         private bool attacking = false;
@@ -197,27 +198,31 @@ namespace PolyPerfect
             {
                 if (runtimeController == null)
                 {
-                    Debug.LogError(string.Format("{0} has no animator controller, make sure you put one in to allow the character to walk. See documentation for more details (1)", gameObject.name));
+                    Debug.LogError(
+                        $"{gameObject.name} has no animator controller, make sure you put one in to allow the character to walk. See documentation for more details (1)");
                     enabled = false;
                     return;
                 }
 
                 if (animator.avatar == null)
                 {
-                    Debug.LogError(string.Format("{0} has no avatar, make sure you put one in to allow the character to animate. See documentation for more details (2)", gameObject.name));
+                    Debug.LogError(
+                        $"{gameObject.name} has no avatar, make sure you put one in to allow the character to animate. See documentation for more details (2)");
                     enabled = false;
                     return;
                 }
 
                 if (animator.hasRootMotion == true)
                 {
-                    Debug.LogError(string.Format("{0} has root motion applied, consider turning this off as our script will deactivate this on play as we do not use it (3)", gameObject.name));
+                    Debug.LogError(
+                        $"{gameObject.name} has root motion applied, consider turning this off as our script will deactivate this on play as we do not use it (3)");
                     animator.applyRootMotion = false;
                 }
 
                 if (idleStates.Length == 0 || movementStates.Length == 0)
                 {
-                    Debug.LogError(string.Format("{0} has no idle or movement states, make sure you fill these out. See documentation for more details (4)", gameObject.name));
+                    Debug.LogError(
+                        $"{gameObject.name} has no idle or movement states, make sure you fill these out. See documentation for more details (4)");
                     enabled = false;
                     return;
                 }
@@ -518,7 +523,7 @@ namespace PolyPerfect
 
         private void BeginWanderState()
         {
-            Vector3 target = RandonPointInRange();
+            Vector3 target = RandomPointInRange();
 
             int slowestMovementState = 0;
             for (int i = 0; i < movementStates.Length; i++)
@@ -618,7 +623,7 @@ namespace PolyPerfect
 
             if (constainedToWanderZone && Vector3.Distance(target, origin) > wanderZone)
             {
-                target = RandonPointInRange();
+                target = RandomPointInRange();
             }
 
             int fastestMovementState = 0;
@@ -669,6 +674,76 @@ namespace PolyPerfect
             }
         }
 
+        public void StopCurrentCoroutines()
+        {
+            StopAllCoroutines();
+        }
+        
+        public void RunAwayFromPlayer(PlayerStats predator)
+        {
+            moving = true;
+
+            Quaternion startRotation = transform.rotation;
+            transform.rotation = Quaternion.LookRotation(transform.position - predator.transform.position);
+            Vector3 areaAwayFromPredator = transform.position + transform.forward * 5f;
+            NavMeshHit hit;
+            NavMesh.SamplePosition(areaAwayFromPredator, out hit, 5, 1 << NavMesh.GetAreaFromName("Walkable"));
+            Vector3 target = hit.position;
+            transform.rotation = startRotation;
+
+            if (constainedToWanderZone && Vector3.Distance(target, origin) > wanderZone)
+            {
+                target = RandomPointInRange();
+            }
+
+            int fastestMovementState = 0;
+            for (int i = 0; i < movementStates.Length; i++)
+            {
+                if (movementStates[i].moveSpeed > movementStates[fastestMovementState].moveSpeed)
+                {
+                    fastestMovementState = i;
+                }
+            }
+            currentState = fastestMovementState;
+
+            if (!string.IsNullOrEmpty(movementStates[currentState].animationBool))
+            {
+                animator.SetBool(movementStates[currentState].animationBool, true);
+            }
+
+            StartCoroutine(RunAwayFromPlayerState(target, predator));
+        }
+
+        private IEnumerator RunAwayFromPlayerState(Vector3 target, PlayerStats predator)
+        {
+            navMeshAgent.speed = movementStates[currentState].moveSpeed;
+            navMeshAgent.angularSpeed = movementStates[currentState].turnSpeed;
+            navMeshAgent.SetDestination(target);
+
+            float timeMoving = 0f;
+            while ((navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance || timeMoving < 0.1f) && timeMoving < stamina)
+            {
+                timeMoving += Time.deltaTime * 2f;
+                yield return null;
+            }
+
+            navMeshAgent.SetDestination(transform.position);
+
+            if (!string.IsNullOrEmpty(movementStates[currentState].animationBool))
+            {
+                animator.SetBool(movementStates[currentState].animationBool, false);
+            }
+
+            if (timeMoving > stamina || !predator.isPlayerAlive || Vector3.Distance(transform.position, predator.transform.position) > awareness)
+            {
+                BeginIdleState();
+            }
+            else
+            {
+                RunAwayFromPlayer(predator);
+            }
+        }
+
         private void NonNavMeshRunAwayFromAnimal(Common_WanderScript predator)
         {
             moving = true;
@@ -680,7 +755,7 @@ namespace PolyPerfect
 
             if (constainedToWanderZone && Vector3.Distance(targetLocation, origin) > wanderZone)
             {
-                targetLocation = RandonPointInRange();
+                targetLocation = RandomPointInRange();
             }
 
             int fastestMovementState = 0;
@@ -736,6 +811,76 @@ namespace PolyPerfect
             else
             {
                 NonNavMeshRunAwayFromAnimal(predator);
+            }
+        }
+        
+        public void NonNavMeshRunAwayFromPlayer(PlayerStats predator)
+        {
+            moving = true;
+
+            Quaternion startRotation = transform.rotation;
+            transform.rotation = Quaternion.LookRotation(transform.position - predator.transform.position);
+            targetLocation = transform.position + transform.forward * 5f;
+            transform.rotation = startRotation;
+
+            if (constainedToWanderZone && Vector3.Distance(targetLocation, origin) > wanderZone)
+            {
+                targetLocation = RandomPointInRange();
+            }
+
+            int fastestMovementState = 0;
+            for (int i = 0; i < movementStates.Length; i++)
+            {
+                if (movementStates[i].moveSpeed > movementStates[fastestMovementState].moveSpeed)
+                {
+                    fastestMovementState = i;
+                }
+            }
+            currentState = fastestMovementState;
+
+            if (!string.IsNullOrEmpty(movementStates[currentState].animationBool))
+            {
+                animator.SetBool(movementStates[currentState].animationBool, true);
+            }
+
+            StartCoroutine(NonNavMeshRunAwayFromPlayerState(targetLocation, predator));
+        }
+
+        private IEnumerator NonNavMeshRunAwayFromPlayerState(Vector3 target, PlayerStats predator)
+        {
+            currentTurnSpeed = movementStates[currentState].turnSpeed;
+
+            float walkTime = 0f;
+            float timeUntilAbortWalk = Vector3.Distance(transform.position, target) / movementStates[currentState].moveSpeed;
+
+            while (Vector3.Distance(transform.position, target) > contingencyDistance && walkTime < timeUntilAbortWalk && stamina > 0)
+            {
+                characterController.SimpleMove(transform.TransformDirection(Vector3.forward) * movementStates[currentState].moveSpeed);
+
+                Vector3 relativePos = target - transform.position;
+                Quaternion rotation = Quaternion.LookRotation(relativePos);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * (currentTurnSpeed / 10));
+                currentTurnSpeed += Time.deltaTime;
+
+                walkTime += Time.deltaTime;
+                stamina -= Time.deltaTime * 2f;
+                yield return null;
+            }
+
+            targetLocation = Vector3.zero;
+
+            if (!string.IsNullOrEmpty(movementStates[currentState].animationBool))
+            {
+                animator.SetBool(movementStates[currentState].animationBool, false);
+            }
+
+            if (stamina <= 0 || !predator.isPlayerAlive || Vector3.Distance(transform.position, predator.transform.position) > awareness)
+            {
+                BeginIdleState();
+            }
+            else
+            {
+                NonNavMeshRunAwayFromPlayer(predator);
             }
         }
 
@@ -1015,7 +1160,7 @@ namespace PolyPerfect
             }
         }
 
-        private void TakeDamage(float damage)
+        public void TakeDamage(float damage)
         {
             toughness -= damage;
 
@@ -1032,7 +1177,7 @@ namespace PolyPerfect
                 Debug.Log(string.Format("{0}: Died!", gameObject.name));
             }
 
-            StopAllCoroutines();
+            StopCurrentCoroutines();
             dead = true;
 
             if (useNavMesh)
@@ -1108,7 +1253,7 @@ namespace PolyPerfect
             }
         }
 
-        private Vector3 RandonPointInRange()
+        private Vector3 RandomPointInRange()
         {
             Vector3 randomPoint = origin + Random.insideUnitSphere * wanderZone;
             return new Vector3(randomPoint.x, transform.position.y, randomPoint.z);

@@ -239,9 +239,10 @@ namespace SzymonPeszek.PlayerScripts
         /// Damage player
         /// </summary>
         /// <param name="damage">Damage dealt to the player</param>
+        /// <param name="damageAnimation">Name of damage animation</param>
         /// <param name="isBackStabbed">Is damage from back stab?</param>
         /// <param name="isRiposted">Is damage from riposte?</param>
-        public void TakeDamage(float damage, bool isBackStabbed = false, bool isRiposted = false)
+        public void TakeDamage(float damage, string damageAnimation = "Damage_01", bool isBackStabbed = false, bool isRiposted = false)
         {
             if (isPlayerAlive && !_playerManager.isInvulnerable)
             {
@@ -249,7 +250,7 @@ namespace SzymonPeszek.PlayerScripts
                 currentHealth -= damage;
                 healthBar.SetCurrentHealth(currentHealth);
 
-                _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.Damage01Name], true);
+                _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[damageAnimation], true);
 
                 if (currentHealth <= 0)
                 {
@@ -258,6 +259,9 @@ namespace SzymonPeszek.PlayerScripts
             }
         }
         
+        /// <summary>
+        /// Handle getting paried
+        /// </summary>
         public void GetParried()
         {
             _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.ParriedName], true);
@@ -402,17 +406,44 @@ namespace SzymonPeszek.PlayerScripts
 
             focusBar.focusBarSlider.value += focusRefillAmount * Time.deltaTime;
         }
-        
+
         /// <summary>
         /// Deal damage to the enemy
         /// </summary>
         /// <param name="enemyStats">Enemy's stats</param>
         /// <param name="weaponDamage">Damage to deal</param>
-        public void DealDamage(EnemyStats enemyStats, float weaponDamage)
+        /// <param name="isPassive">Is it passive enemy</param>
+        /// <param name="passiveEnemyStats">Passive enemy stats</param>
+        public void DealDamage(EnemyStats enemyStats, float weaponDamage, bool isPassive = false, PassiveEnemyStats passiveEnemyStats = null)
         {
-            enemyStats.TakeDamage(
-                (weaponDamage * _weaponSlotManager.attackingWeapon.lightAttackDamageMult + strength * 0.5f) *
-                bonusBuffAttack, false, false);
+            if (isPassive && passiveEnemyStats != null)
+            {
+                passiveEnemyStats.TakeDamage(CalculateDamage(weaponDamage, false), this);
+            }
+            else
+            {
+                enemyStats.TakeDamage(CalculateDamage(weaponDamage, false));
+            }
+        }
+
+        /// <summary>
+        /// Calculate damage based on player's stats
+        /// </summary>
+        /// <param name="weaponDamage">Current weapon damage</param>
+        /// <param name="isFromBow">Is current weapon a bow</param>
+        /// <returns></returns>
+        public float CalculateDamage(float weaponDamage, bool isFromBow)
+        {
+            if (isFromBow)
+            {
+                return Mathf.RoundToInt(
+                    ((weaponDamage + _weaponSlotManager.attackingWeapon.baseAttack) *
+                        _weaponSlotManager.attackingWeapon.heavyAttackDamageMult + strength * 0.125f) *
+                    bonusBuffAttack);
+            }
+
+            return Mathf.RoundToInt((weaponDamage * _weaponSlotManager.attackingWeapon.lightAttackDamageMult +
+                                    strength * 0.5f) * bonusBuffAttack);
         }
 
         /// <summary>

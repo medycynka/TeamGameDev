@@ -37,12 +37,12 @@ namespace SzymonPeszek.EnemyScripts.States
 
                 if (_patrolPoint == Vector3.zero)
                 {
-                    _patrolPoint = GetPatrolPoint(enemyManager, enemyManager.enemyTransform.position);
+                    _patrolPoint = GetPatrolPoint(enemyManager, enemyManager.characterTransform.position);
                 }
 
                 if (_patrolPoint != Vector3.zero)
                 {
-                    float distanceFromTarget = Vector3.Distance(_patrolPoint, enemyManager.enemyTransform.position);
+                    float distanceFromTarget = Vector3.Distance(_patrolPoint, enemyManager.characterTransform.position);
                     
                     if (distanceFromTarget > 1f)
                     {
@@ -72,7 +72,7 @@ namespace SzymonPeszek.EnemyScripts.States
         /// <param name="enemyManager"></param>
         private void LookForPlayer(EnemyManager enemyManager)
         {
-            int detectLength = Physics.OverlapSphereNonAlloc(enemyManager.enemyTransform.position, enemyManager.detectionRadius, detectPlayer, detectionLayer);
+            int detectLength = Physics.OverlapSphereNonAlloc(enemyManager.characterTransform.position, enemyManager.detectionRadius, detectPlayer, detectionLayer);
 
             for (int i = 0; i < detectLength; i++)
             {
@@ -80,8 +80,8 @@ namespace SzymonPeszek.EnemyScripts.States
 
                 if (characterStats != null)
                 {
-                    Vector3 targetDirection = characterStats.transform.position - enemyManager.enemyTransform.position;
-                    float viewableAngle = Vector3.Angle(targetDirection, enemyManager.enemyTransform.forward);
+                    Vector3 targetDirection = characterStats.transform.position - enemyManager.characterTransform.position;
+                    float viewableAngle = Vector3.Angle(targetDirection, enemyManager.characterTransform.forward);
 
                     if (viewableAngle > enemyManager.minimumDetectionAngle && viewableAngle < enemyManager.maximumDetectionAngle)
                     {
@@ -124,17 +124,17 @@ namespace SzymonPeszek.EnemyScripts.States
         {
             if (enemyManager.isPreformingAction)
             {
-                Vector3 direction = enemyManager.currentTarget.transform.position - enemyManager.enemyTransform.position;
+                Vector3 direction = enemyManager.currentTarget.transform.position - enemyManager.characterTransform.position;
                 direction.y = 0;
                 direction.Normalize();
 
                 if (direction == Vector3.zero)
                 {
-                    direction = enemyManager.enemyTransform.forward;
+                    direction = enemyManager.characterTransform.forward;
                 }
 
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
-                enemyManager.enemyTransform.rotation = Quaternion.Lerp(enemyManager.enemyTransform.rotation,
+                enemyManager.characterTransform.rotation = Quaternion.Lerp(enemyManager.characterTransform.rotation,
                     targetRotation, enemyManager.rotationSpeed / Time.deltaTime);
             }
             //Rotate with pathfinding (navmesh) -> Change to A*
@@ -146,7 +146,7 @@ namespace SzymonPeszek.EnemyScripts.States
                 enemyManager.navmeshAgent.enabled = true;
                 enemyManager.navmeshAgent.SetDestination(_patrolPoint);
                 enemyManager.enemyRigidBody.velocity = targetVelocity;
-                enemyManager.enemyTransform.rotation = Quaternion.Lerp(enemyManager.enemyTransform.rotation,
+                enemyManager.characterTransform.rotation = Quaternion.Lerp(enemyManager.characterTransform.rotation,
                     enemyManager.navmeshAgent.transform.rotation, enemyManager.rotationSpeed / Time.deltaTime);
             }
         }

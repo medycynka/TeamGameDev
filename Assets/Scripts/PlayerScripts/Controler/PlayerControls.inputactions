@@ -247,6 +247,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "BowAction",
+                    "type": "Button",
+                    "id": "42dc7aaa-1cb4-4d54-8b62-218264f3a0f6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -276,7 +284,7 @@
                     "name": "",
                     "id": "65e157d2-bf0a-4015-8766-7da9f8a11d49",
                     "path": "<Mouse>/rightButton",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "",
                     "action": "RT",
@@ -390,6 +398,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Block",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c1e23566-5d47-4e43-b5ac-f45df975964b",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "Hold(duration=0.2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BowAction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
