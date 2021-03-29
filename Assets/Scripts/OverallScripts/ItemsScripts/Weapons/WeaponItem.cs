@@ -30,6 +30,7 @@ namespace SzymonPeszek.Items.Weapons
         public float lightAttackDamageMult = 1.0f;
         public float heavyAttackDamageMult = 1.5f;
         public float criticalDamageMult = 2.5f;
+        public float physicalDamageAbsorption = 2f;
         public int weight;
         public int durability;
 

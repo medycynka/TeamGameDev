@@ -18,12 +18,13 @@ namespace SzymonPeszek.PlayerScripts
     {
         private InputHandler _inputHandler;
         private PlayerAnimatorManager _playerAnimatorManager;
-        [Header("Player Components", order = 1)]
-        [Header("Camera Component", order = 2)]
-        public CameraHandler cameraHandler;
         private PlayerLocomotion _playerLocomotion;
         private PlayerStats _playerStats;
         private Animator _animator;
+        
+        [Header("Player Components", order = 1)]
+        [Header("Camera Component", order = 2)]
+        public CameraHandler cameraHandler;
         
         [Header("UI", order = 2)]
         public InteractableUI interactableUI;
@@ -52,7 +53,6 @@ namespace SzymonPeszek.PlayerScripts
         public bool isUsingRightHand;
         public bool isUsingLeftHand;
         public bool isInvulnerable;
-        public bool isBlocking;
 
         [Header("Respawn Places", order = 2)]
         public GameObject quickMoveScreen;
@@ -61,7 +61,6 @@ namespace SzymonPeszek.PlayerScripts
         private float _healthBgRefillTimer = 0.0f;
         private float _staminaRefillTimer = 0.0f;
         private float _focusRefillTimer = 0.0f;
-        private float _addJumpForceTimer = 1.25f;
 
         private const string BonfireTag = "Bonfire";
         private const string InteractableTag = "Interactable";
@@ -95,6 +94,7 @@ namespace SzymonPeszek.PlayerScripts
             isUsingRightHand = _animator.GetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsUsingRightHandName]);
             isUsingLeftHand = _animator.GetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsUsingLeftHandName]);
             isInvulnerable = _animator.GetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsInvulnerableName]);
+            isBlocking = _animator.GetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsBlockingName]);
             _animator.SetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsInAirName], isInAir);
             _playerAnimatorManager.canRotate = _animator.GetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.CanRotateName]);
 

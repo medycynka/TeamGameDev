@@ -15,6 +15,7 @@ namespace SzymonPeszek.EnemyScripts
 
         private void Awake()
         {
+            characterTransform = transform;
             _commonWander = GetComponent<Common_WanderScript>();
             maxHealth = healthLevel * 10f;
             currentHealth = maxHealth;

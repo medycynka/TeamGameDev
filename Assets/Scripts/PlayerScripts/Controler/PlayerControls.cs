@@ -260,6 +260,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""BowAction"",
+                    ""type"": ""Button"",
+                    ""id"": ""42dc7aaa-1cb4-4d54-8b62-218264f3a0f6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -289,7 +297,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""65e157d2-bf0a-4015-8766-7da9f8a11d49"",
                     ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""RT"",
@@ -405,6 +413,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Block"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1e23566-5d47-4e43-b5ac-f45df975964b"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": ""Hold(duration=0.2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BowAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -516,6 +535,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerActions_EstusQuickSlotUse = m_PlayerActions.FindAction("EstusQuickSlotUse", throwIfNotFound: true);
         m_PlayerActions_LT = m_PlayerActions.FindAction("LT", throwIfNotFound: true);
         m_PlayerActions_Block = m_PlayerActions.FindAction("Block", throwIfNotFound: true);
+        m_PlayerActions_BowAction = m_PlayerActions.FindAction("BowAction", throwIfNotFound: true);
         // Player Quick Slots
         m_PlayerQuickSlots = asset.FindActionMap("Player Quick Slots", throwIfNotFound: true);
         m_PlayerQuickSlots_DPadUp = m_PlayerQuickSlots.FindAction("D Pad Up", throwIfNotFound: true);
@@ -641,6 +661,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerActions_EstusQuickSlotUse;
     private readonly InputAction m_PlayerActions_LT;
     private readonly InputAction m_PlayerActions_Block;
+    private readonly InputAction m_PlayerActions_BowAction;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -658,6 +679,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @EstusQuickSlotUse => m_Wrapper.m_PlayerActions_EstusQuickSlotUse;
         public InputAction @LT => m_Wrapper.m_PlayerActions_LT;
         public InputAction @Block => m_Wrapper.m_PlayerActions_Block;
+        public InputAction @BowAction => m_Wrapper.m_PlayerActions_BowAction;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -706,6 +728,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Block.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnBlock;
                 @Block.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnBlock;
                 @Block.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnBlock;
+                @BowAction.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnBowAction;
+                @BowAction.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnBowAction;
+                @BowAction.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnBowAction;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -749,6 +774,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Block.started += instance.OnBlock;
                 @Block.performed += instance.OnBlock;
                 @Block.canceled += instance.OnBlock;
+                @BowAction.started += instance.OnBowAction;
+                @BowAction.performed += instance.OnBowAction;
+                @BowAction.canceled += instance.OnBowAction;
             }
         }
     }
@@ -832,6 +860,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnEstusQuickSlotUse(InputAction.CallbackContext context);
         void OnLT(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
+        void OnBowAction(InputAction.CallbackContext context);
     }
     public interface IPlayerQuickSlotsActions
     {

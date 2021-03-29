@@ -1,43 +1,34 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-
-namespace SzymonPeszek.Misc
+namespace sP
 {
+
     public class MeshInverter : MonoBehaviour
     {
-        public bool invertFaces = true;
-        public bool invertNormals = true;
-        public GameObject toInvert;
-        public bool invertMeshCollider = true;
+        public bool InvertFaces = true;
+        public bool InvertNormals = true;
+        public GameObject to_invert;
 
         void Start()
         {
-            MeshFilter mf = toInvert.GetComponent<MeshFilter>();
+            MeshFilter mf = to_invert.GetComponent<MeshFilter>();
 
             if (mf != null)
             {
-                Mesh m = Instantiate(mf.mesh);
+                var m = Instantiate(mf.mesh);
                 Process(m);
                 mf.mesh = m;
-                
-                if (invertMeshCollider)
-                {
-                    toInvert.GetComponent<MeshCollider>().sharedMesh = m;
-                }
             }
 
-            SkinnedMeshRenderer smr = toInvert.GetComponent<SkinnedMeshRenderer>();
+            var smr = to_invert.GetComponent<SkinnedMeshRenderer>();
 
             if (smr != null)
             {
-                Mesh m = Instantiate(smr.sharedMesh);
+                var m = Instantiate(smr.sharedMesh);
                 Process(m);
                 smr.sharedMesh = m;
-
-                if (invertMeshCollider)
-                {
-                    toInvert.GetComponent<MeshCollider>().sharedMesh = m;
-                }
             }
         }
 
@@ -47,10 +38,10 @@ namespace SzymonPeszek.Misc
 
             for (int i = 0; i < subMeshes; i++)
             {
-                if (invertFaces)
+                if (InvertFaces)
                 {
-                    MeshTopology type = m.GetTopology(i);
-                    int[] indices = m.GetIndices(i);
+                    var type = m.GetTopology(i);
+                    var indices = m.GetIndices(i);
 
                     if (type == MeshTopology.Quads)
                     {
@@ -78,9 +69,9 @@ namespace SzymonPeszek.Misc
                 }
             }
 
-            if (invertNormals)
+            if (InvertNormals)
             {
-                Vector3[] normals = m.normals;
+                var normals = m.normals;
 
                 for (int n = 0; n < normals.Length; n++)
                 {
@@ -90,7 +81,9 @@ namespace SzymonPeszek.Misc
                 m.normals = normals;
             }
 
-            toInvert.GetComponent<MeshFilter>().mesh = m;
+            to_invert.GetComponent<MeshFilter>().mesh = m;
         }
+
     }
+
 }

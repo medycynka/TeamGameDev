@@ -186,6 +186,7 @@ namespace SzymonPeszek.GameUI
         public void ResetInventoryFlag()
         {
             inputHandler.inventoryFlag = false;
+            Time.timeScale = 1f;
         }
 
         #region Manage Inventory Tabs

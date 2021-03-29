@@ -17,6 +17,7 @@ namespace SzymonPeszek.Items.Spells
         public GameObject fireballPrefab;
         public float spellDamage;
         public float projectileSpeed;
+        public float maxTravelDistanceSqr = 10000f;
 
         private const string EnvironmentName = "Environment";
         private const string EnemyName = "Enemy";
@@ -60,6 +61,7 @@ namespace SzymonPeszek.Items.Spells
                 _spellCollision.startPosition = fireball.transform.position;
                 _spellCollision.projectileTransform = fireball.transform;
                 _spellCollision.damage = spellDamage;
+                _spellCollision.maxTravelDistanceSqr = maxTravelDistanceSqr;
                 fireball.GetComponent<Rigidbody>().AddForce(fireball.transform.forward * projectileSpeed);
             }
             else
@@ -70,6 +72,7 @@ namespace SzymonPeszek.Items.Spells
                 _spellCollision.startPosition = fireball.transform.position;
                 _spellCollision.projectileTransform = fireball.transform;
                 _spellCollision.damage = spellDamage;
+                _spellCollision.maxTravelDistanceSqr = maxTravelDistanceSqr;
                 fireball.GetComponent<Rigidbody>().AddForce(fireball.transform.forward * projectileSpeed);
             }
         }

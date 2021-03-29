@@ -44,7 +44,7 @@ namespace SzymonPeszek.EnemyScripts.States
                 }
 
                 #region Handle Target Detection
-                int detectLength = Physics.OverlapSphereNonAlloc(enemyManager.enemyTransform.position, detectionRadius, _detectPlayer, detectionLayer);
+                int detectLength = Physics.OverlapSphereNonAlloc(enemyManager.characterTransform.position, detectionRadius, _detectPlayer, detectionLayer);
 
                 for (int i = 0; i < detectLength; i++)
                 {

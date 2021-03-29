@@ -35,7 +35,7 @@ namespace SzymonPeszek.EnemyScripts.States
                 
                 HandleRotateTowardsTarget(enemyManager);
                 
-                float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.enemyTransform.position);
+                float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.characterTransform.position);
                 
                 if (enemyManager.isPreformingAction)
                 {

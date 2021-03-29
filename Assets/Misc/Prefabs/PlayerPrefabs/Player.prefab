@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335818279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 0.2}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2139912814}
@@ -90,6 +90,7 @@ Transform:
   - {fileID: 1440147780}
   - {fileID: 1113674836}
   - {fileID: 3467779607478066326}
+  - {fileID: 1820611439}
   m_Father: {fileID: 4966070491420200267}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -151,6 +152,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   criticalDamageStandPosition: {fileID: 573411061965181040}
+--- !u!1 &1427742465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1427742466}
+  m_Layer: 9
+  m_Name: Arrow Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1427742466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427742465}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.25, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6721411827328355408}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1440147779
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +308,65 @@ MonoBehaviour:
   isLeftHandSlot: 0
   isRightHandSlot: 0
   isBackSlot: 1
+--- !u!1 &1820611438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1820611439}
+  - component: {fileID: 1820611441}
+  - component: {fileID: 1820611440}
+  m_Layer: 9
+  m_Name: Blocking Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1820611439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820611438}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1037291176}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1820611441
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820611438}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 1.5, z: 0.1}
+  m_Center: {x: 0, y: 0.79999995, z: 0.2}
+--- !u!114 &1820611440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820611438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd80922ae6449984bacd99b2686d47cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockingCollider: {fileID: 0}
+  blockingPhysicalDamageAbsorption: 0
 --- !u!1 &2139912813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,6 +1185,7 @@ GameObject:
   - component: {fileID: 3517719973692865818}
   - component: {fileID: 1775283085576989764}
   - component: {fileID: 2101359628}
+  - component: {fileID: 2137033153}
   m_Layer: 9
   m_Name: Player
   m_TagString: Model
@@ -2783,6 +2874,9 @@ MonoBehaviour:
   riposteLayer:
     serializedVersion: 2
     m_Bits: 33554432
+  arrowPrefab: {fileID: 1852217077181313420, guid: e7f43b91af31c824b89bfe1cbccfca48,
+    type: 3}
+  arrowSpawnPlace: {fileID: 1427742466}
   lastAttack: 
 --- !u!114 &2101359628
 MonoBehaviour:
@@ -2799,12 +2893,25 @@ MonoBehaviour:
   enableFeetIk: 1
   environmentLayer:
     serializedVersion: 2
-    m_Bits: 65536
+    m_Bits: 0
   weightPositionRight: 1
   weightRotationRight: 0.5
   weightPositionLeft: 1
   weightRotationLeft: 0.5
   offsetFoot: {x: 0, y: 0.05, z: 0}
+--- !u!114 &2137033153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966070490633812491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5fc11ebb8b948efb4a028e99dbd46bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockingCollider: {fileID: 1820611440}
 --- !u!1 &4966070490633813573
 GameObject:
   m_ObjectHideFlags: 0
@@ -3892,6 +3999,7 @@ MonoBehaviour:
   rightStickLeftInput: 0
   estusQuickSlotUse: 0
   blockInput: 0
+  bowInput: 0
   dPadUp: 0
   dPadDown: 0
   dPadLeft: 0
@@ -3903,11 +4011,13 @@ MonoBehaviour:
   comboFlag: 0
   lockOnFlag: 0
   inventoryFlag: 0
+  isBowReady: 0
   criticalAttackRayCastStartPoint: {fileID: 335818280}
   rollInputTimer: 0
   walkInputTimer: 0
   cameraHandler: {fileID: 0}
   uiManager: {fileID: 0}
+  aimObject: {fileID: 0}
 --- !u!114 &4281836137122507302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3958,6 +4068,7 @@ MonoBehaviour:
   canBeRiposted: 0
   canBeParried: 0
   isParrying: 0
+  isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
   cameraHandler: {fileID: 0}
@@ -3979,7 +4090,6 @@ MonoBehaviour:
   isUsingRightHand: 0
   isUsingLeftHand: 0
   isInvulnerable: 0
-  isBlocking: 0
   quickMoveScreen: {fileID: 0}
   currentSpawnPoint: {fileID: 0}
 --- !u!114 &4966070491420200268
@@ -3994,16 +4104,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78bce5fce2f721c48837370ec7eb7389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightWeapon: {fileID: 11400000, guid: b4bfca7ae14a20d409431db3ec18aa0c, type: 2}
-  leftWeapon: {fileID: 11400000, guid: e628e226889a60f46bef691624ac7789, type: 2}
+  rightWeapon: {fileID: 11400000, guid: e628e226889a60f46bef691624ac7789, type: 2}
+  leftWeapon: {fileID: 11400000, guid: 4452ceaeb82267747aa82f670193e40d, type: 2}
   unarmedWeapon: {fileID: 11400000, guid: 179a4f0368fb0c64c8a791d4150536d1, type: 2}
   currentSpell: {fileID: 11400000, guid: 66ee5fb93f78d574ea574991e1063037, type: 2}
   weaponsInRightHandSlots:
-  - {fileID: 11400000, guid: b4bfca7ae14a20d409431db3ec18aa0c, type: 2}
-  - {fileID: 11400000, guid: bd035952e8bccc546a2bd9275c1e7aa5, type: 2}
-  weaponsInLeftHandSlots:
   - {fileID: 11400000, guid: e628e226889a60f46bef691624ac7789, type: 2}
   - {fileID: 11400000, guid: 1f9ac8a3e1dab4c41baf0baf42b0c313, type: 2}
+  weaponsInLeftHandSlots:
+  - {fileID: 11400000, guid: 4452ceaeb82267747aa82f670193e40d, type: 2}
+  - {fileID: 11400000, guid: 481525fa85548e84ba35ffaf4b07a57d, type: 2}
   currentRightWeaponIndex: 0
   currentLeftWeaponIndex: 0
   weaponsInventory: []
@@ -4051,7 +4161,8 @@ MonoBehaviour:
   focusBar: {fileID: 0}
   youDiedLogo: {fileID: 0}
   deathDropIcon: {fileID: 21300000, guid: 4a8b11548ae1ade4ba8602f9191f1807, type: 3}
-  soulDeathDrop: {fileID: 2407895679905884246, guid: 13c655fcff4024c4aa656393d80e6831, type: 3}
+  soulDeathDrop: {fileID: 2407895679905884246, guid: 13c655fcff4024c4aa656393d80e6831,
+    type: 3}
   jumpDeathDropPosition: {x: 0, y: 0, z: 0}
   playerName: 
   playerLevel: 12
@@ -4144,7 +4255,8 @@ MonoBehaviour:
   backStepClip: {fileID: 8300000, guid: 3f62b6c096b8b554db4da8fa718de52f, type: 3}
   estusUse: {fileID: 8300000, guid: 9657dd2357d68b94e9eec02a4ab65abc, type: 3}
   soulUse: {fileID: 8300000, guid: 975fc88c34b13854688ac612795d8a33, type: 3}
-  currentBackgroundMusic: {fileID: 8300000, guid: 48b6e9306a539bc43b16444db62a0951, type: 3}
+  currentBackgroundMusic: {fileID: 8300000, guid: 48b6e9306a539bc43b16444db62a0951,
+    type: 3}
   musicFadeIn: 2
   musicFadeOut: 2
   fadingMusic: 0
@@ -4207,6 +4319,7 @@ Transform:
   m_Children:
   - {fileID: 573411061965181040}
   - {fileID: 938030687705712042}
+  - {fileID: 1427742466}
   m_Father: {fileID: 4966070491420200267}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

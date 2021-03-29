@@ -17,18 +17,21 @@ namespace SzymonPeszek.Environment.Areas
         
         private void OnTriggerEnter(Collider other)
         {
-            isInside = true;
-
-            if (_insideReset)
+            if (other.CompareTag("Player"))
             {
-                if (_playerStats == null)
-                {
-                    _playerStats = other.GetComponent<PlayerStats>();
-                }
+                isInside = true;
 
-                _playerStats.isJumpDeath = true;
-                _playerStats.jumpDeathDropPosition = dropPosition.position;
-                _playerStats.TakeDamage(2000f);
+                if (_insideReset)
+                {
+                    if (_playerStats == null)
+                    {
+                        _playerStats = other.GetComponent<PlayerStats>();
+                    }
+
+                    _playerStats.isJumpDeath = true;
+                    _playerStats.jumpDeathDropPosition = dropPosition.position;
+                    _playerStats.TakeDamage(2000f);
+                }
             }
         }
 

@@ -2,9 +2,11 @@
 using SzymonPeszek.PlayerScripts;
 using SzymonPeszek.PlayerScripts.Controller;
 using SzymonPeszek.Damage;
+using SzymonPeszek.Enums;
 using SzymonPeszek.GameUI.Slots;
 using SzymonPeszek.Misc;
 using SzymonPeszek.PlayerScripts.Animations;
+using SzymonPeszek.PlayerScripts.Inventory;
 
 
 namespace SzymonPeszek.Items.Weapons
@@ -14,39 +16,37 @@ namespace SzymonPeszek.Items.Weapons
     /// </summary>
     public class WeaponSlotManager : MonoBehaviour
     {
-        private PlayerManager _playerManager;
-
         [Header("Weapon Slot Manager", order = 0)]
         [Header("Current Weapon", order = 1)]
         public WeaponItem attackingWeapon;
-
-        private WeaponHolderSlot _leftHandSlot;
-        private WeaponHolderSlot _rightHandSlot;
-        private WeaponHolderSlot _backSlot;
 
         [Header("Left and Right Damage Colliders", order = 1)]
         public DamageCollider leftHandDamageCollider;
         public DamageCollider rightHandDamageCollider;
 
-        private PlayerAnimatorManager _playerAnimatorManager;
-
         [Header("Quick Slots", order = 1)]
         public QuickSlotsUI quickSlotsUI;
 
+        private WeaponHolderSlot _leftHandSlot;
+        private WeaponHolderSlot _rightHandSlot;
+        private WeaponHolderSlot _backSlot;
+        private PlayerManager _playerManager;
+        private PlayerInventory _playerInventory;
+        private PlayerAnimatorManager _playerAnimatorManager;
         private PlayerStats _playerStats;
         private InputHandler _inputHandler;
-        private WeaponHolderSlot[] _weaponHolderSlots;
+        private bool _isUsingBow;
 
         private void Awake()
         {
             _playerManager = GetComponentInParent<PlayerManager>();
+            _playerInventory = GetComponentInParent<PlayerInventory>();
             _playerAnimatorManager = GetComponent<PlayerAnimatorManager>();
             _playerStats = GetComponentInParent<PlayerStats>();
             _inputHandler = GetComponentInParent<InputHandler>();
             quickSlotsUI = FindObjectOfType<QuickSlotsUI>();
 
-            _weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
-            foreach (WeaponHolderSlot weaponSlot in _weaponHolderSlots)
+            foreach (WeaponHolderSlot weaponSlot in GetComponentsInChildren<WeaponHolderSlot>())
             {
                 if (weaponSlot.isLeftHandSlot)
                 {
@@ -69,63 +69,112 @@ namespace SzymonPeszek.Items.Weapons
         /// <param name="isLeft">Is it left hand slot?</param>
         public void LoadWeaponOnSlot(WeaponItem weaponItem, bool isLeft)
         {
-            if (isLeft)
+            if (weaponItem.weaponType == WeaponType.Shooting)
             {
-                #region Handle Left Weapon Idle Animation
-                if (weaponItem != null)
-                {
-                    _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[weaponItem.leftHandIdle], false);
-                }
-                else
-                {
-                    _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.LeftArmEmptyName], false);
-                }
-                #endregion
-
-                if (!_inputHandler.twoHandFlag)
-                {
-                    _leftHandSlot.currentWeapon = weaponItem;
-                    _leftHandSlot.LoadWeaponModel(weaponItem);
-                    LoadLeftWeaponDamageCollider();
-                    quickSlotsUI.UpdateWeaponQuickSlotsUI(true, weaponItem);
-                }
-                else
-                {
-                    _backSlot.currentWeapon = weaponItem;
-                    _backSlot.LoadWeaponModel(weaponItem);
-                    quickSlotsUI.UpdateWeaponQuickSlotsUI(true, weaponItem);
-                }
+                _inputHandler.twoHandFlag = true;
+                _isUsingBow = true;
+                
+                _backSlot.LoadWeaponModel(_rightHandSlot.currentWeapon);
+                _rightHandSlot.UnloadWeaponAndDestroy();
+                
+                _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[weaponItem.thIdle], false, true);
+                
+                _leftHandSlot.currentWeapon = weaponItem;
+                _leftHandSlot.LoadWeaponModel(weaponItem);
+                
+                quickSlotsUI.UpdateWeaponQuickSlotsUI(true, weaponItem);
+                quickSlotsUI.UpdateWeaponQuickSlotsUI(false, weaponItem);
             }
             else
             {
-                if (_inputHandler.twoHandFlag)
+                if (isLeft)
                 {
-                    _backSlot.LoadWeaponModel(_leftHandSlot.currentWeapon);
-                    _leftHandSlot.UnloadWeaponAndDestroy();
-                    _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[weaponItem.thIdle], false);
-                }
-                else
-                {
-                    #region Handle Right Weapon Idle Animation
-
-                    _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.BothArmsEmptyName], false);
-                    _backSlot.UnloadWeaponAndDestroy();
+                    if (_leftHandSlot.currentWeapon != null)
+                    {
+                        if (_leftHandSlot.currentWeapon.weaponType == WeaponType.Shooting)
+                        {
+                            _inputHandler.twoHandFlag = false;
+                            _isUsingBow = false;
+                            
+                            LoadWeaponOnSlot(_playerInventory.rightWeapon, false);
+                            
+                            _backSlot.UnloadWeaponAndDestroy();
+                        }
+                    }
+                    
+                    #region Handle Left Weapon Idle Animation
 
                     if (weaponItem != null)
                     {
-                        _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[weaponItem.rightHandIdle], false);
+                        _playerAnimatorManager.PlayTargetAnimation(
+                            StaticAnimatorIds.animationIds[weaponItem.leftHandIdle], false, true);
                     }
                     else
                     {
-                        _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.RightArmEmptyName], false);
+                        _playerAnimatorManager.PlayTargetAnimation(
+                            StaticAnimatorIds.animationIds[StaticAnimatorIds.LeftArmEmptyName], false, true);
                     }
-                    #endregion
-                }
 
-                _rightHandSlot.currentWeapon = weaponItem;
-                _rightHandSlot.LoadWeaponModel(weaponItem);
-                LoadRightWeaponDamageCollider();
-                quickSlotsUI.UpdateWeaponQuickSlotsUI(false, weaponItem);
+                    #endregion
+
+                    if (!_inputHandler.twoHandFlag)
+                    {
+                        _leftHandSlot.currentWeapon = weaponItem;
+                        _leftHandSlot.LoadWeaponModel(weaponItem);
+                        LoadLeftWeaponDamageCollider();
+                        quickSlotsUI.UpdateWeaponQuickSlotsUI(true, weaponItem);
+                    }
+                    else
+                    {
+                        _backSlot.currentWeapon = weaponItem;
+                        _backSlot.LoadWeaponModel(weaponItem);
+                        quickSlotsUI.UpdateWeaponQuickSlotsUI(true, weaponItem);
+                    }
+                }
+                else
+                {
+                    if (_isUsingBow)
+                    {
+                        _backSlot.LoadWeaponModel(weaponItem);
+                        _rightHandSlot.UnloadWeaponAndDestroy();
+                    }
+                    else
+                    {
+                        if (_inputHandler.twoHandFlag)
+                        {
+                            _backSlot.LoadWeaponModel(_leftHandSlot.currentWeapon);
+                            _leftHandSlot.UnloadWeaponAndDestroy();
+                            _playerAnimatorManager.PlayTargetAnimation(
+                                StaticAnimatorIds.animationIds[weaponItem.thIdle], false);
+                        }
+                        else
+                        {
+                            #region Handle Right Weapon Idle Animation
+
+                            _playerAnimatorManager.PlayTargetAnimation(
+                                StaticAnimatorIds.animationIds[StaticAnimatorIds.BothArmsEmptyName], false, true);
+                            _backSlot.UnloadWeaponAndDestroy();
+
+                            if (weaponItem != null)
+                            {
+                                _playerAnimatorManager.PlayTargetAnimation(
+                                    StaticAnimatorIds.animationIds[weaponItem.rightHandIdle], false, true);
+                            }
+                            else
+                            {
+                                _playerAnimatorManager.PlayTargetAnimation(
+                                    StaticAnimatorIds.animationIds[StaticAnimatorIds.RightArmEmptyName], false, true);
+                            }
+
+                            #endregion
+                        }
+
+                        _rightHandSlot.currentWeapon = weaponItem;
+                        _rightHandSlot.LoadWeaponModel(weaponItem);
+                        LoadRightWeaponDamageCollider();
+                        quickSlotsUI.UpdateWeaponQuickSlotsUI(false, weaponItem);
+                    }
+                }
             }
         }
 
