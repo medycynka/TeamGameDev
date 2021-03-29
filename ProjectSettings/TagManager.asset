@@ -3,7 +3,29 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Chest
+  - Light
+  - Environment
+  - Combat Collider
+  - Model
+  - Enemy
+  - Interactable
+  - Boss
+  - LockOnTarget
+  - FSM
+  - Water
+  - UI
+  - UI Settings
+  - Bonfire
+  - Collide
+  - Fog Wall
+  - Location
+  - Destructible
+  - Inventory Holder
+  - Collision Blocker
+  - Spawner
+  - Passive
   layers:
   - Default
   - TransparentFX
@@ -13,30 +35,30 @@ TagManager:
   - UI
   - 
   - 
+  - Camera
+  - Controller
   - 
   - 
   - 
   - 
+  - Pick Up
+  - LightCover
+  - Environment
+  - Enemy
+  - Boss
+  - Character
+  - Spawner
+  - Area Manager
+  - Boss Area Manager
+  - Back Stab
+  - Spell
+  - Riposte
   - 
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Collider Blocker
+  - Force Field
   m_SortingLayers:
   - name: Default
     uniqueID: 0

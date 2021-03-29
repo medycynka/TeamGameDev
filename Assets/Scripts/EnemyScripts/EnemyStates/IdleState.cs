@@ -72,7 +72,7 @@ namespace SzymonPeszek.EnemyScripts.States
         /// <param name="enemyManager"></param>
         private void LookForPlayer(EnemyManager enemyManager)
         {
-            int detectLength = Physics.OverlapSphereNonAlloc(enemyManager.enemyTransform.position, enemyManager.detectionRadius, detectPlayer, detectionLayer);
+            int detectLength = Physics.OverlapSphereNonAlloc(enemyManager.characterTransform.position, enemyManager.detectionRadius, detectPlayer, detectionLayer);
 
             for (int i = 0; i < detectLength; i++)
             {
@@ -80,8 +80,8 @@ namespace SzymonPeszek.EnemyScripts.States
 
                 if (characterStats != null)
                 {
-                    Vector3 targetDirection = characterStats.transform.position - enemyManager.enemyTransform.position;
-                    float viewableAngle = Vector3.Angle(targetDirection, enemyManager.enemyTransform.forward);
+                    Vector3 targetDirection = characterStats.transform.position - enemyManager.characterTransform.position;
+                    float viewableAngle = Vector3.Angle(targetDirection, enemyManager.characterTransform.forward);
 
                     if (viewableAngle > enemyManager.minimumDetectionAngle && viewableAngle < enemyManager.maximumDetectionAngle)
                     {

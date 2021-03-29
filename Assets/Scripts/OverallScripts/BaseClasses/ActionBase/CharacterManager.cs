@@ -21,6 +21,7 @@ namespace SzymonPeszek.BaseClasses
         public bool canBeRiposted;
         public bool canBeParried;
         public bool isParrying;
+        public bool isBlocking;
 
         [Header("Combat Colliders", order = 1)]
         public Transform characterTransform;

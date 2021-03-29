@@ -18,12 +18,13 @@ namespace SzymonPeszek.PlayerScripts
     {
         private InputHandler _inputHandler;
         private PlayerAnimatorManager _playerAnimatorManager;
-        [Header("Player Components", order = 1)]
-        [Header("Camera Component", order = 2)]
-        public CameraHandler cameraHandler;
         private PlayerLocomotion _playerLocomotion;
         private PlayerStats _playerStats;
         private Animator _animator;
+        
+        [Header("Player Components", order = 1)]
+        [Header("Camera Component", order = 2)]
+        public CameraHandler cameraHandler;
         
         [Header("UI", order = 2)]
         public InteractableUI interactableUI;
@@ -36,13 +37,13 @@ namespace SzymonPeszek.PlayerScripts
         public bool isInteracting;
 
         [Header("Helper bools", order = 2)]
-        public bool shouldRefillHealth = false;
-        public bool shouldRefillStamina = false;
-        public bool shouldRefillFocus = false;
-        public bool shouldRefillHealthBg = false;
-        public bool shouldAddJumpForce = false;
-        public bool isRestingAtBonfire = false;
-        public bool isRemovingFog = false;
+        public bool shouldRefillHealth;
+        public bool shouldRefillStamina;
+        public bool shouldRefillFocus;
+        public bool shouldRefillHealthBg;
+        public bool isRestingAtBonfire;
+        public bool isRemovingFog;
+        public bool isJumping;
 
         [Header("Player Flags", order = 2)]
         public bool isSprinting;
@@ -60,7 +61,6 @@ namespace SzymonPeszek.PlayerScripts
         private float _healthBgRefillTimer = 0.0f;
         private float _staminaRefillTimer = 0.0f;
         private float _focusRefillTimer = 0.0f;
-        private float _addJumpForceTimer = 1.25f;
 
         private const string BonfireTag = "Bonfire";
         private const string InteractableTag = "Interactable";
@@ -94,6 +94,7 @@ namespace SzymonPeszek.PlayerScripts
             isUsingRightHand = _animator.GetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsUsingRightHandName]);
             isUsingLeftHand = _animator.GetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsUsingLeftHandName]);
             isInvulnerable = _animator.GetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsInvulnerableName]);
+            isBlocking = _animator.GetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsBlockingName]);
             _animator.SetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsInAirName], isInAir);
             _playerAnimatorManager.canRotate = _animator.GetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.CanRotateName]);
 
@@ -119,18 +120,7 @@ namespace SzymonPeszek.PlayerScripts
 
         private void LateUpdate()
         {
-            _inputHandler.rollFlag = false;
-            _inputHandler.rbInput = false;
-            _inputHandler.rtInput = false;
-            _inputHandler.ltInput = false;
-            _inputHandler.dPadUp = false;
-            _inputHandler.dPadDown = false;
-            _inputHandler.dPadLeft = false;
-            _inputHandler.dPadRight = false;
-            _inputHandler.aInput = false;
-            _inputHandler.jumpInput = false;
-            _inputHandler.inventoryInput = false;
-            _inputHandler.estusQuickSlotUse = false;
+            ResetInputs();
 
             float delta = Time.fixedDeltaTime;
 
@@ -152,6 +142,22 @@ namespace SzymonPeszek.PlayerScripts
             {
                 _playerLocomotion.inAirTimer = _playerLocomotion.inAirTimer + Time.deltaTime;
             }
+        }
+
+        private void ResetInputs()
+        {
+            _inputHandler.rollFlag = false;
+            _inputHandler.rbInput = false;
+            _inputHandler.rtInput = false;
+            _inputHandler.ltInput = false;
+            _inputHandler.dPadUp = false;
+            _inputHandler.dPadDown = false;
+            _inputHandler.dPadLeft = false;
+            _inputHandler.dPadRight = false;
+            _inputHandler.aInput = false;
+            _inputHandler.jumpInput = false;
+            _inputHandler.inventoryInput = false;
+            _inputHandler.estusQuickSlotUse = false;
         }
 
         #region Checking Funkctions

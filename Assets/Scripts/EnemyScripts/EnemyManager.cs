@@ -59,6 +59,10 @@ namespace SzymonPeszek.EnemyScripts
         [Range(1f, 15f)] public float maxRandomPatrolDistance = 5f;
         [Range(2, 32)] public int maxRandomPointSearchIterations = 16;
         
+        [Header("A.I Combat Settings", order = 2)]
+        public bool allowAIToPerformCombos;
+        public float comboLikelyHood = 25f;
+        
         [Header("Combat Flags", order = 2)]
         public bool canDoCombo;
 
@@ -74,8 +78,6 @@ namespace SzymonPeszek.EnemyScripts
         public bool shouldGlow;
         public float objectDestructionDuration = 5.0f;
 
-        [HideInInspector] public Transform enemyTransform;
-
         private void Awake()
         {
             characterTransform = transform;
@@ -87,7 +89,7 @@ namespace SzymonPeszek.EnemyScripts
             navmeshAgent = GetComponentInChildren<NavMeshAgent>();
             navmeshAgent.enabled = false;
             navMeshBlocker = GetComponent<NavMeshObstacle>();
-            enemyTransform = GetComponent<Transform>();
+            characterTransform = GetComponent<Transform>();
 
             #region Get Model Materials
             _characterMaterials = new List<Material>();
@@ -184,11 +186,11 @@ namespace SzymonPeszek.EnemyScripts
         {
             if (backStab)
             {
-                _enemyStats.TakeDamage(pendingCriticalDamage, true, false);
+                _enemyStats.TakeDamage(pendingCriticalDamage, "",true, false);
             }
             else
             {
-                _enemyStats.TakeDamage(pendingCriticalDamage, false, true);
+                _enemyStats.TakeDamage(pendingCriticalDamage, "", false, true);
             }
         }
 

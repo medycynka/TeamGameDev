@@ -11,6 +11,7 @@ namespace SzymonPeszek.Misc
         public static WaitForFixedUpdate fixedUpdateWaiter { get; } = new WaitForFixedUpdate();
         public static WaitForEndOfFrame endOffFrameWaiter { get; } = new WaitForEndOfFrame();
 
+        public static WaitForSeconds waitFor01Second { get; } = new WaitForSeconds(0.1f);
         public static WaitForSeconds waitFor02Second { get; } = new WaitForSeconds(0.2f);
         public static WaitForSeconds waitFor05Second { get; } = new WaitForSeconds(0.5f);
         public static WaitForSeconds waitFor1Second { get; } = new WaitForSeconds(1f);

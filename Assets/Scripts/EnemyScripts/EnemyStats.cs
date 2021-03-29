@@ -110,9 +110,10 @@ namespace SzymonPeszek.EnemyScripts
         /// Take damage from player
         /// </summary>
         /// <param name="damage">Damage amount</param>
+        /// <param name="damageAnimation">Name of damage animation</param>
         /// <param name="isBackStabbed">Is it from back stab?</param>
         /// <param name="isRiposted">Is it from riposte?</param>
-        public void TakeDamage(float damage, bool isBackStabbed, bool isRiposted)
+        public void TakeDamage(float damage, string damageAnimation = "Damage_01", bool isBackStabbed = false, bool isRiposted = false)
         {
             if (_enemyManager.isAlive)
             {
@@ -123,7 +124,7 @@ namespace SzymonPeszek.EnemyScripts
 
                     if (currentHealth > 0)
                     {
-                        animator.PlayTargetAnimation(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.Damage01Name], true);
+                        animator.PlayTargetAnimation(StaticAnimatorIds.enemyAnimationIds[damageAnimation], true);
                     }
                     else
                     {
@@ -147,9 +148,10 @@ namespace SzymonPeszek.EnemyScripts
         /// Deal damage to the player
         /// </summary>
         /// <param name="playerStat">Player stats</param>
-        public void DealDamage(PlayerStats playerStat)
+        /// <param name="damageAnimation">Name of damage animation</param>
+        public void DealDamage(PlayerStats playerStat, string damageAnimation = "Damage_01")
         {
-            playerStat.TakeDamage(enemyAttack);
+            playerStat.TakeDamage(Mathf.RoundToInt(enemyAttack), damageAnimation);
         }
 
         /// <summary>

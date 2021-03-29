@@ -131,6 +131,23 @@ namespace SzymonPeszek.PlayerScripts
         }
 
         /// <summary>
+        /// Calculate stat bar size based on max stat value (health, stamina or focus)
+        /// </summary>
+        /// <param name="maxBarValue">Maximum stat value</param>
+        /// <param name="statBarTransform">RectTransform of target stat bar</param>
+        /// <param name="anchorX">Anchor X position</param>
+        /// <param name="anchorY">Anchor Y position</param>
+        private void SetStatBarSize(float maxBarValue, RectTransform statBarTransform, float anchorX, float anchorY)
+        {
+            float currentPixelWidth = 250f * (maxBarValue / 100f);
+            float remappedPixelWidth = currentPixelWidth.Remap(100.0f, 1337.5f, 0.0f, 1.0f);
+            float widthToSet = Mathf.Lerp(250f, Screen.width - Mathf.Lerp(60, 140, remappedPixelWidth), remappedPixelWidth);
+            
+            statBarTransform.anchoredPosition = new Vector2(anchorX + (widthToSet - 250f) / 2f, anchorY);
+            statBarTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, widthToSet);
+        }
+        
+        /// <summary>
         /// Calculate maximum health points amount
         /// </summary>
         /// <returns>Maximum health points amount</returns>
@@ -150,12 +167,7 @@ namespace SzymonPeszek.PlayerScripts
             maxHealth = newHealth;
             currentHealth = maxHealth;
 
-            float currentPixelWidth = 180f * (maxHealth / 100f);
-            float remappedPixelWidth = currentPixelWidth.Remap(100.0f, 1337.5f, 0.0f, 1.0f);
-            float widthToSet = Mathf.Lerp(180.0f, Screen.width - Mathf.Lerp(60, 120, remappedPixelWidth), remappedPixelWidth);
-
-            _hpBarTransform.anchoredPosition = new Vector2(120f + (widthToSet - 180.0f) / 2f, -45f);
-            _hpBarTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, widthToSet);
+            SetStatBarSize(maxHealth, _hpBarTransform,140f, -50f);
             
             healthBar.SetMaxHealth(maxHealth);
             healthBar.SetCurrentHealth(currentHealth);
@@ -181,12 +193,7 @@ namespace SzymonPeszek.PlayerScripts
             maxStamina = newStamina;
             currentStamina = maxStamina;
 
-            float currentPixelWidth = 180f * (maxStamina / 100f);
-            float remappedPixelWidth = currentPixelWidth.Remap(100.0f, 1337.5f, 0.0f, 1.0f);
-            float widthToSet = Mathf.Lerp(180.0f, Screen.width - Mathf.Lerp(60, 120, remappedPixelWidth), remappedPixelWidth);
-
-            _staminaBarTransform.anchoredPosition = new Vector2(120f + (widthToSet - 180f) / 2f, -80f);
-            _staminaBarTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, widthToSet);
+            SetStatBarSize(maxStamina, _staminaBarTransform, 140f, -110f);
             
             staminaBar.SetMaxStamina(maxStamina);
             staminaBar.SetCurrentStamina(currentStamina);
@@ -212,12 +219,7 @@ namespace SzymonPeszek.PlayerScripts
             maxFocus = newFocus;
             currentFocus = maxFocus;
 
-            float currentPixelWidth = 180f * (maxFocus / 100f);
-            float remappedPixelWidth = currentPixelWidth.Remap(100.0f, 1337.5f, 0.0f, 1.0f);
-            float widthToSet = Mathf.Lerp(180.0f, Screen.width - Mathf.Lerp(60, 120, remappedPixelWidth), remappedPixelWidth);
-
-            _focusBarTransform.anchoredPosition = new Vector2(120f + (widthToSet - 180f) / 2f, -115f);
-            _focusBarTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, widthToSet);
+            SetStatBarSize(maxFocus, _focusBarTransform, 140f, -170f);
             
             focusBar.SetMaxFocus(maxFocus);
             focusBar.SetCurrentFocus(currentFocus);
@@ -230,16 +232,17 @@ namespace SzymonPeszek.PlayerScripts
         {
             UpdateHealthBar(SetMaxHealthFromHealthLevel());
             UpdateStaminaBar(SetMaxStaminaFromStaminaLevel());
-            //UpdateFocusBar(SetMaxFocusFromFocusLevel());
+            UpdateFocusBar(SetMaxFocusFromFocusLevel());
         }
 
         /// <summary>
         /// Damage player
         /// </summary>
         /// <param name="damage">Damage dealt to the player</param>
+        /// <param name="damageAnimation">Name of damage animation</param>
         /// <param name="isBackStabbed">Is damage from back stab?</param>
         /// <param name="isRiposted">Is damage from riposte?</param>
-        public void TakeDamage(float damage, bool isBackStabbed = false, bool isRiposted = false)
+        public void TakeDamage(float damage, string damageAnimation = "Damage_01", bool isBackStabbed = false, bool isRiposted = false)
         {
             if (isPlayerAlive && !_playerManager.isInvulnerable)
             {
@@ -247,7 +250,7 @@ namespace SzymonPeszek.PlayerScripts
                 currentHealth -= damage;
                 healthBar.SetCurrentHealth(currentHealth);
 
-                _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.Damage01Name], true);
+                _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[damageAnimation], true);
 
                 if (currentHealth <= 0)
                 {
@@ -256,6 +259,9 @@ namespace SzymonPeszek.PlayerScripts
             }
         }
         
+        /// <summary>
+        /// Handle getting paried
+        /// </summary>
         public void GetParried()
         {
             _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.ParriedName], true);
@@ -400,17 +406,44 @@ namespace SzymonPeszek.PlayerScripts
 
             focusBar.focusBarSlider.value += focusRefillAmount * Time.deltaTime;
         }
-        
+
         /// <summary>
         /// Deal damage to the enemy
         /// </summary>
         /// <param name="enemyStats">Enemy's stats</param>
         /// <param name="weaponDamage">Damage to deal</param>
-        public void DealDamage(EnemyStats enemyStats, float weaponDamage)
+        /// <param name="isPassive">Is it passive enemy</param>
+        /// <param name="passiveEnemyStats">Passive enemy stats</param>
+        public void DealDamage(EnemyStats enemyStats, float weaponDamage, bool isPassive = false, PassiveEnemyStats passiveEnemyStats = null)
         {
-            enemyStats.TakeDamage(
-                (weaponDamage * _weaponSlotManager.attackingWeapon.lightAttackDamageMult + strength * 0.5f) *
-                bonusBuffAttack, false, false);
+            if (isPassive && passiveEnemyStats != null)
+            {
+                passiveEnemyStats.TakeDamage(CalculateDamage(weaponDamage, false), this);
+            }
+            else
+            {
+                enemyStats.TakeDamage(CalculateDamage(weaponDamage, false));
+            }
+        }
+
+        /// <summary>
+        /// Calculate damage based on player's stats
+        /// </summary>
+        /// <param name="weaponDamage">Current weapon damage</param>
+        /// <param name="isFromBow">Is current weapon a bow</param>
+        /// <returns></returns>
+        public float CalculateDamage(float weaponDamage, bool isFromBow)
+        {
+            if (isFromBow)
+            {
+                return Mathf.RoundToInt(
+                    ((weaponDamage + _weaponSlotManager.attackingWeapon.baseAttack) *
+                        _weaponSlotManager.attackingWeapon.heavyAttackDamageMult + strength * 0.125f) *
+                    bonusBuffAttack);
+            }
+
+            return Mathf.RoundToInt((weaponDamage * _weaponSlotManager.attackingWeapon.lightAttackDamageMult +
+                                    strength * 0.5f) * bonusBuffAttack);
         }
 
         /// <summary>

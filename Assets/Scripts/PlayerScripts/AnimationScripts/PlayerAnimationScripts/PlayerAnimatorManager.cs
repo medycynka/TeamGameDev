@@ -39,11 +39,13 @@ namespace SzymonPeszek.PlayerScripts.Animations
                 {StaticAnimatorIds.CanRotateName, Animator.StringToHash(StaticAnimatorIds.CanRotateName)},
                 {StaticAnimatorIds.IsUsingLeftHandName, Animator.StringToHash(StaticAnimatorIds.IsUsingLeftHandName)},
                 {StaticAnimatorIds.IsUsingRightHandName, Animator.StringToHash(StaticAnimatorIds.IsUsingRightHandName)},
+                {StaticAnimatorIds.IsBlockingName, Animator.StringToHash(StaticAnimatorIds.IsBlockingName)},
                 {StaticAnimatorIds.EmptyName, Animator.StringToHash(StaticAnimatorIds.EmptyName)},
                 {StaticAnimatorIds.LeftArmEmptyName, Animator.StringToHash(StaticAnimatorIds.LeftArmEmptyName)},
                 {StaticAnimatorIds.RightArmEmptyName, Animator.StringToHash(StaticAnimatorIds.RightArmEmptyName)},
                 {StaticAnimatorIds.BothArmsEmptyName, Animator.StringToHash(StaticAnimatorIds.BothArmsEmptyName)},
                 {StaticAnimatorIds.LeftArmIdleName, Animator.StringToHash(StaticAnimatorIds.LeftArmIdleName)},
+                {StaticAnimatorIds.BlockIdleName, Animator.StringToHash(StaticAnimatorIds.BlockIdleName)},
                 {StaticAnimatorIds.RightArmIdleName, Animator.StringToHash(StaticAnimatorIds.RightArmIdleName)},
                 {StaticAnimatorIds.BothArmsIdleName, Animator.StringToHash(StaticAnimatorIds.BothArmsIdleName)},
                 {StaticAnimatorIds.StandUpName, Animator.StringToHash(StaticAnimatorIds.StandUpName)},
@@ -89,7 +91,9 @@ namespace SzymonPeszek.PlayerScripts.Animations
                 {StaticAnimatorIds.RiposteName, Animator.StringToHash(StaticAnimatorIds.RiposteName)},
                 {StaticAnimatorIds.RipostedName, Animator.StringToHash(StaticAnimatorIds.RipostedName)},
                 {StaticAnimatorIds.ParryName, Animator.StringToHash(StaticAnimatorIds.ParryName)},
-                {StaticAnimatorIds.ParriedName, Animator.StringToHash(StaticAnimatorIds.ParriedName)}
+                {StaticAnimatorIds.ParriedName, Animator.StringToHash(StaticAnimatorIds.ParriedName)},
+                {StaticAnimatorIds.BowIdleName, Animator.StringToHash(StaticAnimatorIds.BowIdleName)},
+                {StaticAnimatorIds.BlockDamageName, Animator.StringToHash(StaticAnimatorIds.BlockDamageName)}
             };
             
             anim.SetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsDeadName], false);
@@ -97,16 +101,16 @@ namespace SzymonPeszek.PlayerScripts.Animations
 
         private void OnAnimatorMove()
         {
-            if (_playerManager.isInteracting == false)
+            if (!_playerManager.isInteracting || _playerManager.isJumping)
             {
                 return;
             }
 
-            var delta = Time.deltaTime;
+            float delta = Time.deltaTime;
             _playerLocomotion.rigidbody.drag = 0;
-            var deltaPosition = anim.deltaPosition;
+            Vector3 deltaPosition = anim.deltaPosition;
             deltaPosition.y = 0;
-            var velocity = deltaPosition / delta;
+            Vector3 velocity = deltaPosition / delta;
             _playerLocomotion.rigidbody.velocity = velocity;
         }
         
@@ -268,13 +272,31 @@ namespace SzymonPeszek.PlayerScripts.Animations
         {
             _playerManager.canBeRiposted = false;
         }
+        
+        /// <summary>
+        /// Enable ability to be riposted
+        /// </summary>
+        public void EnableIsJumping()
+        {
+            _playerManager.isJumping = true;
+            _playerLocomotion.rigidbody.useGravity = false;
+        }
+
+        /// <summary>
+        /// Disable ability to be riposted
+        /// </summary>
+        public void DisableIsJumping()
+        {
+            _playerManager.isJumping = false;
+            _playerLocomotion.rigidbody.useGravity = true;
+        }
 
         /// <summary>
         /// Handle being back stabbed or riposted
         /// </summary>
         public override void TakeCriticalDamageAnimationEvent()
         {
-            _playerStats.TakeDamage(_playerManager.pendingCriticalDamage, false, true);
+            _playerStats.TakeDamage(_playerManager.pendingCriticalDamage, "", false, true);
             _playerManager.pendingCriticalDamage = 0.0f;
         }
     }

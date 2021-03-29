@@ -90170,7 +90170,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.5
-    functionName: DrainStaminaHeavyAttackTH
+    functionName: DrainStaminaHeavyAttackTh
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -7,6 +7,8 @@ using SzymonPeszek.Items.Weapons;
 using SzymonPeszek.Items.Consumable;
 using SzymonPeszek.Misc;
 using SzymonPeszek.Enums;
+using SzymonPeszek.Misc.ColliderManagers;
+using UnityEngine.InputSystem;
 
 
 namespace SzymonPeszek.PlayerScripts.Controller
@@ -39,6 +41,8 @@ namespace SzymonPeszek.PlayerScripts.Controller
         public bool rightStickRightInput;
         public bool rightStickLeftInput;
         public bool estusQuickSlotUse;
+        public bool blockInput;
+        public bool bowInput;
 
         public bool dPadUp;
         public bool dPadDown;
@@ -53,6 +57,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
         public bool comboFlag;
         public bool lockOnFlag;
         public bool inventoryFlag;
+        public bool isBowReady;
         
         [Header("Back Stabs", order = 1)]
         public Transform criticalAttackRayCastStartPoint;
@@ -60,7 +65,12 @@ namespace SzymonPeszek.PlayerScripts.Controller
         [Header("Timers", order = 1)]
         public float rollInputTimer;
         public float walkInputTimer;
-
+        
+        [Header("Camera & UI", order = 1)]
+        public CameraHandler cameraHandler;
+        public UIManager uiManager;
+        public GameObject aimObject;
+        
         private PlayerControls _playerInputActions;
         private PlayerAttacker _playerAttacker;
         private PlayerInventory _playerInventory;
@@ -68,13 +78,16 @@ namespace SzymonPeszek.PlayerScripts.Controller
         private PlayerStats _playerStats;
         private WeaponSlotManager _weaponSlotManager;
         private PlayerAnimatorManager _playerAnimatorManager;
+        private BlockManager _blockManager;
 
-        [Header("Camera & UI", order = 1)]
-        public CameraHandler cameraHandler;
-        public UIManager uiManager;
+        private float _bowTimer;
+        private bool _canPlayBlock = true;
+        private bool _canPlayLeftIdle = true;
 
         private Vector2 _movementInput;
         private Vector2 _cameraInput;
+
+        public PlayerControls playerControls => _playerInputActions;
 
         private void Awake()
         {
@@ -86,6 +99,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
             _playerAnimatorManager = GetComponentInChildren<PlayerAnimatorManager>();
             cameraHandler = FindObjectOfType<CameraHandler>();
             uiManager = FindObjectOfType<UIManager>();
+            _blockManager = GetComponentInChildren<BlockManager>();
         }
 
         public void OnEnable()
@@ -113,6 +127,10 @@ namespace SzymonPeszek.PlayerScripts.Controller
                 _playerInputActions.PlayerActions.Y.performed += i => yInput = true;
                 _playerInputActions.PlayerActions.EstusQuickSlotUse.performed += i => estusQuickSlotUse = true;
                 _playerInputActions.PlayerActions.CriticalAttack.performed += i => criticalAttackInput = true;
+                _playerInputActions.PlayerActions.Block.performed += i => blockInput = true;
+                _playerInputActions.PlayerActions.Block.canceled += i => blockInput = false;
+                _playerInputActions.PlayerActions.BowAction.performed += i => bowInput = true;
+                _playerInputActions.PlayerActions.BowAction.canceled += i => bowInput = false;
             }
 
             _playerInputActions.Enable();
@@ -136,7 +154,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
                     HandleMoveInput();
                     HandleRollInput(delta);
                     HandleWalkInput(delta);
-                    HandleAttackInput();
+                    HandleAttackInput(delta);
                     HandleQuickSlotsInput();
                     HandleLockOnInput();
                     HandleTwoHandInput();
@@ -216,7 +234,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
         /// <summary>
         /// Handle attack input
         /// </summary>
-        private void HandleAttackInput()
+        private void HandleAttackInput(float delta)
         {
             if (_playerStats.currentStamina > 0)
             {
@@ -266,6 +284,59 @@ namespace SzymonPeszek.PlayerScripts.Controller
                         _playerAttacker.HandleLtAction();
                     }
                 }
+
+                _playerManager.isBlocking = blockInput;
+                
+                if (blockInput)
+                {
+                    if (_canPlayBlock)
+                    {
+                        _canPlayBlock = false;
+                        _playerAnimatorManager.anim.SetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsBlockingName], true);
+                        _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.BlockIdleName], false, true);
+                        _blockManager.OpenBlockingCollider(twoHandFlag);
+                    }
+                }
+                else
+                {
+                    _canPlayBlock = true;
+                    _playerAnimatorManager.anim.SetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsBlockingName], false);
+                    _blockManager.CloseBlockingCollider();
+                }
+                
+                #endregion
+                
+                #region Handle Bow Action
+                if (_playerInventory.leftWeapon.weaponType == WeaponType.Shooting)
+                {
+                    if (bowInput)
+                    {
+                        if (!isBowReady)
+                        {
+                            _playerAttacker.PrepareToShoot(_playerInventory.leftWeapon);
+                            aimObject.SetActive(true);
+                        }
+
+                        if (_bowTimer <= 3f)
+                        {
+                            _bowTimer += delta;
+                        }
+                        
+                        cameraHandler.ZoomInDuringAiming(delta);
+                    }
+                    else
+                    {
+                        if (isBowReady)
+                        {
+                            _playerAttacker.HandleBowAction(_bowTimer > 3f ? 3f : _bowTimer);
+                            aimObject.SetActive(false);
+                            _bowTimer = 0f;
+                        }
+                        
+                        cameraHandler.ZoomOutDuringAiming(delta);
+                    }
+                }
+
                 #endregion
             }
         }
@@ -298,6 +369,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
 
                 if (inventoryFlag)
                 {
+                    Time.timeScale = 0f;
                     horizontal = 0f;
                     vertical = 0f;
                     moveAmount = 0f;
@@ -311,6 +383,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
                 }
                 else
                 {
+                    Time.timeScale = 1f;
                     uiManager.CloseSelectWindow();
                     uiManager.CloseAllInventoryWindows();
                     uiManager.hudWindow.SetActive(true);
