@@ -5,7 +5,7 @@ using SzymonPeszek.Misc;
 namespace SzymonPeszek.BaseClasses
 {
     /// <summary>
-    /// Base class for character (player or enemy) manager
+    /// Base class for character (player, npc or enemy) manager
     /// </summary>
     public class CharacterManager : MonoBehaviour
     {

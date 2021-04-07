@@ -59,11 +59,11 @@ Camera:
   far clip plane: 1500
   field of view: 40
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 458768
+    m_Bits: 536936464
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 75e8b886be92d404aadb460e00941b98, type: 2}
   m_TargetDisplay: 0
@@ -151,5 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6e30d479d46d3489f8e2a3ae33211b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
+  playerCameraPivotTransform: {fileID: 0}
+  playerTargetTransform: {fileID: 0}
   minimapTransform: {fileID: 3349119049732895778}
+  minimapUI: {fileID: 0}

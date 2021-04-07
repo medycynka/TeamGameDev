@@ -66,7 +66,7 @@ namespace SzymonPeszek.Items.Arrows
             if (!_hasCollided)
             {
                 Debug.Log("Arrow collided with " + other.collider.name);
-                arrowTransform.parent = other.transform;
+                arrowTransform.parent = GetModelTransform(other.transform);
                 rb.constraints = RigidbodyConstraints.FreezeAll;
                 _hasCollided = true;
 
@@ -87,6 +87,19 @@ namespace SzymonPeszek.Items.Arrows
 
                 Destroy(gameObject, lifeTime);
             }
+        }
+
+        private static Transform GetModelTransform(Transform parentHit)
+        {
+            for (int i = 0; i < parentHit.childCount; i++)
+            {
+                if (parentHit.GetChild(i).CompareTag("Model"))
+                {
+                    return parentHit.GetChild(i);
+                }
+            }
+
+            return parentHit;
         }
     }
 }
