@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using SzymonPeszek.Quests;
 using UnityEngine;
 
@@ -10,7 +11,8 @@ namespace SzymonPeszek.PlayerScripts
     {
         public static QuestManager instance;
 
-        public List<QuestContainer> quests = new List<QuestContainer>();
+        public List<QuestContainer> mainQuests = new List<QuestContainer>();
+        public List<QuestContainer> sideQuests = new List<QuestContainer>();
         
         private List<Quest> _currentQuests = new List<Quest>();
 
@@ -30,22 +32,25 @@ namespace SzymonPeszek.PlayerScripts
         {
             if (!_currentQuests.Contains(quest))
             {
-                int prevId = quests.Find(p => p.quest = quest).prevQuestId;
+                if(mainQuests.Any(p => p.quest = quest))
+                {
+                    int prevId = mainQuests.Find(p => p.quest = quest).prevQuestId;
 
-                if (prevId < 0)
-                {
-                    _currentQuests.Add(quest);
-                }
-                else if (quests[prevId].isCompleted)
-                {
-                    _currentQuests.Add(quest);
+                    if (prevId < 0)
+                    {
+                        _currentQuests.Add(quest);
+                    }
+                    else if (mainQuests[prevId].isCompleted)
+                    {
+                        _currentQuests.Add(quest);
+                    }
                 }
             }
         }
 
         public void CompleteQuest(Quest quest)
         {
-            quests.Find(p => p.quest = quest).isCompleted = true;
+            mainQuests.Find(p => p.quest = quest).isCompleted = true;
             _currentQuests.Remove(quest);
         }
     }

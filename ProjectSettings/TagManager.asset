@@ -27,6 +27,20 @@ TagManager:
   - Spawner
   - Passive
   - Arrow
+  - Concrete
+  - Dirt
+  - Glass
+  - Grass
+  - Gravel
+  - Hardwood
+  - Ice
+  - Metal
+  - Mud
+  - Sand
+  - Snow
+  - Wood
+  - Stone
+  - Terrain
   layers:
   - Default
   - TransparentFX

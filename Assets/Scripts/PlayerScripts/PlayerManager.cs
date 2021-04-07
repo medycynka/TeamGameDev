@@ -68,6 +68,7 @@ namespace SzymonPeszek.PlayerScripts
         private const string InteractableTag = "Interactable";
         private const string FogWallTag = "Fog Wall";
         private const string ChestTag = "Chest";
+        private const string NpcTag = "NPC";
         private LayerMask _pickUpLayer;
         private Collider[] _interactColliders;
 
@@ -260,6 +261,10 @@ namespace SzymonPeszek.PlayerScripts
                                 }
                             }
                         }
+                    }
+                    else if (_interactColliders[i].CompareTag(NpcTag))
+                    {
+                        // Talk with npc if not fighting
                     }
                 }
             }
