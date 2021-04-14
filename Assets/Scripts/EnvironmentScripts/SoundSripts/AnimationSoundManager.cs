@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using SzymonPeszek.Misc;
 using SzymonPeszek.SaveScripts;
@@ -19,6 +20,7 @@ namespace SzymonPeszek.Environment.Sounds
         {
             public string tagName;
             public AudioClip[] footsteps;
+            public GameObject stepEffect;
         }
 
         [Header("Audio Clips", order = 0)] 
@@ -56,18 +58,21 @@ namespace SzymonPeszek.Environment.Sounds
         private AudioSource _audioSource;
         private Animator _anim;
         private bool _playFootsteps = true;
-        private float _currTime;
-        private string _currentEnvironmentTag = "Environment";
+        private string _currentEnvironmentTag;
         private RaycastHit _hit;
         private GameObject _terrainFinder;
         private Terrain _terrain;
         private TerrainData _terrainData;
         private Vector3 _terrainPos;
-        public static int surfaceIndex = 0;
+        private static int _surfaceIndex = 0;
         private string _whatTexture;
-        public static GameObject floor;
+        private static GameObject _floor;
         private string _currentFoot = "right";
+        private Transform _currentFootTransform;
         private LayerMask _environmentMask;
+        private Dictionary<string, EnvironmentFootstepSound> _stepSounds;
+        private List<GameObject> _stepEffects = new List<GameObject>();
+        private float _stepDeletionTimer = 3f;
 
         private void Awake()
         {
@@ -77,9 +82,21 @@ namespace SzymonPeszek.Environment.Sounds
             _audioSource.clip = currentBackgroundMusic;
             _audioSource.volume = SettingsHolder.soundVolume;
             _environmentMask = 1 << LayerMask.NameToLayer("Environment") | 1 << LayerMask.NameToLayer("Water");
-            //previouseBackgroundMusic = currentBackgroundMusic;
             _audioSource.Play();
-            
+
+            _stepSounds = new Dictionary<string, EnvironmentFootstepSound>();
+
+            if (environmentFootstepSounds.Length > 0)
+            {
+                for (int i = 0; i < environmentFootstepSounds.Length; i++)
+                {
+                    _stepSounds.Add(environmentFootstepSounds[i].tagName, environmentFootstepSounds[i]);
+                }
+
+                _currentEnvironmentTag = "Environment";
+                currentMovingClips = _stepSounds[_currentEnvironmentTag].footsteps;
+            }
+
             // Check if there is a terrain
             _terrainFinder = GameObject.FindGameObjectWithTag("Terrain");
             
@@ -94,6 +111,22 @@ namespace SzymonPeszek.Environment.Sounds
         private void Update()
         {
             UpdateMovingClips();
+            
+            _stepDeletionTimer -= Time.deltaTime;
+
+            if (_stepDeletionTimer <= 0)
+            {
+                if (_stepEffects.Count > 4)
+                {
+                    for (int i = _stepEffects.Count - 1; i >= 0; i--)
+                    {
+                        Destroy(_stepEffects[i]);
+                        _stepEffects.RemoveAt(i);
+                    }
+                }
+
+                _stepDeletionTimer = 3f;
+            }
         }
 
         public void ChangeBackGroundMusic(AudioClip newBgMusic)
@@ -143,6 +176,17 @@ namespace SzymonPeszek.Environment.Sounds
                 {
                     _audioSource.PlayOneShot(GetRandomClip(currentMovingClips),
                         Mathf.Clamp01(_audioSource.volume + Random.Range(-volumeVariance, volumeVariance)));
+                    
+                    if (_currentFoot == "left")
+                    {
+                        _stepEffects.Insert(0, Instantiate(_stepSounds[_currentEnvironmentTag].stepEffect,
+                            leftFoot.position + new Vector3(0, 0.01f, 0), leftFoot.rotation));
+                    } 
+                    else
+                    {
+                        _stepEffects.Insert(0, Instantiate(_stepSounds[_currentEnvironmentTag].stepEffect,
+                            rightFoot.position + new Vector3(0, 0.01f, 0), rightFoot.rotation));
+                    }
                 }
             }
         }
@@ -248,12 +292,13 @@ namespace SzymonPeszek.Environment.Sounds
         {
             if (_terrainFinder != null) 
             {
-                surfaceIndex = GetMainTexture (transform.position);
+                _surfaceIndex = GetMainTexture (transform.position);
                 //If you added a grass texture, then a dirt, then a rock, you'd have grass=0, dirt=1, rock=2.
-                _whatTexture = _terrainData.terrainLayers[surfaceIndex].name;
+                _whatTexture = _terrainData.terrainLayers[_surfaceIndex].name;
             }
         }
         
+        #region Detect ground type
         private float[] GetTextureMix(Vector3 worldPos)
         {
             if (_terrainFinder != null) 
@@ -302,12 +347,12 @@ namespace SzymonPeszek.Environment.Sounds
             if (Physics.Raycast(new Ray(leftFoot.position + new Vector3(0, 1.5f, 0), Vector3.down), 
                 out _hit, 2f, _environmentMask))
             {
-                floor = _hit.transform.gameObject;
+                _floor = _hit.transform.gameObject;
             }
 
             _currentFoot = "left";
 
-            if (floor != null)
+            if (_floor != null)
             {
                 CheckTexture();
             }
@@ -318,12 +363,13 @@ namespace SzymonPeszek.Environment.Sounds
             if (Physics.Raycast(new Ray(rightFoot.position + new Vector3(0, 1.5f, 0), Vector3.down), 
                 out _hit, 2f, _environmentMask))
             {
-                floor = _hit.transform.gameObject;
+                _floor = _hit.transform.gameObject;
+                _currentFootTransform = _hit.transform;
             }
 
             _currentFoot = "right";
 
-            if (floor != null)
+            if (_floor != null)
             {
                 CheckTexture();
             }
@@ -331,19 +377,19 @@ namespace SzymonPeszek.Environment.Sounds
 
         private void CheckTexture()
         {
-            if (floor.CompareTag(_currentEnvironmentTag))
+            if (_floor.CompareTag(_currentEnvironmentTag))
             {
                 return;
             }
 
-            if (floor.CompareTag("Terrain"))
+            if (_floor.CompareTag("Terrain"))
             {
                 for (int i = 0; i < environmentFootstepSounds.Length; i++)
                 {
-                    string tag = environmentFootstepSounds[i].tagName;
+                    string groundTag = environmentFootstepSounds[i].tagName;
 
-                    if (_whatTexture.Contains(tag) || _whatTexture.Contains(tag.ToLower()) ||
-                        _whatTexture.Contains(tag.ToUpper()))
+                    if (_whatTexture.Contains(groundTag) || _whatTexture.Contains(groundTag.ToLower()) ||
+                        _whatTexture.Contains(groundTag.ToUpper()))
                     {
                         _currentEnvironmentTag = environmentFootstepSounds[i].tagName;
                         currentMovingClips = environmentFootstepSounds[i].footsteps;
@@ -352,18 +398,14 @@ namespace SzymonPeszek.Environment.Sounds
                     }
                 }
             }
-            
-            for (int i = 0; i < environmentFootstepSounds.Length; i++)
+
+            if (_stepSounds.ContainsKey(_floor.tag))
             {
-                if (floor.CompareTag(environmentFootstepSounds[i].tagName))
-                {
-                    _currentEnvironmentTag = environmentFootstepSounds[i].tagName;
-                    currentMovingClips = environmentFootstepSounds[i].footsteps;
-                    
-                    return;
-                }
+                _currentEnvironmentTag = _stepSounds[_floor.tag].tagName;
+                currentMovingClips = _stepSounds[_floor.tag].footsteps;
             }
         }
+        #endregion
 
         private IEnumerator StopStepSounds()
         {

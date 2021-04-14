@@ -5,6 +5,7 @@ using UnityEngine;
 using SzymonPeszek.BaseClasses;
 using SzymonPeszek.Misc;
 using SzymonPeszek.EnemyScripts.Animations;
+using SzymonPeszek.Enums;
 using UnityEngine.AI;
 
 
@@ -186,11 +187,11 @@ namespace SzymonPeszek.EnemyScripts
         {
             if (backStab)
             {
-                _enemyStats.TakeDamage(pendingCriticalDamage, "",true, false);
+                _enemyStats.TakeDamage(pendingCriticalDamage, DamageType.AbsolutePhysic,  "",true, false);
             }
             else
             {
-                _enemyStats.TakeDamage(pendingCriticalDamage, "", false, true);
+                _enemyStats.TakeDamage(pendingCriticalDamage, DamageType.AbsolutePhysic,"", false, true);
             }
         }
 

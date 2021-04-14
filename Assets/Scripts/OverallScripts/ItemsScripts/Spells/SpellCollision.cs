@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using SzymonPeszek.EnemyScripts;
+using SzymonPeszek.Enums;
 using UnityEngine;
 
 
@@ -47,7 +48,7 @@ namespace SzymonPeszek.Items.Spells.Helpers
 
                 if (other.CompareTag(EnemyTag))
                 {
-                    other.GetComponent<EnemyStats>().TakeDamage(damage);
+                    other.GetComponent<EnemyStats>().TakeDamage(damage, DamageType.Magic);
                 }
                 else if (other.CompareTag(DestructibleTag))
                 {

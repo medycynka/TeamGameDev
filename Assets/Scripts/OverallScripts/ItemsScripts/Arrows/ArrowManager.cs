@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using SzymonPeszek.EnemyScripts;
+using SzymonPeszek.Enums;
 using SzymonPeszek.Misc;
 using SzymonPeszek.PlayerScripts;
 using UnityEngine;
@@ -72,7 +73,7 @@ namespace SzymonPeszek.Items.Arrows
 
                 if (other.collider.CompareTag(EnemyTag) || other.collider.CompareTag(BossTag))
                 {
-                    other.gameObject.GetComponent<EnemyStats>().TakeDamage(arrowDamage);
+                    other.gameObject.GetComponent<EnemyStats>().TakeDamage(arrowDamage, DamageType.Physic);
                 }
 
                 if (other.collider.CompareTag("Passive"))

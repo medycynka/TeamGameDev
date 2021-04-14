@@ -2,6 +2,7 @@
 using UnityEngine;
 using SzymonPeszek.PlayerScripts;
 using SzymonPeszek.EnemyScripts;
+using SzymonPeszek.Enums;
 using SzymonPeszek.Misc.ColliderManagers;
 
 
@@ -79,7 +80,8 @@ namespace SzymonPeszek.Damage
 
                         if (playerStats != null)
                         {
-                            playerStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock), "Block_Guard");
+                            playerStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock), DamageType.Physic,
+                                "Block_Guard");
                             
                             return;
                         }
@@ -118,7 +120,8 @@ namespace SzymonPeszek.Damage
 
                         if (playerStats != null)
                         {
-                            enemyStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock), "Block_Guard");
+                            enemyStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock), DamageType.Physic,
+                                "Block_Guard");
                             
                             return;
                         }
@@ -127,7 +130,7 @@ namespace SzymonPeszek.Damage
                 
                 if (enemyStats != null && playerStats != null)
                 {
-                    playerStats.DealDamage(enemyStats, currentWeaponDamage);
+                    playerStats.DealDamage(enemyStats, currentWeaponDamage, DamageType.Physic);
                 }
             }
 
@@ -138,7 +141,7 @@ namespace SzymonPeszek.Damage
 
                 if (passiveEnemyStats != null && playerStats != null)
                 {
-                    playerStats.DealDamage(null, currentWeaponDamage, true, passiveEnemyStats);
+                    playerStats.DealDamage(null, currentWeaponDamage, DamageType.Physic, true, passiveEnemyStats);
                 }
             }
         }
