@@ -49,13 +49,13 @@ namespace SzymonPeszek.Misc
 
         public void StartRebinding(int id)
         {
+            _rebindingOperation?.Cancel();
+            
             if (!ResolveBindingAction(out InputAction action, out int bindingIndex, id))
             {
                 return;
             }
-            
-            _rebindingOperation?.Cancel();
-            
+
             for (int i = 0; i < inputsToRebind.Count; i++)
             {
                 if (i != id)
@@ -75,8 +75,10 @@ namespace SzymonPeszek.Misc
                               "override path: " + action.bindings[0].overridePath + "\n";
             Debug.Log(debugTxt);
 
+            action.actionMap.Disable();
+            Debug.Log(action.enabled);
             _rebindingOperation = action.PerformInteractiveRebinding(bindingIndex).WithControlsExcluding("Mouse")
-                .OnMatchWaitForAnother(0.1f).OnComplete(op => CompleteRebind(id));
+                .OnMatchWaitForAnother(0.1f).OnComplete(op => CompleteRebind(action, id));
             _rebindingOperation.Start();
         }
 
@@ -108,10 +110,11 @@ namespace SzymonPeszek.Misc
             return true;
         }
 
-        private void CompleteRebind(int id)
+        private void CompleteRebind(InputAction action, int id)
         {
             _rebindingOperation.Dispose();
             _rebindingOperation = null;
+            action.actionMap.Enable();
 
             string debugTxt = "finished rebinding action " + inputsToRebind[id].action.name + " with binding: " +
                               inputsToRebind[id].action.bindings[0] +
