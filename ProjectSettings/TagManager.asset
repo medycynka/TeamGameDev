@@ -41,6 +41,7 @@ TagManager:
   - Wood
   - Stone
   - Terrain
+  - NPC
   layers:
   - Default
   - TransparentFX

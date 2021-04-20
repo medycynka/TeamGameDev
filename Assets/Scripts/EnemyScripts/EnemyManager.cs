@@ -235,6 +235,7 @@ namespace SzymonPeszek.EnemyScripts
 
             _enemyStats.playerStats.soulsAmount += _enemyStats.soulsGiveAmount;
             _enemyStats.playerStats.uiManager.currentSoulsAmount.text = _enemyStats.playerStats.soulsAmount.ToString();
+            _enemyStats.playerStats.IncrementEnemyKillCount(_enemyStats.enemyName);
 
             if (shouldDrop)
             {

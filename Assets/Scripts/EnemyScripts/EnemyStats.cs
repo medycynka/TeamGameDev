@@ -28,6 +28,9 @@ namespace SzymonPeszek.EnemyScripts
         public Image healthBarFill;
         public TextMeshProUGUI damageValue;
 
+        [Header("Enemy's name", order = 2)]
+        public string enemyName;
+        
         [Header("Attack properties", order = 2)]
         public float enemyAttack = 25f;
 

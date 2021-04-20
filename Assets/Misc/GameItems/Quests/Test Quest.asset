@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: 
   questTaskText: 
+  isItemQuest: 0
   taskItem: {fileID: 0}
   taskItemAmount: 1
+  isEnemyQuest: 1
+  enemyToKillName: RockGolem
+  enemyToKillCount: 1
   moneyReward: 10
   rewardItems: []

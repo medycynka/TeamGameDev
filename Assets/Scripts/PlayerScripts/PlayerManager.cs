@@ -1,5 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Linq;
+using UnityEngine;
 using SzymonPeszek.BaseClasses;
+using SzymonPeszek.Enums;
 using SzymonPeszek.PlayerScripts.Controller;
 using SzymonPeszek.PlayerScripts.Animations;
 using SzymonPeszek.PlayerScripts.CameraManager;
@@ -7,6 +10,11 @@ using SzymonPeszek.GameUI;
 using SzymonPeszek.Misc;
 using SzymonPeszek.Items.Bonfire;
 using SzymonPeszek.Environment.Areas;
+using SzymonPeszek.Items.Consumable;
+using SzymonPeszek.Items.Equipment;
+using SzymonPeszek.Items.Weapons;
+using SzymonPeszek.Npc;
+using SzymonPeszek.PlayerScripts.Inventory;
 using SzymonPeszek.Quests;
 
 
@@ -23,6 +31,7 @@ namespace SzymonPeszek.PlayerScripts
         private PlayerStats _playerStats;
         private Animator _animator;
         private QuestManager _questManager;
+        private PlayerInventory _playerInventory;
         
         [Header("Player Components", order = 1)]
         [Header("Camera Component", order = 2)]
@@ -84,6 +93,7 @@ namespace SzymonPeszek.PlayerScripts
             _playerStats = GetComponent<PlayerStats>();
             _animator = GetComponentInChildren<Animator>();
             _questManager = GetComponent<QuestManager>();
+            _playerInventory = GetComponent<PlayerInventory>();
             _pickUpLayer = 1 << LayerMask.NameToLayer("Pick Up");
             interactableUI = FindObjectOfType<InteractableUI>();
             _interactColliders = new Collider[8];
@@ -264,7 +274,18 @@ namespace SzymonPeszek.PlayerScripts
                     }
                     else if (_interactColliders[i].CompareTag(NpcTag))
                     {
-                        // Talk with npc if not fighting
+                        NpcInteractionManager interactableObject = _interactColliders[i].GetComponent<NpcInteractionManager>();
+
+                        if (interactableObject != null)
+                        {
+                            interactableUI.interactableText.text = interactableObject.interactableText;
+                            interactableUIGameObject.SetActive(true);
+
+                            if (_inputHandler.aInput)
+                            {
+                                interactableObject.Interact(this);
+                            }
+                        }
                     }
                 }
             }
@@ -405,12 +426,92 @@ namespace SzymonPeszek.PlayerScripts
         public void AcceptNewQuest(Quest quest)
         {
             _questManager.AddNewQuest(quest);
+            _playerStats.isHavingQuest = true;
         }
 
-        public void CompleteQuest(Quest quest)
+        public bool CompleteQuest(Quest quest)
         {
-            _questManager.CompleteQuest(quest);
-            // claim rewards
+            bool isCompleted = false;
+            
+            if (quest.isEnemyQuest)
+            {
+                isCompleted = _playerStats.IsKillCountFulfilled(quest.enemyToKillName, quest.enemyToKillCount);
+            }
+            else if (quest.isItemQuest)
+            {
+                isCompleted = _playerInventory.HasNeededItems(quest.taskItem, quest.taskItemAmount);
+            }
+
+            if (isCompleted)
+            {
+                _questManager.CompleteQuest(quest);
+                // claim rewards
+                _playerStats.isHavingQuest = false;
+                _playerStats.soulsAmount += quest.moneyReward;
+                _inputHandler.uiManager.UpdateSouls();
+
+                if (quest.isItemQuest)
+                {
+                    for (int i = 0; i < quest.taskItemAmount; i++)
+                    {
+                        _playerInventory.consumablesInventory.Remove(quest.taskItem);
+                    }
+                }
+
+                if (quest.rewardItems.Length > 0)
+                {
+                    for (int i = 0; i < quest.rewardItems.Length; i++)
+                    {
+                        switch (quest.rewardItems[i].itemType)
+                        {
+                            case ItemType.Weapon:
+                                _playerInventory.weaponsInventory.Add((WeaponItem)quest.rewardItems[i]);
+                                break;
+                            case ItemType.Shield:
+                                _playerInventory.shieldsInventory.Add((WeaponItem)quest.rewardItems[i]);
+                                break;
+                            case ItemType.Helmet:
+                                _playerInventory.helmetsInventory.Add((EquipmentItem)quest.rewardItems[i]);
+                                break;
+                            case ItemType.ChestArmor:
+                                _playerInventory.chestsInventory.Add((EquipmentItem)quest.rewardItems[i]);
+                                break;
+                            case ItemType.ShoulderArmor:
+                                _playerInventory.shouldersInventory.Add((EquipmentItem)quest.rewardItems[i]);
+                                break;
+                            case ItemType.HandArmor:
+                                _playerInventory.handsInventory.Add((EquipmentItem)quest.rewardItems[i]);
+                                break;
+                            case ItemType.LegArmor:
+                                _playerInventory.legsInventory.Add((EquipmentItem)quest.rewardItems[i]);
+                                break;
+                            case ItemType.FootArmor:
+                                _playerInventory.feetInventory.Add((EquipmentItem)quest.rewardItems[i]);
+                                break;
+                            case ItemType.Ring:
+                                _playerInventory.ringsInventory.Add((EquipmentItem)quest.rewardItems[i]);
+                                break;
+                            case ItemType.Consumable:
+                                _playerInventory.consumablesInventory.Add((ConsumableItem)quest.rewardItems[i]);
+                                break;
+                            case ItemType.Spell:
+                                break;
+                            case ItemType.QuestItem:
+                                _playerInventory.consumablesInventory.Add((ConsumableItem)quest.rewardItems[i]);
+                                break;
+                            default:
+                                throw new ArgumentOutOfRangeException();
+                        }
+                    }
+                }
+                
+                foreach (var key in _playerStats.killCount.Keys.ToList())
+                {
+                    _playerStats.killCount[key] = 0;
+                }
+            }
+
+            return isCompleted;
         }
     }
 }

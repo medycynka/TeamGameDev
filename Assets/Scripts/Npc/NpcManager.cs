@@ -47,9 +47,9 @@ namespace SzymonPeszek.Npc
             return _currentMainQuest.quest;
         }
 
-        public void EndCurrentMainQuestQuest(PlayerManager playerManager)
+        public bool EndCurrentMainQuest(PlayerManager playerManager)
         {
-            playerManager.CompleteQuest(_currentMainQuest.quest);
+            return playerManager.CompleteQuest(_currentMainQuest.quest);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using SzymonPeszek.SaveScripts;
 using SzymonPeszek.GameUI.StatBars;
@@ -60,6 +61,9 @@ namespace SzymonPeszek.PlayerScripts
         [Header("Bools", order = 2)]
         public bool isPlayerAlive = true;
         public bool isJumpDeath;
+        public bool isHavingQuest;
+
+        public Dictionary<string, int> killCount = new Dictionary<string, int>();
 
         private EnemySpawner[] _enemiesSpawners;
         private RectTransform _hpBarTransform;
@@ -505,6 +509,41 @@ namespace SzymonPeszek.PlayerScripts
             return _inputHandler.lockOnFlag;
         }
 
+        /// <summary>
+        /// Increase player kill count of specific enemy
+        /// </summary>
+        /// <param name="enemyName">Recently killed enemy's name</param>
+        public void IncrementEnemyKillCount(string enemyName)
+        {
+            if (isHavingQuest)
+            {
+                if (killCount.ContainsKey(enemyName))
+                {
+                    killCount[enemyName]++;
+                }
+                else
+                {
+                    killCount.Add(enemyName, 1);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Check if player killed specific amount of certain enemies
+        /// </summary>
+        /// <param name="enemyName">Name of enemies to kill</param>
+        /// <param name="killNeeded">Number of kills needed</param>
+        /// <returns></returns>
+        public bool IsKillCountFulfilled(string enemyName, int killNeeded)
+        {
+            if (killCount.ContainsKey(enemyName))
+            {
+                return killCount[enemyName] == killNeeded;
+            }
+
+            return false;
+        }
+        
         /// <summary>
         /// Respawn player after death
         /// </summary>
