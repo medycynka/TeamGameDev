@@ -279,7 +279,6 @@ namespace SzymonPeszek.PlayerScripts
 
             Debug.DrawRay(origin, Vector3.down * minimumDistanceNeededToBeginFall, Color.red, 0.1f, false);
 
-            //if (Physics.Raycast(origin, Vector3.down, out _hit, minimumDistanceNeededToBeginFall, _ignoreForGroundCheck))
             if (Physics.SphereCast(origin, _playerColliderRadius, Vector3.down, out _hit, minimumDistanceNeededToBeginFall, _ignoreForGroundCheck) 
                 || Physics.Raycast(origin, Vector3.down, out _hit, minimumDistanceNeededToBeginFall, _ignoreForGroundCheck))
             {
@@ -363,8 +362,8 @@ namespace SzymonPeszek.PlayerScripts
                     //nextJump -= delta;
 
                     StartCoroutine(ResizeCollider());
-                    rigidbody.velocity += new Vector3(moveDirection.x * jumpMultiplier,
-                        jumpHeight * jumpMultiplier, moveDirection.z * jumpMultiplier);
+                    // rigidbody.velocity += new Vector3(moveDirection.x * jumpMultiplier,
+                    //     jumpHeight * jumpMultiplier, moveDirection.z * jumpMultiplier);
                     playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.JumpName], true);
                     Quaternion jumpRotation = Quaternion.LookRotation(moveDirection);
                     myTransform.rotation = jumpRotation;

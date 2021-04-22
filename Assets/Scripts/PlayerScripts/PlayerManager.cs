@@ -7,6 +7,7 @@ using SzymonPeszek.GameUI;
 using SzymonPeszek.Misc;
 using SzymonPeszek.Items.Bonfire;
 using SzymonPeszek.Environment.Areas;
+using SzymonPeszek.Quests;
 
 
 namespace SzymonPeszek.PlayerScripts
@@ -21,6 +22,7 @@ namespace SzymonPeszek.PlayerScripts
         private PlayerLocomotion _playerLocomotion;
         private PlayerStats _playerStats;
         private Animator _animator;
+        private QuestManager _questManager;
         
         [Header("Player Components", order = 1)]
         [Header("Camera Component", order = 2)]
@@ -66,6 +68,7 @@ namespace SzymonPeszek.PlayerScripts
         private const string InteractableTag = "Interactable";
         private const string FogWallTag = "Fog Wall";
         private const string ChestTag = "Chest";
+        private const string NpcTag = "NPC";
         private LayerMask _pickUpLayer;
         private Collider[] _interactColliders;
 
@@ -80,6 +83,7 @@ namespace SzymonPeszek.PlayerScripts
             _playerLocomotion = GetComponent<PlayerLocomotion>();
             _playerStats = GetComponent<PlayerStats>();
             _animator = GetComponentInChildren<Animator>();
+            _questManager = GetComponent<QuestManager>();
             _pickUpLayer = 1 << LayerMask.NameToLayer("Pick Up");
             interactableUI = FindObjectOfType<InteractableUI>();
             _interactColliders = new Collider[8];
@@ -258,6 +262,10 @@ namespace SzymonPeszek.PlayerScripts
                             }
                         }
                     }
+                    else if (_interactColliders[i].CompareTag(NpcTag))
+                    {
+                        // Talk with npc if not fighting
+                    }
                 }
             }
             else
@@ -392,6 +400,17 @@ namespace SzymonPeszek.PlayerScripts
             _playerLocomotion.rigidbody.velocity = Vector3.zero; //Stops the player from ice skating
             transform.position = playerStandsHereWhenOpeningChest.transform.position;
             _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.ChestOpeningName], true);            
+        }
+
+        public void AcceptNewQuest(Quest quest)
+        {
+            _questManager.AddNewQuest(quest);
+        }
+
+        public void CompleteQuest(Quest quest)
+        {
+            _questManager.CompleteQuest(quest);
+            // claim rewards
         }
     }
 }
