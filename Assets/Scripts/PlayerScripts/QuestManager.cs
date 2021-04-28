@@ -14,7 +14,7 @@ namespace SzymonPeszek.PlayerScripts
         public List<QuestContainer> mainQuests = new List<QuestContainer>();
         public List<QuestContainer> sideQuests = new List<QuestContainer>();
         
-        private List<Quest> _currentQuests = new List<Quest>();
+        [SerializeField] private List<Quest> _currentQuests = new List<Quest>();
 
         private void Awake()
         {

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using SzymonPeszek.Enums;
+using UnityEngine;
 using SzymonPeszek.PlayerScripts;
 
 
@@ -30,7 +31,7 @@ namespace SzymonPeszek.Environment.Areas
 
                     _playerStats.isJumpDeath = true;
                     _playerStats.jumpDeathDropPosition = dropPosition.position;
-                    _playerStats.TakeDamage(2000f);
+                    _playerStats.TakeDamage(2000f, DamageType.Fall);
                 }
             }
         }

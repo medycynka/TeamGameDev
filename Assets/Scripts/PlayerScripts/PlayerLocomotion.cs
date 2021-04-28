@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using SzymonPeszek.Enums;
 using UnityEngine;
 using SzymonPeszek.PlayerScripts.CameraManager;
 using SzymonPeszek.PlayerScripts.Controller;
@@ -40,7 +41,7 @@ namespace SzymonPeszek.PlayerScripts
         public float sprintSpeed = 7f;
         public float rotationSpeed = 16f;
         public float fallingSpeed = 80f;
-        public float jumpHeight = 25f;
+        [Range(0f, 1f)] public float jumpHeight = 0.25f;
         [Range(2f, 10f)] public float jumpMultiplier = 5f;
 
         [Header("Next Jump Cooldown", order = 1)]
@@ -296,7 +297,7 @@ namespace SzymonPeszek.PlayerScripts
 
                         if (inAirTimer > 2.5f)
                         {
-                            _playerStats.TakeDamage(fallDamage * inAirTimer);
+                            _playerStats.TakeDamage(fallDamage * inAirTimer, DamageType.Fall);
                         }
                         
                         inAirTimer = 0;

@@ -5,6 +5,7 @@ using UnityEngine;
 using SzymonPeszek.BaseClasses;
 using SzymonPeszek.Misc;
 using SzymonPeszek.EnemyScripts.Animations;
+using SzymonPeszek.Enums;
 using UnityEngine.AI;
 
 
@@ -186,11 +187,11 @@ namespace SzymonPeszek.EnemyScripts
         {
             if (backStab)
             {
-                _enemyStats.TakeDamage(pendingCriticalDamage, "",true, false);
+                _enemyStats.TakeDamage(pendingCriticalDamage, DamageType.AbsolutePhysic,  "",true, false);
             }
             else
             {
-                _enemyStats.TakeDamage(pendingCriticalDamage, "", false, true);
+                _enemyStats.TakeDamage(pendingCriticalDamage, DamageType.AbsolutePhysic,"", false, true);
             }
         }
 
@@ -234,6 +235,7 @@ namespace SzymonPeszek.EnemyScripts
 
             _enemyStats.playerStats.soulsAmount += _enemyStats.soulsGiveAmount;
             _enemyStats.playerStats.uiManager.currentSoulsAmount.text = _enemyStats.playerStats.soulsAmount.ToString();
+            _enemyStats.playerStats.IncrementEnemyKillCount(_enemyStats.enemyName);
 
             if (shouldDrop)
             {

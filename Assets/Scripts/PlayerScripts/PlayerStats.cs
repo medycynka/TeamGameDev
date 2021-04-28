@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using SzymonPeszek.SaveScripts;
 using SzymonPeszek.GameUI.StatBars;
@@ -11,6 +12,7 @@ using SzymonPeszek.Environment.Areas;
 using SzymonPeszek.Misc;
 using SzymonPeszek.Enums;
 using SzymonPeszek.EnemyScripts;
+using SzymonPeszek.PlayerScripts.Controller;
 
 
 namespace SzymonPeszek.PlayerScripts
@@ -23,6 +25,8 @@ namespace SzymonPeszek.PlayerScripts
         private PlayerManager _playerManager;
         private WeaponSlotManager _weaponSlotManager;
         private PlayerAnimatorManager _playerAnimatorManager;
+        private InputHandler _inputHandler;
+        [HideInInspector] public Camera mainCamera;
 
         [Header("Player Properties", order = 1)]
 
@@ -57,6 +61,9 @@ namespace SzymonPeszek.PlayerScripts
         [Header("Bools", order = 2)]
         public bool isPlayerAlive = true;
         public bool isJumpDeath;
+        public bool isHavingQuest;
+
+        public Dictionary<string, int> killCount = new Dictionary<string, int>();
 
         private EnemySpawner[] _enemiesSpawners;
         private RectTransform _hpBarTransform;
@@ -69,6 +76,7 @@ namespace SzymonPeszek.PlayerScripts
             _playerAnimatorManager = GetComponentInChildren<PlayerAnimatorManager>();
             _playerManager = GetComponent<PlayerManager>();
             _weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
+            _inputHandler = GetComponent<InputHandler>();
             uiManager = FindObjectOfType<UIManager>();
             healthBar = FindObjectOfType<HealthBar>();
             staminaBar = FindObjectOfType<StaminaBar>();
@@ -234,20 +242,55 @@ namespace SzymonPeszek.PlayerScripts
             UpdateStaminaBar(SetMaxStaminaFromStaminaLevel());
             UpdateFocusBar(SetMaxFocusFromFocusLevel());
         }
+        
+        /// <summary>
+        /// Calculate damage received based on damage type and current modifiers
+        /// </summary>
+        /// <param name="damageType">Type of damage</param>
+        /// <param name="damage">Damage amount</param>
+        /// <returns>Calculated Damage</returns>
+        protected override int CalculateDamage(DamageType damageType, float damage)
+        {
+            switch (damageType)
+            {
+                case DamageType.Physic:
+                    float armorValue = Mathf.Clamp(currentArmorValue * bonusBuffDefence, 0, 999);
+                    float defMod = Mathf.Clamp01(1 - Mathf.Lerp(armorValue, 999, armorValue / 999) / 999);
+                    int damageMod = (int) (damage * defMod);
+                    return damageMod;
+                case DamageType.AbsolutePhysic:
+                    return (int) damage;
+                case DamageType.Magic:
+                    // float magicDefMod = Mathf.Clamp01(1 - Mathf.Lerp(defence, 999, defence / 999) / 999); // Make magic defence stat
+                    float magicDefMod = 1.0f;
+                    int magicMod = (int) (damage * magicDefMod);
+                    return magicMod;
+                case DamageType.AbsoluteMagic:
+                    return (int) damage;
+                case DamageType.Fall:
+                    return (int) damage;
+                case DamageType.Other:
+                    return (int) damage;
+                default:
+                    return (int) damage;
+            }
+        }
 
         /// <summary>
         /// Damage player
         /// </summary>
         /// <param name="damage">Damage dealt to the player</param>
+        /// <param name="damageType">Type of damage</param>
         /// <param name="damageAnimation">Name of damage animation</param>
         /// <param name="isBackStabbed">Is damage from back stab?</param>
         /// <param name="isRiposted">Is damage from riposte?</param>
-        public void TakeDamage(float damage, string damageAnimation = "Damage_01", bool isBackStabbed = false, bool isRiposted = false)
+        public void TakeDamage(float damage, DamageType damageType, string damageAnimation = "Damage_01", 
+            bool isBackStabbed = false, bool isRiposted = false)
         {
             if (isPlayerAlive && !_playerManager.isInvulnerable)
             {
                 _playerManager.shouldRefillHealth = false;
-                currentHealth -= damage;
+                currentHealth -= CalculateDamage(damageType, damage);
                 healthBar.SetCurrentHealth(currentHealth);
 
                 _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[damageAnimation], true);
@@ -412,9 +455,10 @@ namespace SzymonPeszek.PlayerScripts
         /// </summary>
         /// <param name="enemyStats">Enemy's stats</param>
         /// <param name="weaponDamage">Damage to deal</param>
+        /// <param name="damageType">Damage Type</param>
         /// <param name="isPassive">Is it passive enemy</param>
         /// <param name="passiveEnemyStats">Passive enemy stats</param>
-        public void DealDamage(EnemyStats enemyStats, float weaponDamage, bool isPassive = false, PassiveEnemyStats passiveEnemyStats = null)
+        public void DealDamage(EnemyStats enemyStats, float weaponDamage, DamageType damageType, bool isPassive = false, PassiveEnemyStats passiveEnemyStats = null)
         {
             if (isPassive && passiveEnemyStats != null)
             {
@@ -422,7 +466,7 @@ namespace SzymonPeszek.PlayerScripts
             }
             else
             {
-                enemyStats.TakeDamage(CalculateDamage(weaponDamage, false));
+                enemyStats.TakeDamage(CalculateDamage(weaponDamage, false), damageType);
             }
         }
 
@@ -455,7 +499,51 @@ namespace SzymonPeszek.PlayerScripts
         {
             return (int)(0.02f * level * level * level + 3.06f * level * level + 105.6f * level - 895f);
         }
+        
+        /// <summary>
+        /// Is player locking-on an enemy?
+        /// </summary>
+        /// <returns></returns>
+        public bool IsLockOn()
+        {
+            return _inputHandler.lockOnFlag;
+        }
 
+        /// <summary>
+        /// Increase player kill count of specific enemy
+        /// </summary>
+        /// <param name="enemyName">Recently killed enemy's name</param>
+        public void IncrementEnemyKillCount(string enemyName)
+        {
+            if (isHavingQuest)
+            {
+                if (killCount.ContainsKey(enemyName))
+                {
+                    killCount[enemyName]++;
+                }
+                else
+                {
+                    killCount.Add(enemyName, 1);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Check if player killed specific amount of certain enemies
+        /// </summary>
+        /// <param name="enemyName">Name of enemies to kill</param>
+        /// <param name="killNeeded">Number of kills needed</param>
+        /// <returns></returns>
+        public bool IsKillCountFulfilled(string enemyName, int killNeeded)
+        {
+            if (killCount.ContainsKey(enemyName))
+            {
+                return killCount[enemyName] == killNeeded;
+            }
+
+            return false;
+        }
+        
         /// <summary>
         /// Respawn player after death
         /// </summary>

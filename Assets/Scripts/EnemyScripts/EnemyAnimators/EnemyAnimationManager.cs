@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using SzymonPeszek.BaseClasses;
+using SzymonPeszek.Enums;
 using SzymonPeszek.Misc;
 
 
@@ -85,7 +86,8 @@ namespace SzymonPeszek.EnemyScripts.Animations
         
         public override void TakeCriticalDamageAnimationEvent()
         {
-            _enemyStats.TakeDamage(_enemyManager.pendingCriticalDamage, "Damage_01", false, true);
+            _enemyStats.TakeDamage(_enemyManager.pendingCriticalDamage, DamageType.AbsolutePhysic, "Damage_01", false,
+                true);
             _enemyManager.pendingCriticalDamage = 0.0f;
         }
         

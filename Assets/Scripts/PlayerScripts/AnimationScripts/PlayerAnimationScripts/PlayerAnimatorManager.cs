@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using SzymonPeszek.BaseClasses;
+using SzymonPeszek.Enums;
 using SzymonPeszek.Misc;
 
 
@@ -16,6 +17,7 @@ namespace SzymonPeszek.PlayerScripts.Animations
         private PlayerStats _playerStats;
 
         public Transform spellProjectilesTransform;
+        public LayerMask spellRayCastLayer;
         
         /// <summary>
         /// Initialize fields and Animator's hash values of all animations
@@ -26,6 +28,7 @@ namespace SzymonPeszek.PlayerScripts.Animations
             anim = GetComponent<Animator>();
             _playerLocomotion = GetComponentInParent<PlayerLocomotion>();
             _playerStats = GetComponentInParent<PlayerStats>();
+            spellRayCastLayer = 1 << LayerMask.NameToLayer("Environment") | 1 << LayerMask.NameToLayer("Enemy");
 
             StaticAnimatorIds.animationIds = new Dictionary<string, int>
             {
@@ -296,7 +299,7 @@ namespace SzymonPeszek.PlayerScripts.Animations
         /// </summary>
         public override void TakeCriticalDamageAnimationEvent()
         {
-            _playerStats.TakeDamage(_playerManager.pendingCriticalDamage, "", false, true);
+            _playerStats.TakeDamage(_playerManager.pendingCriticalDamage, DamageType.AbsolutePhysic, "", false, true);
             _playerManager.pendingCriticalDamage = 0.0f;
         }
     }
