@@ -73,7 +73,8 @@ namespace SzymonPeszek.Items.Arrows
 
                 if (other.collider.CompareTag(EnemyTag) || other.collider.CompareTag(BossTag))
                 {
-                    other.gameObject.GetComponent<EnemyStats>().TakeDamage(arrowDamage, DamageType.Physic);
+                    other.gameObject.GetComponent<EnemyStats>().TakeDamage(playerStats.CalculateDamage(arrowDamage, 
+                        true), playerStats, DamageType.Physic);
                 }
 
                 if (other.collider.CompareTag("Passive"))

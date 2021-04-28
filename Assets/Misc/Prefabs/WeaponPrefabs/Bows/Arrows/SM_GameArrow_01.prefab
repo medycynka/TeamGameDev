@@ -128,10 +128,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 9138949177091853799}
   minArrowSpeed: 10
-  maxArrowSpeed: 50
-  arrowDamage: 20
+  maxArrowSpeed: 100
+  arrowDamage: 35
   lifeTime: 5
   startPosition: {x: 0, y: 0, z: 0}
   arrowTransform: {fileID: 1852217077181017826}
   maxTravelDistanceSqr: 10000
   cameraTransform: {fileID: 0}
+  playerStats: {fileID: 0}

@@ -307,7 +307,8 @@ namespace SzymonPeszek.PlayerScripts
 
                     enemyCharacterManager.pendingCriticalDamage = criticalHitDamage;
                     _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.BackStabName], true);
-                    enemyCharacterManager.HandleBackStabOrRiposte(true);
+                    enemyCharacterManager.HandleBackStabOrRiposte(_playerStats, true);
+                    enemyCharacterManager.currentTarget = _playerStats;
                 }
             }
             else if (Physics.Raycast(_inputHandler.criticalAttackRayCastStartPoint.position, 
@@ -320,7 +321,7 @@ namespace SzymonPeszek.PlayerScripts
                     enemyCharacterManager.isGettingRiposted = true;
                     _playerManager.transform.position = enemyCharacterManager.riposteCollider.criticalDamageStandPosition.position;
 
-                    Vector3 rotationDirection = _hit.transform.position - _playerManager.transform.position;
+                    Vector3 rotationDirection = _hit.transform.position - _playerManager.characterTransform.position;
                     rotationDirection.y = 0;
                     rotationDirection.Normalize();
                     Quaternion tr = Quaternion.LookRotation(rotationDirection);
@@ -331,7 +332,7 @@ namespace SzymonPeszek.PlayerScripts
                     enemyCharacterManager.pendingCriticalDamage = criticalDamage;
 
                     _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.RiposteName], true);
-                    enemyCharacterManager.HandleBackStabOrRiposte(false);
+                    enemyCharacterManager.HandleBackStabOrRiposte(_playerStats, false);
                 }
             }
         }

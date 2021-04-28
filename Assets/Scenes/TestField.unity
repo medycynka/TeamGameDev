@@ -4669,6 +4669,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4966070491420200268, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
+      propertyPath: weaponsInRightHandSlots.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: b4bfca7ae14a20d409431db3ec18aa0c, type: 2}
     - target: {fileID: 4966070491420200269, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
       propertyPath: cameraHandler
       value: 
@@ -5195,6 +5199,10 @@ PrefabInstance:
       propertyPath: enemyRigidBody
       value: 
       objectReference: {fileID: 511508940}
+    - target: {fileID: 3060950883499712638, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
+      propertyPath: shouldFollowTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3060950883499712639, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
       propertyPath: m_RootOrder
       value: 1

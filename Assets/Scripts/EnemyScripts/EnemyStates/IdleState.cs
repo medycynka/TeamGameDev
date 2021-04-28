@@ -76,7 +76,7 @@ namespace SzymonPeszek.EnemyScripts.States
 
             for (int i = 0; i < detectLength; i++)
             {
-                CharacterStats characterStats = detectPlayer[i].transform.GetComponent<CharacterStats>();
+                CharacterStats characterStats = detectPlayer[i].GetComponent<CharacterStats>();
 
                 if (characterStats != null)
                 {

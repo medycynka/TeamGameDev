@@ -82,6 +82,7 @@ namespace SzymonPeszek.PlayerScripts
             staminaBar = FindObjectOfType<StaminaBar>();
             focusBar = FindObjectOfType<FocusBar>();
             characterTransform = GetComponent<Transform>();
+            mainCamera = Camera.main;
         }
 
         private void Start()
@@ -466,7 +467,7 @@ namespace SzymonPeszek.PlayerScripts
             }
             else
             {
-                enemyStats.TakeDamage(CalculateDamage(weaponDamage, false), damageType);
+                enemyStats.TakeDamage(CalculateDamage(weaponDamage, false), this, damageType);
             }
         }
 

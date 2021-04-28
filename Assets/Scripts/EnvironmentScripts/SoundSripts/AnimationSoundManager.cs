@@ -58,7 +58,7 @@ namespace SzymonPeszek.Environment.Sounds
         private AudioSource _audioSource;
         private Animator _anim;
         private bool _playFootsteps = true;
-        private string _currentEnvironmentTag;
+        [SerializeField] private string _currentEnvironmentTag;
         private RaycastHit _hit;
         private GameObject _terrainFinder;
         private Terrain _terrain;
@@ -86,14 +86,14 @@ namespace SzymonPeszek.Environment.Sounds
 
             _stepSounds = new Dictionary<string, EnvironmentFootstepSound>();
 
+            _currentEnvironmentTag = "Environment";
             if (environmentFootstepSounds.Length > 0)
             {
                 for (int i = 0; i < environmentFootstepSounds.Length; i++)
                 {
                     _stepSounds.Add(environmentFootstepSounds[i].tagName, environmentFootstepSounds[i]);
                 }
-
-                _currentEnvironmentTag = "Environment";
+                
                 currentMovingClips = _stepSounds[_currentEnvironmentTag].footsteps;
             }
 

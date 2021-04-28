@@ -120,8 +120,8 @@ namespace SzymonPeszek.Damage
 
                         if (playerStats != null)
                         {
-                            enemyStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock), DamageType.Physic,
-                                "Block_Guard");
+                            enemyStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock), playerStats, 
+                                DamageType.Physic, "Block_Guard");
                             
                             return;
                         }

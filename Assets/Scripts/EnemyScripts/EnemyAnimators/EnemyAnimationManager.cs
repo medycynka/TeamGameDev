@@ -86,8 +86,8 @@ namespace SzymonPeszek.EnemyScripts.Animations
         
         public override void TakeCriticalDamageAnimationEvent()
         {
-            _enemyStats.TakeDamage(_enemyManager.pendingCriticalDamage, DamageType.AbsolutePhysic, "Damage_01", false,
-                true);
+            _enemyStats.TakeDamage(_enemyManager.pendingCriticalDamage, _enemyStats.playerStats, 
+                DamageType.AbsolutePhysic, "Damage_01", false, true);
             _enemyManager.pendingCriticalDamage = 0.0f;
         }
         

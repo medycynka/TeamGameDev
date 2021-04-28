@@ -6,6 +6,7 @@ using SzymonPeszek.BaseClasses;
 using SzymonPeszek.Misc;
 using SzymonPeszek.EnemyScripts.Animations;
 using SzymonPeszek.Enums;
+using SzymonPeszek.PlayerScripts;
 using UnityEngine.AI;
 
 
@@ -183,15 +184,15 @@ namespace SzymonPeszek.EnemyScripts
         /// <summary>
         /// Get back stabbed
         /// </summary>
-        public void HandleBackStabOrRiposte(bool backStab)
+        public void HandleBackStabOrRiposte(PlayerStats playerStats, bool backStab)
         {
             if (backStab)
             {
-                _enemyStats.TakeDamage(pendingCriticalDamage, DamageType.AbsolutePhysic,  "",true, false);
+                _enemyStats.TakeDamage(pendingCriticalDamage, playerStats, DamageType.AbsolutePhysic,  "",true);
             }
             else
             {
-                _enemyStats.TakeDamage(pendingCriticalDamage, DamageType.AbsolutePhysic,"", false, true);
+                _enemyStats.TakeDamage(pendingCriticalDamage, playerStats, DamageType.AbsolutePhysic,"", false, true);
             }
         }
 

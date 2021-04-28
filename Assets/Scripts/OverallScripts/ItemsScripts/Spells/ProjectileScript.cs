@@ -57,6 +57,7 @@ namespace SzymonPeszek.Items.Spells
                 _spellCollision.projectileTransform = fireball;
                 _spellCollision.damage = spellDamage;
                 _spellCollision.maxTravelDistanceSqr = maxTravelDistanceSqr;
+                _spellCollision.playerStats = playerStats;
                 fireball.GetComponent<Rigidbody>().AddForce(fireball.forward * projectileSpeed);
             }
             else
@@ -70,6 +71,7 @@ namespace SzymonPeszek.Items.Spells
                 _spellCollision.projectileTransform = fireball;
                 _spellCollision.damage = spellDamage;
                 _spellCollision.maxTravelDistanceSqr = maxTravelDistanceSqr;
+                _spellCollision.playerStats = playerStats;
                 fireball.GetComponent<Rigidbody>().AddForce(fireball.forward * projectileSpeed);
             }
         }
