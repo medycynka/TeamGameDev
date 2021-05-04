@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using SzymonPeszek.BaseClasses;
+using SzymonPeszek.Npc.DialogueSystem;
+using SzymonPeszek.Npc.DialogueSystem.Runtime;
 using SzymonPeszek.PlayerScripts;
 using UnityEngine;
 
@@ -10,8 +12,11 @@ namespace SzymonPeszek.Npc
 {
     public class NpcInteractionManager : Interactable
     {
+        public DialogueContainer dialogueData;
+        public DialogueUiManager dialogueUiManager;
+        public bool isQuestGiven;
+        
         private NpcManager _npcManager;
-        private bool _isQuestGiven;
 
         private void Awake()
         {
@@ -20,31 +25,30 @@ namespace SzymonPeszek.Npc
 
         public override void Interact(PlayerManager playerManager)
         {
-            if (_isQuestGiven)
+            if (!dialogueUiManager.isInitialized)
             {
-                CompleteQuest(playerManager);
+                dialogueUiManager.Init(playerManager, _npcManager, this);
             }
-            else
-            {
-                GiveQuest(playerManager);
-            }
+            
+            dialogueUiManager.HandleDialogue();
         }
 
-        private void GiveQuest(PlayerManager playerManager)
+        public void GiveQuest(PlayerManager playerManager)
         {
             //base.PickUpItem(playerManager);
-            _isQuestGiven = true;
+            isQuestGiven = true;
             interactableText = "Complete a quest [E]";
             playerManager.AcceptNewQuest(_npcManager.GiveMainQuest());
+            playerManager.dialogueFlag = false;
         }
 
-        private void CompleteQuest(PlayerManager playerManager)
+        public void CompleteQuest(PlayerManager playerManager)
         {
             if (_npcManager.EndCurrentMainQuest(playerManager))
             {
                 Debug.Log("Quest is finished!");
-                interactableText = "Take a quest [E]";
-                _isQuestGiven = false;
+                interactableText = "[E] Talk";
+                isQuestGiven = false;
             }
             else
             {
