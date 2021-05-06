@@ -133,13 +133,17 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
             AddElement(CreateNode(nodeName, mousePosition));
         }
 
-        public DialogueNode CreateNode(string nodeName, Vector2 mousePosition)
+        public DialogueNode CreateNode(string nodeName, Vector2 mousePosition, bool questGiver = false, 
+            bool questCompleter = false, bool isExit = false)
         {
             DialogueNode newDialogueNode = new DialogueNode
             {
                 title = nodeName,
                 guID = Guid.NewGuid().ToString(),
-                dialogueText = nodeName
+                dialogueText = nodeName,
+                isQuestGiver = questGiver,
+                isQuestCompleter = questCompleter,
+                isExitNode = isExit
             };
             
             newDialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("DialogueGraphFiles/Node"));
@@ -159,44 +163,68 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
                 newDialogueNode.title = evt.newValue;
             });
             textField.SetValueWithoutNotify(newDialogueNode.title);
+            
             newDialogueNode.mainContainer.Add(textField);
             
+            Toggle isExitNode = new Toggle();
+            isExitNode.RegisterValueChangedCallback(evt => newDialogueNode.isExitNode = evt.newValue);
+            isExitNode.SetValueWithoutNotify(newDialogueNode.isExitNode);
+            isExitNode.text = "Exit";
+            newDialogueNode.titleContainer.Add(isExitNode);
+            
+            Toggle isQuestGiver = new Toggle();
+            isQuestGiver.RegisterValueChangedCallback(evt => newDialogueNode.isQuestGiver = evt.newValue);
+            isQuestGiver.SetValueWithoutNotify(newDialogueNode.isQuestGiver);
+            isQuestGiver.text = "Giver";
+            newDialogueNode.titleContainer.Add(isQuestGiver);
+                
+            Toggle isQuestCompleter = new Toggle();
+            isQuestCompleter.RegisterValueChangedCallback(evt => newDialogueNode.isQuestCompleter = evt.newValue);
+            isQuestCompleter.SetValueWithoutNotify(newDialogueNode.isQuestCompleter);
+            isQuestCompleter.text = "Completer";
+            newDialogueNode.titleContainer.Add(isQuestCompleter);
+
             Button button = new Button(() => { AddChoicePort(newDialogueNode); });
             button.text = "Add Choice";
             newDialogueNode.titleContainer.Add(button);
-
+            
             return newDialogueNode;
         }
 
         public void AddChoicePort(DialogueNode dialogueNode, string overriddenPortName = "")
         {
-            Port generatedPort = GeneratePort(dialogueNode, Direction.Output);
-            Label oldLabel = generatedPort.contentContainer.Q<Label>("type");
-            generatedPort.contentContainer.Remove(oldLabel);
             int outputPortCount = dialogueNode.outputContainer.Query("connector").ToList().Count;
-            string choicePortName = string.IsNullOrEmpty(overriddenPortName)
-                ? $"Choice {outputPortCount + 1}"
-                : overriddenPortName;
-
-            TextField textField = new TextField
+            
+            if (outputPortCount < 3)
             {
-                name = string.Empty,
-                value = choicePortName
-            };
-            textField.RegisterValueChangedCallback(evt => generatedPort.portName = evt.newValue);
-            generatedPort.contentContainer.Add(new Label("   "));
-            generatedPort.contentContainer.Add(textField);
+                Port generatedPort = GeneratePort(dialogueNode, Direction.Output);
+                Label oldLabel = generatedPort.contentContainer.Q<Label>("type");
+                generatedPort.contentContainer.Remove(oldLabel);
+                string choicePortName = string.IsNullOrEmpty(overriddenPortName)
+                    ? $"Choice {outputPortCount + 1}"
+                    : overriddenPortName;
+                
+                generatedPort.contentContainer.Add(new Label("            "));
 
-            Button deleteButton = new Button(()=>RemovePort(dialogueNode, generatedPort))
-            {
-                text = "X"
-            };
-            generatedPort.contentContainer.Add(deleteButton);
+                TextField textField = new TextField
+                {
+                    name = string.Empty,
+                    value = choicePortName
+                };
+                textField.RegisterValueChangedCallback(evt => generatedPort.portName = evt.newValue);
+                generatedPort.contentContainer.Add(textField);
 
-            generatedPort.portName = choicePortName;
-            dialogueNode.outputContainer.Add(generatedPort);
-            dialogueNode.RefreshPorts();
-            dialogueNode.RefreshExpandedState();
+                Button deleteButton = new Button(() => RemovePort(dialogueNode, generatedPort))
+                {
+                    text = "X"
+                };
+                generatedPort.contentContainer.Add(deleteButton);
+
+                generatedPort.portName = choicePortName;
+                dialogueNode.outputContainer.Add(generatedPort);
+                dialogueNode.RefreshPorts();
+                dialogueNode.RefreshExpandedState();
+            }
         }
 
         private void RemovePort(DialogueNode node, Port socket)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using SzymonPeszek.BaseClasses;
@@ -64,6 +65,7 @@ namespace SzymonPeszek.PlayerScripts
         public bool isUsingRightHand;
         public bool isUsingLeftHand;
         public bool isInvulnerable;
+        public bool dialogueFlag;
 
         [Header("Respawn Places", order = 2)]
         public GameObject quickMoveScreen;
@@ -194,6 +196,11 @@ namespace SzymonPeszek.PlayerScripts
         /// </summary>
         private void CheckForInteractableObject()
         {
+            if (dialogueFlag)
+            {
+                return;
+            }
+            
             int collidersLength = Physics.OverlapSphereNonAlloc(transform.position, 1f, _interactColliders, _pickUpLayer);
             
             if (collidersLength > 0)
@@ -512,6 +519,18 @@ namespace SzymonPeszek.PlayerScripts
             }
 
             return isCompleted;
+        }
+
+        public void DisableDialogueFlag()
+        {
+            StartCoroutine(EnablePlayerManager());
+        }
+        
+        private IEnumerator EnablePlayerManager()
+        {
+            yield return CoroutineYielder.waitFor05Second;
+            
+            dialogueFlag = false;
         }
     }
 }

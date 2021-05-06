@@ -11,5 +11,8 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
         public string guID;
         public string dialogueText;
         public bool entryPoint;
+        public bool isQuestGiver;
+        public bool isQuestCompleter;
+        public bool isExitNode;
     }
 }

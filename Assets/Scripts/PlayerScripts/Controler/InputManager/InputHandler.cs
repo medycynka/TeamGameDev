@@ -109,7 +109,13 @@ namespace SzymonPeszek.PlayerScripts.Controller
                 _playerInputActions = new PlayerControls();
                 _playerInputActions.PlayerMovement.Movement.performed += inputActions => _movementInput = inputActions.ReadValue<Vector2>();
                 _playerInputActions.PlayerMovement.Camera.performed += i => _cameraInput = i.ReadValue<Vector2>();
-                _playerInputActions.PlayerActions.RB.performed += i => rbInput = true;
+                _playerInputActions.PlayerActions.RB.performed += i =>
+                {
+                    if (!_playerManager.dialogueFlag && !inventoryFlag)
+                    {
+                        rbInput = true;
+                    }
+                };
                 _playerInputActions.PlayerActions.RT.performed += i => rtInput = true;
                 _playerInputActions.PlayerActions.LT.performed += i => ltInput = true;
                 _playerInputActions.PlayerQuickSlots.DPadRight.performed += i => dPadRight = true;
@@ -147,7 +153,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
         /// <param name="delta">Time stamp</param>
         public void TickInput(float delta)
         {
-            if (_playerStats.isPlayerAlive && !_playerManager.isRestingAtBonfire && !_playerManager.isRemovingFog)
+            if (_playerStats.isPlayerAlive && !_playerManager.isRestingAtBonfire && !_playerManager.isRemovingFog && !_playerManager.dialogueFlag)
             {
                 if (!inventoryFlag)
                 {

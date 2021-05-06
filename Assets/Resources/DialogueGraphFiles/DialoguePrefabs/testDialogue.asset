@@ -13,29 +13,44 @@ MonoBehaviour:
   m_Name: testDialogue
   m_EditorClassIdentifier: 
   nodeLinks:
-  - baseNodeGuid: c0544545-d285-422b-a51c-09d7a0856ec4
+  - baseNodeGuid: 471e3fd1-5508-4655-a320-ba3a998c4f63
     portName: Next
-    targetNodeGuid: cd2b5aa7-2fea-464b-9f0c-12b2d41c779e
-  - baseNodeGuid: cd2b5aa7-2fea-464b-9f0c-12b2d41c779e
-    portName: Choice 1
-    targetNodeGuid: 1a4cb61b-c144-45f3-96de-4a27ef0cd031
-  - baseNodeGuid: cd2b5aa7-2fea-464b-9f0c-12b2d41c779e
-    portName: Choice 2
-    targetNodeGuid: 6fba0908-3afc-4a2c-9615-4815e32e4c6f
+    targetNodeGuid: af548be7-91d3-4671-8497-25b912a555b5
+  - baseNodeGuid: af548be7-91d3-4671-8497-25b912a555b5
+    portName: Option 1
+    targetNodeGuid: 04e3baed-cd32-42dd-9188-501b15486810
+  - baseNodeGuid: af548be7-91d3-4671-8497-25b912a555b5
+    portName: Option 2
+    targetNodeGuid: 94ee938a-514d-4ac6-94f7-79aa7851d659
+  - baseNodeGuid: af548be7-91d3-4671-8497-25b912a555b5
+    portName: Option 3
+    targetNodeGuid: be3a5302-60b6-412a-acee-445440eedfad
   dialogueNodeData:
-  - nodeGuid: 1a4cb61b-c144-45f3-96de-4a27ef0cd031
-    dialogueText: Result Opt 1
-    nodePosition: {x: 683, y: 174}
-  - nodeGuid: 6fba0908-3afc-4a2c-9615-4815e32e4c6f
-    dialogueText: Result Opt 2
-    nodePosition: {x: 683, y: 279}
-  - nodeGuid: cd2b5aa7-2fea-464b-9f0c-12b2d41c779e
-    dialogueText: Dialogue Node
-    nodePosition: {x: 373, y: 200}
+  - nodeGuid: af548be7-91d3-4671-8497-25b912a555b5
+    dialogueText: Dialogue testing node
+    nodePosition: {x: 369, y: 200}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+  - nodeGuid: 04e3baed-cd32-42dd-9188-501b15486810
+    dialogueText: Get quest (kill 1 rock golem)
+    nodePosition: {x: 818, y: 177}
+    isQuestGiver: 1
+    isQuestCompleter: 0
+  - nodeGuid: 94ee938a-514d-4ac6-94f7-79aa7851d659
+    dialogueText: Complete quest
+    nodePosition: {x: 823, y: 275}
+    isQuestGiver: 0
+    isQuestCompleter: 1
+  - nodeGuid: be3a5302-60b6-412a-acee-445440eedfad
+    dialogueText: Exit
+    nodePosition: {x: 823, y: 373}
+    isQuestGiver: 0
+    isQuestCompleter: 0
   exposedProperties: []
   commentBlockData:
   - childNodes:
-    - 1a4cb61b-c144-45f3-96de-4a27ef0cd031
-    - 6fba0908-3afc-4a2c-9615-4815e32e4c6f
-    position: {x: 658, y: 115}
-    title: Choices
+    - 04e3baed-cd32-42dd-9188-501b15486810
+    - 94ee938a-514d-4ac6-94f7-79aa7851d659
+    - be3a5302-60b6-412a-acee-445440eedfad
+    position: {x: 793, y: 118}
+    title: Options
