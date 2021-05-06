@@ -134,7 +134,7 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
         }
 
         public DialogueNode CreateNode(string nodeName, Vector2 mousePosition, bool questGiver = false, 
-            bool questCompleter = false)
+            bool questCompleter = false, bool isExit = false)
         {
             DialogueNode newDialogueNode = new DialogueNode
             {
@@ -142,7 +142,8 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
                 guID = Guid.NewGuid().ToString(),
                 dialogueText = nodeName,
                 isQuestGiver = questGiver,
-                isQuestCompleter = questCompleter
+                isQuestCompleter = questCompleter,
+                isExitNode = isExit
             };
             
             newDialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("DialogueGraphFiles/Node"));
@@ -159,19 +160,17 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
             textField.RegisterValueChangedCallback(evt =>
             {
                 newDialogueNode.dialogueText = evt.newValue;
-                string[] splitter = evt.newValue.Split(' ');
-                if (splitter.Length > 1)
-                {
-                    newDialogueNode.title = splitter[0] + " " + splitter[1];
-                }
-                else
-                {
-                    newDialogueNode.title = evt.newValue;
-                }
+                newDialogueNode.title = evt.newValue;
             });
             textField.SetValueWithoutNotify(newDialogueNode.title);
             
             newDialogueNode.mainContainer.Add(textField);
+            
+            Toggle isExitNode = new Toggle();
+            isExitNode.RegisterValueChangedCallback(evt => newDialogueNode.isExitNode = evt.newValue);
+            isExitNode.SetValueWithoutNotify(newDialogueNode.isExitNode);
+            isExitNode.text = "Exit";
+            newDialogueNode.titleContainer.Add(isExitNode);
             
             Toggle isQuestGiver = new Toggle();
             isQuestGiver.RegisterValueChangedCallback(evt => newDialogueNode.isQuestGiver = evt.newValue);

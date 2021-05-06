@@ -111,7 +111,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
                 _playerInputActions.PlayerMovement.Camera.performed += i => _cameraInput = i.ReadValue<Vector2>();
                 _playerInputActions.PlayerActions.RB.performed += i =>
                 {
-                    if (!_playerManager.dialogueFlag)
+                    if (!_playerManager.dialogueFlag && !inventoryFlag)
                     {
                         rbInput = true;
                     }

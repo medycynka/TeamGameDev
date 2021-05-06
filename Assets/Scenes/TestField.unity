@@ -6456,6 +6456,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 204355862}
     - target: {fileID: 301754168852192502, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
+      propertyPath: dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: f9edc9de9adc9654292aea169e68ba62, type: 2}
+    - target: {fileID: 301754168852192502, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 904466052}

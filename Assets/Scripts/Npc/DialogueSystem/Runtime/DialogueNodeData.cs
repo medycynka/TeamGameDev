@@ -12,5 +12,6 @@ namespace SzymonPeszek.Npc.DialogueSystem.Runtime
         public Vector2 nodePosition;
         public bool isQuestGiver;
         public bool isQuestCompleter;
+        public bool isExit;
     }
 }

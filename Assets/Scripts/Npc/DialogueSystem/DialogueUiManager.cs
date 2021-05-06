@@ -1,9 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using SzymonPeszek.Misc;
-using SzymonPeszek.Npc.DialogueSystem.Runtime;
 using SzymonPeszek.PlayerScripts;
 using UnityEngine;
 using TMPro;
@@ -44,89 +40,91 @@ namespace SzymonPeszek.Npc.DialogueSystem
         public void HandleDialogue()
         {
             _playerManager.dialogueFlag = true;
-            mainText.text = _npcInteractionManager.dialogueData.dialogueNodeData[0].dialogueText;
-            string baseGuid = _npcInteractionManager.dialogueData.dialogueNodeData[0].nodeGuid;
+            mainText.text = _npcInteractionManager.dialogueMap[GetFirstNode()].dialogueText;
             hudWindow.SetActive(false);
             uIWindow.SetActive(true);
             dialogueWindow.SetActive(true);
-            List<NodeLinkData> availableOptions = _npcInteractionManager.dialogueData.nodeLinks.Where(p => p.baseNodeGuid == baseGuid)
-                .ToList();
-            DialogueNodeData tmpData; // For optional hiding options
-            switch (availableOptions.Count)
+            
+            foreach (DialogueOption option in options)
             {
-                case 1:
-                    tmpData = _npcInteractionManager.dialogueData.dialogueNodeData
-                        .First(p => p.nodeGuid == availableOptions[0].targetNodeGuid);
-                    options[0].optionObject.SetActive(true);
-                    options[0].button.onClick.AddListener(()=>{HandleDialogueOption(availableOptions[0].targetNodeGuid);});
-                    options[0].optionText.text = tmpData.dialogueText;
-                    break;
-                case 2:
-                    tmpData = _npcInteractionManager.dialogueData.dialogueNodeData
-                        .First(p => p.nodeGuid == availableOptions[0].targetNodeGuid);
-                    options[0].optionObject.SetActive(true);
-                    options[0].button.onClick.AddListener(()=>{HandleDialogueOption(availableOptions[0].targetNodeGuid);});
-                    options[0].optionText.text = tmpData.dialogueText;
-                    tmpData = _npcInteractionManager.dialogueData.dialogueNodeData
-                        .First(p => p.nodeGuid == availableOptions[1].targetNodeGuid);
-                    options[1].optionObject.SetActive(true);
-                    options[1].button.onClick.AddListener(()=>{HandleDialogueOption(availableOptions[1].targetNodeGuid);});
-                    options[1].optionText.text = tmpData.dialogueText;
-                    break;
-                case 3:
-                    tmpData = _npcInteractionManager.dialogueData.dialogueNodeData
-                        .First(p => p.nodeGuid == availableOptions[0].targetNodeGuid);
-                    options[0].optionObject.SetActive(true);
-                    options[0].button.onClick.AddListener(()=>{HandleDialogueOption(availableOptions[0].targetNodeGuid);});
-                    options[0].optionText.text = tmpData.dialogueText;
-                    tmpData = _npcInteractionManager.dialogueData.dialogueNodeData
-                        .First(p => p.nodeGuid == availableOptions[1].targetNodeGuid);
-                    options[1].optionObject.SetActive(true);
-                    options[1].button.onClick.AddListener(()=>{HandleDialogueOption(availableOptions[1].targetNodeGuid);});
-                    options[1].optionText.text = tmpData.dialogueText;
-                    tmpData = _npcInteractionManager.dialogueData.dialogueNodeData
-                        .First(p => p.nodeGuid == availableOptions[2].targetNodeGuid);
-                    options[2].optionObject.SetActive(true);
-                    options[2].button.onClick.AddListener(()=>{HandleDialogueOption(availableOptions[2].targetNodeGuid);});
-                    options[2].optionText.text = tmpData.dialogueText;
-                    break;
-                default:
-                    break;
+                option.optionObject.SetActive(false);
+                option.button.onClick.RemoveAllListeners();
             }
+
+            List<NpcInteractionManager.LinkData> potentialOptions =
+                _npcInteractionManager.dialogueMap[GetFirstNode()].links;
+            for (int i = 0; i < potentialOptions.Count; i++)
+            {
+                int i1 = i;
+                options[i].button.onClick.AddListener(()=>{ HandleDialogueOption(potentialOptions[i1].targetGuid); });
+                options[i].optionText.text = potentialOptions[i].portName;
+                options[i].optionObject.SetActive(true);
+            }
+        }
+
+        private string GetFirstNode()
+        {
+            foreach (var link in _npcInteractionManager.dialogueData.nodeLinks)
+            {
+                if (link.portName == "Next")
+                {
+                    return link.targetNodeGuid;
+                }
+            }
+
+            return "ERROR";
         }
 
         private void HandleDialogueOption(string targetGuid)
         {
-            if (_npcInteractionManager.dialogueData.dialogueNodeData
-                .First(p => p.nodeGuid == targetGuid).dialogueText == "Exit")
+            if (_npcInteractionManager.dialogueMap[targetGuid].exit)
             {
                 CloseDialogue();
             }
             else
             {
-                if (_npcInteractionManager.dialogueData.dialogueNodeData
-                    .First(p => p.nodeGuid == targetGuid).isQuestGiver && !_npcInteractionManager.isQuestGiven)
+                foreach (DialogueOption option in options)
                 {
-                    foreach (DialogueOption option in options)
-                    {
-                        option.optionObject.SetActive(false);
-                    }
-                    
+                    option.optionObject.SetActive(false);
+                    option.button.onClick.RemoveAllListeners();
+                }
+                
+                mainText.text = _npcInteractionManager.dialogueMap[targetGuid].dialogueText;
+                
+                if (_npcInteractionManager.dialogueMap[targetGuid].giver && !_npcInteractionManager.isQuestGiven)
+                {
                     options[0].optionObject.SetActive(true);
                     options[0].button.onClick.AddListener(GiveQuest);
                     options[0].optionText.text = "Exit";
                 }
-                else if(_npcInteractionManager.dialogueData.dialogueNodeData
-                    .First(p => p.nodeGuid == targetGuid).isQuestCompleter && _npcInteractionManager.isQuestGiven)
+                else if(_npcInteractionManager.dialogueMap[targetGuid].completer && _npcInteractionManager.isQuestGiven)
                 {
-                    foreach (DialogueOption option in options)
-                    {
-                        option.optionObject.SetActive(false);
-                    }
-                    
                     options[0].optionObject.SetActive(true);
                     options[0].button.onClick.AddListener(CompleteQuest);
                     options[0].optionText.text = "Exit";
+                }
+                else
+                {
+                    List<NpcInteractionManager.LinkData> potentialOptions = _npcInteractionManager.dialogueMap[targetGuid].links;
+                    
+                    if (potentialOptions.Count > 0)
+                    {
+                        for (int i = 0; i < potentialOptions.Count; i++)
+                        {
+                            var i1 = i;
+                            options[i].button.onClick.AddListener(()=>{
+                                HandleDialogueOption(potentialOptions[i1].targetGuid);
+                            });
+                            options[i].optionText.text = potentialOptions[i1].portName;
+                            options[i].optionObject.SetActive(true);
+                        }
+                    }
+                    else
+                    {
+                        options[0].optionObject.SetActive(true);
+                        options[0].button.onClick.AddListener(CloseDialogue);
+                        options[0].optionText.text = "Exit";
+                    }
                 }
             }
         }
