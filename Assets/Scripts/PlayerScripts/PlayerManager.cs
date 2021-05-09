@@ -131,7 +131,7 @@ namespace SzymonPeszek.PlayerScripts
 
             _playerLocomotion.HandleMovement(delta);
             _playerLocomotion.HandleRotation(delta);
-            _playerLocomotion.HandleFalling(_playerLocomotion.moveDirection);
+            _playerLocomotion.HandleFalling(delta);
         }
 
         private void LateUpdate()
@@ -156,7 +156,7 @@ namespace SzymonPeszek.PlayerScripts
 
             if (isInAir)
             {
-                _playerLocomotion.inAirTimer = _playerLocomotion.inAirTimer + Time.deltaTime;
+                _playerLocomotion.inAirTimer += delta;
             }
         }
 
@@ -528,7 +528,7 @@ namespace SzymonPeszek.PlayerScripts
         
         private IEnumerator EnablePlayerManager()
         {
-            yield return CoroutineYielder.waitFor05Second;
+            yield return CoroutineYielder.waitFor025Second;
             
             dialogueFlag = false;
         }
