@@ -12,24 +12,6 @@ namespace SzymonPeszek.Npc
 {
     public class NpcInteractionManager : Interactable
     {
-        [Serializable]
-        public class LinkData
-        {
-            public string targetGuid;
-            public string portName;
-        }
-        
-        [Serializable]
-        public class DialogueNodeStorage
-        {
-            public string guid;
-            public string dialogueText;
-            public bool giver;
-            public bool completer;
-            public bool exit;
-            public List<LinkData> links;
-        }
-        
         public DialogueContainer dialogueData;
         public DialogueUiManager dialogueUiManager;
         public bool isQuestGiven;
@@ -46,45 +28,9 @@ namespace SzymonPeszek.Npc
             _npcManager = GetComponent<NpcManager>();
 
             // Convert dialogue container data to dictionary for fast and easy access to options of given dialogue node
-            dialogueMapKeys = new List<string>();
-            dialogueMapValues = new List<DialogueNodeStorage>();
-            dialogueMap = new Dictionary<string, DialogueNodeStorage>();
-            foreach (var dialogueNode in dialogueData.dialogueNodeData)
-            {
-                dialogueMapKeys.Add(dialogueNode.nodeGuid);
-                dialogueMapValues.Add(new DialogueNodeStorage
-                {
-                    guid = dialogueNode.nodeGuid,
-                    dialogueText = dialogueNode.dialogueText,
-                    giver = dialogueNode.isQuestGiver,
-                    completer = dialogueNode.isQuestCompleter,
-                    exit = dialogueNode.isExit,
-                    links = GetNodeLinks(dialogueNode.nodeGuid)
-                });
-            }
-            for (int i = 0; i < dialogueMapKeys.Count; i++)
-            {
-                dialogueMap.Add(dialogueMapKeys[i], dialogueMapValues[i]);
-            }
-        }
-
-        private List<LinkData> GetNodeLinks(string guid)
-        {
-            List<LinkData> nodeLinks = new List<LinkData>();
-
-            dialogueData.nodeLinks.ForEach(link =>
-            {
-                if (link.baseNodeGuid == guid)
-                {
-                    nodeLinks.Add(new LinkData
-                    {
-                        targetGuid = link.targetNodeGuid,
-                        portName = link.portName
-                    });
-                }
-            });
-            
-            return nodeLinks;
+            dialogueMapKeys = DialogueDataConverter.ToGuidList(dialogueData);
+            dialogueMapValues = DialogueDataConverter.ToDialogueStorageList(dialogueData);
+            dialogueMap = DialogueDataConverter.ToDictionary(dialogueData);
         }
 
         public override void Interact(PlayerManager playerManager)
