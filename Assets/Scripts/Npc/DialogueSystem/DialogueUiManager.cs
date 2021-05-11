@@ -51,7 +51,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
                 option.button.onClick.RemoveAllListeners();
             }
 
-            List<NpcInteractionManager.LinkData> potentialOptions =
+            List<LinkData> potentialOptions =
                 _npcInteractionManager.dialogueMap[GetFirstNode()].links;
             for (int i = 0; i < potentialOptions.Count; i++)
             {
@@ -105,7 +105,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
                 }
                 else
                 {
-                    List<NpcInteractionManager.LinkData> potentialOptions = _npcInteractionManager.dialogueMap[targetGuid].links;
+                    List<LinkData> potentialOptions = _npcInteractionManager.dialogueMap[targetGuid].links;
                     
                     if (potentialOptions.Count > 0)
                     {
@@ -135,6 +135,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
             dialogueWindow.SetActive(false);
             hudWindow.SetActive(true);
             _playerManager.DisableDialogueFlag();
+            isInitialized = false;
         }
 
         private void GiveQuest()
