@@ -2,6 +2,8 @@
 using UnityEngine;
 using SzymonPeszek.PlayerScripts;
 using SzymonPeszek.EnemyScripts;
+using SzymonPeszek.Enums;
+using SzymonPeszek.Misc.ColliderManagers;
 
 
 namespace SzymonPeszek.Damage
@@ -66,6 +68,26 @@ namespace SzymonPeszek.Damage
                 
                 PlayerStats playerStats = collision.GetComponent<PlayerStats>();
                 
+                if(playerManager.isBlocking)
+                {
+                    BlockingCollider shield = collision.GetComponentInChildren<BlockingCollider>();
+
+                    if (shield != null)
+                    {
+                        float physicalDamageAfterBlock = currentWeaponDamage -
+                                                         (currentWeaponDamage *
+                                                          shield.blockingPhysicalDamageAbsorption) / 100;
+
+                        if (playerStats != null)
+                        {
+                            playerStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock), DamageType.Physic,
+                                "Block_Guard");
+                            
+                            return;
+                        }
+                    }
+                }
+
                 if (playerStats != null && enemyStats != null)
                 {
                     enemyStats.DealDamage(playerStats);
@@ -83,12 +105,43 @@ namespace SzymonPeszek.Damage
                     
                     return;
                 }
-                
+
                 EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
+                
+                if(enemyManager.isBlocking)
+                {
+                    BlockingCollider shield = collision.GetComponentInChildren<BlockingCollider>();
+
+                    if (shield != null)
+                    {
+                        float physicalDamageAfterBlock = currentWeaponDamage -
+                                                         (currentWeaponDamage *
+                                                          shield.blockingPhysicalDamageAbsorption) / 100;
+
+                        if (playerStats != null)
+                        {
+                            enemyStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock), playerStats, 
+                                DamageType.Physic, "Block_Guard");
+                            
+                            return;
+                        }
+                    }
+                }
                 
                 if (enemyStats != null && playerStats != null)
                 {
-                    playerStats.DealDamage(enemyStats, currentWeaponDamage);
+                    playerStats.DealDamage(enemyStats, currentWeaponDamage, DamageType.Physic);
+                }
+            }
+
+            if (collision.CompareTag("Passive"))
+            {
+                PlayerStats playerStats = GetComponentInParent<PlayerStats>();
+                PassiveEnemyStats passiveEnemyStats = collision.GetComponentInParent<PassiveEnemyStats>();
+
+                if (passiveEnemyStats != null && playerStats != null)
+                {
+                    playerStats.DealDamage(null, currentWeaponDamage, DamageType.Physic, true, passiveEnemyStats);
                 }
             }
         }

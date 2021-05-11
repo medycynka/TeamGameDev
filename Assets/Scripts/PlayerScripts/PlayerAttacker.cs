@@ -7,6 +7,7 @@ using SzymonPeszek.Items.Weapons;
 using SzymonPeszek.Misc;
 using SzymonPeszek.Enums;
 using SzymonPeszek.EnemyScripts;
+using SzymonPeszek.Items.Arrows;
 
 
 namespace SzymonPeszek.PlayerScripts
@@ -22,12 +23,15 @@ namespace SzymonPeszek.PlayerScripts
         private PlayerInventory _playerInventory;
         private PlayerManager _playerManager;
         private PlayerStats _playerStats;
+        private Transform _mainCamera;
         private RaycastHit _hit;
+        private ArrowManager _arrowManager;
         
         public LayerMask specialAttackLayer;
         public LayerMask backStabLayer;
         public LayerMask riposteLayer;
-        
+        public GameObject arrowPrefab;
+        public Transform arrowSpawnPlace;
 
         [Header("Last Attack Name")]
         public string lastAttack;
@@ -40,6 +44,7 @@ namespace SzymonPeszek.PlayerScripts
             _playerInventory = GetComponentInParent<PlayerInventory>();
             _playerManager = GetComponentInParent<PlayerManager>();
             _playerStats = GetComponentInParent<PlayerStats>();
+            _mainCamera = Camera.main.transform;
             specialAttackLayer = (1 << LayerMask.NameToLayer("Back Stab") | 1 << LayerMask.NameToLayer("Riposte"));
             backStabLayer = 1 << LayerMask.NameToLayer("Back Stab");
             riposteLayer = 1 << LayerMask.NameToLayer("Riposte");
@@ -158,6 +163,26 @@ namespace SzymonPeszek.PlayerScripts
                 default:
                     // Handle left hand attack
                     break;
+            }
+        }
+
+        public void PrepareToShoot(WeaponItem weapon)
+        {
+            _weaponSlotManager.attackingWeapon = weapon;
+            _arrowManager =
+                Instantiate(arrowPrefab, arrowSpawnPlace.position, arrowSpawnPlace.rotation, arrowSpawnPlace)
+                    .GetComponent<ArrowManager>();
+            _arrowManager.cameraTransform = _mainCamera;
+            _arrowManager.playerStats = _playerStats;
+            _inputHandler.isBowReady = true;
+        }
+
+        public void HandleBowAction(float bowStretchTime)
+        {
+            if (_inputHandler.isBowReady)
+            {
+                _arrowManager.Fire(bowStretchTime);
+                _inputHandler.isBowReady = false;
             }
         }
         
@@ -282,7 +307,8 @@ namespace SzymonPeszek.PlayerScripts
 
                     enemyCharacterManager.pendingCriticalDamage = criticalHitDamage;
                     _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.BackStabName], true);
-                    enemyCharacterManager.HandleBackStabOrRiposte(true);
+                    enemyCharacterManager.HandleBackStabOrRiposte(_playerStats, true);
+                    enemyCharacterManager.currentTarget = _playerStats;
                 }
             }
             else if (Physics.Raycast(_inputHandler.criticalAttackRayCastStartPoint.position, 
@@ -295,7 +321,7 @@ namespace SzymonPeszek.PlayerScripts
                     enemyCharacterManager.isGettingRiposted = true;
                     _playerManager.transform.position = enemyCharacterManager.riposteCollider.criticalDamageStandPosition.position;
 
-                    Vector3 rotationDirection = _hit.transform.position - _playerManager.transform.position;
+                    Vector3 rotationDirection = _hit.transform.position - _playerManager.characterTransform.position;
                     rotationDirection.y = 0;
                     rotationDirection.Normalize();
                     Quaternion tr = Quaternion.LookRotation(rotationDirection);
@@ -306,7 +332,7 @@ namespace SzymonPeszek.PlayerScripts
                     enemyCharacterManager.pendingCriticalDamage = criticalDamage;
 
                     _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.RiposteName], true);
-                    enemyCharacterManager.HandleBackStabOrRiposte(false);
+                    enemyCharacterManager.HandleBackStabOrRiposte(_playerStats, false);
                 }
             }
         }

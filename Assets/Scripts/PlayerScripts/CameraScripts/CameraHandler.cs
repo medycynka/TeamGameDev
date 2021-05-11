@@ -13,8 +13,9 @@ namespace SzymonPeszek.PlayerScripts.CameraManager
     /// </summary>
     public class CameraHandler : MonoBehaviour
     {
-        [Header("Camera Handler", order = 0)]
+        [Header("Camera Handler", order = 0)] 
         [Header("Player Components", order = 1)]
+        public Camera mainCamera;
         public InputHandler inputHandler;
         public PlayerManager playerManager;
 
@@ -40,6 +41,7 @@ namespace SzymonPeszek.PlayerScripts.CameraManager
         private float _pivotAngle;
         public float minimumPivot = -35;
         public float maximumPivot = 35;
+        public float zoomFactor = 5f;
 
         [Header("Camera Detection Properties", order = 1)]
         public float cameraSphereRadius = 0.2f;
@@ -49,27 +51,37 @@ namespace SzymonPeszek.PlayerScripts.CameraManager
         public float unlockedPivotPosition = 1.65f;
 
         [Header("Camera Lock-on Properties", order = 1)]
-        public Transform currentLockOnTarget;
-        public Transform nearestLockOnTarget;
-        public Transform leftLockTarget;
-        public Transform rightLockTarget;
+        public CharacterManager currentLockOnTarget;
+        public CharacterManager nearestLockOnTarget;
+        public CharacterManager leftLockTarget;
+        public CharacterManager rightLockTarget;
         public float maximumLockOnDistance = 20;
         public float lockOnSmoothFactor = 100f;
         public bool transitDuringLockOn;
+        
         private const string EnvironmentTag = "Environment";
         private LayerMask _lockOnLayer;
         private RaycastHit _hit;
         private float _LockOnAngle = 120f;
-        public Collider[] colliders;
+        [SerializeField] private Collider[] colliders;
         private List<CharacterManager> _availableTargets = new List<CharacterManager>();
         private int _collidersSize = 512;
         private int _collidersPrevSize = 512;
-        
+        private float _startingFOV;
+        private const float MinFov = 20f;
+        private float _startingCameraXPosition;
+        private Vector3 _cameraStartingPosition;
+        private const float MINPivotXPosition = 0.5f;
+
         private void Awake()
         {
+            mainCamera = Camera.main;
+            _myTransform = transform;
+            _startingFOV = mainCamera.fieldOfView;
+            _startingCameraXPosition = _myTransform.position.x;
+            _cameraStartingPosition = _myTransform.position;
             inputHandler = FindObjectOfType<InputHandler>();
             playerManager = FindObjectOfType<PlayerManager>();
-            _myTransform = transform;
             _defaultPosition = cameraTransform.localPosition.z;
             ignoreLayers = ~(1 << LayerMask.NameToLayer("UI") | 1 << LayerMask.NameToLayer("Camera") |
                              1 << LayerMask.NameToLayer("Controller") | 1 << LayerMask.NameToLayer("Pick Up") |
@@ -155,7 +167,7 @@ namespace SzymonPeszek.PlayerScripts.CameraManager
                     rotation.x = Mathf.Lerp(rotation.x, _pivotAngle, 5f);
                 }
 
-                Vector3 currentLockOnTargetPosition = currentLockOnTarget.position;
+                Vector3 currentLockOnTargetPosition = currentLockOnTarget.characterTransform.position;
                 Vector3 dir = currentLockOnTargetPosition - transform.position;
                 dir.Normalize();
                 dir.y = 0;
@@ -211,7 +223,7 @@ namespace SzymonPeszek.PlayerScripts.CameraManager
         public void HandleLockOn()
         {
             float shortestDistance = Mathf.Infinity;
-            float shortestDistanceOfLeftTarget = Mathf.Infinity;
+            float shortestDistanceOfLeftTarget = -Mathf.Infinity;
             float shortestDistanceOfRightTarget = Mathf.Infinity;
             int collidersLenght = Physics.OverlapSphereNonAlloc(targetTransform.position, maximumLockOnDistance, colliders, _lockOnLayer);
 
@@ -263,39 +275,33 @@ namespace SzymonPeszek.PlayerScripts.CameraManager
 
             for (int i = 0; i < _availableTargets.Count; i++)
             {
-                CharacterManager availableTarget = _availableTargets[i];
-                float distanceFromTarget = Vector3.Distance(targetTransform.position, availableTarget.transform.position);
+                float distanceFromTarget = Vector3.Distance(targetTransform.position, _availableTargets[i].transform.position);
 
                 if (distanceFromTarget < shortestDistance)
                 {
                     shortestDistance = distanceFromTarget;
-                    nearestLockOnTarget = availableTarget.lockOnTransform;
+                    nearestLockOnTarget = _availableTargets[i];
                 }
 
-                if (!inputHandler.lockOnFlag)
+                if (inputHandler.lockOnFlag)
                 {
-                    continue;
+                    Vector3 relativeEnemyPosition =
+                        playerManager.characterTransform.InverseTransformPoint(_availableTargets[i].characterTransform.position);
+                    float xDistanceFromTarget = relativeEnemyPosition.x;
+
+                    if (relativeEnemyPosition.x <= 0.00 && xDistanceFromTarget > shortestDistanceOfLeftTarget 
+                                                        && currentLockOnTarget != _availableTargets[i])
+                    {
+                        shortestDistanceOfLeftTarget = xDistanceFromTarget;
+                        leftLockTarget = _availableTargets[i];
+                    }
+                    else if (relativeEnemyPosition.x >= 0.00 && xDistanceFromTarget < shortestDistanceOfRightTarget 
+                                                             && currentLockOnTarget != _availableTargets[i])
+                    {
+                        shortestDistanceOfRightTarget = xDistanceFromTarget;
+                        rightLockTarget = _availableTargets[i];
+                    }
                 }
-
-                Vector3 availableTargetPosition = availableTarget.characterTransform.position;
-                Vector3 relativeEnemyPosition = currentLockOnTarget.InverseTransformPoint(availableTargetPosition);
-                Vector3 currentLockOnTargetPosition = currentLockOnTarget.position;
-                float distanceFromLeftTarget = currentLockOnTargetPosition.x - availableTargetPosition.x;
-                float distanceFromRightTarget = currentLockOnTargetPosition.x + availableTargetPosition.x;
-
-                if (relativeEnemyPosition.x > 0.00 && distanceFromLeftTarget < shortestDistanceOfLeftTarget)
-                {
-                    shortestDistanceOfLeftTarget = distanceFromLeftTarget;
-                    leftLockTarget = availableTarget.lockOnTransform;
-                }
-
-                if (!(relativeEnemyPosition.x < 0.00) || !(distanceFromRightTarget < shortestDistanceOfRightTarget))
-                {
-                    continue;
-                }
-
-                shortestDistanceOfRightTarget = distanceFromRightTarget;
-                rightLockTarget = availableTarget.lockOnTransform;
             }
 
             if (_collidersPrevSize != _collidersSize)
@@ -331,6 +337,32 @@ namespace SzymonPeszek.PlayerScripts.CameraManager
                     Time.deltaTime * 10f)
                 : Vector3.SmoothDamp(cameraPivotTransform.transform.localPosition, newUnlockedPosition, ref velocity,
                     Time.deltaTime * 10f);
+        }
+
+        public void ZoomInDuringAiming(float delta)
+        {
+            if (mainCamera.fieldOfView > MinFov)
+            {
+                mainCamera.fieldOfView -= zoomFactor * delta;
+                
+                if (mainCamera.fieldOfView <= MinFov)
+                {
+                    mainCamera.fieldOfView = MinFov;
+                }
+            }
+        }
+        
+        public void ZoomOutDuringAiming(float delta)
+        {
+            if (mainCamera.fieldOfView < _startingFOV)
+            {
+                mainCamera.fieldOfView += zoomFactor * delta;
+                
+                if (mainCamera.fieldOfView >= _startingFOV)
+                {
+                    mainCamera.fieldOfView = _startingFOV;
+                }
+            }
         }
 
         private IEnumerator TransitionBetweenLockOn()

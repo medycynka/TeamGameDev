@@ -20,10 +20,11 @@ namespace SzymonPeszek.BaseClasses
         /// </summary>
         /// <param name="targetAnim">Animation's name</param>
         /// <param name="isInteracting">isInteracting bool parameter in animator</param>
-        public void PlayTargetAnimation(string targetAnim, bool isInteracting)
+        /// <param name="enableRotation">canRotate bool parameter in animator</param>
+        public void PlayTargetAnimation(string targetAnim, bool isInteracting, bool enableRotation = false)
         {
             //anim.applyRootMotion = isInteracting;
-            anim.SetBool(isEnemy ? StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.CanRotateName] : StaticAnimatorIds.animationIds[StaticAnimatorIds.CanRotateName], false);
+            anim.SetBool(isEnemy ? StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.CanRotateName] : StaticAnimatorIds.animationIds[StaticAnimatorIds.CanRotateName], enableRotation);
             anim.SetBool(isEnemy ? StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.IsInteractingName] : StaticAnimatorIds.animationIds[StaticAnimatorIds.IsInteractingName], isInteracting);
             anim.CrossFade(isEnemy ? StaticAnimatorIds.enemyAnimationIds[targetAnim] : StaticAnimatorIds.animationIds[targetAnim], 0.2f);
         }
@@ -33,10 +34,11 @@ namespace SzymonPeszek.BaseClasses
         /// </summary>
         /// <param name="targetAnim">Animation's hash code</param>
         /// <param name="isInteracting"></param>
-        public void PlayTargetAnimation(int targetAnim, bool isInteracting)
+        /// <param name="enableRotation">canRotate bool parameter in animator</param>
+        public void PlayTargetAnimation(int targetAnim, bool isInteracting, bool enableRotation = false)
         {
             //anim.applyRootMotion = isInteracting;
-            anim.SetBool(isEnemy ? StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.CanRotateName] : StaticAnimatorIds.animationIds[StaticAnimatorIds.CanRotateName], false);
+            anim.SetBool(isEnemy ? StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.CanRotateName] : StaticAnimatorIds.animationIds[StaticAnimatorIds.CanRotateName], enableRotation);
             anim.SetBool(isEnemy ? StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.IsInteractingName] : StaticAnimatorIds.animationIds[StaticAnimatorIds.IsInteractingName], isInteracting);
             anim.CrossFade(targetAnim, 0.2f);
         }

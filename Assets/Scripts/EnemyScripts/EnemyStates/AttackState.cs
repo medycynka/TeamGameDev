@@ -21,7 +21,7 @@ namespace SzymonPeszek.EnemyScripts.States
         public EnemyAttackAction[] enemyAttacks;
         public EnemyAttackAction currentAttack;
 
-        private bool _isComboing;
+        private bool _willDoComboOnNextAttack;
 
         /// <summary>
         /// Use state behaviour
@@ -43,23 +43,26 @@ namespace SzymonPeszek.EnemyScripts.States
                 {
                     return this;
                 }
+                
                 if (enemyManager.isInteracting && enemyManager.canDoCombo)
                 {
-                    if (_isComboing)
+                    if (_willDoComboOnNextAttack)
                     {
                         enemyAnimationManager.PlayTargetAnimation(StaticAnimatorIds.enemyAnimationIds[currentAttack.actionAnimation], true);
-                        _isComboing = false;
+                        _willDoComboOnNextAttack = false;
                     }
                 }
+                
+                Vector3 targetDirection = enemyManager.currentTarget.transform.position - enemyManager.characterTransform.position;
+                float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.characterTransform.position);
+                float viewableAngle = Vector3.Angle(targetDirection, transform.forward);
+                
+                HandleRotateTowardsTarget(enemyManager);
                 
                 if (enemyManager.isPreformingAction)
                 {
                     return combatStanceState;
                 }
-
-                Vector3 targetDirection = enemyManager.currentTarget.transform.position - enemyManager.enemyTransform.position;
-                float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.enemyTransform.position);
-                float viewableAngle = Vector3.Angle(targetDirection, transform.forward);
 
                 if (currentAttack != null)
                 {
@@ -78,8 +81,10 @@ namespace SzymonPeszek.EnemyScripts.States
                                 enemyAnimationManager.anim.SetFloat(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.HorizontalName], 0, 0.1f, Time.deltaTime);
                                 enemyAnimationManager.PlayTargetAnimation(StaticAnimatorIds.enemyAnimationIds[currentAttack.actionAnimation], true);
                                 enemyManager.isPreformingAction = true;
+                                
+                                RollForComboChance(enemyManager);
 
-                                if (currentAttack.canCombo)
+                                if (currentAttack.canCombo && _willDoComboOnNextAttack)
                                 {
                                     currentAttack = currentAttack.comboAction;
                                     
@@ -111,9 +116,9 @@ namespace SzymonPeszek.EnemyScripts.States
         /// <param name="enemyManager">Enemy manager</param>
         private void GetNewAttack(EnemyManager enemyManager)
         {
-            Vector3 targetsDirection = enemyManager.currentTarget.transform.position - enemyManager.enemyTransform.position;
-            float viewableAngle = Vector3.Angle(targetsDirection, enemyManager.enemyTransform.forward);
-            float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.enemyTransform.position);
+            Vector3 targetsDirection = enemyManager.currentTarget.transform.position - enemyManager.characterTransform.position;
+            float viewableAngle = Vector3.Angle(targetsDirection, enemyManager.characterTransform.forward);
+            float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.characterTransform.position);
             int maxScore = 0;
 
             for (int i = 0; i < enemyAttacks.Length; i++)
@@ -153,6 +158,49 @@ namespace SzymonPeszek.EnemyScripts.States
                         }
                     }
                 }
+            }
+        }
+        
+        /// <summary>
+        /// Handle rotation
+        /// </summary>
+        /// <param name="enemyManager">Enemy manager</param>
+        private void HandleRotateTowardsTarget(EnemyManager enemyManager)
+        {
+            if (enemyManager.isPreformingAction)
+            {
+                Vector3 direction = enemyManager.currentTarget.transform.position - enemyManager.characterTransform.position;
+                direction.y = 0;
+                direction.Normalize();
+
+                if (direction == Vector3.zero)
+                {
+                    direction = enemyManager.characterTransform.forward;
+                }
+
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                enemyManager.transform.rotation = Quaternion.Slerp(enemyManager.characterTransform.rotation, targetRotation,
+                    enemyManager.rotationSpeed / Time.deltaTime);
+            }
+            else
+            {
+                Vector3 targetVelocity = enemyManager.enemyRigidBody.velocity;
+
+                enemyManager.navmeshAgent.enabled = true;
+                enemyManager.navmeshAgent.SetDestination(enemyManager.currentTarget.transform.position);
+                enemyManager.enemyRigidBody.velocity = targetVelocity;
+                enemyManager.transform.rotation = Quaternion.Slerp(enemyManager.characterTransform.rotation,
+                    enemyManager.navmeshAgent.transform.rotation, enemyManager.rotationSpeed / Time.deltaTime);
+            }
+        }
+
+        private void RollForComboChance(EnemyManager enemyManager)
+        {
+            float comboChance = Random.Range(0, 100);
+
+            if (enemyManager.allowAIToPerformCombos && comboChance <= enemyManager.comboLikelyHood)
+            {
+                _willDoComboOnNextAttack = true;
             }
         }
     }
