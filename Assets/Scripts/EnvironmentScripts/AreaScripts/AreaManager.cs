@@ -52,7 +52,7 @@ namespace SzymonPeszek.Environment.Areas
                     }
 
                     playerSoundManager.ChangeBackGroundMusic(areaBgMusic);
-                    // playerSoundManager.ChangeFootstepsSound(footSteps, this);
+                    playerSoundManager.ChangeFootstepsSound(footSteps, this);
 
                     StartCoroutine(ShowAreaName());
                 }
@@ -78,7 +78,7 @@ namespace SzymonPeszek.Environment.Areas
                 isInside = false;
                 _insideReset = true;
                 playerSoundManager.ChangeBackGroundMusic(null);
-                playerSoundManager.currentMovingClips = _footStepsOnExit;
+                playerSoundManager.movingClips = _footStepsOnExit;
             }
         }
 

@@ -18,10 +18,10 @@ namespace SzymonPeszek.BaseClasses
         public float radius = 0.6f;
         public string interactableText = "Pick up";
 
-        public PlayerInventory playerInventory;
-        public PlayerLocomotion playerLocomotion;
-        public PlayerAnimatorManager playerAnimatorManager;
-        public UIManager uIManager;
+        [HideInInspector] public PlayerInventory playerInventory;
+        [HideInInspector] public PlayerLocomotion playerLocomotion;
+        [HideInInspector] public PlayerAnimatorManager playerAnimatorManager;
+        [HideInInspector] public UIManager uIManager;
 
         private void OnDrawGizmosSelected()
         {
@@ -44,22 +44,10 @@ namespace SzymonPeszek.BaseClasses
         /// <param name="playerManager">Player manager</param>
         protected virtual void PickUpItem(PlayerManager playerManager)
         {
-            if (!playerInventory)
-            {
-                playerInventory = playerManager.GetComponent<PlayerInventory>();
-            }
-            if (!playerLocomotion)
-            {
-                playerLocomotion = playerManager.GetComponent<PlayerLocomotion>();
-            }
-            if (!playerAnimatorManager)
-            {
-                playerAnimatorManager = playerManager.GetComponentInChildren<PlayerAnimatorManager>();
-            }
-            if (!uIManager)
-            {
-                uIManager = playerManager.GetComponent<InputHandler>().uiManager;
-            }
+            playerInventory = playerManager.GetComponent<PlayerInventory>();
+            playerLocomotion = playerManager.GetComponent<PlayerLocomotion>();
+            playerAnimatorManager = playerManager.GetComponentInChildren<PlayerAnimatorManager>();
+            uIManager = playerManager.GetComponent<InputHandler>().uiManager;
 
             playerLocomotion.rigidbody.velocity = Vector3.zero; //Stops the player from moving whilst picking up item
             playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.PickUpName], true); //Plays the animation of looting the item

@@ -27,7 +27,7 @@ namespace SzymonPeszek.BaseClasses
 
         [Header("Area Sounds", order = 1)]
         public AudioClip areaBgMusic;
-        //public AudioClip[] footSteps;
+        public AudioClip[] footSteps;
 
         [Header("Bools", order = 1)]
         public bool isInside;

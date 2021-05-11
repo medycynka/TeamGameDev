@@ -5,7 +5,7 @@ using SzymonPeszek.Misc;
 namespace SzymonPeszek.BaseClasses
 {
     /// <summary>
-    /// Base class for character (player, npc or enemy) manager
+    /// Base class for character (player or enemy) manager
     /// </summary>
     public class CharacterManager : MonoBehaviour
     {
@@ -21,7 +21,6 @@ namespace SzymonPeszek.BaseClasses
         public bool canBeRiposted;
         public bool canBeParried;
         public bool isParrying;
-        public bool isBlocking;
 
         [Header("Combat Colliders", order = 1)]
         public Transform characterTransform;

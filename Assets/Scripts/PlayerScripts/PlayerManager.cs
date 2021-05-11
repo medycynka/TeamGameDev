@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using SzymonPeszek.BaseClasses;
-using SzymonPeszek.Enums;
 using SzymonPeszek.PlayerScripts.Controller;
 using SzymonPeszek.PlayerScripts.Animations;
 using SzymonPeszek.PlayerScripts.CameraManager;
@@ -11,12 +7,6 @@ using SzymonPeszek.GameUI;
 using SzymonPeszek.Misc;
 using SzymonPeszek.Items.Bonfire;
 using SzymonPeszek.Environment.Areas;
-using SzymonPeszek.Items.Consumable;
-using SzymonPeszek.Items.Equipment;
-using SzymonPeszek.Items.Weapons;
-using SzymonPeszek.Npc;
-using SzymonPeszek.PlayerScripts.Inventory;
-using SzymonPeszek.Quests;
 
 
 namespace SzymonPeszek.PlayerScripts
@@ -28,15 +18,12 @@ namespace SzymonPeszek.PlayerScripts
     {
         private InputHandler _inputHandler;
         private PlayerAnimatorManager _playerAnimatorManager;
-        private PlayerLocomotion _playerLocomotion;
-        private PlayerStats _playerStats;
-        private Animator _animator;
-        private QuestManager _questManager;
-        private PlayerInventory _playerInventory;
-        
         [Header("Player Components", order = 1)]
         [Header("Camera Component", order = 2)]
         public CameraHandler cameraHandler;
+        private PlayerLocomotion _playerLocomotion;
+        private PlayerStats _playerStats;
+        private Animator _animator;
         
         [Header("UI", order = 2)]
         public InteractableUI interactableUI;
@@ -49,13 +36,13 @@ namespace SzymonPeszek.PlayerScripts
         public bool isInteracting;
 
         [Header("Helper bools", order = 2)]
-        public bool shouldRefillHealth;
-        public bool shouldRefillStamina;
-        public bool shouldRefillFocus;
-        public bool shouldRefillHealthBg;
-        public bool isRestingAtBonfire;
-        public bool isRemovingFog;
-        public bool isJumping;
+        public bool shouldRefillHealth = false;
+        public bool shouldRefillStamina = false;
+        public bool shouldRefillFocus = false;
+        public bool shouldRefillHealthBg = false;
+        public bool shouldAddJumpForce = false;
+        public bool isRestingAtBonfire = false;
+        public bool isRemovingFog = false;
 
         [Header("Player Flags", order = 2)]
         public bool isSprinting;
@@ -65,7 +52,6 @@ namespace SzymonPeszek.PlayerScripts
         public bool isUsingRightHand;
         public bool isUsingLeftHand;
         public bool isInvulnerable;
-        public bool dialogueFlag;
 
         [Header("Respawn Places", order = 2)]
         public GameObject quickMoveScreen;
@@ -74,12 +60,12 @@ namespace SzymonPeszek.PlayerScripts
         private float _healthBgRefillTimer = 0.0f;
         private float _staminaRefillTimer = 0.0f;
         private float _focusRefillTimer = 0.0f;
+        private float _addJumpForceTimer = 1.25f;
 
         private const string BonfireTag = "Bonfire";
         private const string InteractableTag = "Interactable";
         private const string FogWallTag = "Fog Wall";
         private const string ChestTag = "Chest";
-        private const string NpcTag = "NPC";
         private LayerMask _pickUpLayer;
         private Collider[] _interactColliders;
 
@@ -94,8 +80,6 @@ namespace SzymonPeszek.PlayerScripts
             _playerLocomotion = GetComponent<PlayerLocomotion>();
             _playerStats = GetComponent<PlayerStats>();
             _animator = GetComponentInChildren<Animator>();
-            _questManager = GetComponent<QuestManager>();
-            _playerInventory = GetComponent<PlayerInventory>();
             _pickUpLayer = 1 << LayerMask.NameToLayer("Pick Up");
             interactableUI = FindObjectOfType<InteractableUI>();
             _interactColliders = new Collider[8];
@@ -110,7 +94,6 @@ namespace SzymonPeszek.PlayerScripts
             isUsingRightHand = _animator.GetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsUsingRightHandName]);
             isUsingLeftHand = _animator.GetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsUsingLeftHandName]);
             isInvulnerable = _animator.GetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsInvulnerableName]);
-            isBlocking = _animator.GetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsBlockingName]);
             _animator.SetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsInAirName], isInAir);
             _playerAnimatorManager.canRotate = _animator.GetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.CanRotateName]);
 
@@ -131,12 +114,23 @@ namespace SzymonPeszek.PlayerScripts
 
             _playerLocomotion.HandleMovement(delta);
             _playerLocomotion.HandleRotation(delta);
-            _playerLocomotion.HandleFalling(delta);
+            _playerLocomotion.HandleFalling(_playerLocomotion.moveDirection);
         }
 
         private void LateUpdate()
         {
-            ResetInputs();
+            _inputHandler.rollFlag = false;
+            _inputHandler.rbInput = false;
+            _inputHandler.rtInput = false;
+            _inputHandler.ltInput = false;
+            _inputHandler.dPadUp = false;
+            _inputHandler.dPadDown = false;
+            _inputHandler.dPadLeft = false;
+            _inputHandler.dPadRight = false;
+            _inputHandler.aInput = false;
+            _inputHandler.jumpInput = false;
+            _inputHandler.inventoryInput = false;
+            _inputHandler.estusQuickSlotUse = false;
 
             float delta = Time.fixedDeltaTime;
 
@@ -156,24 +150,8 @@ namespace SzymonPeszek.PlayerScripts
 
             if (isInAir)
             {
-                _playerLocomotion.inAirTimer += delta;
+                _playerLocomotion.inAirTimer = _playerLocomotion.inAirTimer + Time.deltaTime;
             }
-        }
-
-        private void ResetInputs()
-        {
-            _inputHandler.rollFlag = false;
-            _inputHandler.rbInput = false;
-            _inputHandler.rtInput = false;
-            _inputHandler.ltInput = false;
-            _inputHandler.dPadUp = false;
-            _inputHandler.dPadDown = false;
-            _inputHandler.dPadLeft = false;
-            _inputHandler.dPadRight = false;
-            _inputHandler.aInput = false;
-            _inputHandler.jumpInput = false;
-            _inputHandler.inventoryInput = false;
-            _inputHandler.estusQuickSlotUse = false;
         }
 
         #region Checking Funkctions
@@ -196,11 +174,6 @@ namespace SzymonPeszek.PlayerScripts
         /// </summary>
         private void CheckForInteractableObject()
         {
-            if (dialogueFlag)
-            {
-                return;
-            }
-            
             int collidersLength = Physics.OverlapSphereNonAlloc(transform.position, 1f, _interactColliders, _pickUpLayer);
             
             if (collidersLength > 0)
@@ -276,21 +249,6 @@ namespace SzymonPeszek.PlayerScripts
                                 {
                                     interactableObject.Interact(this);
                                 }
-                            }
-                        }
-                    }
-                    else if (_interactColliders[i].CompareTag(NpcTag))
-                    {
-                        NpcInteractionManager interactableObject = _interactColliders[i].GetComponent<NpcInteractionManager>();
-
-                        if (interactableObject != null)
-                        {
-                            interactableUI.interactableText.text = interactableObject.interactableText;
-                            interactableUIGameObject.SetActive(true);
-
-                            if (_inputHandler.aInput)
-                            {
-                                interactableObject.Interact(this);
                             }
                         }
                     }
@@ -428,109 +386,6 @@ namespace SzymonPeszek.PlayerScripts
             _playerLocomotion.rigidbody.velocity = Vector3.zero; //Stops the player from ice skating
             transform.position = playerStandsHereWhenOpeningChest.transform.position;
             _playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.ChestOpeningName], true);            
-        }
-
-        public void AcceptNewQuest(Quest quest)
-        {
-            _questManager.AddNewQuest(quest);
-            _playerStats.isHavingQuest = true;
-        }
-
-        public bool CompleteQuest(Quest quest)
-        {
-            bool isCompleted = false;
-            
-            if (quest.isEnemyQuest)
-            {
-                isCompleted = _playerStats.IsKillCountFulfilled(quest.enemyToKillName, quest.enemyToKillCount);
-            }
-            else if (quest.isItemQuest)
-            {
-                isCompleted = _playerInventory.HasNeededItems(quest.taskItem, quest.taskItemAmount);
-            }
-
-            if (isCompleted)
-            {
-                _questManager.CompleteQuest(quest);
-                // claim rewards
-                _playerStats.isHavingQuest = false;
-                _playerStats.soulsAmount += quest.moneyReward;
-                _inputHandler.uiManager.UpdateSouls();
-
-                if (quest.isItemQuest)
-                {
-                    for (int i = 0; i < quest.taskItemAmount; i++)
-                    {
-                        _playerInventory.consumablesInventory.Remove(quest.taskItem);
-                    }
-                }
-
-                if (quest.rewardItems.Length > 0)
-                {
-                    for (int i = 0; i < quest.rewardItems.Length; i++)
-                    {
-                        switch (quest.rewardItems[i].itemType)
-                        {
-                            case ItemType.Weapon:
-                                _playerInventory.weaponsInventory.Add((WeaponItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.Shield:
-                                _playerInventory.shieldsInventory.Add((WeaponItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.Helmet:
-                                _playerInventory.helmetsInventory.Add((EquipmentItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.ChestArmor:
-                                _playerInventory.chestsInventory.Add((EquipmentItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.ShoulderArmor:
-                                _playerInventory.shouldersInventory.Add((EquipmentItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.HandArmor:
-                                _playerInventory.handsInventory.Add((EquipmentItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.LegArmor:
-                                _playerInventory.legsInventory.Add((EquipmentItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.FootArmor:
-                                _playerInventory.feetInventory.Add((EquipmentItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.Ring:
-                                _playerInventory.ringsInventory.Add((EquipmentItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.Consumable:
-                                _playerInventory.consumablesInventory.Add((ConsumableItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.Spell:
-                                break;
-                            case ItemType.QuestItem:
-                                _playerInventory.consumablesInventory.Add((ConsumableItem)quest.rewardItems[i]);
-                                break;
-                            default:
-                                throw new ArgumentOutOfRangeException();
-                        }
-                    }
-                }
-                
-                foreach (var key in _playerStats.killCount.Keys.ToList())
-                {
-                    _playerStats.killCount[key] = 0;
-                }
-            }
-
-            return isCompleted;
-        }
-
-        public void DisableDialogueFlag()
-        {
-            StartCoroutine(EnablePlayerManager());
-        }
-        
-        private IEnumerator EnablePlayerManager()
-        {
-            yield return CoroutineYielder.waitFor025Second;
-            
-            dialogueFlag = false;
         }
     }
 }

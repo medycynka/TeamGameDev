@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using SzymonPeszek.BaseClasses;
-using SzymonPeszek.Enums;
 using SzymonPeszek.Misc;
 
 
@@ -58,8 +57,7 @@ namespace SzymonPeszek.EnemyScripts.Animations
                     {StaticAnimatorIds.RiposteName, Animator.StringToHash(StaticAnimatorIds.RiposteName)},
                     {StaticAnimatorIds.RipostedName, Animator.StringToHash(StaticAnimatorIds.RipostedName)},
                     {StaticAnimatorIds.ParryName, Animator.StringToHash(StaticAnimatorIds.ParryName)},
-                    {StaticAnimatorIds.ParriedName, Animator.StringToHash(StaticAnimatorIds.ParriedName)}, 
-                    {StaticAnimatorIds.BlockDamageName, Animator.StringToHash(StaticAnimatorIds.BlockDamageName)}
+                    {StaticAnimatorIds.ParriedName, Animator.StringToHash(StaticAnimatorIds.ParriedName)}
                 };
             }
 
@@ -86,8 +84,7 @@ namespace SzymonPeszek.EnemyScripts.Animations
         
         public override void TakeCriticalDamageAnimationEvent()
         {
-            _enemyStats.TakeDamage(_enemyManager.pendingCriticalDamage, _enemyStats.playerStats, 
-                DamageType.AbsolutePhysic, "Damage_01", false, true);
+            _enemyStats.TakeDamage(_enemyManager.pendingCriticalDamage, false, true);
             _enemyManager.pendingCriticalDamage = 0.0f;
         }
         

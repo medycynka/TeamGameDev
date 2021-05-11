@@ -10,7 +10,6 @@ namespace SzymonPeszek.Enums
     {
         Melee,
         Casting,
-        Shooting,
-        None
+        Shooting
     }
 }

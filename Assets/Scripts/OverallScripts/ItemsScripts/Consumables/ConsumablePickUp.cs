@@ -22,14 +22,7 @@ namespace SzymonPeszek.Items.Consumable
         /// <param name="playerManager">Player manager</param>
         public override void Interact(PlayerManager playerManager)
         {
-            if (consumableItems.Length > 0)
-            {
-                PickUpItem(playerManager);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            PickUpItem(playerManager);
         }
 
         /// <summary>
@@ -40,30 +33,31 @@ namespace SzymonPeszek.Items.Consumable
         {
             base.PickUpItem(playerManager);
 
-            if (consumableItems[0].isDeathDrop)
+            if(consumableItems.Length > 0)
             {
-                playerManager.GetComponent<PlayerStats>().soulsAmount += consumableItems[0].soulAmount;
-                uIManager.UpdateSouls();
-            }
-            else
-            {
-                foreach (var consumableItem in consumableItems)
+                if (consumableItems[0].isDeathDrop)
                 {
-                    if (consumableItem != null)
+                    playerManager.GetComponent<PlayerStats>().soulsAmount += consumableItems[0].soulAmount;
+                    uIManager.UpdateSouls();
+                }
+                else
+                {
+                    foreach (var consumableItem in consumableItems)
                     {
-                        playerInventory.consumablesInventory.Add(consumableItem);
+                        if (consumableItem != null)
+                        {
+                            playerInventory.consumablesInventory.Add(consumableItem);
+                        }
                     }
+
+                    uIManager.GetConsumableInventorySlot();
+                    uIManager.UpdateConsumableInventory();
+                    uIManager.UpdateEstusAmount();
                 }
 
-                uIManager.GetConsumableInventorySlot();
-                uIManager.UpdateConsumableInventory();
-                uIManager.UpdateEstusAmount();
+                playerManager.itemInteractableGameObject.GetComponentInChildren<TextMeshProUGUI>().text = consumableItems[0].itemName;
+                playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture = consumableItems[0].itemIcon.texture;
             }
-
-            playerManager.itemInteractableGameObject.GetComponentInChildren<TextMeshProUGUI>().text =
-                consumableItems[0].itemName;
-            playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture =
-                consumableItems[0].itemIcon.texture;
 
             playerManager.itemInteractableGameObject.SetActive(true);
             Destroy(gameObject);

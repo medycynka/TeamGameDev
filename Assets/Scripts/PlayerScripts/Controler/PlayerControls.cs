@@ -69,7 +69,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -80,7 +80,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -91,7 +91,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -102,10 +102,21 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f9b909ef-64ab-4399-96c8-18182569bc4f"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone"",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -113,7 +124,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": ""NormalizeVector2"",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Camera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -124,7 +135,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Lock On Target Left"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -135,7 +146,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Lock On Target Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -241,22 +252,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""Block"",
-                    ""type"": ""Button"",
-                    ""id"": ""3fc48cb1-f1ee-471a-8b0b-b57201c231f2"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""BowAction"",
-                    ""type"": ""Button"",
-                    ""id"": ""42dc7aaa-1cb4-4d54-8b62-218264f3a0f6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -266,7 +261,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Roll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -277,7 +272,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": ""Tap"",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""RB"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -286,9 +281,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""65e157d2-bf0a-4015-8766-7da9f8a11d49"",
                     ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": ""Tap"",
+                    ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""RT"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -299,7 +294,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": ""Tap"",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""E"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -310,7 +305,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -321,7 +316,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -332,7 +327,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""LockOn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -343,7 +338,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/y"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Y"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -354,7 +349,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/leftCtrl"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Walk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -365,7 +360,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/g"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""EstusQuickSlotUse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -376,7 +371,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": ""Hold(duration=0.2)"",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Critical Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -385,32 +380,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""d4ba156b-0988-4e65-ba08-d63f499aa0c4"",
                     ""path"": ""<Keyboard>/z"",
-                    ""interactions"": ""Tap"",
+                    ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""LT"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3eab68fd-6053-4b14-b302-807ebef30d02"",
-                    ""path"": ""<Keyboard>/z"",
-                    ""interactions"": ""Hold(duration=0.2)"",
-                    ""processors"": """",
-                    ""groups"": ""PC"",
-                    ""action"": ""Block"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c1e23566-5d47-4e43-b5ac-f45df975964b"",
-                    ""path"": ""<Mouse>/middleButton"",
-                    ""interactions"": ""Hold(duration=0.2)"",
-                    ""processors"": """",
-                    ""groups"": ""PC"",
-                    ""action"": ""BowAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -460,7 +433,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""D Pad Up"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -471,7 +444,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""D Pad Down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -482,7 +455,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""D Pad Left"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -493,7 +466,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""D Pad Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -501,24 +474,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ]
         }
     ],
-    ""controlSchemes"": [
-        {
-            ""name"": ""PC"",
-            ""bindingGroup"": ""PC"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Keyboard>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                },
-                {
-                    ""devicePath"": ""<Mouse>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
-        }
-    ]
+    ""controlSchemes"": []
 }");
         // Player Movement
         m_PlayerMovement = asset.FindActionMap("Player Movement", throwIfNotFound: true);
@@ -540,8 +496,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerActions_Walk = m_PlayerActions.FindAction("Walk", throwIfNotFound: true);
         m_PlayerActions_EstusQuickSlotUse = m_PlayerActions.FindAction("EstusQuickSlotUse", throwIfNotFound: true);
         m_PlayerActions_LT = m_PlayerActions.FindAction("LT", throwIfNotFound: true);
-        m_PlayerActions_Block = m_PlayerActions.FindAction("Block", throwIfNotFound: true);
-        m_PlayerActions_BowAction = m_PlayerActions.FindAction("BowAction", throwIfNotFound: true);
         // Player Quick Slots
         m_PlayerQuickSlots = asset.FindActionMap("Player Quick Slots", throwIfNotFound: true);
         m_PlayerQuickSlots_DPadUp = m_PlayerQuickSlots.FindAction("D Pad Up", throwIfNotFound: true);
@@ -666,8 +620,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerActions_Walk;
     private readonly InputAction m_PlayerActions_EstusQuickSlotUse;
     private readonly InputAction m_PlayerActions_LT;
-    private readonly InputAction m_PlayerActions_Block;
-    private readonly InputAction m_PlayerActions_BowAction;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -684,8 +636,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Walk => m_Wrapper.m_PlayerActions_Walk;
         public InputAction @EstusQuickSlotUse => m_Wrapper.m_PlayerActions_EstusQuickSlotUse;
         public InputAction @LT => m_Wrapper.m_PlayerActions_LT;
-        public InputAction @Block => m_Wrapper.m_PlayerActions_Block;
-        public InputAction @BowAction => m_Wrapper.m_PlayerActions_BowAction;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -731,12 +681,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @LT.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLT;
                 @LT.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLT;
                 @LT.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLT;
-                @Block.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnBlock;
-                @Block.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnBlock;
-                @Block.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnBlock;
-                @BowAction.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnBowAction;
-                @BowAction.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnBowAction;
-                @BowAction.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnBowAction;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -777,12 +721,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @LT.started += instance.OnLT;
                 @LT.performed += instance.OnLT;
                 @LT.canceled += instance.OnLT;
-                @Block.started += instance.OnBlock;
-                @Block.performed += instance.OnBlock;
-                @Block.canceled += instance.OnBlock;
-                @BowAction.started += instance.OnBowAction;
-                @BowAction.performed += instance.OnBowAction;
-                @BowAction.canceled += instance.OnBowAction;
             }
         }
     }
@@ -844,15 +782,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public PlayerQuickSlotsActions @PlayerQuickSlots => new PlayerQuickSlotsActions(this);
-    private int m_PCSchemeIndex = -1;
-    public InputControlScheme PCScheme
-    {
-        get
-        {
-            if (m_PCSchemeIndex == -1) m_PCSchemeIndex = asset.FindControlSchemeIndex("PC");
-            return asset.controlSchemes[m_PCSchemeIndex];
-        }
-    }
     public interface IPlayerMovementActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -874,8 +803,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnWalk(InputAction.CallbackContext context);
         void OnEstusQuickSlotUse(InputAction.CallbackContext context);
         void OnLT(InputAction.CallbackContext context);
-        void OnBlock(InputAction.CallbackContext context);
-        void OnBowAction(InputAction.CallbackContext context);
     }
     public interface IPlayerQuickSlotsActions
     {

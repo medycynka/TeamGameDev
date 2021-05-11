@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Security.Cryptography;
 using SzymonPeszek.EnemyScripts;
-using SzymonPeszek.Enums;
-using SzymonPeszek.PlayerScripts;
 using UnityEngine;
 
 
@@ -18,19 +16,17 @@ namespace SzymonPeszek.Items.Spells.Helpers
         [HideInInspector] public float damage;
         [HideInInspector] public Vector3 startPosition;
         [HideInInspector] public Transform projectileTransform;
-        [HideInInspector] public float maxTravelDistanceSqr = 10000f;
-        [HideInInspector] public PlayerStats playerStats;
 
         private Vector3 _currentDistanceVector;
         private bool _hasCollided;
         private const string EnemyTag = "Enemy";
         private const string DestructibleTag = "Destructible";
 
-        private void FixedUpdate()
+        private void Update()
         {
             _currentDistanceVector = startPosition - projectileTransform.position;
             
-            if (_currentDistanceVector.sqrMagnitude >= maxTravelDistanceSqr)
+            if (_currentDistanceVector.sqrMagnitude >= 10000f)
             {
                 Destroy(gameObject);
             }
@@ -50,7 +46,7 @@ namespace SzymonPeszek.Items.Spells.Helpers
 
                 if (other.CompareTag(EnemyTag))
                 {
-                    other.GetComponent<EnemyStats>().TakeDamage(damage, playerStats, DamageType.Magic);
+                    other.GetComponent<EnemyStats>().TakeDamage(damage, false, false);
                 }
                 else if (other.CompareTag(DestructibleTag))
                 {

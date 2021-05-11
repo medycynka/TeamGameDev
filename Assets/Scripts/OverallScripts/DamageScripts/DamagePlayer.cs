@@ -1,5 +1,4 @@
-﻿using SzymonPeszek.Enums;
-using UnityEngine;
+﻿using UnityEngine;
 using SzymonPeszek.PlayerScripts;
 
 
@@ -19,7 +18,7 @@ namespace SzymonPeszek.Damage
 
             if (playerStats != null)
             {
-                playerStats.TakeDamage(damage, DamageType.Physic);
+                playerStats.TakeDamage(damage);
             }
         }
     }

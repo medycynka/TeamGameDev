@@ -23,14 +23,7 @@ namespace SzymonPeszek.Items.Weapons
         /// <param name="playerManager">Player manager</param>
         public override void Interact(PlayerManager playerManager)
         {
-            if (weapons.Length > 0)
-            {
-                PickUpItem(playerManager);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            PickUpItem(playerManager);
         }
 
         /// <summary>
@@ -41,28 +34,31 @@ namespace SzymonPeszek.Items.Weapons
         {
             base.PickUpItem(playerManager);
 
-            for (var i = 0; i < weapons.Length; i++)
+            if (weapons.Length > 0)
             {
-                if (weapons[i] != null)
+                foreach (var weapon in weapons)
                 {
-                    if (weapons[i].itemType == ItemType.Weapon)
+                    if (weapon != null)
                     {
-                        playerInventory.weaponsInventory.Add(weapons[i]);
-                        uIManager.GetWeaponInventorySlot();
-                        uIManager.UpdateWeaponInventory();
-                    }
-                    else if (weapons[i].itemType == ItemType.Shield)
-                    {
-                        playerInventory.shieldsInventory.Add(weapons[i]);
-                        uIManager.GetShieldInventorySlot();
-                        uIManager.UpdateShieldInventory();
+                        if (weapon.itemType == ItemType.Weapon)
+                        {
+                            playerInventory.weaponsInventory.Add(weapon);
+                            uIManager.GetWeaponInventorySlot();
+                            uIManager.UpdateWeaponInventory();
+                        }
+                        else if (weapon.itemType == ItemType.Shield)
+                        {
+                            playerInventory.shieldsInventory.Add(weapon);
+                            uIManager.GetShieldInventorySlot();
+                            uIManager.UpdateShieldInventory();
+                        }
                     }
                 }
+
+                playerManager.itemInteractableGameObject.GetComponentInChildren<TextMeshProUGUI>().text = weapons[0].itemName;
+                playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture = weapons[0].itemIcon.texture;
             }
-
-            playerManager.itemInteractableGameObject.GetComponentInChildren<TextMeshProUGUI>().text = weapons[0].itemName;
-            playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture = weapons[0].itemIcon.texture;
-
+            
             playerManager.itemInteractableGameObject.SetActive(true);
             Destroy(gameObject);
         }

@@ -7,7 +7,6 @@ using SzymonPeszek.PlayerScripts;
 using SzymonPeszek.Environment.Areas;
 using SzymonPeszek.Misc;
 using SzymonPeszek.EnemyScripts.Animations;
-using SzymonPeszek.Enums;
 
 
 namespace SzymonPeszek.EnemyScripts
@@ -28,9 +27,6 @@ namespace SzymonPeszek.EnemyScripts
         public Image healthBarFill;
         public TextMeshProUGUI damageValue;
 
-        [Header("Enemy's name", order = 2)]
-        public string enemyName;
-        
         [Header("Attack properties", order = 2)]
         public float enemyAttack = 25f;
 
@@ -45,9 +41,6 @@ namespace SzymonPeszek.EnemyScripts
         public Slider bossHpSlider;
 
         private Transform _mainCameraTransform;
-        private const float HpBarHideTimeoutTime = 3f;
-        private float _hideHpBarTimer;
-        private float _accumulateDamage;
 
         private void Awake()
         {
@@ -65,28 +58,6 @@ namespace SzymonPeszek.EnemyScripts
         void Start()
         {
             InitializeHealth();
-        }
-        
-        private void Update()
-        {
-            if (healthBar)
-            {
-                _hideHpBarTimer -= Time.deltaTime;
-                
-                if (_hideHpBarTimer <= 0)
-                {
-                    _hideHpBarTimer = 0;
-                    _accumulateDamage = 0f;
-                    healthBar.SetActive(false);
-                }
-                else
-                {
-                    if (!healthBar.activeInHierarchy)
-                    {
-                        healthBar.SetActive(true);
-                    }
-                }
-            }
         }
 
         private void LateUpdate()
@@ -134,63 +105,25 @@ namespace SzymonPeszek.EnemyScripts
                 healthBar.SetActive(false);
             }
         }
-        
-        /// <summary>
-        /// Calculate damage received based on damage type and current modifiers
-        /// </summary>
-        /// <param name="damageType">Type of damage</param>
-        /// <param name="damage">Damage amount</param>
-        /// <returns>Calculated Damage</returns>
-        protected override int CalculateDamage(DamageType damageType, float damage)
-        {
-            switch (damageType)
-            {
-                case DamageType.Physic:
-                    float armorValue = Mathf.Clamp(defence * 2.5f + baseArmor, 0, 999);
-                    float defMod = Mathf.Clamp01(1 - Mathf.Lerp(armorValue, 999, armorValue / 999) / 999);
-                    int damageMod = (int) (damage * defMod);
-                    return damageMod;
-                case DamageType.AbsolutePhysic:
-                    return (int) damage;
-                case DamageType.Magic:
-                    // float magicDefMod = Mathf.Clamp01(1 - Mathf.Lerp(defence, 999, defence / 999) / 999); // Make magic defence stat
-                    float magicDefMod = 1.0f;
-                    int magicMod = (int) (damage * magicDefMod);
-                    return magicMod;
-                case DamageType.AbsoluteMagic:
-                    return (int) damage;
-                case DamageType.Fall:
-                    return (int) damage;
-                case DamageType.Other:
-                    return (int) damage;
-                default:
-                    return (int) damage;
-            }
-        }
 
         /// <summary>
-        /// Main function for taking damage from player
+        /// Take damage from player
         /// </summary>
         /// <param name="damage">Damage amount</param>
-        /// <param name="damageType">Type of damage</param>
-        /// <param name="damageAnimation">Name of damage animation</param>
         /// <param name="isBackStabbed">Is it from back stab?</param>
         /// <param name="isRiposted">Is it from riposte?</param>
-        public void TakeDamage(float damage, PlayerStats player, DamageType damageType, string damageAnimation = "Damage_01", 
-            bool isBackStabbed = false, bool isRiposted = false)
+        public void TakeDamage(float damage, bool isBackStabbed, bool isRiposted)
         {
             if (_enemyManager.isAlive)
             {
                 if (isBoss)
                 {
-                    currentHealth -= CalculateDamage(damageType, damage);
+                    currentHealth -= damage;
                     bossHpSlider.value = currentHealth;
 
                     if (currentHealth > 0)
                     {
-                        animator.PlayTargetAnimation(StaticAnimatorIds.enemyAnimationIds[damageAnimation], true);
-                        _enemyManager.currentTarget = player;
-                        _enemyManager.shouldFollowTarget = true;
+                        animator.PlayTargetAnimation(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.Damage01Name], true);
                     }
                     else
                     {
@@ -200,13 +133,7 @@ namespace SzymonPeszek.EnemyScripts
                 }
                 else
                 {
-                    UpdateEnemyHealthBar(CalculateDamage(damageType, damage), isBackStabbed, isRiposted);
-                    
-                    if (_enemyManager.isAlive)
-                    {
-                        _enemyManager.currentTarget = player;
-                        _enemyManager.shouldFollowTarget = true;
-                    }
+                    StartCoroutine(UpdateEnemyHealthBar(damage, isBackStabbed, isRiposted));
                 }
             }
         }
@@ -220,10 +147,9 @@ namespace SzymonPeszek.EnemyScripts
         /// Deal damage to the player
         /// </summary>
         /// <param name="playerStat">Player stats</param>
-        /// <param name="damageAnimation">Name of damage animation</param>
-        public void DealDamage(PlayerStats playerStat, string damageAnimation = "Damage_01")
+        public void DealDamage(PlayerStats playerStat)
         {
-            playerStat.TakeDamage(Mathf.RoundToInt(enemyAttack), DamageType.Physic, damageAnimation);
+            playerStat.TakeDamage(enemyAttack);
         }
 
         /// <summary>
@@ -232,16 +158,15 @@ namespace SzymonPeszek.EnemyScripts
         /// <param name="damage">Damage get form player</param>
         /// <param name="isBackStabbed">Is it from back stab?</param>
         /// <param name="isRiposted">Is it from riposte?</param>
-        /// <returns></returns>
-        private void UpdateEnemyHealthBar(float damage, bool isBackStabbed, bool isRiposted)
+        /// <returns>Coroutine's enumerator</returns>
+        private IEnumerator UpdateEnemyHealthBar(float damage, bool isBackStabbed, bool isRiposted)
         {
             _enemyManager.deadFromBackStab = (isBackStabbed && currentHealth - damage <= 0.0f);
             _enemyManager.deadFromRiposte = (isRiposted && currentHealth - damage <= 0.0f);
-            _hideHpBarTimer = HpBarHideTimeoutTime;
+            healthBar.SetActive(true);
             currentHealth -= damage;
             healthBarFill.fillAmount = currentHealth / maxHealth;
-            _accumulateDamage += damage;
-            damageValue.text = _accumulateDamage.ToString();
+            damageValue.text = damage.ToString();
 
             if (currentHealth > 0)
             {
@@ -262,6 +187,8 @@ namespace SzymonPeszek.EnemyScripts
                         true);
                 }
             }
+
+            yield return CoroutineYielder.waitFor3HalfSeconds;
 
             healthBar.SetActive(false);
         }

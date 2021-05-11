@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using SzymonPeszek.Items.Weapons;
 using SzymonPeszek.Items.Equipment;
 using SzymonPeszek.Items.Consumable;
 using SzymonPeszek.BaseClasses;
 using SzymonPeszek.Environment.Areas;
+using SzymonPeszek.GameUI.WindowsManagers;
 using SzymonPeszek.SaveScripts;
 
 
@@ -279,10 +279,6 @@ namespace SzymonPeszek.PlayerScripts.Inventory
                 _weaponSlotManager.LoadWeaponOnSlot(unarmedWeapon, true);
             }
         }
-
-        public bool HasNeededItems(ConsumableItem item, int count)
-        {
-            return consumablesInventory.Count(p => p == item) == count;
-        }
     }
+
 }

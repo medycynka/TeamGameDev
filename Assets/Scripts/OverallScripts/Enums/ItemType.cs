@@ -18,8 +18,7 @@ namespace SzymonPeszek.Enums
         FootArmor,
         Ring,
         Consumable,
-        Spell,
-        QuestItem
+        Spell
     }
 
 }

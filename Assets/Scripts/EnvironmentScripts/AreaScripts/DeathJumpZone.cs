@@ -1,5 +1,4 @@
-﻿using SzymonPeszek.Enums;
-using UnityEngine;
+﻿using UnityEngine;
 using SzymonPeszek.PlayerScripts;
 
 
@@ -18,21 +17,18 @@ namespace SzymonPeszek.Environment.Areas
         
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            isInside = true;
+
+            if (_insideReset)
             {
-                isInside = true;
-
-                if (_insideReset)
+                if (_playerStats == null)
                 {
-                    if (_playerStats == null)
-                    {
-                        _playerStats = other.GetComponent<PlayerStats>();
-                    }
-
-                    _playerStats.isJumpDeath = true;
-                    _playerStats.jumpDeathDropPosition = dropPosition.position;
-                    _playerStats.TakeDamage(2000f, DamageType.Fall);
+                    _playerStats = other.GetComponent<PlayerStats>();
                 }
+
+                _playerStats.isJumpDeath = true;
+                _playerStats.jumpDeathDropPosition = dropPosition.position;
+                _playerStats.TakeDamage(2000f);
             }
         }
 

@@ -50,11 +50,6 @@ namespace SzymonPeszek.GameUI.Slots
         {
             if (_item != null)
             {
-                if (_item.itemType == ItemType.QuestItem)
-                {
-                    return;
-                }
-
                 switch (_item.consumableType)
                 {
                     case ConsumableType.HealItem:
@@ -67,8 +62,6 @@ namespace SzymonPeszek.GameUI.Slots
                         playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.UseItemName], true);
                         break;
                     case ConsumableType.ManaItem:
-                        break;
-                    default:
                         break;
                 }
 

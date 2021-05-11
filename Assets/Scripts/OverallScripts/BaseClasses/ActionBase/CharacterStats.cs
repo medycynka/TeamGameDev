@@ -1,5 +1,4 @@
-﻿using SzymonPeszek.Enums;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace SzymonPeszek.BaseClasses
 {
@@ -35,17 +34,6 @@ namespace SzymonPeszek.BaseClasses
         public float bonusHealth = 2f;   // +10 to maxHealth
         public float bonusStamina = 2f;  // +10 to maxStamina
         public float bonusFocus;  // +10 to maxFocus
-        
-        /// <summary>
-        /// Base function to calculate damage received based on damage type and current modifiers
-        /// </summary>
-        /// <param name="damageType">Type of damage</param>
-        /// <param name="damage">Damage amount</param>
-        /// <returns>Calculated Damage</returns>
-        protected virtual int CalculateDamage(DamageType damageType, float damage)
-        {
-            return (int)damage;
-        }
     }
 
 }
