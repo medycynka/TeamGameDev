@@ -5,6 +5,8 @@ using UnityEngine;
 using SzymonPeszek.BaseClasses;
 using SzymonPeszek.Misc;
 using SzymonPeszek.EnemyScripts.Animations;
+using SzymonPeszek.Enums;
+using SzymonPeszek.PlayerScripts;
 using UnityEngine.AI;
 
 
@@ -59,6 +61,10 @@ namespace SzymonPeszek.EnemyScripts
         [Range(1f, 15f)] public float maxRandomPatrolDistance = 5f;
         [Range(2, 32)] public int maxRandomPointSearchIterations = 16;
         
+        [Header("A.I Combat Settings", order = 2)]
+        public bool allowAIToPerformCombos;
+        public float comboLikelyHood = 25f;
+        
         [Header("Combat Flags", order = 2)]
         public bool canDoCombo;
 
@@ -74,8 +80,6 @@ namespace SzymonPeszek.EnemyScripts
         public bool shouldGlow;
         public float objectDestructionDuration = 5.0f;
 
-        [HideInInspector] public Transform enemyTransform;
-
         private void Awake()
         {
             characterTransform = transform;
@@ -87,7 +91,7 @@ namespace SzymonPeszek.EnemyScripts
             navmeshAgent = GetComponentInChildren<NavMeshAgent>();
             navmeshAgent.enabled = false;
             navMeshBlocker = GetComponent<NavMeshObstacle>();
-            enemyTransform = GetComponent<Transform>();
+            characterTransform = GetComponent<Transform>();
 
             #region Get Model Materials
             _characterMaterials = new List<Material>();
@@ -180,15 +184,15 @@ namespace SzymonPeszek.EnemyScripts
         /// <summary>
         /// Get back stabbed
         /// </summary>
-        public void HandleBackStabOrRiposte(bool backStab)
+        public void HandleBackStabOrRiposte(PlayerStats playerStats, bool backStab)
         {
             if (backStab)
             {
-                _enemyStats.TakeDamage(pendingCriticalDamage, true, false);
+                _enemyStats.TakeDamage(pendingCriticalDamage, playerStats, DamageType.AbsolutePhysic,  "",true);
             }
             else
             {
-                _enemyStats.TakeDamage(pendingCriticalDamage, false, true);
+                _enemyStats.TakeDamage(pendingCriticalDamage, playerStats, DamageType.AbsolutePhysic,"", false, true);
             }
         }
 
@@ -232,6 +236,7 @@ namespace SzymonPeszek.EnemyScripts
 
             _enemyStats.playerStats.soulsAmount += _enemyStats.soulsGiveAmount;
             _enemyStats.playerStats.uiManager.currentSoulsAmount.text = _enemyStats.playerStats.soulsAmount.ToString();
+            _enemyStats.playerStats.IncrementEnemyKillCount(_enemyStats.enemyName);
 
             if (shouldDrop)
             {

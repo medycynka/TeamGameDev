@@ -41,7 +41,7 @@ namespace SzymonPeszek.EnemyScripts.States
 
                     //Vector3 targetDirection = enemyManager.currentTarget.transform.position - enemyManager.enemyTransform.position;
                     float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position,
-                        enemyManager.enemyTransform.position);
+                        enemyManager.characterTransform.position);
                     //float viewableAngle = Vector3.Angle(targetDirection, enemyManager.enemyTransform.forward);
 
                     if (distanceFromTarget > enemyManager.detectionRadius)
@@ -83,7 +83,7 @@ namespace SzymonPeszek.EnemyScripts.States
         {
             if (enemyManager.isPreformingAction)
             {
-                Vector3 direction = enemyManager.currentTarget.transform.position - enemyManager.enemyTransform.position;
+                Vector3 direction = enemyManager.currentTarget.transform.position - enemyManager.characterTransform.position;
                 direction.y = 0;
                 direction.Normalize();
 
@@ -93,7 +93,7 @@ namespace SzymonPeszek.EnemyScripts.States
                 }
 
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
-                enemyManager.transform.rotation = Quaternion.Lerp(enemyManager.enemyTransform.rotation, targetRotation, enemyManager.rotationSpeed / Time.deltaTime);
+                enemyManager.transform.rotation = Quaternion.Lerp(enemyManager.characterTransform.rotation, targetRotation, enemyManager.rotationSpeed / Time.deltaTime);
             }
             //Rotate with pathfinding (navmesh) -> Change to A*
             else

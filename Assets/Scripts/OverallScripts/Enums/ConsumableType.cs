@@ -9,7 +9,8 @@ namespace SzymonPeszek.Enums
     {
         HealItem,
         SoulItem,
-        ManaItem
+        ManaItem,
+        None
     }
 
 }

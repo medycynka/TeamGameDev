@@ -56,7 +56,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -67,7 +67,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -78,7 +78,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -89,21 +89,10 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "f9b909ef-64ab-4399-96c8-18182569bc4f",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "StickDeadzone",
-                    "groups": "",
-                    "action": "Camera",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
@@ -111,7 +100,7 @@
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "NormalizeVector2",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "Camera",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -122,7 +111,7 @@
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "Lock On Target Left",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -133,7 +122,7 @@
                     "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "Lock On Target Right",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -239,6 +228,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Block",
+                    "type": "Button",
+                    "id": "3fc48cb1-f1ee-471a-8b0b-b57201c231f2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "BowAction",
+                    "type": "Button",
+                    "id": "42dc7aaa-1cb4-4d54-8b62-218264f3a0f6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -248,7 +253,7 @@
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "Roll",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -259,7 +264,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "Tap",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "RB",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -268,9 +273,9 @@
                     "name": "",
                     "id": "65e157d2-bf0a-4015-8766-7da9f8a11d49",
                     "path": "<Mouse>/rightButton",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "RT",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -281,7 +286,7 @@
                     "path": "<Keyboard>/e",
                     "interactions": "Tap",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "E",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -292,7 +297,7 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -303,7 +308,7 @@
                     "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -314,7 +319,7 @@
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "LockOn",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -325,7 +330,7 @@
                     "path": "<Keyboard>/y",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "Y",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -336,7 +341,7 @@
                     "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "Walk",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -347,7 +352,7 @@
                     "path": "<Keyboard>/g",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "EstusQuickSlotUse",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -358,7 +363,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "Hold(duration=0.2)",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "Critical Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -367,10 +372,32 @@
                     "name": "",
                     "id": "d4ba156b-0988-4e65-ba08-d63f499aa0c4",
                     "path": "<Keyboard>/z",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "LT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3eab68fd-6053-4b14-b302-807ebef30d02",
+                    "path": "<Keyboard>/z",
+                    "interactions": "Hold(duration=0.2)",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Block",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c1e23566-5d47-4e43-b5ac-f45df975964b",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "Hold(duration=0.2)",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "BowAction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -420,7 +447,7 @@
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "D Pad Up",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -431,7 +458,7 @@
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "D Pad Down",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -442,7 +469,7 @@
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "D Pad Left",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -453,7 +480,7 @@
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "D Pad Right",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -461,5 +488,22 @@
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "PC",
+            "bindingGroup": "PC",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
