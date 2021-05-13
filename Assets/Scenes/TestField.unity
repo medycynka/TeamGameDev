@@ -4220,6 +4220,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc4aaba428446444b838a9e0830e6917, type: 3}
+--- !u!1 &590605427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1670588494, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
+  m_PrefabInstance: {fileID: 204355851}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &590605429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590605427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1523f54f0117074684e5d15b8189486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.6
+  interactableText: Pick up
+  playerInventory: {fileID: 904466052}
+  playerLocomotion: {fileID: 904466056}
+  playerAnimatorManager: {fileID: 904466048}
+  uIManager: {fileID: 204355862}
+  dialogueData:
+  - {fileID: 11400000, guid: f9edc9de9adc9654292aea169e68ba62, type: 2}
+  dialogueUiManager: {fileID: 1670588496}
+  isQuestGiven: 0
+  currentDialogueId: 0
+  dialogueMapKeys: []
+  dialogueMapValues: []
 --- !u!1 &624563987
 GameObject:
   m_ObjectHideFlags: 0
@@ -6036,7 +6066,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8452670287836662050, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
   m_PrefabInstance: {fileID: 204355851}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 590605427}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5bdf7a6a25926b418bb489410aa912d, type: 3}
@@ -6669,6 +6699,14 @@ PrefabInstance:
       propertyPath: playerAnimatorManager
       value: 
       objectReference: {fileID: 904466048}
+    - target: {fileID: 301754168852192502, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
+      propertyPath: dialogueData.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 301754168852192502, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
+      propertyPath: dialogueData.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: f9edc9de9adc9654292aea169e68ba62, type: 2}
     - target: {fileID: 301754168852192503, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
       propertyPath: m_RootOrder
       value: 1

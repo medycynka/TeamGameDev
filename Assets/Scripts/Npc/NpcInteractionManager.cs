@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SzymonPeszek.BaseClasses;
 using SzymonPeszek.Npc.DialogueSystem;
 using SzymonPeszek.Npc.DialogueSystem.Runtime;
@@ -12,14 +13,15 @@ namespace SzymonPeszek.Npc
 {
     public class NpcInteractionManager : Interactable
     {
-        public DialogueContainer dialogueData;
+        public List<DialogueContainer> dialogueData;
         public DialogueUiManager dialogueUiManager;
         public bool isQuestGiven;
         public Dictionary<string, DialogueNodeStorage> dialogueMap;
+        public int currentDialogueId = 0;
         
         //For "simulating" dialogue map in the inspector
         [SerializeField] private List<string> dialogueMapKeys;
-        [SerializeField] private List<DialogueNodeStorage> dialogueMapValues;
+        [SerializeField] [ItemCanBeNull] private List<DialogueNodeStorage> dialogueMapValues;
 
         private NpcManager _npcManager;
 
@@ -27,10 +29,7 @@ namespace SzymonPeszek.Npc
         {
             _npcManager = GetComponent<NpcManager>();
 
-            // Convert dialogue container data to dictionary for fast and easy access to options of given dialogue node
-            dialogueMapKeys = DialogueDataConverter.ToGuidList(dialogueData);
-            dialogueMapValues = DialogueDataConverter.ToDialogueStorageList(dialogueData);
-            dialogueMap = DialogueDataConverter.ToDictionary(dialogueData);
+            InitializeDialogue(currentDialogueId);
         }
 
         public override void Interact(PlayerManager playerManager)
@@ -41,6 +40,14 @@ namespace SzymonPeszek.Npc
             }
             
             dialogueUiManager.HandleDialogue();
+        }
+
+        public void InitializeDialogue(int id)
+        {
+            // Convert dialogue container data to dictionary for fast and easy access to options of given dialogue node
+            dialogueMapKeys = DialogueDataConverter.ToGuidList(dialogueData[id]);
+            dialogueMapValues = DialogueDataConverter.ToDialogueStorageList(dialogueData[id]);
+            dialogueMap = DialogueDataConverter.ToDictionary(dialogueData[id]);
         }
 
         public void GiveQuest(PlayerManager playerManager)
