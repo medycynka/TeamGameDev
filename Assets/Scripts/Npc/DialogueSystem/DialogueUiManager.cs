@@ -64,7 +64,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
 
         private string GetFirstNode()
         {
-            foreach (var link in _npcInteractionManager.dialogueData.nodeLinks)
+            foreach (var link in _npcInteractionManager.dialogueData[_npcInteractionManager.currentDialogueId].nodeLinks)
             {
                 if (link.portName == "Next")
                 {

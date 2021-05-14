@@ -39,10 +39,26 @@ namespace SzymonPeszek.PlayerScripts
                     if (prevId < 0)
                     {
                         _currentQuests.Add(quest);
+                        
+                        if (quest.activateOnGive.Count > 0)
+                        {
+                            foreach (GameObject toActivate in quest.activateOnGive)
+                            {
+                                toActivate.SetActive(true);
+                            }
+                        }
                     }
                     else if (mainQuests[prevId].isCompleted)
                     {
                         _currentQuests.Add(quest);
+                        
+                        if (quest.activateOnGive.Count > 0)
+                        {
+                            foreach (GameObject toActivate in quest.activateOnGive)
+                            {
+                                toActivate.SetActive(true);
+                            }
+                        }
                     }
                 }
             }
@@ -51,6 +67,15 @@ namespace SzymonPeszek.PlayerScripts
         public void CompleteQuest(Quest quest)
         {
             mainQuests.Find(p => p.quest = quest).isCompleted = true;
+            
+            if (quest.activateOnComplete.Count > 0)
+            {
+                foreach (GameObject toActivate in quest.activateOnComplete)
+                {
+                    toActivate.SetActive(true);
+                }
+            }
+            
             _currentQuests.Remove(quest);
         }
     }

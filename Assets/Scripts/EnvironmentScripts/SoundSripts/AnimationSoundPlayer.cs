@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using SzymonPeszek.Enums;
 using UnityEngine;
 using SzymonPeszek.Misc;
 
@@ -13,6 +14,7 @@ namespace SzymonPeszek.Environment.Sounds
         private AnimationSoundManager _animationSoundManager;
 
         public bool canPlayStep = true;
+        public GettingDamageType currentDamageType = GettingDamageType.NoArmorDefault;
 
         private void Awake()
         {
@@ -35,6 +37,11 @@ namespace SzymonPeszek.Environment.Sounds
         public void BackStep()
         {
             _animationSoundManager.PlayOnBackStep();
+        }
+        
+        public void JumpSound()
+        {
+            _animationSoundManager.PlayOnJump();
         }
 
         public void AttackSound()
@@ -59,7 +66,7 @@ namespace SzymonPeszek.Environment.Sounds
 
         public void DamageSound()
         {
-            _animationSoundManager.PlayOnDamage();
+            _animationSoundManager.PlayOnDamage(currentDamageType);
         }
 
         public void EstusSound()
