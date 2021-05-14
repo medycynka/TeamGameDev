@@ -4523,10 +4523,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4966070491420200268, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
-      propertyPath: weaponsInRightHandSlots.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: b4bfca7ae14a20d409431db3ec18aa0c, type: 2}
     - target: {fileID: 4966070491420200269, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
       propertyPath: cameraHandler
       value: 
@@ -4563,18 +4559,6 @@ PrefabInstance:
       propertyPath: cameraHandler
       value: 
       objectReference: {fileID: 1308016337}
-    - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
-      propertyPath: mainQuests.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
-      propertyPath: mainQuests.Array.data[0].quest
-      value: 
-      objectReference: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
-    - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
-      propertyPath: mainQuests.Array.data[0].prevQuestId
-      value: -1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
 --- !u!4 &904466046 stripped
@@ -6505,40 +6489,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f5862443f329be42b01441cb5392ce0, type: 3}
---- !u!1 &2054103334 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1567582185033856, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
-  m_PrefabInstance: {fileID: 225285769}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2054103335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2054103334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54a99a1503994c58a828807d124c9135, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterTransform: {fileID: 0}
-  healthLevel: 6
-  maxHealth: 0
-  currentHealth: 0
-  staminaLevel: 10
-  maxStamina: 0
-  currentStamina: 0
-  focusLevel: 5
-  maxFocus: 0
-  currentFocus: 0
-  baseArmor: 5
-  strength: 4
-  agility: 1
-  defence: 3
-  bonusHealth: 2
-  bonusStamina: 2
-  bonusFocus: 0
 --- !u!4 &2054103342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4819606783095600, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
@@ -6680,10 +6630,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 204355862}
     - target: {fileID: 301754168852192502, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
-      propertyPath: dialogueData
-      value: 
-      objectReference: {fileID: 11400000, guid: f9edc9de9adc9654292aea169e68ba62, type: 2}
-    - target: {fileID: 301754168852192502, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 904466052}
@@ -6699,14 +6645,6 @@ PrefabInstance:
       propertyPath: playerAnimatorManager
       value: 
       objectReference: {fileID: 904466048}
-    - target: {fileID: 301754168852192502, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
-      propertyPath: dialogueData.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 301754168852192502, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
-      propertyPath: dialogueData.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: f9edc9de9adc9654292aea169e68ba62, type: 2}
     - target: {fileID: 301754168852192503, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
       propertyPath: m_RootOrder
       value: 1

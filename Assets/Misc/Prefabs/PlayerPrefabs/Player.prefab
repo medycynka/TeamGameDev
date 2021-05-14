@@ -3106,6 +3106,9 @@ MonoBehaviour:
   canRotate: 1
   isEnemy: 0
   spellProjectilesTransform: {fileID: 4966070490633524609}
+  spellRayCastLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &4966070490633684526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3135,6 +3138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canPlayStep: 1
+  currentDamageType: 0
 --- !u!114 &1775283085576989764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4373,6 +4377,7 @@ MonoBehaviour:
   isUsingRightHand: 0
   isUsingLeftHand: 0
   isInvulnerable: 0
+  dialogueFlag: 0
   quickMoveScreen: {fileID: 0}
   currentSpawnPoint: {fileID: 0}
 --- !u!114 &4966070491420200268
@@ -4393,7 +4398,7 @@ MonoBehaviour:
   currentSpell: {fileID: 11400000, guid: 66ee5fb93f78d574ea574991e1063037, type: 2}
   weaponsInRightHandSlots:
   - {fileID: 11400000, guid: e628e226889a60f46bef691624ac7789, type: 2}
-  - {fileID: 11400000, guid: 1f9ac8a3e1dab4c41baf0baf42b0c313, type: 2}
+  - {fileID: 11400000, guid: b4bfca7ae14a20d409431db3ec18aa0c, type: 2}
   weaponsInLeftHandSlots:
   - {fileID: 11400000, guid: 4452ceaeb82267747aa82f670193e40d, type: 2}
   - {fileID: 11400000, guid: 481525fa85548e84ba35ffaf4b07a57d, type: 2}
@@ -4438,6 +4443,7 @@ MonoBehaviour:
   bonusHealth: 2
   bonusStamina: 2
   bonusFocus: 0
+  mainCamera: {fileID: 0}
   uiManager: {fileID: 0}
   healthBar: {fileID: 0}
   staminaBar: {fileID: 0}
@@ -4460,6 +4466,7 @@ MonoBehaviour:
   focusRefillAmount: 20
   isPlayerAlive: 1
   isJumpDeath: 0
+  isHavingQuest: 0
 --- !u!114 &540771581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4838,7 +4845,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c0b4269b0a2f9d74b8d1d1684a1f25e5, type: 3}
   - {fileID: 8300000, guid: d10f3c0e1cb419546bfc5bca2442160a, type: 3}
   - {fileID: 8300000, guid: e4a8d46729e97d344b1382acd93bb87a, type: 3}
-  getDamageClips: []
+  getDamageClips:
+  - damageType: 0
+    damageSounds: []
+  - damageType: 1
+    damageSounds: []
+  - damageType: 2
+    damageSounds: []
+  - damageType: 3
+    damageSounds: []
+  - damageType: 4
+    damageSounds: []
+  - damageType: 5
+    damageSounds: []
   faithSkillClips:
   - {fileID: 8300000, guid: 7533a7ccba6adb94090c7dfe9291c8fb, type: 3}
   - {fileID: 8300000, guid: ac6a1f434c70d5e46a3b57e64b5ba2e6, type: 3}
@@ -4862,6 +4881,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fbaf8c118485cab4586f665f2a450ba0, type: 3}
   rollClip: {fileID: 8300000, guid: 5b61a9ef84236b8479a7316138e4b8ca, type: 3}
   backStepClip: {fileID: 8300000, guid: 3f62b6c096b8b554db4da8fa718de52f, type: 3}
+  jumpClip: {fileID: 8300000, guid: 0de47defcc5ed77428cd29bd069096af, type: 3}
   estusUse: {fileID: 8300000, guid: 9657dd2357d68b94e9eec02a4ab65abc, type: 3}
   soulUse: {fileID: 8300000, guid: 975fc88c34b13854688ac612795d8a33, type: 3}
   currentBackgroundMusic: {fileID: 8300000, guid: 48b6e9306a539bc43b16444db62a0951, type: 3}
@@ -4870,6 +4890,7 @@ MonoBehaviour:
   fadingMusic: 0
   leftFoot: {fileID: 4966070490633475083}
   rightFoot: {fileID: 4966070490633494581}
+  _currentEnvironmentTag: 
 --- !u!114 &5493518819219691622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4882,8 +4903,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22124f9abebe1d43b1ad44edcedee56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainQuests: []
+  mainQuests:
+  - prevQuestId: -1
+    questId: 0
+    quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
+    isCompleted: 0
   sideQuests: []
+  _currentQuests: []
 --- !u!1 &6075655737834115276
 GameObject:
   m_ObjectHideFlags: 0

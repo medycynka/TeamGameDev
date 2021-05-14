@@ -14,7 +14,13 @@ namespace PolyPerfect
     private int objectPoolLength = 20;
 
     [SerializeField]
-    private float soundDistance = 7f;
+    private float minSoundDistance = 1f;
+    
+    [SerializeField]
+    private float maxSoundDistance = 8f;
+    
+    [SerializeField]
+    [Range(0.0f, 1.0f)] private float soundVolume = 0.75f;
 
     [SerializeField]
     private bool logSounds = false;
@@ -32,7 +38,9 @@ namespace PolyPerfect
         soundObject.name = "Sound Effect";
         AudioSource audioSource = soundObject.AddComponent<AudioSource>();
         audioSource.spatialBlend = 1f;
-        audioSource.minDistance = instance.soundDistance;
+        audioSource.minDistance = instance.minSoundDistance;
+        audioSource.maxDistance = instance.maxSoundDistance;
+        audioSource.volume = instance.soundVolume;
         audioSource.gameObject.SetActive(false);
         pool.Add(audioSource);
       }
@@ -80,7 +88,7 @@ namespace PolyPerfect
       soundObject.name = "Sound Effect";
       AudioSource audioSource = soundObject.AddComponent<AudioSource>();
       audioSource.spatialBlend = 1f;
-      audioSource.minDistance = instance.soundDistance;
+      audioSource.minDistance = instance.minSoundDistance;
       instance.pool.Add(audioSource);
       audioSource.clip = clip;
       soundObject.transform.position = pos;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using SzymonPeszek.Enums;
 using UnityEngine;
 using SzymonPeszek.Misc;
 using SzymonPeszek.SaveScripts;
@@ -22,6 +23,13 @@ namespace SzymonPeszek.Environment.Sounds
             public AudioClip[] footsteps;
             public GameObject stepEffect;
         }
+        
+        [Serializable]
+        public struct DamageSound
+        {
+            public GettingDamageType damageType;
+            public AudioClip[] damageSounds;
+        }
 
         [Header("Audio Clips", order = 0)] 
         [Header("Volume Variance", order = 1)]
@@ -31,7 +39,7 @@ namespace SzymonPeszek.Environment.Sounds
         public EnvironmentFootstepSound[] environmentFootstepSounds;
         public AudioClip[] currentMovingClips;
         public AudioClip[] attackingClips;
-        public AudioClip[] getDamageClips;
+        public DamageSound[] getDamageClips;
         public AudioClip[] faithSkillClips;
         public AudioClip[] curseSkillClips;
         public AudioClip[] destructionSkillClips;
@@ -39,6 +47,7 @@ namespace SzymonPeszek.Environment.Sounds
         [Header("Unique Clips", order = 1)]
         public AudioClip rollClip;
         public AudioClip backStepClip;
+        public AudioClip jumpClip;
         public AudioClip estusUse;
         public AudioClip soulUse;
 
@@ -208,6 +217,15 @@ namespace SzymonPeszek.Environment.Sounds
                 _audioSource.PlayOneShot(backStepClip);
             }
         }
+        
+        public void PlayOnJump()
+        {
+            if (jumpClip != null)
+            {
+                StartCoroutine(StopStepSounds());
+                _audioSource.PlayOneShot(jumpClip);
+            }
+        }
 
         public void PlayOnAttack()
         {
@@ -245,12 +263,18 @@ namespace SzymonPeszek.Environment.Sounds
             }
         }
 
-        public void PlayOnDamage()
+        public void PlayOnDamage(GettingDamageType damageType)
         {
             if (getDamageClips.Length > 0)
             {
-                StartCoroutine(StopStepSounds());
-                _audioSource.PlayOneShot(GetRandomClip(getDamageClips));
+                foreach (DamageSound damageSound in getDamageClips)
+                {
+                    if (damageSound.damageType == damageType && damageSound.damageSounds.Length > 0)
+                    {
+                        StartCoroutine(StopStepSounds());
+                        _audioSource.PlayOneShot(GetRandomClip(damageSound.damageSounds));
+                    }
+                }
             }
         }
 
