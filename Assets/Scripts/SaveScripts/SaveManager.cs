@@ -17,7 +17,7 @@ namespace SzymonPeszek.SaveScripts
         public static void SaveMainMenu()
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            string path = Application.dataPath + "/Saves/GameSave.lps";
+            string path = Application.dataPath + "/Saves/GameSave.night";
             FileStream stream = new FileStream(path, FileMode.Create, FileAccess.Write);
             DataManager dataManager = new DataManager();
 
@@ -34,7 +34,7 @@ namespace SzymonPeszek.SaveScripts
         public static void SaveGame(PlayerManager playerManager, PlayerStats playerStats, PlayerInventory playerInventory)
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            string path = Application.dataPath + "/Saves/GameSave.lps";
+            string path = Application.dataPath + "/Saves/GameSave.night";
             FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
             DataManager dataManager = new DataManager(playerManager, playerStats, playerInventory);
 
@@ -48,7 +48,7 @@ namespace SzymonPeszek.SaveScripts
         /// <returns>DataManager storage class that stores data needs for loading game</returns>
         public static DataManager LoadGame()
         {
-            string path = Application.dataPath + "/Saves/GameSave.lps";
+            string path = Application.dataPath + "/Saves/GameSave.night";
             
             if (File.Exists(path))
             {

@@ -159,8 +159,6 @@ MonoBehaviour:
   uIManager: {fileID: 0}
   dialogueData:
   - {fileID: 11400000, guid: f9edc9de9adc9654292aea169e68ba62, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   dialogueUiManager: {fileID: 0}
   isQuestGiven: 0
   currentDialogueId: 0
