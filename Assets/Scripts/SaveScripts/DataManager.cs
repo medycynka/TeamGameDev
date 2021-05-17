@@ -59,6 +59,10 @@ namespace SzymonPeszek.SaveScripts
         // Area Managers
         public bool[] areaBossesAlive;
         public bool[] bonfireActivators;
+        
+        //Quests
+        public QuestContainer[] quests;
+        public int[] currentQuestIds;
 
         // Constructor
         /// <summary>
@@ -304,18 +308,40 @@ namespace SzymonPeszek.SaveScripts
             #endregion
 
             #endregion
+
+            #region Quests
+            quests = new QuestContainer[SettingsHolder.worldManager.quests.Length];
+            for (int i = 0; i < SettingsHolder.worldManager.quests.Length; i++)
+            {
+                quests[i].prevQuestId = SettingsHolder.worldManager.quests[i].prevQuestId;
+                quests[i].questId = SettingsHolder.worldManager.quests[i].questId;
+                quests[i].isCompleted = SettingsHolder.worldManager.quests[i].isCompleted;
+            }
+
+            if (QuestManager.instance.currentQuests.Count > 0)
+            {
+                currentQuestIds = new int[QuestManager.instance.currentQuests.Count];
+                for (int i = 0; i < currentQuestIds.Length; i++)
+                {
+                    currentQuestIds[i] =
+                        QuestManager.instance.mainQuests.FindIndex(q =>
+                            q.quest == QuestManager.instance.currentQuests[i]);
+                }
+            }
+            else
+            {
+                currentQuestIds = new[] {-1};
+            }
+            #endregion
         }
     }
 
-    // Works
-    /*
+    
     [System.Serializable]
-    public class WeaponItemToSave
+    public class QuestContainer
     {
-        public int iconID;
-        public string itemName;
-        public ItemType itemType;
-        
+        public int prevQuestId;
+        public int questId;
+        public bool isCompleted;
     }
-    */
 }

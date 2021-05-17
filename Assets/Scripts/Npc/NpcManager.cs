@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using SzymonPeszek.BaseClasses;
 using SzymonPeszek.PlayerScripts;
 using SzymonPeszek.Quests;
@@ -25,31 +26,44 @@ namespace SzymonPeszek.Npc
 
         public Quest GiveMainQuest()
         {
-            if (_currentMainQuest.isCompleted)
+            if (mainQuests.Count > _mainQuestCounter)
             {
-                if (QuestManager.instance.mainQuests[mainQuests[_mainQuestCounter].prevQuestId].prevQuestId < 0)
+                if (_currentMainQuest.isCompleted)
                 {
-                    _currentMainQuest = mainQuests[_mainQuestCounter];
-                    _mainQuestCounter++;
+                    if (QuestManager.instance.mainQuests[mainQuests[_mainQuestCounter].prevQuestId].prevQuestId < 0)
+                    {
+                        _currentMainQuest = mainQuests[_mainQuestCounter];
+                        _mainQuestCounter++;
 
-                    return _currentMainQuest.quest;
+                        return _currentMainQuest.quest;
+                    }
+
+                    if (QuestManager.instance.mainQuests[mainQuests[_mainQuestCounter].prevQuestId].isCompleted)
+                    {
+                        _currentMainQuest = mainQuests[_mainQuestCounter];
+                        _mainQuestCounter++;
+
+                        return _currentMainQuest.quest;
+                    }
                 }
 
-                if (QuestManager.instance.mainQuests[mainQuests[_mainQuestCounter].prevQuestId].isCompleted)
-                {
-                    _currentMainQuest = mainQuests[_mainQuestCounter];
-                    _mainQuestCounter++;
-
-                    return _currentMainQuest.quest;
-                }
+                return _currentMainQuest.quest;
             }
-            
-            return _currentMainQuest.quest;
+
+            return null;
         }
 
         public bool EndCurrentMainQuest(PlayerManager playerManager)
         {
-            return playerManager.CompleteQuest(_currentMainQuest.quest);
+            if (playerManager.CompleteQuest(_currentMainQuest.quest))
+            {
+                mainQuests.First(q => q == _currentMainQuest).isCompleted = true;
+                _currentMainQuest.isCompleted = true;
+                
+                return true;
+            }
+
+            return false;
         }
     }
 }
