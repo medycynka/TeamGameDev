@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Magic_Merchant_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: e46ddf03-2fd2-42e8-b0de-e1256a466b3e
+    portName: Next
+    targetNodeGuid: e46ddf03-2fd2-42e8-b0de-e1256a466b3e
+  - baseNodeGuid: e46ddf03-2fd2-42e8-b0de-e1256a466b3e
+    portName: "Dzi\u0119kuj\u0119, ale nie potrzebuj\u0119 ich."
+    targetNodeGuid: 8aa4f106-511d-4f54-9dc3-a9d276af2730
+  - baseNodeGuid: e46ddf03-2fd2-42e8-b0de-e1256a466b3e
+    portName: "Poka\u017C co tam masz."
+    targetNodeGuid: ad4971a6-27a0-44bb-93bb-1faf3e6e458c
+  dialogueNodeData:
+  - nodeGuid: ad4971a6-27a0-44bb-93bb-1faf3e6e458c
+    dialogueText: Dialogue Node
+    nodePosition: {x: 954, y: -5}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+  - nodeGuid: 8aa4f106-511d-4f54-9dc3-a9d276af2730
+    dialogueText: Dialogue Node
+    nodePosition: {x: 986, y: 321}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+  - nodeGuid: e46ddf03-2fd2-42e8-b0de-e1256a466b3e
+    dialogueText: "B\u0105d\u017A zdr\xF3w. Mam par\u0119 ksi\u0105g na sprzeda\u017C."
+    nodePosition: {x: 394, y: 194}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+  exposedProperties: []
+  commentBlockData: []
