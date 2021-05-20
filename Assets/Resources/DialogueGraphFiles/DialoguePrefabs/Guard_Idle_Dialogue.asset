@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Guard_Idle_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: 845d82c2-58ee-41b9-8ef1-89896ca4b1ea
+    portName: Next
+    targetNodeGuid: 8474492e-d713-4c3b-a539-26576a2eb5ef
+  - baseNodeGuid: 8474492e-d713-4c3b-a539-26576a2eb5ef
+    portName: "Wszystko w porz\u0105dku."
+    targetNodeGuid: 97a49add-3c60-41de-9314-8a64c6c76d21
+  - baseNodeGuid: 8474492e-d713-4c3b-a539-26576a2eb5ef
+    portName: "Mo\u017Cesz mi co\u015B opowiedzie\u0107 o okolicy?"
+    targetNodeGuid: 4624e6c1-5014-461f-a3c1-62ed77d89c6d
+  - baseNodeGuid: 4624e6c1-5014-461f-a3c1-62ed77d89c6d
+    portName: "Dzi\u0119kuj\u0119 za przypomnienie."
+    targetNodeGuid: 525b5027-9b89-4b94-b47b-3669e42189ef
+  dialogueNodeData:
+  - nodeGuid: 8474492e-d713-4c3b-a539-26576a2eb5ef
+    dialogueText: "Witaj. Potrzebujesz czego\u015B?"
+    nodePosition: {x: 423, y: 188}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+  - nodeGuid: 97a49add-3c60-41de-9314-8a64c6c76d21
+    dialogueText: Dialogue Node
+    nodePosition: {x: 932, y: -22}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+  - nodeGuid: 4624e6c1-5014-461f-a3c1-62ed77d89c6d
+    dialogueText: "Kowal ma warsztat na zachodnim kra\u0144cu wioski. W centrum jest
+      rynek, gdzie mo\u017Cesz kupi\u0107 co\u015B do zjedzenia, ale te\u017C co\u015B
+      ciekawszego. Na wsch\xF3d, za mostem znajdziesz farm\u0119 Dravena. Uzdrowicielka
+      znajduje si\u0119 na wschodnim kra\u0144cu wioski, ale to ju\u017C wiesz, bo
+      przecie\u017C tam mieszkasz!"
+    nodePosition: {x: 971, y: 204}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+  - nodeGuid: 525b5027-9b89-4b94-b47b-3669e42189ef
+    dialogueText: Dialogue Node
+    nodePosition: {x: 2672, y: 208}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+  exposedProperties: []
+  commentBlockData: []

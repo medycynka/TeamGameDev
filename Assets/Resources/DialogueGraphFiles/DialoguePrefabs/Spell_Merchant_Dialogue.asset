@@ -13,33 +13,33 @@ MonoBehaviour:
   m_Name: Spell_Merchant_Dialogue
   m_EditorClassIdentifier: 
   nodeLinks:
-  - baseNodeGuid: e46ddf03-2fd2-42e8-b0de-e1256a466b3e
+  - baseNodeGuid: c4416039-d4a4-4134-bd54-cb3d686f00cb
     portName: Next
-    targetNodeGuid: e46ddf03-2fd2-42e8-b0de-e1256a466b3e
-  - baseNodeGuid: e46ddf03-2fd2-42e8-b0de-e1256a466b3e
-    portName: "Poka\u017C co tam masz."
-    targetNodeGuid: 8aa4f106-511d-4f54-9dc3-a9d276af2730
-  - baseNodeGuid: e46ddf03-2fd2-42e8-b0de-e1256a466b3e
-    portName: "Dzi\u0119kuj\u0119, ale nie potrzebuj\u0119 ich."
-    targetNodeGuid: ad4971a6-27a0-44bb-93bb-1faf3e6e458c
+    targetNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+  - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    portName: "Nie, dzi\u0119kuj\u0119."
+    targetNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
+  - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    portName: "Ch\u0119tnie."
+    targetNodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
   dialogueNodeData:
-  - nodeGuid: 8aa4f106-511d-4f54-9dc3-a9d276af2730
+  - nodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
     dialogueText: Dialogue Node
-    nodePosition: {x: 960, y: 26}
+    nodePosition: {x: 1114, y: 326}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 1
-  - nodeGuid: e46ddf03-2fd2-42e8-b0de-e1256a466b3e
-    dialogueText: "B\u0105d\u017A zdr\xF3w. Mam par\u0119 ksi\u0105g na sprzeda\u017C."
-    nodePosition: {x: 371, y: 143}
+  - nodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
+    dialogueText: Dialogue Node
+    nodePosition: {x: 1113, y: 161}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+  - nodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    dialogueText: "Witaj. Mam par\u0119 ksi\u0105g na sprzeda\u017C."
+    nodePosition: {x: 348, y: 198}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
-  - nodeGuid: ad4971a6-27a0-44bb-93bb-1faf3e6e458c
-    dialogueText: Dialogue Node
-    nodePosition: {x: 960, y: 297}
-    isQuestGiver: 0
-    isQuestCompleter: 0
-    isExit: 1
   exposedProperties: []
   commentBlockData: []

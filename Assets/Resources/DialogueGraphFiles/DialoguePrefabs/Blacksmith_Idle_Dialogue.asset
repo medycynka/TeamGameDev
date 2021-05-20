@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Blacksmith_Idle_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: ca584691-66bc-42ca-aaa4-7723e7256447
+    portName: Next
+    targetNodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
+  - baseNodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
+    portName: "Przychodz\u0119 po n\xF3\u017C dla mojej mamy."
+    targetNodeGuid: 90dfd2cf-2736-459b-ab6f-19130a11ba5f
+  dialogueNodeData:
+  - nodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
+    dialogueText: "Witaj. Co mog\u0119 dla Ciebie zrobi\u0107? "
+    nodePosition: {x: 381, y: 188}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+  - nodeGuid: 90dfd2cf-2736-459b-ab6f-19130a11ba5f
+    dialogueText: "Mam go tutaj. Prosz\u0119, pozdr\xF3w j\u0105 ode mnie!"
+    nodePosition: {x: 914, y: 19}
+    isQuestGiver: 0
+    isQuestCompleter: 1
+    isExit: 0
+  exposedProperties: []
+  commentBlockData: []
