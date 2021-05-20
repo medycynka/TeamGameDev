@@ -432,8 +432,11 @@ namespace SzymonPeszek.PlayerScripts
 
         public void AcceptNewQuest(Quest quest)
         {
-            _questManager.AddNewQuest(quest);
-            _playerStats.isHavingQuest = true;
+            if (quest)
+            {
+                _questManager.AddNewQuest(quest);
+                _playerStats.isHavingQuest = true;
+            }
         }
 
         public bool CompleteQuest(Quest quest)

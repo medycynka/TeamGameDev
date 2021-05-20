@@ -4,8 +4,9 @@ using SzymonPeszek.Items.Bonfire;
 using SzymonPeszek.Items.Weapons;
 using SzymonPeszek.Items.Equipment;
 using SzymonPeszek.Items.Consumable;
+using SzymonPeszek.PlayerScripts;
 using SzymonPeszek.SaveScripts;
-using SzymonPeszek.PlayerScripts.Inventory;
+using QuestContainer = SzymonPeszek.PlayerScripts.QuestContainer;
 
 
 namespace SzymonPeszek.Environment.Areas
@@ -28,6 +29,7 @@ namespace SzymonPeszek.Environment.Areas
         public EquipmentItem[] feetHolder;
         public EquipmentItem[] ringsHolder;
         public ConsumableItem[] consumableHolder;
+        public QuestContainer[] quests;
 
         private const int FrameCheckRate = 3;
         private const int BossCheckVal = 0;
@@ -75,6 +77,29 @@ namespace SzymonPeszek.Environment.Areas
                 //     playerEq.EquipPlayerWithCurrentItems();
                 //     playerEq.UpdateArmorValue();
                 // }
+                #endregion
+
+                #region Quests Initialization
+                QuestManager qM = FindObjectOfType<QuestManager>();
+                for (int i = 0; i < dataManager.quests.Length; i++)
+                {
+                    qM.mainQuests.Add(new QuestContainer
+                    {
+                        prevQuestId = dataManager.quests[i].prevQuestId,
+                        quest = quests[dataManager.quests[i].questId].quest,
+                        isCompleted = dataManager.quests[i].isCompleted,
+                        questId = dataManager.quests[i].questId
+                    });
+                }
+
+                if (dataManager.currentQuestIds[0] != -1)
+                {
+                    for (int i = 0; i < dataManager.currentQuestIds.Length; i++)
+                    {
+                        qM.currentQuests.Add(quests[dataManager.currentQuestIds[i]].quest);
+                    }
+                }
+
                 #endregion
             }
         }

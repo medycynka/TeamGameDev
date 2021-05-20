@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SzymonPeszek.Quests;
+using SzymonPeszek.SaveScripts;
 using UnityEngine;
 
 
@@ -13,8 +14,7 @@ namespace SzymonPeszek.PlayerScripts
 
         public List<QuestContainer> mainQuests = new List<QuestContainer>();
         public List<QuestContainer> sideQuests = new List<QuestContainer>();
-        
-        [SerializeField] private List<Quest> _currentQuests = new List<Quest>();
+        public List<Quest> currentQuests = new List<Quest>();
 
         private void Awake()
         {
@@ -26,11 +26,22 @@ namespace SzymonPeszek.PlayerScripts
             {
                 Destroy(gameObject);
             }
+
+            foreach (QuestContainer quest in SettingsHolder.worldManager.quests)
+            {
+                instance.mainQuests.Add(new QuestContainer
+                {
+                    prevQuestId = quest.prevQuestId,
+                    questId = quest.questId,
+                    quest = quest.quest,
+                    isCompleted = quest.isCompleted
+                });
+            }
         }
 
         public void AddNewQuest(Quest quest)
         {
-            if (!_currentQuests.Contains(quest))
+            if (!currentQuests.Contains(quest))
             {
                 if(mainQuests.Any(p => p.quest = quest))
                 {
@@ -38,7 +49,7 @@ namespace SzymonPeszek.PlayerScripts
 
                     if (prevId < 0)
                     {
-                        _currentQuests.Add(quest);
+                        currentQuests.Add(quest);
                         
                         if (quest.activateOnGive.Count > 0)
                         {
@@ -50,7 +61,7 @@ namespace SzymonPeszek.PlayerScripts
                     }
                     else if (mainQuests[prevId].isCompleted)
                     {
-                        _currentQuests.Add(quest);
+                        currentQuests.Add(quest);
                         
                         if (quest.activateOnGive.Count > 0)
                         {
@@ -66,7 +77,9 @@ namespace SzymonPeszek.PlayerScripts
 
         public void CompleteQuest(Quest quest)
         {
-            mainQuests.Find(p => p.quest = quest).isCompleted = true;
+            QuestContainer q = mainQuests.Find(p => p.quest = quest);
+            q.isCompleted = true;
+            SettingsHolder.worldManager.quests[q.questId].isCompleted = true;
             
             if (quest.activateOnComplete.Count > 0)
             {
@@ -76,7 +89,7 @@ namespace SzymonPeszek.PlayerScripts
                 }
             }
             
-            _currentQuests.Remove(quest);
+            currentQuests.Remove(quest);
         }
     }
 

@@ -172,6 +172,7 @@ namespace SzymonPeszek.EnemyScripts
         /// Main function for taking damage from player
         /// </summary>
         /// <param name="damage">Damage amount</param>
+        /// <param name="player">Player's stats</param>
         /// <param name="damageType">Type of damage</param>
         /// <param name="damageAnimation">Name of damage animation</param>
         /// <param name="isBackStabbed">Is it from back stab?</param>

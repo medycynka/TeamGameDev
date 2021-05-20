@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -42,7 +43,12 @@ namespace SzymonPeszek.Environment.Areas
             if (isBossAlive)
             {
                 bossPrefab = Instantiate(bossPrefab, startPosition, startRotation, parentTransform);
-                bonfiresInArea[0].gameObject.SetActive(false);
+                
+                if (bonfiresInArea.Length > 0)
+                {
+                    bonfiresInArea[0].gameObject.SetActive(false);
+                }
+
                 _bossStats = bossPrefab.GetComponent<EnemyStats>();
                 _bossStats.bossAreaManager = this;
                 bossHpBar.SetActive(false);
