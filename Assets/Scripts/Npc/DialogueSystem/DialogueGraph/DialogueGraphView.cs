@@ -134,7 +134,7 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
         }
 
         public DialogueNode CreateNode(string nodeName, Vector2 mousePosition, bool questGiver = false, 
-            bool questCompleter = false, bool isExit = false)
+            bool questCompleter = false, bool isExit = false, bool isEnding = false)
         {
             DialogueNode newDialogueNode = new DialogueNode
             {
@@ -143,7 +143,8 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
                 dialogueText = nodeName,
                 isQuestGiver = questGiver,
                 isQuestCompleter = questCompleter,
-                isExitNode = isExit
+                isExitNode = isExit,
+                isEndingDialogueNode = isEnding
             };
             
             newDialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("DialogueGraphFiles/Node"));
@@ -183,6 +184,12 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
             isQuestCompleter.SetValueWithoutNotify(newDialogueNode.isQuestCompleter);
             isQuestCompleter.text = "Completer";
             newDialogueNode.titleContainer.Add(isQuestCompleter);
+            
+            Toggle isDialogueEnder = new Toggle();
+            isDialogueEnder.RegisterValueChangedCallback(evt => newDialogueNode.isEndingDialogueNode = evt.newValue);
+            isDialogueEnder.SetValueWithoutNotify(newDialogueNode.isEndingDialogueNode);
+            isDialogueEnder.text = "Ender";
+            newDialogueNode.titleContainer.Add(isDialogueEnder);
 
             Button button = new Button(() => { AddChoicePort(newDialogueNode); });
             button.text = "Add Choice";

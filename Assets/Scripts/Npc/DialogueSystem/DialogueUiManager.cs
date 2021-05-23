@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using SzymonPeszek.PlayerScripts;
 using UnityEngine;
 using TMPro;
@@ -64,7 +65,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
 
         private string GetFirstNode()
         {
-            foreach (var link in _npcInteractionManager.dialogueData[_npcInteractionManager.currentDialogueId].nodeLinks)
+            foreach (var link in _npcInteractionManager.currentDialogue.dialogueData.nodeLinks)
             {
                 if (link.portName == "Next")
                 {
@@ -77,6 +78,12 @@ namespace SzymonPeszek.Npc.DialogueSystem
 
         private void HandleDialogueOption(string targetGuid)
         {
+            if (_npcInteractionManager.dialogueMap[targetGuid].ender)
+            {
+                _npcInteractionManager.dialogueDataContainer
+                    .First(d => d.dialogueId == _npcInteractionManager.currentDialogue.dialogueId).isCompleted = true;
+            }
+            
             if (_npcInteractionManager.dialogueMap[targetGuid].exit)
             {
                 CloseDialogue();

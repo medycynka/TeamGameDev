@@ -21,6 +21,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
                     giver = dialogueNode.isQuestGiver,
                     completer = dialogueNode.isQuestCompleter,
                     exit = dialogueNode.isExit,
+                    ender = dialogueNode.isEnding,
                     links = GetNodeLinks(dialogueNode.nodeGuid, dialogueContainer)
                 });
             }
@@ -53,6 +54,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
                     giver = dialogueNode.isQuestGiver,
                     completer = dialogueNode.isQuestCompleter,
                     exit = dialogueNode.isExit,
+                    ender = dialogueNode.isEnding,
                     links = GetNodeLinks(dialogueNode.nodeGuid, dialogueContainer)
                 });
             }
@@ -95,6 +97,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
         public bool giver;
         public bool completer;
         public bool exit;
+        public bool ender;
         public List<LinkData> links;
     }
 }

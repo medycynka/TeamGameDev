@@ -142,7 +142,7 @@ namespace SzymonPeszek.PlayerScripts
 
             if (cameraHandler != null)
             {
-                if (!_inputHandler.inventoryFlag)
+                if (!_inputHandler.inventoryFlag && !dialogueFlag)
                 {
                     cameraHandler.FollowTarget(delta);
                     cameraHandler.HandleCameraRotation(delta, _inputHandler.mouseX, _inputHandler.mouseY);
