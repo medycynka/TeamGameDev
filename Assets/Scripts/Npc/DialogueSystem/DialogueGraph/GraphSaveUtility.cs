@@ -99,7 +99,8 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
                     nodePosition = node.GetPosition().position,
                     isQuestGiver = node.isQuestGiver,
                     isQuestCompleter = node.isQuestCompleter,
-                    isExit = node.isExitNode
+                    isExit = node.isExitNode,
+                    isEnding = node.isEndingDialogueNode
                 });
             }
 
@@ -174,7 +175,7 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
             foreach (var perNode in _dialogueContainer.dialogueNodeData)
             {
                 var tempNode = _targetGraphView.CreateNode(perNode.dialogueText, Vector2.zero, perNode.isQuestGiver, 
-                    perNode.isQuestCompleter, perNode.isExit);
+                    perNode.isQuestCompleter, perNode.isExit, perNode.isEnding);
                 tempNode.guID = perNode.nodeGuid;
                 _targetGraphView.AddElement(tempNode);
 

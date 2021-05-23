@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SzymonPeszek.BaseClasses;
 using SzymonPeszek.Npc.DialogueSystem;
@@ -13,11 +14,11 @@ namespace SzymonPeszek.Npc
 {
     public class NpcInteractionManager : Interactable
     {
-        public List<DialogueContainer> dialogueData;
+        public List<DialogueInfo> dialogueDataContainer;
         public DialogueUiManager dialogueUiManager;
         public bool isQuestGiven;
         public Dictionary<string, DialogueNodeStorage> dialogueMap;
-        public int currentDialogueId = 0;
+        public DialogueInfo currentDialogue;
         
         //For "simulating" dialogue map in the inspector
         [SerializeField] private List<string> dialogueMapKeys;
@@ -29,11 +30,13 @@ namespace SzymonPeszek.Npc
         {
             _npcManager = GetComponent<NpcManager>();
 
-            InitializeDialogue(currentDialogueId);
+            InitializeDialogue();
         }
 
         public override void Interact(PlayerManager playerManager)
         {
+            InitializeDialogue();
+            
             if (!dialogueUiManager.isInitialized)
             {
                 dialogueUiManager.Init(playerManager, _npcManager, this);
@@ -42,12 +45,13 @@ namespace SzymonPeszek.Npc
             dialogueUiManager.HandleDialogue();
         }
 
-        public void InitializeDialogue(int id)
+        public void InitializeDialogue()
         {
             // Convert dialogue container data to dictionary for fast and easy access to options of given dialogue node
-            dialogueMapKeys = DialogueDataConverter.ToGuidList(dialogueData[id]);
-            dialogueMapValues = DialogueDataConverter.ToDialogueStorageList(dialogueData[id]);
-            dialogueMap = DialogueDataConverter.ToDictionary(dialogueData[id]);
+            currentDialogue = dialogueDataContainer.First(d => !d.isCompleted);
+            dialogueMapKeys = DialogueDataConverter.ToGuidList(currentDialogue.dialogueData);
+            dialogueMapValues = DialogueDataConverter.ToDialogueStorageList(currentDialogue.dialogueData);
+            dialogueMap = DialogueDataConverter.ToDictionary(currentDialogue.dialogueData);
         }
 
         public void GiveQuest(PlayerManager playerManager)
@@ -67,5 +71,13 @@ namespace SzymonPeszek.Npc
                 isQuestGiven = false;
             }
         }
+    }
+
+    [Serializable]
+    public class DialogueInfo
+    {
+        public int dialogueId;
+        public bool isCompleted;
+        public DialogueContainer dialogueData;
     }
 }

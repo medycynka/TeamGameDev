@@ -7405,6 +7405,22 @@ PrefabInstance:
       propertyPath: playerAnimatorManager
       value: 
       objectReference: {fileID: 904466048}
+    - target: {fileID: 301754168852192502, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
+      propertyPath: dialogueDataContainer.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 301754168852192502, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
+      propertyPath: dialogueDataContainer.Array.data[1].dialogueId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 301754168852192502, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
+      propertyPath: dialogueDataContainer.Array.data[0].dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: f9edc9de9adc9654292aea169e68ba62, type: 2}
+    - target: {fileID: 301754168852192502, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
+      propertyPath: dialogueDataContainer.Array.data[1].dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: e1a1a87609131724bbdb6a01998275f1, type: 2}
     - target: {fileID: 301754168852192503, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
       propertyPath: m_RootOrder
       value: 1
