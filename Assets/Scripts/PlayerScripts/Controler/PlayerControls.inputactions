@@ -382,7 +382,7 @@
                 {
                     "name": "",
                     "id": "3eab68fd-6053-4b14-b302-807ebef30d02",
-                    "path": "<Keyboard>/z",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "Hold(duration=0.2)",
                     "processors": "",
                     "groups": "PC",

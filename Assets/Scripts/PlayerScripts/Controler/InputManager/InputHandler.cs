@@ -252,30 +252,30 @@ namespace SzymonPeszek.PlayerScripts.Controller
                 #endregion
 
                 #region Handle Heavy Attack
-                if (rtInput)
-                {
-                    if (_playerManager.canDoCombo)
-                    {
-                        comboFlag = true;
-                        _playerAttacker.HandleWeaponCombo(_playerInventory.rightWeapon);
-                        comboFlag = false;
-                    }
-                    else
-                    {
-                        if (_playerManager.isInteracting)
-                        {
-                            return;
-                        }
-
-                        if (_playerManager.canDoCombo)
-                        {
-                            return;
-                        }
-
-                        _playerAnimatorManager.anim.SetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsUsingRightHandName], true);
-                        _playerAttacker.HandleHeavyAttack(_playerInventory.rightWeapon);
-                    }
-                }
+                // if (rtInput)
+                // {
+                //     if (_playerManager.canDoCombo)
+                //     {
+                //         comboFlag = true;
+                //         _playerAttacker.HandleWeaponCombo(_playerInventory.rightWeapon);
+                //         comboFlag = false;
+                //     }
+                //     else
+                //     {
+                //         if (_playerManager.isInteracting)
+                //         {
+                //             return;
+                //         }
+                //
+                //         if (_playerManager.canDoCombo)
+                //         {
+                //             return;
+                //         }
+                //
+                //         _playerAnimatorManager.anim.SetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsUsingRightHandName], true);
+                //         _playerAttacker.HandleHeavyAttack(_playerInventory.rightWeapon);
+                //     }
+                // }
                 #endregion
 
                 #region Handle Left Hand Action
@@ -287,7 +287,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
                     }
                     else
                     {
-                        _playerAttacker.HandleLtAction();
+                        // _playerAttacker.HandleLtAction();
                     }
                 }
 
