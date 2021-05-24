@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Grandma_Idle_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: 8a795a78-113b-40b5-93e1-b607bd512853
+    portName: Next
+    targetNodeGuid: 6225b30d-ab25-415e-a9ac-8137d6640593
+  - baseNodeGuid: 6225b30d-ab25-415e-a9ac-8137d6640593
+    portName: "Dobrze, babciu. Jak Ty si\u0119 czujesz?"
+    targetNodeGuid: 40f4b153-6da3-45df-a8a7-f9bd893a8b22
+  - baseNodeGuid: 6225b30d-ab25-415e-a9ac-8137d6640593
+    portName: Niezbyt dobrze.
+    targetNodeGuid: 8b5d8592-9b89-4651-9a1b-68438f07ed91
+  - baseNodeGuid: 40f4b153-6da3-45df-a8a7-f9bd893a8b22
+    portName: "Ciesz\u0119 si\u0119, babciu. Musz\u0119 ju\u017C i\u015B\u0107."
+    targetNodeGuid: ae6b8322-3b26-4cfe-a5ea-1f5afbce9a81
+  - baseNodeGuid: 8b5d8592-9b89-4651-9a1b-68438f07ed91
+    portName: "Martwi\u0119 si\u0119 o tat\u0119."
+    targetNodeGuid: c54f8245-6c4e-4fe1-94f4-bc7370ab5501
+  - baseNodeGuid: 8b5d8592-9b89-4651-9a1b-68438f07ed91
+    portName: "Chc\u0119, \u017Ceby by\u0142 ju\u017C dzie\u0144."
+    targetNodeGuid: c54f8245-6c4e-4fe1-94f4-bc7370ab5501
+  - baseNodeGuid: c54f8245-6c4e-4fe1-94f4-bc7370ab5501
+    portName: Oby.
+    targetNodeGuid: ae6b8322-3b26-4cfe-a5ea-1f5afbce9a81
+  dialogueNodeData:
+  - nodeGuid: 6225b30d-ab25-415e-a9ac-8137d6640593
+    dialogueText: "Co tam, kochanie? Jak si\u0119 czujesz?"
+    nodePosition: {x: 408, y: 202}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+  - nodeGuid: 40f4b153-6da3-45df-a8a7-f9bd893a8b22
+    dialogueText: "Dobrze, nawet bardzo dobrze. Noc mi chyba s\u0142u\u017Cy. Mo\u017Ce
+      to przez ten brak upa\u0142u..."
+    nodePosition: {x: 976, y: -57}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+  - nodeGuid: 8b5d8592-9b89-4651-9a1b-68438f07ed91
+    dialogueText: "Och, co si\u0119 dzieje, kochanie?"
+    nodePosition: {x: 1010, y: 209}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+  - nodeGuid: c54f8245-6c4e-4fe1-94f4-bc7370ab5501
+    dialogueText: "Och, nie przejmuj si\u0119. Wszystko si\u0119 u\u0142o\u017Cy."
+    nodePosition: {x: 1558, y: 200}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+  - nodeGuid: ae6b8322-3b26-4cfe-a5ea-1f5afbce9a81
+    dialogueText: Dialogue Node
+    nodePosition: {x: 2241, y: -66}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+  exposedProperties: []
+  commentBlockData: []

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Grandma_Start_Quest_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: ca584691-66bc-42ca-aaa4-7723e7256447
+    portName: Next
+    targetNodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
+  - baseNodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
+    portName: "By\u0142em u Elienny. Przesy\u0142a pozdrowienia."
+    targetNodeGuid: 90dfd2cf-2736-459b-ab6f-19130a11ba5f
+  dialogueNodeData:
+  - nodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
+    dialogueText: Witaj, kochanie. Jak tam na wyprawie?
+    nodePosition: {x: 381, y: 188}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+  - nodeGuid: 90dfd2cf-2736-459b-ab6f-19130a11ba5f
+    dialogueText: "Och, co tam u niej s\u0142ycha\u0107?"
+    nodePosition: {x: 1035, y: 182}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+  exposedProperties: []
+  commentBlockData: []

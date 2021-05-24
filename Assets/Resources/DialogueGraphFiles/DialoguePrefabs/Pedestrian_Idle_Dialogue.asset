@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Pedestrian_Idle_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: 7b2fee0a-0b4d-4dd6-858a-0f06290e96a3
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: 3551561a-4438-4060-aa52-c899172e8c00
+  - baseNodeGuid: ff47580e-3d99-4a22-9eeb-ccf819df207c
+    portName: Next
+    targetNodeGuid: 7b2fee0a-0b4d-4dd6-858a-0f06290e96a3
+  dialogueNodeData:
+  - nodeGuid: 7b2fee0a-0b4d-4dd6-858a-0f06290e96a3
+    dialogueText: Nie masz nic do roboty?
+    nodePosition: {x: 409, y: 192}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+  - nodeGuid: 3551561a-4438-4060-aa52-c899172e8c00
+    dialogueText: Dialogue Node
+    nodePosition: {x: 902, y: 207}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+  exposedProperties: []
+  commentBlockData: []

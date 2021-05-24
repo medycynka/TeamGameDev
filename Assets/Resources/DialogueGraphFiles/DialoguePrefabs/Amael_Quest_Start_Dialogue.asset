@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Amael_Quest_Start_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: 90032a30-6e05-495b-a0e4-a2093c8a70d7
+    portName: Next
+    targetNodeGuid: 567b43bd-c7b7-4321-9923-a57ce67e1cce
+  - baseNodeGuid: 567b43bd-c7b7-4321-9923-a57ce67e1cce
+    portName: Pewnie tak.
+    targetNodeGuid: b2dd6c50-1547-4447-87d7-43777add31f2
+  dialogueNodeData:
+  - nodeGuid: 567b43bd-c7b7-4321-9923-a57ce67e1cce
+    dialogueText: "Witaj! Wybierasz si\u0119 mo\u017Ce za wiosk\u0119?"
+    nodePosition: {x: 373, y: 167}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+  - nodeGuid: b2dd6c50-1547-4447-87d7-43777add31f2
+    dialogueText: "\u015Awietnie. Mam pro\u015Bb\u0119. "
+    nodePosition: {x: 942, y: 61}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+  exposedProperties: []
+  commentBlockData: []

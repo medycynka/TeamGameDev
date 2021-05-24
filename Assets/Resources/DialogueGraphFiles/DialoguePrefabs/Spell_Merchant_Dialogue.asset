@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Spell_Merchant_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: c4416039-d4a4-4134-bd54-cb3d686f00cb
+    portName: Next
+    targetNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+  - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    portName: "Nie, dzi\u0119kuj\u0119."
+    targetNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
+  - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    portName: "Ch\u0119tnie."
+    targetNodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
+  dialogueNodeData:
+  - nodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
+    dialogueText: Dialogue Node
+    nodePosition: {x: 1114, y: 326}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+  - nodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
+    dialogueText: Dialogue Node
+    nodePosition: {x: 1113, y: 161}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+  - nodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    dialogueText: "Witaj. Mam par\u0119 ksi\u0105g na sprzeda\u017C."
+    nodePosition: {x: 348, y: 198}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+  exposedProperties: []
+  commentBlockData: []
