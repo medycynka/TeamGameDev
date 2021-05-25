@@ -3178,7 +3178,7 @@ MonoBehaviour:
   enableFeetIk: 1
   environmentLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 65536
   weightPositionRight: 1
   weightRotationRight: 0.5
   weightPositionLeft: 1
@@ -4330,9 +4330,10 @@ MonoBehaviour:
   walkingSpeed: 1
   sprintSpeed: 7
   rotationSpeed: 16
-  fallingSpeed: 150
-  jumpHeight: 0.25
-  jumpMultiplier: 5
+  leapingVelocity: 3
+  fallingVelocity: 50
+  jumpHeight: 1.5
+  jumpMultiplier: 10
   nextJump: 0
   rollStaminaCost: 10
   sprintStaminaCost: 5
@@ -4847,13 +4848,45 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e4a8d46729e97d344b1382acd93bb87a, type: 3}
   getDamageClips:
   - damageType: 0
-    damageSounds: []
+    damageSounds:
+    - {fileID: 8300000, guid: b5d84591ea0a3f545925cf60c1d2c641, type: 3}
+    - {fileID: 8300000, guid: 053915d24900cb74185a281aa802cdb7, type: 3}
+    - {fileID: 8300000, guid: ed3bc945be9b477459fb7792433c59fb, type: 3}
+    - {fileID: 8300000, guid: 9299dfab26242704684bab14d8f6600d, type: 3}
+    - {fileID: 8300000, guid: d648e626e528d284cbda86c327ca01c8, type: 3}
+    - {fileID: 8300000, guid: 41fae860c7ab4fe42a4d3d7c90bd7a4b, type: 3}
+    - {fileID: 8300000, guid: e5c356aeabac6e44c8001af30fdbb245, type: 3}
+    - {fileID: 8300000, guid: 8e7aee2f9af7acd489e139065d8055a2, type: 3}
+    - {fileID: 8300000, guid: cdf971c921b8b5344b19ee1e0813ef0b, type: 3}
+    - {fileID: 8300000, guid: 54360185a282abc4990bf058f44de5cf, type: 3}
+    - {fileID: 8300000, guid: 8971c3d75cfeb90429a51706d8031173, type: 3}
+    - {fileID: 8300000, guid: 9d0b9ca39ee74d148989be753a910153, type: 3}
+    - {fileID: 8300000, guid: b1e81c1397673224696365362314bbdc, type: 3}
+    - {fileID: 8300000, guid: ce311af7c8084434894af5ebd9535af0, type: 3}
+    - {fileID: 8300000, guid: 95255697aac2f3b49914f1ea1064e8e9, type: 3}
+    - {fileID: 8300000, guid: fd2d4af12743d5347b6b510e42f36413, type: 3}
+    - {fileID: 8300000, guid: 005208ead31d6ed4c8b181f25b80edd4, type: 3}
+    - {fileID: 8300000, guid: 19b8910dd29c394499a7e77042ef46ff, type: 3}
+    - {fileID: 8300000, guid: 167ac0e5457b6f14aa2b077142c0bfbc, type: 3}
+    - {fileID: 8300000, guid: f8ad016499da38c4288b2798d2e81576, type: 3}
+    - {fileID: 8300000, guid: b76d182ce23a643499aac08facdd3998, type: 3}
+    - {fileID: 8300000, guid: 118f59c6cbc4056479a2f1bf1eeaefd7, type: 3}
   - damageType: 1
     damageSounds: []
   - damageType: 2
     damageSounds: []
   - damageType: 3
-    damageSounds: []
+    damageSounds:
+    - {fileID: 8300000, guid: 4a4533bea9c5b5d4d8860ccf705a07f9, type: 3}
+    - {fileID: 8300000, guid: bd8f46638c4b8ae488fc72a3b81fae4b, type: 3}
+    - {fileID: 8300000, guid: 000361e3899b69b47870410b4465be11, type: 3}
+    - {fileID: 8300000, guid: ec590de7b6127d64a9dd93d1b5fab8c5, type: 3}
+    - {fileID: 8300000, guid: 5a9db7b5edd90474daad171cad36366f, type: 3}
+    - {fileID: 8300000, guid: 301bc77853324534b9dd4b93635cecdf, type: 3}
+    - {fileID: 8300000, guid: 0422b2bee7236de4593a1cb81e48185c, type: 3}
+    - {fileID: 8300000, guid: 920621a564f0bdb4b94e8051109c329d, type: 3}
+    - {fileID: 8300000, guid: 8deea7f03a2477f41a9940f62b59b016, type: 3}
+    - {fileID: 8300000, guid: fb7b629b86cedc14085bc7376fa1a2ae, type: 3}
   - damageType: 4
     damageSounds: []
   - damageType: 5
@@ -4903,13 +4936,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22124f9abebe1d43b1ad44edcedee56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainQuests:
-  - prevQuestId: -1
-    questId: 0
-    quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
-    isCompleted: 0
+  mainQuests: []
   sideQuests: []
-  _currentQuests: []
+  currentQuests: []
 --- !u!1 &6075655737834115276
 GameObject:
   m_ObjectHideFlags: 0

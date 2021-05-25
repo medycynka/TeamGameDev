@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using SzymonPeszek.BaseClasses;
 using SzymonPeszek.Enums;
@@ -282,7 +283,7 @@ namespace SzymonPeszek.PlayerScripts.Animations
         public void EnableIsJumping()
         {
             _playerManager.isJumping = true;
-            _playerLocomotion.rigidbody.useGravity = false;
+            // _playerLocomotion.rigidbody.useGravity = false;
         }
 
         /// <summary>
@@ -291,7 +292,7 @@ namespace SzymonPeszek.PlayerScripts.Animations
         public void DisableIsJumping()
         {
             _playerManager.isJumping = false;
-            _playerLocomotion.rigidbody.useGravity = true;
+            // _playerLocomotion.rigidbody.useGravity = true;
         }
 
         /// <summary>

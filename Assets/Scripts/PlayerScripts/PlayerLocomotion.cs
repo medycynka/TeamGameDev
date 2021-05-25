@@ -40,9 +40,10 @@ namespace SzymonPeszek.PlayerScripts
         public float walkingSpeed = 1f;
         public float sprintSpeed = 7f;
         public float rotationSpeed = 16f;
-        public float fallingSpeed = 80f;
-        [Range(0.01f, 5f)] public float jumpHeight = 1.5f;
-        [Range(2f, 10f)] public float jumpMultiplier = 5f;
+        [Range(0.1f, 10f)] public float leapingVelocity = 3f;
+        [Range(5f, 250f)] public float fallingVelocity = 33f;
+        [Range(0.01f, 25f)] public float jumpHeight = 1.5f;
+        [Range(1f, 100f)] public float jumpMultiplier = 5f;
 
         [Header("Next Jump Cooldown", order = 1)]
         public float nextJump = 2.0f;
@@ -59,10 +60,7 @@ namespace SzymonPeszek.PlayerScripts
         private InputHandler _inputHandler;
         private PlayerStats _playerStats;
         private CapsuleCollider _playerCollider;
-        private FootIkManager _footIkManager;
         private RaycastHit _hit;
-        private float _playerColliderRadius;
-        private Vector3 _move = Vector3.zero;
 
         private void Awake()
         {
@@ -72,8 +70,6 @@ namespace SzymonPeszek.PlayerScripts
             _playerStats = GetComponent<PlayerStats>();
             playerAnimatorManager = GetComponentInChildren<PlayerAnimatorManager>();
             _playerCollider = GetComponent<CapsuleCollider>();
-            _footIkManager = GetComponentInChildren<FootIkManager>();
-            _playerColliderRadius = GetComponent<CapsuleCollider>().radius;
             
             if (!(Camera.main is null))
             {
@@ -109,6 +105,11 @@ namespace SzymonPeszek.PlayerScripts
         /// <param name="delta">Time stamp</param>
         public void HandleRotation(float delta)
         {
+            if (_playerManager.isJumping)
+            {
+                return;
+            }
+            
             if (playerAnimatorManager.canRotate)
             {
                 if (_inputHandler.lockOnFlag)
@@ -122,23 +123,23 @@ namespace SzymonPeszek.PlayerScripts
 
                         if (targetDirection == Vector3.zero)
                         {
-                            targetDirection = transform.forward;
+                            targetDirection = myTransform.forward;
                         }
 
                         Quaternion tr = Quaternion.LookRotation(targetDirection);
                         Quaternion targetRotation =
-                            Quaternion.Slerp(transform.rotation, tr, rotationSpeed * Time.deltaTime);
-                        transform.rotation = targetRotation;
+                            Quaternion.Slerp(myTransform.rotation, tr, rotationSpeed * Time.deltaTime);
+                        myTransform.rotation = targetRotation;
                     }
                     else
                     {
-                        Vector3 rotationDirection = cameraHandler.currentLockOnTarget.characterTransform.position - transform.position;
+                        Vector3 rotationDirection = cameraHandler.currentLockOnTarget.characterTransform.position - myTransform.position;
                         rotationDirection.y = 0;
                         rotationDirection.Normalize();
                         Quaternion tr = Quaternion.LookRotation(rotationDirection);
                         Quaternion targetRotation =
-                            Quaternion.Slerp(transform.rotation, tr, rotationSpeed * Time.deltaTime);
-                        transform.rotation = targetRotation;
+                            Quaternion.Slerp(myTransform.rotation, tr, rotationSpeed * Time.deltaTime);
+                        myTransform.rotation = targetRotation;
                     }
                 }
                 else
@@ -167,12 +168,7 @@ namespace SzymonPeszek.PlayerScripts
         /// <param name="delta">Time stamp</param>
         public void HandleMovement(float delta)
         {
-            if (_inputHandler.rollFlag)
-            {
-                return;
-            }
-
-            if (_playerManager.isInteracting)
+            if (_inputHandler.rollFlag || _playerManager.isInteracting || _playerManager.isJumping)
             {
                 return;
             }
@@ -254,94 +250,99 @@ namespace SzymonPeszek.PlayerScripts
         /// <summary>
         /// Handle falling and ground detection
         /// </summary>
-        /// <param name="moveDir">Move direction</param>
+        /// <param name="delta">Time stamp</param>
         public void HandleFalling(float delta)
         {
-            _move = moveDirection;
-            _playerManager.isGrounded = false;
-            Vector3 origin = myTransform.position;
+            _targetPosition = myTransform.position;
+            Vector3 origin = _targetPosition;
             origin.y += groundDetectionRayStartPoint;
+
+            if (_playerManager.isJumping)
+            {
+                moveDirection = _cameraObject.forward * _inputHandler.vertical;
+                moveDirection += _cameraObject.right * _inputHandler.horizontal;
+                moveDirection.Normalize();
+                if (_playerManager.isSprinting)
+                {
+                    moveDirection *= sprintSpeed;
+                }
+                else
+                {
+                    if (_inputHandler.moveAmount >= 0.5f)
+                    {
+                        moveDirection *= movementSpeed;
+                    }
+                    else
+                    {
+                        moveDirection *= walkingSpeed;
+                    }
+                }
+                rigidbody.velocity = new Vector3(moveDirection.x, rigidbody.velocity.y, moveDirection.z);
+                
+                Vector3 targetDirection = _cameraObject.forward * _inputHandler.vertical;
+                targetDirection += _cameraObject.right * _inputHandler.horizontal;
+                targetDirection.Normalize();
+                targetDirection.y = 0;
+                if (targetDirection == Vector3.zero)
+                {
+                    targetDirection = transform.forward;
+                }
+                Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * delta);
+            }
             
             if (Physics.Raycast(origin, myTransform.forward, out _hit, 0.4f))
             {
                 moveDirection = Vector3.zero;
             }
-            
-            if (_playerManager.isInAir)
+
+            if (_playerManager.isInAir && !_playerManager.isJumping)
             {
-                rigidbody.velocity = Vector3.down * (fallingSpeed * 0.05f) + moveDirection * (fallingSpeed * 0.01f);
+                if (!_playerManager.isInteracting)
+                {
+                    playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.FallName], true);
+                }
+
+                inAirTimer += delta;
+                rigidbody.AddForce(moveDirection * leapingVelocity);
+                rigidbody.AddForce(Vector3.down * (fallingVelocity * inAirTimer));
             }
-            
-            Vector3 dir = moveDirection;
-            dir.Normalize();
-            origin += dir * groundDirectionRayDistance;
-            
-            _targetPosition = myTransform.position;
-            
-            // Debug.DrawRay(origin, Vector3.down * minimumDistanceNeededToBeginFall, Color.red, 0.1f, false);
-            
-            if (Physics.SphereCast(origin, _playerColliderRadius, Vector3.down, out _hit, minimumDistanceNeededToBeginFall, _ignoreForGroundCheck) 
-                || Physics.Raycast(origin, Vector3.down, out _hit, minimumDistanceNeededToBeginFall, _ignoreForGroundCheck))
+
+            if (Physics.SphereCast(origin, groundDirectionRayDistance, Vector3.down, out _hit,
+                    minimumDistanceNeededToBeginFall, _ignoreForGroundCheck) || Physics.Raycast(origin, 
+                Vector3.down, out _hit, minimumDistanceNeededToBeginFall, _ignoreForGroundCheck))
             {
-                _normalVector = _hit.normal;
-                Vector3 tp = _hit.point;
+                if (_playerManager.isInAir && (_playerManager.isInteracting || _playerManager.isJumping))
+                {
+                    playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.LandName], true);
+                }
+                
+                if (inAirTimer > 3f)
+                {
+                    _playerStats.TakeDamage(fallDamage * (inAirTimer - 1f), DamageType.Fall);
+                }
+                
+                _targetPosition.y = _hit.point.y;
+                inAirTimer = 0;
+                _playerManager.isInAir = false;
                 _playerManager.isGrounded = true;
-                _targetPosition.y = tp.y;
-            
-                if (_playerManager.isInAir)
-                {
-                    if (inAirTimer > 0.5f)
-                    {
-                        //Debug.Log("You were in the air for " + inAirTimer);
-                        playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.LandName], true);
-            
-                        if (inAirTimer > 2.5f)
-                        {
-                            _playerStats.TakeDamage(fallDamage * inAirTimer * 0.5f, DamageType.Fall);
-                        }
-                        
-                        inAirTimer = 0;
-                    }
-                    else
-                    {
-                        playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.EmptyName], false);
-                        inAirTimer = 0;
-                    }
-            
-                    _playerManager.isInAir = false;
-                    _footIkManager.enableFeetIk = true;
-                }
             }
             else
             {
-                if (_playerManager.isGrounded)
-                {
-                    _playerManager.isGrounded = false;
-                }
-            
-                if (_playerManager.isInAir == false)
-                {
-                    _footIkManager.enableFeetIk = false;
-                    
-                    if (_playerManager.isInteracting == false)
-                    {
-                        playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.FallName], true);
-                    }
-            
-                    Vector3 vel = rigidbody.velocity;
-                    vel.Normalize();
-                    rigidbody.velocity = vel * (movementSpeed / 2);
-                    _playerManager.isInAir = true;
-                }
+                _playerManager.isInAir = true;
+                _playerManager.isGrounded = false;
             }
-            
-            if (_playerManager.isInteracting || _inputHandler.moveAmount > 0)
+
+            if (!_playerManager.isInAir && !_playerManager.isJumping)
             {
-                myTransform.position = Vector3.Lerp(myTransform.position, _targetPosition, delta / 0.1f);
-            }
-            else
-            {
-                myTransform.position = _targetPosition;
+                if (_playerManager.isInteracting || _inputHandler.moveAmount > 0)
+                {
+                    myTransform.position = Vector3.Lerp(myTransform.position, _targetPosition, delta * 10f);
+                }
+                else
+                {
+                    myTransform.position = _targetPosition;
+                }
             }
         }
 
@@ -356,20 +357,15 @@ namespace SzymonPeszek.PlayerScripts
                 return;
             }
 
-            if (_inputHandler.jumpInput)
+            if (_inputHandler.jumpInput && !_playerManager.isInAir)
             {
-                if (_inputHandler.moveAmount > 0)
-                {
-                    StartCoroutine(ResizeCollider());
-                    playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.JumpName], true);
-                    Quaternion jumpRotation = Quaternion.LookRotation(moveDirection);
-                    myTransform.rotation = jumpRotation;
-                    nextJump = Time.time + 2f;
-
-                    Vector3 currentVelocity = moveDirection;
-                    currentVelocity.y += Mathf.Sqrt(2 * jumpMultiplier * jumpHeight);
-                    rigidbody.velocity = currentVelocity;
-                }
+                StartCoroutine(ResizeCollider());
+                playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.JumpName], false);
+                Vector3 currentVelocity = moveDirection;
+                nextJump = Time.time + 2f;
+                currentVelocity.y = Mathf.Sqrt(2 * jumpMultiplier * jumpHeight);
+                rigidbody.velocity = currentVelocity;
+                Debug.Log($"{rigidbody.velocity}");
             }
         }
 

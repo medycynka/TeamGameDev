@@ -158,14 +158,17 @@ namespace SzymonPeszek.PlayerScripts.Controller
                 if (!inventoryFlag)
                 {
                     HandleMoveInput();
-                    HandleRollInput(delta);
-                    HandleWalkInput(delta);
-                    HandleAttackInput(delta);
-                    HandleQuickSlotsInput();
-                    HandleLockOnInput();
-                    HandleTwoHandInput();
-                    HandleQuickHealInput();
-                    HandleCriticalAttackInput();
+                    if (!_playerManager.isJumping)
+                    {
+                        HandleRollInput(delta);
+                        HandleWalkInput(delta);
+                        HandleAttackInput(delta);
+                        HandleQuickSlotsInput();
+                        HandleLockOnInput();
+                        HandleTwoHandInput();
+                        HandleQuickHealInput();
+                        HandleCriticalAttackInput();
+                    }
                 }
 
                 HandleInventoryInput();
