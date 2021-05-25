@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using SzymonPeszek.EnemyScripts;
+using SzymonPeszek.EnemyScripts.Animations;
+using UnityEngine;
 using SzymonPeszek.Enums;
 using SzymonPeszek.PlayerScripts;
 using SzymonPeszek.PlayerScripts.Animations;
@@ -43,6 +45,24 @@ namespace SzymonPeszek.BaseClasses
         public virtual void SuccessfullyCastSpell(PlayerAnimatorManager playerAnimatorManager, PlayerStats playerStats)
         {
             playerStats.TakeFocusDamage(focusPointCost);
+        }
+        
+        /// <summary>
+        /// Attempt to cast this spell
+        /// </summary>
+        /// <param name="enemyAnimationManager">Enemy animation manager</param>
+        /// <param name="enemyStats">Enemy stats</param>
+        public virtual void EnemyAttemptToCastSpell(EnemyAnimationManager enemyAnimationManager, EnemyStats enemyStats)
+        {
+        }
+
+        /// <summary>
+        /// Successfully cast this spell
+        /// </summary>
+        /// <param name="enemyAnimationManager">Enemy animation manager</param>
+        /// <param name="enemyStats">Enemy stats</param>
+        public virtual void EnemySuccessfullyCastSpell(EnemyAnimationManager enemyAnimationManager, EnemyStats enemyStats)
+        {
         }
     }
 }

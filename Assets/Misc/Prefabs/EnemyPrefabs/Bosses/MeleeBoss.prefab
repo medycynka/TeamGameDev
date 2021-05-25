@@ -226,6 +226,7 @@ MonoBehaviour:
   isPreformingAction: 0
   isInteracting: 0
   isGettingRiposted: 0
+  isMagicCaster: 0
   shouldDrop: 1
   isAlive: 1
   deadFromBackStab: 0
@@ -236,7 +237,7 @@ MonoBehaviour:
   navMeshBlocker: {fileID: 0}
   enemyRigidBody: {fileID: 7061007005511988258}
   rotationSpeed: 15
-  detectionRadius: 15
+  detectionRadius: 20
   maximumAttackRange: 2
   maximumDetectionAngle: 75
   minimumDetectionAngle: -75
@@ -246,6 +247,7 @@ MonoBehaviour:
   maxRandomPointSearchIterations: 16
   allowAIToPerformCombos: 1
   comboLikelyHood: 25
+  dropChance: 100
   canDoCombo: 0
   currentRecoveryTime: 0
   disolveEdgeWidth: 0.015
@@ -2074,6 +2076,11 @@ MonoBehaviour:
   anim: {fileID: 0}
   canRotate: 1
   isEnemy: 1
+  spellProjectilesTransform: {fileID: 0}
+  spellRayCastLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  currentSpell: {fileID: 0}
 --- !u!114 &8799248994514541811
 MonoBehaviour:
   m_ObjectHideFlags: 0
