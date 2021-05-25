@@ -15,11 +15,16 @@ namespace SzymonPeszek.EnemyScripts.Animations
         private EnemyManager _enemyManager;
         private EnemyStats _enemyStats;
 
+        public Transform spellProjectilesTransform;
+        public LayerMask spellRayCastLayer;
+        public SpellItem currentSpell;
+
         private void Awake()
         {
             anim = GetComponent<Animator>();
             _enemyManager = GetComponentInParent<EnemyManager>();
             _enemyStats = GetComponentInParent<EnemyStats>();
+            spellRayCastLayer = 1 << LayerMask.NameToLayer("Environment") | 1 << LayerMask.NameToLayer("Controller");
 
             if (StaticAnimatorIds.enemyAnimationIds == null)
             {
@@ -65,7 +70,9 @@ namespace SzymonPeszek.EnemyScripts.Animations
                     {StaticAnimatorIds.RipostedName, Animator.StringToHash(StaticAnimatorIds.RipostedName)},
                     {StaticAnimatorIds.ParryName, Animator.StringToHash(StaticAnimatorIds.ParryName)},
                     {StaticAnimatorIds.ParriedName, Animator.StringToHash(StaticAnimatorIds.ParriedName)}, 
-                    {StaticAnimatorIds.BlockDamageName, Animator.StringToHash(StaticAnimatorIds.BlockDamageName)}
+                    {StaticAnimatorIds.BlockDamageName, Animator.StringToHash(StaticAnimatorIds.BlockDamageName)},
+                    {StaticAnimatorIds.FireballSpell, Animator.StringToHash(StaticAnimatorIds.FireballSpell)},
+                    {StaticAnimatorIds.Summon, Animator.StringToHash(StaticAnimatorIds.Summon)}
                 };
             }
 
@@ -175,6 +182,11 @@ namespace SzymonPeszek.EnemyScripts.Animations
         public void DisableCanBeRiposted()
         {
             _enemyManager.canBeRiposted = false;
+        }
+
+        public void CastSpell()
+        {
+            currentSpell.EnemySuccessfullyCastSpell(this, _enemyStats);
         }
     }
 }

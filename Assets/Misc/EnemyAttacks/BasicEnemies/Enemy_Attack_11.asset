@@ -19,3 +19,5 @@ MonoBehaviour:
   minimumAttackAngle: -35
   minimumDistanceNeededToAttack: 0.5
   maximumDistanceNeededToAttack: 2
+  canCombo: 0
+  comboAction: {fileID: 0}

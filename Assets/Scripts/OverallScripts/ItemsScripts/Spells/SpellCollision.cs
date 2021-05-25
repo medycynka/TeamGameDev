@@ -20,9 +20,12 @@ namespace SzymonPeszek.Items.Spells.Helpers
         [HideInInspector] public Transform projectileTransform;
         [HideInInspector] public float maxTravelDistanceSqr = 10000f;
         [HideInInspector] public PlayerStats playerStats;
+        [HideInInspector] public string fromWho;
 
         private Vector3 _currentDistanceVector;
         private bool _hasCollided;
+        private bool _firstCollision;
+        private const string PlayerTag = "Player";
         private const string EnemyTag = "Enemy";
         private const string DestructibleTag = "Destructible";
 
@@ -40,6 +43,13 @@ namespace SzymonPeszek.Items.Spells.Helpers
         {
             if (!_hasCollided)
             {
+                if (!_firstCollision && other.CompareTag(fromWho))
+                {
+                    _firstCollision = true;
+                    
+                    return;
+                }
+                
                 _hasCollided = true;
                 
                 if (collisionFx)
@@ -48,7 +58,11 @@ namespace SzymonPeszek.Items.Spells.Helpers
                     Destroy(collisionFx, 1.5f);
                 }
 
-                if (other.CompareTag(EnemyTag))
+                if (other.CompareTag(PlayerTag))
+                {
+                    other.GetComponent<PlayerStats>().TakeDamage(damage, DamageType.Magic);
+                }
+                else if (other.CompareTag(EnemyTag))
                 {
                     other.GetComponent<EnemyStats>().TakeDamage(damage, playerStats, DamageType.Magic);
                 }
@@ -57,7 +71,7 @@ namespace SzymonPeszek.Items.Spells.Helpers
                     Destroy(other.gameObject);
                 }
                 
-                Destroy(gameObject, 0.25f);
+                Destroy(gameObject, 0.15f);
             }
         }
     }

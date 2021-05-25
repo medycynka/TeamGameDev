@@ -33,6 +33,8 @@ namespace SzymonPeszek.Environment.Sounds
 
         [Header("Audio Clips", order = 0)] 
         [Header("Volume Variance", order = 1)]
+        public bool isEnemy = true;
+        public float enemySoundMultiplier = 0.5f;
         [Range(0, 0.5f)] public float volumeVariance = 0.1f;
         
         [Header("Multiple Clips For Random Pick", order = 1)]
@@ -89,7 +91,7 @@ namespace SzymonPeszek.Environment.Sounds
             _anim = GetComponentInChildren<Animator>();
             _audioSource.loop = true;
             _audioSource.clip = currentBackgroundMusic;
-            _audioSource.volume = SettingsHolder.soundVolume;
+            _audioSource.volume = SettingsHolder.soundVolume * (isEnemy ? enemySoundMultiplier : 1f);
             _environmentMask = 1 << LayerMask.NameToLayer("Environment") | 1 << LayerMask.NameToLayer("Water");
             _audioSource.Play();
 
@@ -136,6 +138,11 @@ namespace SzymonPeszek.Environment.Sounds
 
                 _stepDeletionTimer = 3f;
             }
+        }
+
+        public void ChangeVolume(float newVolume)
+        {
+            _audioSource.volume = newVolume * (isEnemy ? enemySoundMultiplier : 1f);
         }
 
         public void ChangeBackGroundMusic(AudioClip newBgMusic)

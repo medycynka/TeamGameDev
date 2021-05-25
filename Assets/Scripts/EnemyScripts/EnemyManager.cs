@@ -8,6 +8,7 @@ using SzymonPeszek.EnemyScripts.Animations;
 using SzymonPeszek.Enums;
 using SzymonPeszek.PlayerScripts;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 
 namespace SzymonPeszek.EnemyScripts
@@ -36,6 +37,7 @@ namespace SzymonPeszek.EnemyScripts
         public bool isPreformingAction;
         public bool isInteracting;
         public bool isGettingRiposted;
+        public bool isMagicCaster;
         public bool shouldDrop = true;
         public bool isAlive = true;
         public bool deadFromBackStab;
@@ -64,6 +66,7 @@ namespace SzymonPeszek.EnemyScripts
         [Header("A.I Combat Settings", order = 2)]
         public bool allowAIToPerformCombos;
         public float comboLikelyHood = 25f;
+        public float dropChance = 100f;
         
         [Header("Combat Flags", order = 2)]
         public bool canDoCombo;
@@ -238,7 +241,7 @@ namespace SzymonPeszek.EnemyScripts
             _enemyStats.playerStats.uiManager.currentSoulsAmount.text = _enemyStats.playerStats.soulsAmount.ToString();
             _enemyStats.playerStats.IncrementEnemyKillCount(_enemyStats.enemyName);
 
-            if (shouldDrop)
+            if (shouldDrop && Random.Range(0, 100) <= dropChance)
             {
                 _enemyDrops.DropPickUp();
                 shouldDrop = false;

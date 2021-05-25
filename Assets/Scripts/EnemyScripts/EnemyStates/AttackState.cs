@@ -2,6 +2,7 @@
 using SzymonPeszek.BaseClasses;
 using SzymonPeszek.Misc;
 using SzymonPeszek.EnemyScripts.Animations;
+using SzymonPeszek.PlayerScripts;
 
 
 namespace SzymonPeszek.EnemyScripts.States
@@ -20,6 +21,8 @@ namespace SzymonPeszek.EnemyScripts.States
         [Header("Enemy Attacks", order = 1)]
         public EnemyAttackAction[] enemyAttacks;
         public EnemyAttackAction currentAttack;
+        public EnemyMagicAction[] enemyMagicAttacks;
+        public EnemyMagicAction currentMagicAttack;
 
         private bool _willDoComboOnNextAttack;
 
@@ -39,12 +42,12 @@ namespace SzymonPeszek.EnemyScripts.States
                     return idleState;
                 }
                 
-                if ((enemyManager.isInteracting || enemyManager.isGettingRiposted) && enemyManager.canDoCombo == false)
+                if ((enemyManager.isInteracting || enemyManager.isGettingRiposted) && !enemyManager.canDoCombo)
                 {
                     return this;
                 }
                 
-                if (enemyManager.isInteracting && enemyManager.canDoCombo)
+                if (enemyManager.isInteracting && enemyManager.canDoCombo && !enemyManager.isMagicCaster)
                 {
                     if (_willDoComboOnNextAttack)
                     {
@@ -53,10 +56,10 @@ namespace SzymonPeszek.EnemyScripts.States
                     }
                 }
                 
-                Vector3 targetDirection = enemyManager.currentTarget.transform.position - enemyManager.characterTransform.position;
-                float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.characterTransform.position);
-                float viewableAngle = Vector3.Angle(targetDirection, transform.forward);
-                
+                Vector3 targetDirection = enemyManager.currentTarget.characterTransform.position - enemyManager.characterTransform.position;
+                float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.characterTransform.position, enemyManager.characterTransform.position);
+                float viewableAngle = Vector3.Angle(targetDirection, enemyManager.characterTransform.forward);
+
                 HandleRotateTowardsTarget(enemyManager);
                 
                 if (enemyManager.isPreformingAction)
@@ -64,44 +67,92 @@ namespace SzymonPeszek.EnemyScripts.States
                     return combatStanceState;
                 }
 
-                if (currentAttack != null)
+                if (enemyManager.isMagicCaster)
                 {
-                    if (distanceFromTarget < currentAttack.minimumDistanceNeededToAttack)
+                    if (currentMagicAttack != null)
                     {
-                        return this;
-                    }
-                    
-                    if (distanceFromTarget < currentAttack.maximumDistanceNeededToAttack)
-                    {
-                        if (viewableAngle <= currentAttack.maximumAttackAngle && viewableAngle >= currentAttack.minimumAttackAngle)
+                        if (distanceFromTarget < currentMagicAttack.minimumDistanceNeededToAttack)
                         {
-                            if (enemyManager.currentRecoveryTime <= 0 && enemyManager.isPreformingAction == false)
+                            return this;
+                        }
+
+                        if (distanceFromTarget < currentMagicAttack.maximumDistanceNeededToAttack)
+                        {
+                            if (viewableAngle <= currentMagicAttack.maximumAttackAngle &&
+                                viewableAngle >= currentMagicAttack.minimumAttackAngle)
                             {
-                                enemyAnimationManager.anim.SetFloat(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.VerticalName], 0, 0.1f, Time.deltaTime);
-                                enemyAnimationManager.anim.SetFloat(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.HorizontalName], 0, 0.1f, Time.deltaTime);
-                                enemyAnimationManager.PlayTargetAnimation(StaticAnimatorIds.enemyAnimationIds[currentAttack.actionAnimation], true);
-                                enemyManager.isPreformingAction = true;
-                                
-                                RollForComboChance(enemyManager);
-
-                                if (currentAttack.canCombo && _willDoComboOnNextAttack)
+                                if (enemyManager.currentRecoveryTime <= 0 && enemyManager.isPreformingAction == false)
                                 {
-                                    currentAttack = currentAttack.comboAction;
+                                    enemyAnimationManager.anim.SetFloat(
+                                        StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.VerticalName], 0, 0.1f,
+                                        Time.deltaTime);
+                                    enemyAnimationManager.anim.SetFloat(
+                                        StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.HorizontalName], 0, 0.1f,
+                                        Time.deltaTime);
+                                    enemyAnimationManager.currentSpell = currentMagicAttack.spell;
+                                    currentMagicAttack.spell.EnemyAttemptToCastSpell(enemyAnimationManager, enemyStats);
                                     
-                                    return this;
+                                    enemyManager.isPreformingAction = true;
+                                    enemyManager.currentRecoveryTime = currentMagicAttack.recoveryTime;
+                                    currentMagicAttack = null;
+
+                                    return combatStanceState;
                                 }
-
-                                enemyManager.currentRecoveryTime = currentAttack.recoveryTime;
-                                currentAttack = null;
-
-                                return combatStanceState;
                             }
                         }
+                    }
+                    else
+                    {
+                        GetNewAttack(enemyManager);
                     }
                 }
                 else
                 {
-                    GetNewAttack(enemyManager);
+                    if (currentAttack != null)
+                    {
+                        if (distanceFromTarget < currentAttack.minimumDistanceNeededToAttack)
+                        {
+                            return this;
+                        }
+
+                        if (distanceFromTarget < currentAttack.maximumDistanceNeededToAttack)
+                        {
+                            if (viewableAngle <= currentAttack.maximumAttackAngle &&
+                                viewableAngle >= currentAttack.minimumAttackAngle)
+                            {
+                                if (enemyManager.currentRecoveryTime <= 0 && enemyManager.isPreformingAction == false)
+                                {
+                                    enemyAnimationManager.anim.SetFloat(
+                                        StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.VerticalName], 0, 0.1f,
+                                        Time.deltaTime);
+                                    enemyAnimationManager.anim.SetFloat(
+                                        StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.HorizontalName], 0, 0.1f,
+                                        Time.deltaTime);
+                                    enemyAnimationManager.PlayTargetAnimation(
+                                        StaticAnimatorIds.enemyAnimationIds[currentAttack.actionAnimation], true);
+                                    enemyManager.isPreformingAction = true;
+
+                                    RollForComboChance(enemyManager);
+
+                                    if (currentAttack.canCombo && _willDoComboOnNextAttack)
+                                    {
+                                        currentAttack = currentAttack.comboAction;
+
+                                        return this;
+                                    }
+
+                                    enemyManager.currentRecoveryTime = currentAttack.recoveryTime;
+                                    currentAttack = null;
+
+                                    return combatStanceState;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        GetNewAttack(enemyManager);
+                    }
                 }
 
                 return combatStanceState;
@@ -121,40 +172,88 @@ namespace SzymonPeszek.EnemyScripts.States
             float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.characterTransform.position);
             int maxScore = 0;
 
-            for (int i = 0; i < enemyAttacks.Length; i++)
+            if (enemyManager.isMagicCaster)
             {
-                EnemyAttackAction enemyAttackAction = enemyAttacks[i];
-
-                if (distanceFromTarget <= enemyAttackAction.maximumDistanceNeededToAttack && distanceFromTarget >= enemyAttackAction.minimumDistanceNeededToAttack)
+                for (int i = 0; i < enemyMagicAttacks.Length; i++)
                 {
-                    if (viewableAngle <= enemyAttackAction.maximumAttackAngle && viewableAngle >= enemyAttackAction.minimumAttackAngle)
+                    if (distanceFromTarget <= enemyMagicAttacks[i].maximumDistanceNeededToAttack &&
+                        distanceFromTarget >= enemyMagicAttacks[i].minimumDistanceNeededToAttack)
                     {
-                        maxScore += enemyAttackAction.attackScore;
+                        if (viewableAngle <= enemyMagicAttacks[i].maximumAttackAngle &&
+                            viewableAngle >= enemyMagicAttacks[i].minimumAttackAngle)
+                        {
+                            maxScore += enemyMagicAttacks[i].attackScore;
+                        }
+                    }
+                }
+
+                int randomValue = Random.Range(0, maxScore);
+                int temporaryScore = 0;
+
+                for (int i = 0; i < enemyMagicAttacks.Length; i++)
+                {
+                    if (distanceFromTarget <= enemyMagicAttacks[i].maximumDistanceNeededToAttack &&
+                        distanceFromTarget >= enemyMagicAttacks[i].minimumDistanceNeededToAttack)
+                    {
+                        if (viewableAngle <= enemyMagicAttacks[i].maximumAttackAngle &&
+                            viewableAngle >= enemyMagicAttacks[i].minimumAttackAngle)
+                        {
+                            if (currentMagicAttack != null)
+                            {
+                                return;
+                            }
+
+                            temporaryScore += enemyMagicAttacks[i].attackScore;
+
+                            if (temporaryScore > randomValue)
+                            {
+                                currentMagicAttack = enemyMagicAttacks[i];
+                            }
+                        }
                     }
                 }
             }
-
-            int randomValue = Random.Range(0, maxScore);
-            int temporaryScore = 0;
-
-            for (int i = 0; i < enemyAttacks.Length; i++)
+            else
             {
-                EnemyAttackAction enemyAttackAction = enemyAttacks[i];
-
-                if (distanceFromTarget <= enemyAttackAction.maximumDistanceNeededToAttack && distanceFromTarget >= enemyAttackAction.minimumDistanceNeededToAttack)
+                for (int i = 0; i < enemyAttacks.Length; i++)
                 {
-                    if (viewableAngle <= enemyAttackAction.maximumAttackAngle && viewableAngle >= enemyAttackAction.minimumAttackAngle)
+                    EnemyAttackAction enemyAttackAction = enemyAttacks[i];
+
+                    if (distanceFromTarget <= enemyAttackAction.maximumDistanceNeededToAttack &&
+                        distanceFromTarget >= enemyAttackAction.minimumDistanceNeededToAttack)
                     {
-                        if (currentAttack != null)
+                        if (viewableAngle <= enemyAttackAction.maximumAttackAngle &&
+                            viewableAngle >= enemyAttackAction.minimumAttackAngle)
                         {
-                            return;
+                            maxScore += enemyAttackAction.attackScore;
                         }
+                    }
+                }
 
-                        temporaryScore += enemyAttackAction.attackScore;
+                int randomValue = Random.Range(0, maxScore);
+                int temporaryScore = 0;
 
-                        if (temporaryScore > randomValue)
+                for (int i = 0; i < enemyAttacks.Length; i++)
+                {
+                    EnemyAttackAction enemyAttackAction = enemyAttacks[i];
+
+                    if (distanceFromTarget <= enemyAttackAction.maximumDistanceNeededToAttack &&
+                        distanceFromTarget >= enemyAttackAction.minimumDistanceNeededToAttack)
+                    {
+                        if (viewableAngle <= enemyAttackAction.maximumAttackAngle &&
+                            viewableAngle >= enemyAttackAction.minimumAttackAngle)
                         {
-                            currentAttack = enemyAttackAction;
+                            if (currentAttack != null)
+                            {
+                                return;
+                            }
+
+                            temporaryScore += enemyAttackAction.attackScore;
+
+                            if (temporaryScore > randomValue)
+                            {
+                                currentAttack = enemyAttackAction;
+                            }
                         }
                     }
                 }

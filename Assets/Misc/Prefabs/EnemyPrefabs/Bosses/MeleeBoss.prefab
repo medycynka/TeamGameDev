@@ -63,7 +63,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244389786241617558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.714237, y: 0, z: 16.359985}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7214984873906691084}
@@ -226,6 +226,7 @@ MonoBehaviour:
   isPreformingAction: 0
   isInteracting: 0
   isGettingRiposted: 0
+  isMagicCaster: 0
   shouldDrop: 1
   isAlive: 1
   deadFromBackStab: 0
@@ -236,7 +237,7 @@ MonoBehaviour:
   navMeshBlocker: {fileID: 0}
   enemyRigidBody: {fileID: 7061007005511988258}
   rotationSpeed: 15
-  detectionRadius: 15
+  detectionRadius: 20
   maximumAttackRange: 2
   maximumDetectionAngle: 75
   minimumDetectionAngle: -75
@@ -246,6 +247,7 @@ MonoBehaviour:
   maxRandomPointSearchIterations: 16
   allowAIToPerformCombos: 1
   comboLikelyHood: 25
+  dropChance: 100
   canDoCombo: 0
   currentRecoveryTime: 0
   disolveEdgeWidth: 0.015
@@ -346,6 +348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f6be610996a2745848830c690ebeb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnemy: 1
+  enemySoundMultiplier: 0.5
   volumeVariance: 0.1
   environmentFootstepSounds: []
   currentMovingClips: []
@@ -2074,6 +2078,11 @@ MonoBehaviour:
   anim: {fileID: 0}
   canRotate: 1
   isEnemy: 1
+  spellProjectilesTransform: {fileID: 0}
+  spellRayCastLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  currentSpell: {fileID: 0}
 --- !u!114 &8799248994514541811
 MonoBehaviour:
   m_ObjectHideFlags: 0
