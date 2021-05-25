@@ -813,8 +813,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3060950883499712635}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -67.49, y: 107.305, z: 308.9795}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3060950883607553127}
@@ -827,7 +827,7 @@ Transform:
   - {fileID: 1534205275}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3060950883499712636
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -980,6 +980,7 @@ MonoBehaviour:
   isPreformingAction: 0
   isInteracting: 0
   isGettingRiposted: 0
+  isMagicCaster: 0
   shouldDrop: 1
   isAlive: 1
   deadFromBackStab: 0
@@ -1000,6 +1001,7 @@ MonoBehaviour:
   maxRandomPointSearchIterations: 16
   allowAIToPerformCombos: 0
   comboLikelyHood: 25
+  dropChance: 100
   canDoCombo: 0
   currentRecoveryTime: 0
   disolveEdgeWidth: 0.015
@@ -1104,6 +1106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f6be610996a2745848830c690ebeb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnemy: 1
+  enemySoundMultiplier: 0.5
   volumeVariance: 0.25
   environmentFootstepSounds:
   - tagName: Concrete
@@ -3903,6 +3907,11 @@ MonoBehaviour:
   anim: {fileID: 0}
   canRotate: 1
   isEnemy: 1
+  spellProjectilesTransform: {fileID: 0}
+  spellRayCastLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  currentSpell: {fileID: 0}
 --- !u!114 &1108355008689167410
 MonoBehaviour:
   m_ObjectHideFlags: 0

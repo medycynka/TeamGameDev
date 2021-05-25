@@ -2254,6 +2254,11 @@ MonoBehaviour:
   anim: {fileID: 0}
   canRotate: 0
   isEnemy: 0
+  spellProjectilesTransform: {fileID: 0}
+  spellRayCastLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  currentSpell: {fileID: 0}
 --- !u!114 &2519052148414445320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2280,6 +2285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canPlayStep: 1
+  currentDamageType: 0
 --- !u!1 &571531690552434343
 GameObject:
   m_ObjectHideFlags: 0
@@ -4649,8 +4655,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 571531690681764673}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -68.77932, y: 107.26647, z: 313.6073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 571531690552627037}
@@ -4662,7 +4668,7 @@ Transform:
   - {fileID: 8977772758578123821}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &571531690681764678
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4822,6 +4828,7 @@ MonoBehaviour:
   healthBar: {fileID: 3284482675066753445}
   healthBarFill: {fileID: 0}
   damageValue: {fileID: 3284482674491810886}
+  enemyName: 
   enemyAttack: 25
   soulsGiveAmount: 200
   playerStats: {fileID: 0}
@@ -4855,6 +4862,7 @@ MonoBehaviour:
   isPreformingAction: 0
   isInteracting: 0
   isGettingRiposted: 0
+  isMagicCaster: 0
   shouldDrop: 1
   isAlive: 1
   deadFromBackStab: 0
@@ -4875,6 +4883,7 @@ MonoBehaviour:
   maxRandomPointSearchIterations: 16
   allowAIToPerformCombos: 0
   comboLikelyHood: 25
+  dropChance: 100
   canDoCombo: 0
   currentRecoveryTime: 0
   disolveEdgeWidth: 0.015
@@ -4938,7 +4947,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f6be610996a2745848830c690ebeb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingClips: []
+  isEnemy: 1
+  enemySoundMultiplier: 0.5
+  volumeVariance: 0.1
+  environmentFootstepSounds: []
+  currentMovingClips: []
   attackingClips: []
   getDamageClips: []
   faithSkillClips: []
@@ -4946,12 +4959,16 @@ MonoBehaviour:
   destructionSkillClips: []
   rollClip: {fileID: 0}
   backStepClip: {fileID: 0}
+  jumpClip: {fileID: 0}
   estusUse: {fileID: 0}
   soulUse: {fileID: 0}
   currentBackgroundMusic: {fileID: 0}
   musicFadeIn: 2
   musicFadeOut: 2
   fadingMusic: 0
+  leftFoot: {fileID: 0}
+  rightFoot: {fileID: 0}
+  _currentEnvironmentTag: 
 --- !u!1 &1894018290995271951
 GameObject:
   m_ObjectHideFlags: 0

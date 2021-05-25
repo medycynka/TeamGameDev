@@ -102,6 +102,7 @@ namespace SzymonPeszek.Misc
         public const string BossAttack04 = "Slash_04";
         public const string BossCombo01 = "Combo_01";
         public const string BossCombo02 = "Combo_02";
+        public const string Summon = "Summon";
         #endregion
 
         #region Items Animations

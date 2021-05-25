@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SzymonPeszek.Environment.Sounds;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -16,7 +17,7 @@ namespace SzymonPeszek.GameUI.WindowsManagers
     /// </summary>
     public class SettingsManager : MonoBehaviour
     {
-        private readonly List<AudioSource> _audioSources = new List<AudioSource>();
+        private readonly List<AnimationSoundManager> _audioSources = new List<AnimationSoundManager>();
         private Resolution[] _resolutionsOpts;
 
         [Header("Settings Manager", order = 0)]
@@ -31,13 +32,13 @@ namespace SzymonPeszek.GameUI.WindowsManagers
 
         private void Start()
         {
-            _audioSources.Add(playerManager.GetComponent<AudioSource>());
+            _audioSources.Add(playerManager.GetComponent<AnimationSoundManager>());
 
             foreach (var enemy in GameObject.FindGameObjectsWithTag("Enemy"))
             {
-                if (enemy.GetComponent<AudioSource>() != null)
+                if (enemy.GetComponent<AnimationSoundManager>() != null)
                 {
-                    _audioSources.Add(enemy.GetComponent<AudioSource>());
+                    _audioSources.Add(enemy.GetComponent<AnimationSoundManager>());
                 }
             }
 
@@ -155,7 +156,7 @@ namespace SzymonPeszek.GameUI.WindowsManagers
         {
             for (var i = 0; i < _audioSources.Count; i++)
             {
-                _audioSources[i].volume = volume;
+                _audioSources[i].ChangeVolume(volume);
             }
         }
     }

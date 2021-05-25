@@ -9,15 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b41471b0a54a0a1468b375e42cd1fe49, type: 3}
-  m_Name: Enemy_Attack_13
+  m_Script: {fileID: 11500000, guid: b5d8f7177546a5a43bb08b1fddad61c1, type: 3}
+  m_Name: SummonSkeletons
   m_EditorClassIdentifier: 
-  actionAnimation: OH_Sword_Attack_06
-  attackScore: 3
-  recoveryTime: 2
-  maximumAttackAngle: 35
-  minimumAttackAngle: -35
+  actionAnimation: Summon
+  attackScore: 2
+  recoveryTime: 4
+  maximumAttackAngle: 75
+  minimumAttackAngle: -75
   minimumDistanceNeededToAttack: 0.5
-  maximumDistanceNeededToAttack: 2
-  canCombo: 0
-  comboAction: {fileID: 0}
+  maximumDistanceNeededToAttack: 15
+  spell: {fileID: 11400000, guid: c30c6194f3cbb974f9c9320984c5fa01, type: 2}

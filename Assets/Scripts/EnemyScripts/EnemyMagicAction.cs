@@ -13,7 +13,6 @@ namespace SzymonPeszek.EnemyScripts
     public class EnemyMagicAction : EnemyAction
     {
         [Header("Magic properties", order = 2)]
-        public float spellDamage;
         public SpellItem spell;
     }
 }

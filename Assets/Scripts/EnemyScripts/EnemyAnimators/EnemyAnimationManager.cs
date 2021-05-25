@@ -71,7 +71,8 @@ namespace SzymonPeszek.EnemyScripts.Animations
                     {StaticAnimatorIds.ParryName, Animator.StringToHash(StaticAnimatorIds.ParryName)},
                     {StaticAnimatorIds.ParriedName, Animator.StringToHash(StaticAnimatorIds.ParriedName)}, 
                     {StaticAnimatorIds.BlockDamageName, Animator.StringToHash(StaticAnimatorIds.BlockDamageName)},
-                    {StaticAnimatorIds.FireballSpell, Animator.StringToHash(StaticAnimatorIds.FireballSpell)}
+                    {StaticAnimatorIds.FireballSpell, Animator.StringToHash(StaticAnimatorIds.FireballSpell)},
+                    {StaticAnimatorIds.Summon, Animator.StringToHash(StaticAnimatorIds.Summon)}
                 };
             }
 

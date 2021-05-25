@@ -176,15 +176,13 @@ namespace SzymonPeszek.EnemyScripts.States
             {
                 for (int i = 0; i < enemyMagicAttacks.Length; i++)
                 {
-                    EnemyMagicAction enemyAttackAction = enemyMagicAttacks[i];
-
-                    if (distanceFromTarget <= enemyAttackAction.maximumDistanceNeededToAttack &&
-                        distanceFromTarget >= enemyAttackAction.minimumDistanceNeededToAttack)
+                    if (distanceFromTarget <= enemyMagicAttacks[i].maximumDistanceNeededToAttack &&
+                        distanceFromTarget >= enemyMagicAttacks[i].minimumDistanceNeededToAttack)
                     {
-                        if (viewableAngle <= enemyAttackAction.maximumAttackAngle &&
-                            viewableAngle >= enemyAttackAction.minimumAttackAngle)
+                        if (viewableAngle <= enemyMagicAttacks[i].maximumAttackAngle &&
+                            viewableAngle >= enemyMagicAttacks[i].minimumAttackAngle)
                         {
-                            maxScore += enemyAttackAction.attackScore;
+                            maxScore += enemyMagicAttacks[i].attackScore;
                         }
                     }
                 }
@@ -194,24 +192,22 @@ namespace SzymonPeszek.EnemyScripts.States
 
                 for (int i = 0; i < enemyMagicAttacks.Length; i++)
                 {
-                    EnemyMagicAction enemyAttackAction = enemyMagicAttacks[i];
-
-                    if (distanceFromTarget <= enemyAttackAction.maximumDistanceNeededToAttack &&
-                        distanceFromTarget >= enemyAttackAction.minimumDistanceNeededToAttack)
+                    if (distanceFromTarget <= enemyMagicAttacks[i].maximumDistanceNeededToAttack &&
+                        distanceFromTarget >= enemyMagicAttacks[i].minimumDistanceNeededToAttack)
                     {
-                        if (viewableAngle <= enemyAttackAction.maximumAttackAngle &&
-                            viewableAngle >= enemyAttackAction.minimumAttackAngle)
+                        if (viewableAngle <= enemyMagicAttacks[i].maximumAttackAngle &&
+                            viewableAngle >= enemyMagicAttacks[i].minimumAttackAngle)
                         {
                             if (currentMagicAttack != null)
                             {
                                 return;
                             }
 
-                            temporaryScore += enemyAttackAction.attackScore;
+                            temporaryScore += enemyMagicAttacks[i].attackScore;
 
                             if (temporaryScore > randomValue)
                             {
-                                currentMagicAttack = enemyAttackAction;
+                                currentMagicAttack = enemyMagicAttacks[i];
                             }
                         }
                     }
