@@ -98,6 +98,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
                 
                 if (_npcInteractionManager.dialogueMap[targetGuid].giver && !_npcInteractionManager.isQuestGiven)
                 {
+                    mainText.text = _npcManager.currentMainQuest.quest.questTaskText;
                     options[0].optionObject.SetActive(true);
                     options[0].button.onClick.AddListener(GiveQuest);
                     options[0].optionText.text = "Exit";

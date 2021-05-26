@@ -56,7 +56,7 @@ namespace SzymonPeszek.Npc
         {
             //base.PickUpItem(playerManager);
             isQuestGiven = true;
-            interactableText = "Complete a quest [E]";
+            interactableText = "[E] Talk";
             playerManager.AcceptNewQuest(_npcManager.GiveMainQuest());
             playerManager.dialogueFlag = false;
         }
