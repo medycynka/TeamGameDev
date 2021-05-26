@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FireballAttack
   m_EditorClassIdentifier: 
   actionAnimation: Fireball Cast
-  attackScore: 10
+  attackScore: 7
   recoveryTime: 2
   maximumAttackAngle: 35
   minimumAttackAngle: -35

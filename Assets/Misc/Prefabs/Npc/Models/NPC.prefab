@@ -133,6 +133,7 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: TestNpc_0
   mainQuests:
   - prevQuestId: -1
     questId: 0
@@ -157,11 +158,19 @@ MonoBehaviour:
   playerLocomotion: {fileID: 0}
   playerAnimatorManager: {fileID: 0}
   uIManager: {fileID: 0}
-  dialogueData:
-  - {fileID: 11400000, guid: f9edc9de9adc9654292aea169e68ba62, type: 2}
+  dialogueDataContainer:
+  - dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: f9edc9de9adc9654292aea169e68ba62, type: 2}
+  - dialogueId: 1
+    isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: e1a1a87609131724bbdb6a01998275f1, type: 2}
   dialogueUiManager: {fileID: 0}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 0}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!1 &301754169000249363

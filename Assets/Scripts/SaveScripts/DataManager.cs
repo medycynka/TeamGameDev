@@ -1,7 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using SzymonPeszek.PlayerScripts;
 using SzymonPeszek.PlayerScripts.Inventory;
 using SzymonPeszek.Enums;
+using SzymonPeszek.Npc;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
 
 namespace SzymonPeszek.SaveScripts
@@ -63,6 +68,7 @@ namespace SzymonPeszek.SaveScripts
         //Quests
         public QuestContainer[] quests;
         public int[] currentQuestIds;
+        public NpcQuests[] npcQuests;
 
         // Constructor
         /// <summary>
@@ -310,12 +316,16 @@ namespace SzymonPeszek.SaveScripts
             #endregion
 
             #region Quests
+            // Player
             quests = new QuestContainer[SettingsHolder.worldManager.quests.Length];
             for (int i = 0; i < SettingsHolder.worldManager.quests.Length; i++)
             {
-                quests[i].prevQuestId = SettingsHolder.worldManager.quests[i].prevQuestId;
-                quests[i].questId = SettingsHolder.worldManager.quests[i].questId;
-                quests[i].isCompleted = SettingsHolder.worldManager.quests[i].isCompleted;
+                quests[i] = new QuestContainer
+                {
+                    prevQuestId = SettingsHolder.worldManager.quests[i].prevQuestId,
+                    questId = SettingsHolder.worldManager.quests[i].questId,
+                    isCompleted = SettingsHolder.worldManager.quests[i].isCompleted
+                };
             }
 
             if (QuestManager.instance.currentQuests.Count > 0)
@@ -332,16 +342,39 @@ namespace SzymonPeszek.SaveScripts
             {
                 currentQuestIds = new[] {-1};
             }
+            
+            // NPC
+            NpcManager[] npcs = Object.FindObjectsOfType<NpcManager>();
+            List<NpcQuests> tmpNpcQuestList = new List<NpcQuests>();
+            foreach (NpcManager npc in npcs)
+            {
+                foreach (var qC in npc.mainQuests)
+                {
+                    tmpNpcQuestList.Add(new NpcQuests
+                    {
+                        npcId = npc.npcId,
+                        questId = qC.questId
+                    });
+                }
+            }
+            npcQuests = tmpNpcQuestList.ToArray();
             #endregion
         }
     }
 
     
-    [System.Serializable]
+    [Serializable]
     public class QuestContainer
     {
         public int prevQuestId;
         public int questId;
         public bool isCompleted;
+    }
+
+    [Serializable]
+    public class NpcQuests
+    {
+        public string npcId;
+        public int questId;
     }
 }
