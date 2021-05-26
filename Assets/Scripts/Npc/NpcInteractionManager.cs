@@ -29,8 +29,6 @@ namespace SzymonPeszek.Npc
         private void Awake()
         {
             _npcManager = GetComponent<NpcManager>();
-
-            InitializeDialogue();
         }
 
         public override void Interact(PlayerManager playerManager)
@@ -48,10 +46,13 @@ namespace SzymonPeszek.Npc
         public void InitializeDialogue()
         {
             // Convert dialogue container data to dictionary for fast and easy access to options of given dialogue node
-            currentDialogue = dialogueDataContainer.First(d => !d.isCompleted);
-            dialogueMapKeys = DialogueDataConverter.ToGuidList(currentDialogue.dialogueData);
-            dialogueMapValues = DialogueDataConverter.ToDialogueStorageList(currentDialogue.dialogueData);
-            dialogueMap = DialogueDataConverter.ToDictionary(currentDialogue.dialogueData);
+            if (dialogueDataContainer.Count > 0)
+            {
+                currentDialogue = dialogueDataContainer.First(d => !d.isCompleted);
+                dialogueMapKeys = DialogueDataConverter.ToGuidList(currentDialogue.dialogueData);
+                dialogueMapValues = DialogueDataConverter.ToDialogueStorageList(currentDialogue.dialogueData);
+                dialogueMap = DialogueDataConverter.ToDictionary(currentDialogue.dialogueData);
+            }
         }
 
         public void GiveQuest(PlayerManager playerManager)

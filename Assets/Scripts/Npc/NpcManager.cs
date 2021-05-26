@@ -19,8 +19,14 @@ namespace SzymonPeszek.Npc
 
         private void Awake()
         {
-            currentMainQuest = mainQuests.First(q => !q.isCompleted);
-            currentSideQuest = sideQuests.First(q => !q.isCompleted);
+            if (mainQuests.Count > 0)
+            {
+                currentMainQuest = mainQuests.First(q => !q.isCompleted);
+            }
+            if (sideQuests.Count > 0)
+            {
+                currentSideQuest = sideQuests.First(q => !q.isCompleted);
+            }
         }
 
         public Quest GiveMainQuest()
