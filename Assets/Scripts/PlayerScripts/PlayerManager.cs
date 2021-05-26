@@ -222,6 +222,7 @@ namespace SzymonPeszek.PlayerScripts
 
                                 if (_inputHandler.aInput)
                                 {
+                                    StopPlayer();
                                     interactableObject.Interact(this);
                                     interactableUIGameObject.SetActive(false);
                                 }
@@ -240,6 +241,7 @@ namespace SzymonPeszek.PlayerScripts
 
                                     if (_inputHandler.aInput)
                                     {
+                                        StopPlayer();
                                         interactableObject.Interact(this);
                                     }
                                 }
@@ -257,6 +259,7 @@ namespace SzymonPeszek.PlayerScripts
 
                             if (_inputHandler.aInput)
                             {
+                                StopPlayer();
                                 interactableObject.Interact(this);
                             }
                         }
@@ -274,6 +277,7 @@ namespace SzymonPeszek.PlayerScripts
 
                                 if (_inputHandler.aInput)
                                 {
+                                    StopPlayer();
                                     interactableObject.Interact(this);
                                 }
                             }
@@ -290,6 +294,7 @@ namespace SzymonPeszek.PlayerScripts
 
                             if (_inputHandler.aInput)
                             {
+                                StopPlayer();
                                 interactableObject.Interact(this);
                             }
                         }
@@ -527,6 +532,16 @@ namespace SzymonPeszek.PlayerScripts
         public void DisableDialogueFlag()
         {
             StartCoroutine(EnablePlayerManager());
+        }
+
+        private void StopPlayer()
+        {
+            _inputHandler.vertical = 0;
+            _inputHandler.horizontal = 0;
+            _inputHandler.moveAmount = 0;
+            _playerLocomotion.rigidbody.velocity = Vector3.zero;
+            _playerAnimatorManager.anim.SetFloat(StaticAnimatorIds.animationIds[StaticAnimatorIds.VerticalName], 0);
+            _playerAnimatorManager.anim.SetFloat(StaticAnimatorIds.animationIds[StaticAnimatorIds.HorizontalName], 0);
         }
         
         private IEnumerator EnablePlayerManager()

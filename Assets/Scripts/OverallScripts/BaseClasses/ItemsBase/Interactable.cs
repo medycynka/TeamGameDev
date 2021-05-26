@@ -35,7 +35,22 @@ namespace SzymonPeszek.BaseClasses
         /// <param name="playerManager">Player manager</param>
         public virtual void Interact(PlayerManager playerManager)
         {
-            
+            if (!playerInventory)
+            {
+                playerInventory = playerManager.GetComponent<PlayerInventory>();
+            }
+            if (!playerLocomotion)
+            {
+                playerLocomotion = playerManager.GetComponent<PlayerLocomotion>();
+            }
+            if (!playerAnimatorManager)
+            {
+                playerAnimatorManager = playerManager.GetComponentInChildren<PlayerAnimatorManager>();
+            }
+            if (!uIManager)
+            {
+                uIManager = playerManager.GetComponent<InputHandler>().uiManager;
+            }
         }
 
         /// <summary>

@@ -7,6 +7,7 @@ using SzymonPeszek.Items.Equipment;
 using SzymonPeszek.Items.Consumable;
 using SzymonPeszek.Npc;
 using SzymonPeszek.PlayerScripts;
+using SzymonPeszek.Quests;
 using SzymonPeszek.SaveScripts;
 using QuestContainer = SzymonPeszek.PlayerScripts.QuestContainer;
 
@@ -88,7 +89,7 @@ namespace SzymonPeszek.Environment.Areas
                     qM.mainQuests.Add(new QuestContainer
                     {
                         prevQuestId = dataManager.quests[i].prevQuestId,
-                        quest = quests[dataManager.quests[i].questId].quest,
+                        quest = GetQuestById(dataManager.quests[i].questId),
                         isCompleted = dataManager.quests[i].isCompleted,
                         questId = dataManager.quests[i].questId
                     });
@@ -120,22 +121,35 @@ namespace SzymonPeszek.Environment.Areas
             }
         }
 
-        private void FixedUpdate()
+        // private void FixedUpdate()
+        // {
+        //     if (Time.frameCount % FrameCheckRate == BossCheckVal)
+        //     {
+        //         for (int i = 0; i < bossAreaManagers.Length; i++)
+        //         {
+        //             SettingsHolder.bossAreaAlive[i] = bossAreaManagers[i].isBossAlive;
+        //         }
+        //     }
+        //     else if (Time.frameCount % FrameCheckRate == BonfireCheckVal)
+        //     {
+        //         for (int i = 0; i < bonfireManagers.Length; i++)
+        //         {
+        //             SettingsHolder.bonfiresActivation[i] = bonfireManagers[i].isActivated;
+        //         }
+        //     }
+        // }
+
+        private Quest GetQuestById(int id)
         {
-            if (Time.frameCount % FrameCheckRate == BossCheckVal)
+            for (int i = 0; i < quests.Length; i++)
             {
-                for (int i = 0; i < bossAreaManagers.Length; i++)
+                if (quests[i].questId == id)
                 {
-                    SettingsHolder.bossAreaAlive[i] = bossAreaManagers[i].isBossAlive;
+                    return quests[i].quest;
                 }
             }
-            else if (Time.frameCount % FrameCheckRate == BonfireCheckVal)
-            {
-                for (int i = 0; i < bonfireManagers.Length; i++)
-                {
-                    SettingsHolder.bonfiresActivation[i] = bonfireManagers[i].isActivated;
-                }
-            }
+
+            return null;
         }
     }
 }

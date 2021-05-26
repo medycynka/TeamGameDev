@@ -107,8 +107,20 @@ namespace SzymonPeszek.PlayerScripts.Controller
             if (_playerInputActions == null)
             {
                 _playerInputActions = new PlayerControls();
-                _playerInputActions.PlayerMovement.Movement.performed += inputActions => _movementInput = inputActions.ReadValue<Vector2>();
-                _playerInputActions.PlayerMovement.Camera.performed += i => _cameraInput = i.ReadValue<Vector2>();
+                _playerInputActions.PlayerMovement.Movement.performed += inputActions =>
+                    {
+                        if (!aInput)
+                        {
+                            _movementInput = inputActions.ReadValue<Vector2>();
+                        }
+                    };
+                _playerInputActions.PlayerMovement.Camera.performed += i =>
+                {
+                    if (!aInput)
+                    {
+                        _cameraInput = i.ReadValue<Vector2>();
+                    }
+                };
                 _playerInputActions.PlayerActions.RB.performed += i =>
                 {
                     if (!_playerManager.dialogueFlag && !inventoryFlag)

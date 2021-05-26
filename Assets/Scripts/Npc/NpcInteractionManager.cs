@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SzymonPeszek.BaseClasses;
+using SzymonPeszek.Misc;
 using SzymonPeszek.Npc.DialogueSystem;
 using SzymonPeszek.Npc.DialogueSystem.Runtime;
 using SzymonPeszek.PlayerScripts;
@@ -35,11 +36,7 @@ namespace SzymonPeszek.Npc
         {
             InitializeDialogue();
             
-            if (!dialogueUiManager.isInitialized)
-            {
-                dialogueUiManager.Init(playerManager, _npcManager, this);
-            }
-            
+            dialogueUiManager.Init(playerManager, _npcManager, this);
             dialogueUiManager.HandleDialogue();
         }
 

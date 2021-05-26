@@ -24,7 +24,6 @@ namespace SzymonPeszek.Npc.DialogueSystem
         public GameObject dialogueWindow;
         public TextMeshProUGUI mainText;
         public DialogueOption[] options;
-        public bool isInitialized;
 
         private PlayerManager _playerManager;
         private NpcManager _npcManager;
@@ -36,7 +35,6 @@ namespace SzymonPeszek.Npc.DialogueSystem
             _playerManager = playerManager;
             _npcManager = npcManager;
             _npcInteractionManager = npcInteractionManager;
-            isInitialized = true;
         }
         public void HandleDialogue()
         {
@@ -73,7 +71,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
                 }
             }
 
-            return "ERROR";
+            throw new IndexOutOfRangeException("Can't find first node!");
         }
 
         private void HandleDialogueOption(string targetGuid)
@@ -142,7 +140,6 @@ namespace SzymonPeszek.Npc.DialogueSystem
             dialogueWindow.SetActive(false);
             hudWindow.SetActive(true);
             _playerManager.DisableDialogueFlag();
-            isInitialized = false;
         }
 
         private void GiveQuest()
