@@ -186,7 +186,7 @@ Transform:
   - {fileID: 614291101287207789}
   - {fileID: 204355852}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &55169547
 PrefabInstance:
@@ -526,6 +526,82 @@ Transform:
   m_Father: {fileID: 2054103342}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &107257434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 107257435}
+  - component: {fileID: 107257437}
+  - component: {fileID: 107257436}
+  m_Layer: 29
+  m_Name: Icon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &107257435
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107257434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 520287735}
+  m_Father: {fileID: 583975941}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &107257436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107257434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.45870662, g: 1, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 1f11632b4f6eb8e468ddc007ccab340e, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &107257437
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107257434}
+  m_CullTransparentMesh: 1
 --- !u!1 &109761504
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +927,7 @@ Transform:
   - {fileID: 1568022770}
   - {fileID: 338617698}
   m_Father: {fileID: 486114487}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!136 &132726705
 CapsuleCollider:
@@ -885,13 +961,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: cdb36c228f8c97c4cb28b667d41a388e, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 0}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!114 &132726707
@@ -915,12 +991,23 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: name_number
   mainQuests:
   - prevQuestId: -1
     questId: 0
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &132726708
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1387,6 +1474,10 @@ PrefabInstance:
       propertyPath: playerManager
       value: 
       objectReference: {fileID: 904466054}
+    - target: {fileID: 2074387295, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 112923516464747510, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
       propertyPath: playerInventory
       value: 
@@ -4540,7 +4631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4819606783095600, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4819606783095600, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5203,7 +5294,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1656707632}
+    m_TransformParent: {fileID: 328003754}
     m_Modifications:
     - target: {fileID: 174760, guid: 3f42b29f9f09e0e40b05df7c984384f1, type: 3}
       propertyPath: m_Name
@@ -5211,35 +5302,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 495398, guid: 3f42b29f9f09e0e40b05df7c984384f1, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 495398, guid: 3f42b29f9f09e0e40b05df7c984384f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.072
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 495398, guid: 3f42b29f9f09e0e40b05df7c984384f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.196
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 495398, guid: 3f42b29f9f09e0e40b05df7c984384f1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.241
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 495398, guid: 3f42b29f9f09e0e40b05df7c984384f1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8754261
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 495398, guid: 3f42b29f9f09e0e40b05df7c984384f1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.40821788
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 495398, guid: 3f42b29f9f09e0e40b05df7c984384f1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.23456968
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 495398, guid: 3f42b29f9f09e0e40b05df7c984384f1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.10938163
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 495398, guid: 3f42b29f9f09e0e40b05df7c984384f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5247,7 +5338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 495398, guid: 3f42b29f9f09e0e40b05df7c984384f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 495398, guid: 3f42b29f9f09e0e40b05df7c984384f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -5850,6 +5941,152 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321402090}
   m_CullTransparentMesh: 1
+--- !u!1 &328003753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 328003754}
+  - component: {fileID: 328003759}
+  - component: {fileID: 328003755}
+  - component: {fileID: 328003758}
+  - component: {fileID: 328003757}
+  - component: {fileID: 328003756}
+  m_Layer: 14
+  m_Name: Governor
+  m_TagString: NPC
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &328003754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328003753}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -12.429, y: 6.908, z: 27.116}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 249948673}
+  - {fileID: 396506767}
+  - {fileID: 875163861}
+  m_Father: {fileID: 486114487}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!136 &328003755
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328003753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &328003756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328003753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1523f54f0117074684e5d15b8189486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1
+  interactableText: '[E] Talk'
+  playerInventory: {fileID: 904466052}
+  playerLocomotion: {fileID: 904466056}
+  playerAnimatorManager: {fileID: 904466048}
+  uIManager: {fileID: 204355862}
+  dialogueDataContainer: []
+  dialogueUiManager: {fileID: 1670588496}
+  isQuestGiven: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 0}
+  dialogueMapKeys: []
+  dialogueMapValues: []
+--- !u!114 &328003757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328003753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ecccc1754ed5cc49b9a2fa2359f1dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockOnTransform: {fileID: 0}
+  backStabCollider: {fileID: 0}
+  riposteCollider: {fileID: 0}
+  canBeRiposted: 0
+  canBeParried: 0
+  isParrying: 0
+  isBlocking: 0
+  characterTransform: {fileID: 0}
+  pendingCriticalDamage: 0
+  npcId: name_number
+  mainQuests:
+  - prevQuestId: -1
+    questId: 0
+    quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
+    isCompleted: 0
+  sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+--- !u!135 &328003758
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328003753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.75
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &328003759
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328003753}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &329438579
 GameObject:
   m_ObjectHideFlags: 0
@@ -5881,6 +6118,83 @@ Transform:
   m_Father: {fileID: 1548865932}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &331622877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 331622878}
+  - component: {fileID: 331622881}
+  - component: {fileID: 331622880}
+  - component: {fileID: 331622879}
+  m_Layer: 30
+  m_Name: Push Blocker
+  m_TagString: Combat Collider
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &331622878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331622877}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 396506767}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &331622879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331622877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd0a976d90657647adf3683d982c2e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterCollider: {fileID: 328003755}
+  blockerCollider: {fileID: 331622880}
+--- !u!136 &331622880
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331622877}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!54 &331622881
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331622877}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &338617697
 GameObject:
   m_ObjectHideFlags: 0
@@ -6468,6 +6782,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372402473}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &396506766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 396506767}
+  m_Layer: 19
+  m_Name: Combat Collider
+  m_TagString: Combat Collider
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &396506767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396506766}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 331622878}
+  m_Father: {fileID: 328003754}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &403016308
 GameObject:
   m_ObjectHideFlags: 0
@@ -7260,9 +7605,10 @@ Transform:
   m_LocalPosition: {x: 0.23543656, y: -6.905691, z: -31.11196}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 328003754}
   - {fileID: 132726704}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &488123408
 GameObject:
@@ -7647,6 +7993,81 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &520287734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 520287735}
+  - component: {fileID: 520287737}
+  - component: {fileID: 520287736}
+  m_Layer: 29
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &520287735
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520287734}
+  m_LocalRotation: {x: -0, y: -0.00000004470348, z: 0.38268322, w: 0.9238796}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_Children: []
+  m_Father: {fileID: 107257435}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0.7}
+  m_SizeDelta: {x: 4, y: 4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &520287736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520287734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.45882353, g: 1, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &520287737
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520287734}
+  m_CullTransparentMesh: 1
 --- !u!1001 &529231364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7856,13 +8277,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: de2f30cc54c1bfe47acfe75da013b9df, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 0}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!114 &542113708
@@ -7886,12 +8307,23 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: name_number
   mainQuests:
   - prevQuestId: -1
     questId: 0
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &542113709
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7991,13 +8423,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: de2f30cc54c1bfe47acfe75da013b9df, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 0}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!114 &554614860
@@ -8021,12 +8453,23 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: name_number
   mainQuests:
   - prevQuestId: -1
     questId: 0
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &554614861
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8120,7 +8563,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: c68b17206972ff94aa1599ab960f3316, type: 2}
     - target: {fileID: 7499049790854619129, guid: cc4aaba428446444b838a9e0830e6917, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7499049790854619129, guid: cc4aaba428446444b838a9e0830e6917, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8277,6 +8720,106 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &583975940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 583975941}
+  - component: {fileID: 583975944}
+  - component: {fileID: 583975943}
+  - component: {fileID: 583975942}
+  m_Layer: 29
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &583975941
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583975940}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 107257435}
+  m_Father: {fileID: 875163861}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 4, y: 4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &583975942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583975940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &583975943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583975940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!223 &583975944
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583975940}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &590605427 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1670588494, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
@@ -8300,11 +8843,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: f9edc9de9adc9654292aea169e68ba62, type: 2}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: 4c4166b8974cf49499cd92ea7a806edb, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!1 &610300506
@@ -9724,13 +10269,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: c71b8aaa3eab33e4bb27adc5abc88cf1, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: c71b8aaa3eab33e4bb27adc5abc88cf1, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!114 &835747652
@@ -9754,12 +10299,19 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
-  mainQuests:
-  - prevQuestId: -1
-    questId: 0
-    quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
-    isCompleted: 0
+  npcId: name_number
+  mainQuests: []
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &835747653
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10096,6 +10648,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4225288164573004, guid: 98d1c0fb8c14f684ba730de310ba6677, type: 3}
   m_PrefabInstance: {fileID: 872318312}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &875163860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 875163861}
+  m_Layer: 29
+  m_Name: Minimap Icon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &875163861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875163860}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 583975941}
+  m_Father: {fileID: 328003754}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &878448260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10239,13 +10822,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: de2f30cc54c1bfe47acfe75da013b9df, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 0}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!114 &879267865
@@ -10269,12 +10852,23 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: name_number
   mainQuests:
   - prevQuestId: -1
     questId: 0
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &879267866
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10454,6 +11048,22 @@ PrefabInstance:
       propertyPath: cameraHandler
       value: 
       objectReference: {fileID: 1308016337}
+    - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
+      propertyPath: mainQuests.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
+      propertyPath: mainQuests.Array.data[0].quest
+      value: 
+      objectReference: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
+    - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
+      propertyPath: mainQuests.Array.data[0].questId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
+      propertyPath: mainQuests.Array.data[0].prevQuestId
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
 --- !u!4 &904466046 stripped
@@ -10698,7 +11308,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &919246634
 GameObject:
@@ -11123,13 +11733,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: cdb36c228f8c97c4cb28b667d41a388e, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 0}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!114 &961168398
@@ -11153,12 +11763,23 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: name_number
   mainQuests:
   - prevQuestId: -1
     questId: 0
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &961168399
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11489,7 +12110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993294677}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.97, y: 5.8586273, z: 8.102}
+  m_LocalPosition: {x: 0.97, y: 5.8586273, z: 16.883}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 457492527}
@@ -11530,13 +12151,22 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: 4c4166b8974cf49499cd92ea7a806edb, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer:
+  - dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: 4c4166b8974cf49499cd92ea7a806edb, type: 2}
+  - dialogueId: 1
+    isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: b0bf1c11cab4fd6489523936b77ad9b6, type: 2}
+  - dialogueId: 2
+    isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: f30623ab37b2c374cadabdf824f2f678, type: 2}
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: 4c4166b8974cf49499cd92ea7a806edb, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!114 &993294681
@@ -11560,12 +12190,23 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: MotherNPC
   mainQuests:
   - prevQuestId: -1
     questId: 0
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &993294682
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11595,6 +12236,131 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!1001 &994234656
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1335135553}
+    m_Modifications:
+    - target: {fileID: 1012514613320742, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_Name
+      value: Quest_Knife
+      objectReference: {fileID: 0}
+    - target: {fileID: 1012514613320742, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1012514613320742, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183305556925078, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183305556925078, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183305556925078, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183305556925078, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183305556925078, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.572358
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183305556925078, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.281127
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183305556925078, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.014628
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183305556925078, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183305556925078, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183305556925078, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183305556925078, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183305556925078, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183305556925078, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183305556925078, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64568360290041098, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 64568360290041098, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+--- !u!4 &994234657 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4183305556925078, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+  m_PrefabInstance: {fileID: 994234656}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &994234658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1012514613320742, guid: bba100a820f6d374694a3bb75837ea33, type: 3}
+  m_PrefabInstance: {fileID: 994234656}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &994234659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994234658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 164058edc11a9c14299af47ee82c8dd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.6
+  interactableText: Pick up
+  playerInventory: {fileID: 904466052}
+  playerLocomotion: {fileID: 904466056}
+  playerAnimatorManager: {fileID: 904466048}
+  uIManager: {fileID: 204355862}
+  consumableItems:
+  - {fileID: 11400000, guid: 53a5f4a5fef77bd49ba4a1c7f225541f, type: 2}
+--- !u!135 &994234660
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994234658}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.41213244
+  m_Center: {x: 0.00000007357448, y: 0.28273386, z: 0.015849613}
 --- !u!1001 &997810720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11803,13 +12569,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: 39b8c055554c8de448f81068432a826a, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 0}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!114 &1017690953
@@ -11833,12 +12599,23 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: name_number
   mainQuests:
   - prevQuestId: -1
     questId: 0
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &1017690954
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11873,6 +12650,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3060950883607572977, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
   m_PrefabInstance: {fileID: 1085500475}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1030449821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1030449823}
+  - component: {fileID: 1030449822}
+  m_Layer: 0
+  m_Name: WorldManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1030449822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030449821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0567bbd4b9957bd40884d241a1ef38cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossAreaManagers: []
+  bonfireManagers: []
+  weaponsHolder: []
+  shieldsHolder: []
+  helmetsHolder: []
+  chestsHolder: []
+  shouldersHolder: []
+  handsHolder: []
+  legsHolder: []
+  feetHolder: []
+  ringsHolder: []
+  consumableHolder: []
+  quests:
+  - prevQuestId: -1
+    questId: 0
+    quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
+    isCompleted: 0
+--- !u!4 &1030449823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030449821}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 648.5, y: 210, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1054999142
 GameObject:
   m_ObjectHideFlags: 0
@@ -11931,7 +12768,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1085500475
 PrefabInstance:
@@ -11948,6 +12785,10 @@ PrefabInstance:
       propertyPath: rightFoot
       value: 
       objectReference: {fileID: 2060684858}
+    - target: {fileID: 1534205275, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3060950883499712625, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
       propertyPath: detectionLayer.m_Bits
       value: 65536
@@ -11986,7 +12827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3060950883499712639, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3060950883499712639, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12410,7 +13251,7 @@ Transform:
   - {fileID: 1548865932}
   - {fileID: 3872957942517591174}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1163322222
 GameObject:
@@ -12482,13 +13323,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: 6f4ca283864eb684ab97de6f97d62e0b, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 0}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!114 &1163322226
@@ -12512,12 +13353,23 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: name_number
   mainQuests:
   - prevQuestId: -1
     questId: 0
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &1163322227
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12865,7 +13717,7 @@ Transform:
   m_Children:
   - {fileID: 472806042}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1205349675
 MonoBehaviour:
@@ -13183,7 +14035,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1264976311
 GameObject:
@@ -13286,13 +14138,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: 275016fbb9aa22342905b54063bee9b8, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 0}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!114 &1280336886
@@ -13316,12 +14168,23 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: name_number
   mainQuests:
   - prevQuestId: -1
     questId: 0
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &1280336887
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13587,6 +14450,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1335135552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1335135553}
+  m_Layer: 0
+  m_Name: QuestObjects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1335135553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335135552}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.102108, y: -8.151729, z: -1.5232736}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 994234657}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1335514912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14037,7 +14931,7 @@ Transform:
   - {fileID: 940046214}
   - {fileID: 372402474}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1410957633
 GameObject:
@@ -15260,13 +16154,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: c6deebd4d7d5bbc4898df1fe58862cad, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: c6deebd4d7d5bbc4898df1fe58862cad, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!114 &1548865928
@@ -15290,12 +16184,23 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: name_number
   mainQuests:
   - prevQuestId: -1
     questId: 0
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &1548865929
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15488,13 +16393,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: cdb36c228f8c97c4cb28b667d41a388e, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 0}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!114 &1557284228
@@ -15518,12 +16423,23 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: name_number
   mainQuests:
   - prevQuestId: -1
     questId: 0
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &1557284229
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16150,13 +17066,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: 4a7efa4a2928c4a44b05c6c688d56710, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: 4a7efa4a2928c4a44b05c6c688d56710, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!114 &1647757274
@@ -16180,12 +17096,23 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: name_number
   mainQuests:
   - prevQuestId: -1
     questId: 0
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &1647757275
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16335,7 +17262,6 @@ Transform:
   - {fileID: 296583791}
   - {fileID: 1480559530}
   - {fileID: 412661859}
-  - {fileID: 249948673}
   - {fileID: 1549801778}
   - {fileID: 1704584981}
   - {fileID: 178334754}
@@ -16346,7 +17272,7 @@ Transform:
   - {fileID: 529231365}
   - {fileID: 997810721}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1663902234
 GameObject:
@@ -16383,7 +17309,7 @@ Transform:
   - {fileID: 872318313}
   - {fileID: 648350351}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1667470074
 PrefabInstance:
@@ -16462,7 +17388,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 590605427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948eae2a32d92bb4babfbef516cf018a, type: 3}
+  m_Script: {fileID: 11500000, guid: e5bdf7a6a25926b418bb489410aa912d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1672817253
@@ -17309,13 +18235,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: 275016fbb9aa22342905b54063bee9b8, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 0}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!114 &1793841602
@@ -17339,12 +18265,23 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: name_number
   mainQuests:
   - prevQuestId: -1
     questId: 0
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &1793841603
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18225,13 +19162,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: 275016fbb9aa22342905b54063bee9b8, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 0}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!114 &1908310201
@@ -18255,12 +19192,23 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: name_number
   mainQuests:
   - prevQuestId: -1
     questId: 0
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &1908310202
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18793,13 +19741,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: cdb36c228f8c97c4cb28b667d41a388e, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 0}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!114 &2018143527
@@ -18823,12 +19771,23 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: name_number
   mainQuests:
   - prevQuestId: -1
     questId: 0
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &2018143528
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19297,7 +20256,7 @@ PrefabInstance:
       objectReference: {fileID: 904466048}
     - target: {fileID: 301754168852192503, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 301754168852192503, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19712,12 +20671,23 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
+  npcId: name_number
   mainQuests:
   - prevQuestId: -1
     questId: 0
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!135 &3872957942517591173
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19766,13 +20736,13 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueData:
-  - {fileID: 11400000, guid: 62022df244421d04bbb47a00e0b01dbe, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  dialogueDataContainer: []
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
-  currentDialogueId: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: 62022df244421d04bbb47a00e0b01dbe, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
 --- !u!136 &3872957942517591176
@@ -20021,7 +20991,7 @@ PrefabInstance:
       objectReference: {fileID: 1458811481}
     - target: {fileID: 8506199623120208345, guid: 8d8d2e0957edb6146a0c4114937d85eb, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8506199623120208345, guid: 8d8d2e0957edb6146a0c4114937d85eb, type: 3}
       propertyPath: m_LocalPosition.x
