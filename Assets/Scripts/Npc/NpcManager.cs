@@ -11,43 +11,35 @@ namespace SzymonPeszek.Npc
 {
     public class NpcManager : CharacterManager
     {
+        public string npcId = "name_number";
         public List<QuestContainer> mainQuests = new List<QuestContainer>();
         public List<QuestContainer> sideQuests = new List<QuestContainer>();
-
-        private int _mainQuestCounter;
-        private QuestContainer _currentMainQuest;
-        private int _sideQuestCounter;
+        public QuestContainer currentMainQuest;
+        public QuestContainer currentSideQuest;
 
         private void Awake()
         {
-            _currentMainQuest = mainQuests[_mainQuestCounter];
-            _mainQuestCounter++;
+            currentMainQuest = mainQuests.First(q => !q.isCompleted);
+            currentSideQuest = sideQuests.First(q => !q.isCompleted);
         }
 
         public Quest GiveMainQuest()
         {
-            if (mainQuests.Count > _mainQuestCounter)
+            if (mainQuests.Any(q => !q.isCompleted))
             {
-                if (_currentMainQuest.isCompleted)
+                if (currentMainQuest.isCompleted)
                 {
-                    if (QuestManager.instance.mainQuests[mainQuests[_mainQuestCounter].prevQuestId].prevQuestId < 0)
+                    currentMainQuest = mainQuests.First(q => !q.isCompleted);
+                    if (QuestManager.instance.mainQuests.First(q => q == currentMainQuest).prevQuestId < 0 || 
+                        QuestManager.instance.mainQuests.First(q => q.questId == currentMainQuest.prevQuestId).isCompleted)
                     {
-                        _currentMainQuest = mainQuests[_mainQuestCounter];
-                        _mainQuestCounter++;
-
-                        return _currentMainQuest.quest;
-                    }
-
-                    if (QuestManager.instance.mainQuests[mainQuests[_mainQuestCounter].prevQuestId].isCompleted)
-                    {
-                        _currentMainQuest = mainQuests[_mainQuestCounter];
-                        _mainQuestCounter++;
-
-                        return _currentMainQuest.quest;
+                        return currentMainQuest.quest;
                     }
                 }
-
-                return _currentMainQuest.quest;
+                else
+                {
+                    return currentMainQuest.quest;
+                }
             }
 
             return null;
@@ -55,10 +47,45 @@ namespace SzymonPeszek.Npc
 
         public bool EndCurrentMainQuest(PlayerManager playerManager)
         {
-            if (playerManager.CompleteQuest(_currentMainQuest.quest))
+            if (playerManager.CompleteQuest(currentMainQuest.quest))
             {
-                mainQuests.First(q => q == _currentMainQuest).isCompleted = true;
-                _currentMainQuest.isCompleted = true;
+                mainQuests.First(q => q == currentMainQuest).isCompleted = true;
+                currentMainQuest.isCompleted = true;
+                
+                return true;
+            }
+
+            return false;
+        }
+        
+        public Quest GiveSideQuest()
+        {
+            if (sideQuests.Any(q => !q.isCompleted))
+            {
+                if (currentSideQuest.isCompleted)
+                {
+                    currentSideQuest = sideQuests.First(q => !q.isCompleted);
+                    if (QuestManager.instance.sideQuests.First(q => q == currentSideQuest).prevQuestId < 0 || 
+                        QuestManager.instance.sideQuests.First(q => q.questId == currentSideQuest.prevQuestId).isCompleted)
+                    {
+                        return currentSideQuest.quest;
+                    }
+                }
+                else
+                {
+                    return currentSideQuest.quest;
+                }
+            }
+
+            return null;
+        }
+
+        public bool EndCurrentSideQuest(PlayerManager playerManager)
+        {
+            if (playerManager.CompleteQuest(currentSideQuest.quest))
+            {
+                sideQuests.First(q => q == currentSideQuest).isCompleted = true;
+                currentSideQuest.isCompleted = true;
                 
                 return true;
             }

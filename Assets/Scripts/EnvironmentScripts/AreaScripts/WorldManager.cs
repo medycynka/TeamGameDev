@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using SzymonPeszek.Items.Bonfire;
 using SzymonPeszek.Items.Weapons;
 using SzymonPeszek.Items.Equipment;
 using SzymonPeszek.Items.Consumable;
+using SzymonPeszek.Npc;
 using SzymonPeszek.PlayerScripts;
 using SzymonPeszek.SaveScripts;
 using QuestContainer = SzymonPeszek.PlayerScripts.QuestContainer;
@@ -91,7 +93,6 @@ namespace SzymonPeszek.Environment.Areas
                         questId = dataManager.quests[i].questId
                     });
                 }
-
                 if (dataManager.currentQuestIds[0] != -1)
                 {
                     for (int i = 0; i < dataManager.currentQuestIds.Length; i++)
@@ -100,6 +101,21 @@ namespace SzymonPeszek.Environment.Areas
                     }
                 }
 
+                if (dataManager.npcQuests.Length > 0)
+                {
+                    NpcManager[] npcManagers = FindObjectsOfType<NpcManager>();
+                    Dictionary<string, NpcManager> tmp = new Dictionary<string, NpcManager>();
+                    foreach (NpcManager npcManager in npcManagers)
+                    {
+                        npcManager.mainQuests.Clear();
+                        tmp.Add(npcManager.npcId, npcManager);
+                    }
+                    
+                    foreach (NpcQuests npcQ in dataManager.npcQuests)
+                    {
+                        tmp[npcQ.npcId].mainQuests.Add(quests[npcQ.questId]);
+                    }
+                }
                 #endregion
             }
         }

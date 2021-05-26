@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SummonSkeletons
   m_EditorClassIdentifier: 
   actionAnimation: Summon
-  attackScore: 2
+  attackScore: 3
   recoveryTime: 4
   maximumAttackAngle: 75
   minimumAttackAngle: -75
