@@ -78,8 +78,21 @@ namespace SzymonPeszek.Npc.DialogueSystem
         {
             if (_npcInteractionManager.dialogueMap[targetGuid].ender)
             {
-                _npcInteractionManager.dialogueDataContainer
-                    .First(d => d.dialogueId == _npcInteractionManager.currentDialogue.dialogueId).isCompleted = true;
+                if (_npcInteractionManager.dialogueMap[targetGuid].completer)
+                {
+                    if (_npcInteractionManager.TryCompleteQuest(_playerManager))
+                    {
+                        _npcInteractionManager.dialogueDataContainer.First(
+                                d => d.dialogueId == _npcInteractionManager.currentDialogue.dialogueId)
+                            .isCompleted = true;
+                    }
+                }
+                else
+                {
+                    _npcInteractionManager.dialogueDataContainer.First(
+                            d => d.dialogueId == _npcInteractionManager.currentDialogue.dialogueId)
+                        .isCompleted = true;
+                }
             }
             
             if (_npcInteractionManager.dialogueMap[targetGuid].exit)

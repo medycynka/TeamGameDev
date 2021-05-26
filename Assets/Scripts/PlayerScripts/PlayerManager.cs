@@ -444,18 +444,19 @@ namespace SzymonPeszek.PlayerScripts
             }
         }
 
-        public bool CompleteQuest(Quest quest)
+        public bool CanCompleteQuest(Quest quest)
         {
-            bool isCompleted = false;
-            
             if (quest.isEnemyQuest)
             {
-                isCompleted = _playerStats.IsKillCountFulfilled(quest.enemyToKillName, quest.enemyToKillCount);
+                return _playerStats.IsKillCountFulfilled(quest.enemyToKillName, quest.enemyToKillCount);
             }
-            else if (quest.isItemQuest)
-            {
-                isCompleted = _playerInventory.HasNeededItems(quest.taskItem, quest.taskItemAmount);
-            }
+
+            return quest.isItemQuest && _playerInventory.HasNeededItems(quest.taskItem, quest.taskItemAmount);
+        }
+        
+        public bool CompleteQuest(Quest quest)
+        {
+            bool isCompleted = CanCompleteQuest(quest);
 
             if (isCompleted)
             {

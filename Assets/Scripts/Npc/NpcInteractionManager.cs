@@ -20,7 +20,7 @@ namespace SzymonPeszek.Npc
         public bool isQuestGiven;
         public Dictionary<string, DialogueNodeStorage> dialogueMap;
         public DialogueInfo currentDialogue;
-        
+
         //For "simulating" dialogue map in the inspector
         [SerializeField] private List<string> dialogueMapKeys;
         [SerializeField] [ItemCanBeNull] private List<DialogueNodeStorage> dialogueMapValues;
@@ -35,7 +35,7 @@ namespace SzymonPeszek.Npc
         public override void Interact(PlayerManager playerManager)
         {
             InitializeDialogue();
-            
+
             dialogueUiManager.Init(playerManager, _npcManager, this);
             dialogueUiManager.HandleDialogue();
         }
@@ -68,6 +68,11 @@ namespace SzymonPeszek.Npc
                 interactableText = "[E] Talk";
                 isQuestGiven = false;
             }
+        }
+
+        public bool TryCompleteQuest(PlayerManager playerManager)
+        {
+            return playerManager.CanCompleteQuest(_npcManager.currentMainQuest.quest);
         }
     }
 
