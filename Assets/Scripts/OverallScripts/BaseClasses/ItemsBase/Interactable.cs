@@ -14,7 +14,7 @@ namespace SzymonPeszek.BaseClasses
     /// </summary>
     public class Interactable : MonoBehaviour
     {
-        [Header("Interactable Object Properties")]
+        [Header("Interactable Object Properties", order = 0)]
         public float radius = 0.6f;
         public string interactableText = "Pick up";
 

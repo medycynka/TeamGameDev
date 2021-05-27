@@ -535,7 +535,7 @@ namespace SzymonPeszek.PlayerScripts
             StartCoroutine(EnablePlayerManager());
         }
 
-        private void StopPlayer()
+        public void StopPlayer()
         {
             _inputHandler.vertical = 0;
             _inputHandler.horizontal = 0;

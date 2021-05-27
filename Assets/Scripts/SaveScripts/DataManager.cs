@@ -68,7 +68,10 @@ namespace SzymonPeszek.SaveScripts
         //Quests
         public QuestContainer[] quests;
         public int[] currentQuestIds;
+        
+        // Npcs
         public NpcQuests[] npcQuests;
+        public NpcDialogues[] npcDialogues;
 
         // Constructor
         /// <summary>
@@ -359,6 +362,21 @@ namespace SzymonPeszek.SaveScripts
             }
             npcQuests = tmpNpcQuestList.ToArray();
             #endregion
+            
+            #region Dialogues
+            npcDialogues = new NpcDialogues[npcs.Length];
+            for (int i = 0; i < npcDialogues.Length; i++)
+            {
+                npcDialogues[i] = new NpcDialogues();
+                npcDialogues[i].npcId = npcs[i].npcId;
+                NpcInteractionManager npcInteract = npcs[i].GetComponent<NpcInteractionManager>();
+                npcDialogues[i].dialogueCompleted = new bool[npcInteract.dialogueDataContainer.Count];
+                for (int j = 0; j < npcDialogues[i].dialogueCompleted.Length; j++)
+                {
+                    npcDialogues[i].dialogueCompleted[j] = npcInteract.dialogueDataContainer[j].isCompleted;
+                }
+            }
+            #endregion
         }
     }
 
@@ -376,5 +394,12 @@ namespace SzymonPeszek.SaveScripts
     {
         public string npcId;
         public int questId;
+    }
+
+    [Serializable]
+    public class NpcDialogues
+    {
+        public string npcId;
+        public bool[] dialogueCompleted;
     }
 }

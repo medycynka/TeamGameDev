@@ -102,42 +102,36 @@ namespace SzymonPeszek.Environment.Areas
                     }
                 }
 
+                NpcManager[] npcManagers = FindObjectsOfType<NpcManager>();
+                Dictionary<string, NpcManager> tmp = new Dictionary<string, NpcManager>();
+                foreach (NpcManager npcManager in npcManagers)
+                {
+                    npcManager.mainQuests.Clear();
+                    tmp.Add(npcManager.npcId, npcManager);
+                }
                 if (dataManager.npcQuests.Length > 0)
                 {
-                    NpcManager[] npcManagers = FindObjectsOfType<NpcManager>();
-                    Dictionary<string, NpcManager> tmp = new Dictionary<string, NpcManager>();
-                    foreach (NpcManager npcManager in npcManagers)
-                    {
-                        npcManager.mainQuests.Clear();
-                        tmp.Add(npcManager.npcId, npcManager);
-                    }
-                    
                     foreach (NpcQuests npcQ in dataManager.npcQuests)
                     {
                         tmp[npcQ.npcId].mainQuests.Add(quests[npcQ.questId]);
                     }
                 }
                 #endregion
+
+                #region Dialogue Initializetion
+                for (int i = 0; i < dataManager.npcDialogues.Length; i++)
+                {
+                    NpcInteractionManager npcInteract =
+                        tmp[dataManager.npcDialogues[i].npcId].GetComponent<NpcInteractionManager>();
+                    for (int j = 0; j < dataManager.npcDialogues[i].dialogueCompleted.Length; j++)
+                    {
+                        npcInteract.dialogueDataContainer[j].isCompleted =
+                            dataManager.npcDialogues[i].dialogueCompleted[j];
+                    }
+                }
+                #endregion
             }
         }
-
-        // private void FixedUpdate()
-        // {
-        //     if (Time.frameCount % FrameCheckRate == BossCheckVal)
-        //     {
-        //         for (int i = 0; i < bossAreaManagers.Length; i++)
-        //         {
-        //             SettingsHolder.bossAreaAlive[i] = bossAreaManagers[i].isBossAlive;
-        //         }
-        //     }
-        //     else if (Time.frameCount % FrameCheckRate == BonfireCheckVal)
-        //     {
-        //         for (int i = 0; i < bonfireManagers.Length; i++)
-        //         {
-        //             SettingsHolder.bonfiresActivation[i] = bonfireManagers[i].isActivated;
-        //         }
-        //     }
-        // }
 
         private Quest GetQuestById(int id)
         {

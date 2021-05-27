@@ -53,7 +53,7 @@ namespace SzymonPeszek.PlayerScripts
         public float sprintStaminaCost = 5;
 
         [Header("Fall Damage", order = 1)]
-        public float fallDamage = 10f;
+        public float fallDamage = 5f;
         
         private PlayerManager _playerManager;
         private Transform _cameraObject;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using SzymonPeszek.Enums;
 using UnityEngine;
 using SzymonPeszek.Misc;
@@ -55,12 +56,6 @@ namespace SzymonPeszek.Environment.Sounds
 
         [Header("Current Background Music Clip", order = 1)]
         public AudioClip currentBackgroundMusic;
-        //public AudioClip previouseBackgroundMusic;
-
-        [Header("Music Fade In/Out", order = 1)]
-        public float musicFadeIn = 2f;
-        public float musicFadeOut = 2f;
-        public bool fadingMusic;
         
         [Header("Feet transforms", order = 1)]
         public Transform leftFoot;
@@ -69,7 +64,7 @@ namespace SzymonPeszek.Environment.Sounds
         private AudioSource _audioSource;
         private Animator _anim;
         private bool _playFootsteps = true;
-        [SerializeField] private string _currentEnvironmentTag;
+        [SerializeField] private string currentEnvironmentTag;
         private RaycastHit _hit;
         private GameObject _terrainFinder;
         private Terrain _terrain;
@@ -79,14 +74,49 @@ namespace SzymonPeszek.Environment.Sounds
         private string _whatTexture;
         private static GameObject _floor;
         private string _currentFoot = "right";
-        private Transform _currentFootTransform;
         private LayerMask _environmentMask;
         private Dictionary<string, EnvironmentFootstepSound> _stepSounds;
-        private List<GameObject> _stepEffects = new List<GameObject>();
-        private float _stepDeletionTimer = 3f;
+        
+        // Steps effects pooling
+        [Header("Effects pooling", order = 1)] 
+        public Transform spawnParent;
+        public List<Pool> pools;
+        private Dictionary<string, Queue<GameObject>> _poolDictionary;
+        private Dictionary<string, string> _helperTagger;
 
         private void Awake()
         {
+            _helperTagger = new Dictionary<string, string>();
+            foreach (EnvironmentFootstepSound efs in environmentFootstepSounds)
+            {
+                _helperTagger.Add(efs.tagName, efs.tagName == "Water" ? efs.tagName : "Default");
+            }
+            pools = new List<Pool>();
+            foreach (EnvironmentFootstepSound efs in environmentFootstepSounds)
+            {
+                if (pools.All(p => p.tag != _helperTagger[efs.tagName]))
+                {
+                    pools.Add(new Pool
+                    {
+                        tag = _helperTagger[efs.tagName],
+                        prefab = efs.stepEffect,
+                        size = 4
+                    });
+                }
+            }
+            _poolDictionary = new Dictionary<string, Queue<GameObject>>();
+            foreach (Pool pool in pools)
+            {
+                Queue<GameObject> objectPool = new Queue<GameObject>();
+                for (int i = 0; i < pool.size; i++)
+                {
+                    GameObject obj = spawnParent ? Instantiate(pool.prefab, spawnParent) : Instantiate(pool.prefab);
+                    obj.SetActive(false);
+                    objectPool.Enqueue(obj);
+                }
+                _poolDictionary.Add(pool.tag, objectPool);
+            }
+            
             _audioSource = GetComponent<AudioSource>();
             _anim = GetComponentInChildren<Animator>();
             _audioSource.loop = true;
@@ -97,7 +127,7 @@ namespace SzymonPeszek.Environment.Sounds
 
             _stepSounds = new Dictionary<string, EnvironmentFootstepSound>();
 
-            _currentEnvironmentTag = "Environment";
+            currentEnvironmentTag = "Environment";
             if (environmentFootstepSounds.Length > 0)
             {
                 for (int i = 0; i < environmentFootstepSounds.Length; i++)
@@ -105,7 +135,7 @@ namespace SzymonPeszek.Environment.Sounds
                     _stepSounds.Add(environmentFootstepSounds[i].tagName, environmentFootstepSounds[i]);
                 }
                 
-                currentMovingClips = _stepSounds[_currentEnvironmentTag].footsteps;
+                currentMovingClips = _stepSounds[currentEnvironmentTag].footsteps;
             }
 
             // Check if there is a terrain
@@ -122,22 +152,6 @@ namespace SzymonPeszek.Environment.Sounds
         private void Update()
         {
             UpdateMovingClips();
-            
-            _stepDeletionTimer -= Time.deltaTime;
-
-            if (_stepDeletionTimer <= 0)
-            {
-                if (_stepEffects.Count > 4)
-                {
-                    for (int i = _stepEffects.Count - 1; i >= 0; i--)
-                    {
-                        Destroy(_stepEffects[i]);
-                        _stepEffects.RemoveAt(i);
-                    }
-                }
-
-                _stepDeletionTimer = 3f;
-            }
         }
 
         public void ChangeVolume(float newVolume)
@@ -195,13 +209,13 @@ namespace SzymonPeszek.Environment.Sounds
                     
                     if (_currentFoot == "left")
                     {
-                        _stepEffects.Insert(0, Instantiate(_stepSounds[_currentEnvironmentTag].stepEffect,
-                            leftFoot.position + new Vector3(0, 0.01f, 0), leftFoot.rotation));
+                        SpawnStepEffectFromPool(_helperTagger[currentEnvironmentTag],
+                            leftFoot.position + new Vector3(0, 0.01f, 0), leftFoot.rotation);
                     } 
                     else
                     {
-                        _stepEffects.Insert(0, Instantiate(_stepSounds[_currentEnvironmentTag].stepEffect,
-                            rightFoot.position + new Vector3(0, 0.01f, 0), rightFoot.rotation));
+                        SpawnStepEffectFromPool(_helperTagger[currentEnvironmentTag],
+                            rightFoot.position + new Vector3(0, 0.01f, 0), rightFoot.rotation);
                     }
                 }
             }
@@ -323,7 +337,7 @@ namespace SzymonPeszek.Environment.Sounds
         {
             if (_terrainFinder != null) 
             {
-                _surfaceIndex = GetMainTexture (transform.position);
+                _surfaceIndex = GetMainTexture(transform.position);
                 //If you added a grass texture, then a dirt, then a rock, you'd have grass=0, dirt=1, rock=2.
                 _whatTexture = _terrainData.terrainLayers[_surfaceIndex].name;
             }
@@ -395,7 +409,6 @@ namespace SzymonPeszek.Environment.Sounds
                 out _hit, 2f, _environmentMask))
             {
                 _floor = _hit.transform.gameObject;
-                _currentFootTransform = _hit.transform;
             }
 
             _currentFoot = "right";
@@ -408,7 +421,7 @@ namespace SzymonPeszek.Environment.Sounds
 
         private void CheckTexture()
         {
-            if (_floor.CompareTag(_currentEnvironmentTag))
+            if (_floor.CompareTag(currentEnvironmentTag))
             {
                 return;
             }
@@ -422,7 +435,7 @@ namespace SzymonPeszek.Environment.Sounds
                     if (_whatTexture.Contains(groundTag) || _whatTexture.Contains(groundTag.ToLower()) ||
                         _whatTexture.Contains(groundTag.ToUpper()))
                     {
-                        _currentEnvironmentTag = environmentFootstepSounds[i].tagName;
+                        currentEnvironmentTag = environmentFootstepSounds[i].tagName;
                         currentMovingClips = environmentFootstepSounds[i].footsteps;
                         
                         return;
@@ -432,11 +445,33 @@ namespace SzymonPeszek.Environment.Sounds
 
             if (_stepSounds.ContainsKey(_floor.tag))
             {
-                _currentEnvironmentTag = _stepSounds[_floor.tag].tagName;
+                currentEnvironmentTag = _stepSounds[_floor.tag].tagName;
                 currentMovingClips = _stepSounds[_floor.tag].footsteps;
             }
         }
         #endregion
+
+        private GameObject SpawnStepEffectFromPool(string tag, Vector3 pos, Quaternion rot)
+        {
+            if (_poolDictionary.ContainsKey(tag))
+            {
+                GameObject obj = _poolDictionary[tag].Dequeue();
+                obj.transform.position = pos;
+                obj.transform.rotation = rot;
+                obj.SetActive(true);
+                ParticleSystem objParticles = obj.GetComponent<ParticleSystem>();
+                if (objParticles)
+                {
+                    objParticles.Clear(true);
+                    objParticles.Play(true);
+                }
+                _poolDictionary[tag].Enqueue(obj);
+
+                return obj;
+            }
+
+            return null;
+        }
 
         private IEnumerator StopStepSounds()
         {
@@ -446,5 +481,13 @@ namespace SzymonPeszek.Environment.Sounds
             
             EnableFootStepsSound();
         }
+    }
+
+    [Serializable]
+    public class Pool
+    {
+        public string tag;
+        public GameObject prefab;
+        public int size;
     }
 }

@@ -4331,13 +4331,13 @@ MonoBehaviour:
   sprintSpeed: 7
   rotationSpeed: 16
   leapingVelocity: 3
-  fallingVelocity: 50
+  fallingVelocity: 75
   jumpHeight: 1.5
   jumpMultiplier: 10
   nextJump: 0
   rollStaminaCost: 10
   sprintStaminaCost: 5
-  fallDamage: 10
+  fallDamage: 5
 --- !u!114 &4966070491420200269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4920,12 +4920,11 @@ MonoBehaviour:
   estusUse: {fileID: 8300000, guid: 9657dd2357d68b94e9eec02a4ab65abc, type: 3}
   soulUse: {fileID: 8300000, guid: 975fc88c34b13854688ac612795d8a33, type: 3}
   currentBackgroundMusic: {fileID: 8300000, guid: 48b6e9306a539bc43b16444db62a0951, type: 3}
-  musicFadeIn: 2
-  musicFadeOut: 2
-  fadingMusic: 0
   leftFoot: {fileID: 4966070490633475083}
   rightFoot: {fileID: 4966070490633494581}
-  _currentEnvironmentTag: 
+  currentEnvironmentTag: 
+  spawnParent: {fileID: 0}
+  pools: []
 --- !u!114 &5493518819219691622
 MonoBehaviour:
   m_ObjectHideFlags: 0
