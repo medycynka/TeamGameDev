@@ -22,30 +22,30 @@ MonoBehaviour:
   - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
     portName: "Co si\u0119 sta\u0142o?"
     targetNodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
-  - baseNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
-    portName: "S\u0142ucham? Nie wygl\u0105dasz na zmartwion\u0105. "
-    targetNodeGuid: d50cc8ee-08af-4740-bfd5-a2b00453260a
   - baseNodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
     portName: "S\u0142ucham? Nie wygl\u0105dasz na zmartwion\u0105."
     targetNodeGuid: d50cc8ee-08af-4740-bfd5-a2b00453260a
-  - baseNodeGuid: d50cc8ee-08af-4740-bfd5-a2b00453260a
-    portName: Chyba tak.
-    targetNodeGuid: f0e1061d-0a7e-421f-88c0-9c49bc02f987
-  - baseNodeGuid: d50cc8ee-08af-4740-bfd5-a2b00453260a
-    portName: "Nie umiem podej\u015B\u0107 do tego tak optymistycznie."
-    targetNodeGuid: 725e4593-6ce0-4774-92cc-978251163b47
   - baseNodeGuid: f0e1061d-0a7e-421f-88c0-9c49bc02f987
     portName: "S\u0142ucham."
     targetNodeGuid: dbf2b759-da05-4dc6-812b-88897b3a95bd
   - baseNodeGuid: 725e4593-6ce0-4774-92cc-978251163b47
     portName: "S\u0142ucham."
     targetNodeGuid: dbf2b759-da05-4dc6-812b-88897b3a95bd
-  - baseNodeGuid: dbf2b759-da05-4dc6-812b-88897b3a95bd
-    portName: Dobrze.
-    targetNodeGuid: 912ac1e9-3587-414d-8180-408fd38eabd9
   - baseNodeGuid: 912ac1e9-3587-414d-8180-408fd38eabd9
     portName: Do zobaczenia.
     targetNodeGuid: 19315cea-55d2-496d-8813-826e901bba55
+  - baseNodeGuid: dbf2b759-da05-4dc6-812b-88897b3a95bd
+    portName: Dobrze.
+    targetNodeGuid: 912ac1e9-3587-414d-8180-408fd38eabd9
+  - baseNodeGuid: d50cc8ee-08af-4740-bfd5-a2b00453260a
+    portName: Chyba tak.
+    targetNodeGuid: f0e1061d-0a7e-421f-88c0-9c49bc02f987
+  - baseNodeGuid: d50cc8ee-08af-4740-bfd5-a2b00453260a
+    portName: "Nie umiem podej\u015B\u0107 do tego tak optymistycznie."
+    targetNodeGuid: 725e4593-6ce0-4774-92cc-978251163b47
+  - baseNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
+    portName: "S\u0142ucham? Nie wygl\u0105dasz na zmartwion\u0105. "
+    targetNodeGuid: d50cc8ee-08af-4740-bfd5-a2b00453260a
   dialogueNodeData:
   - nodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
     dialogueText: "Nareszcie si\u0119 obudzi\u0142e\u015B. Ile ja mam wo\u0142a\u0107?"
@@ -53,19 +53,45 @@ MonoBehaviour:
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
-  - nodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
-    dialogueText: "S\u0142o\u0144ce ju\u017C nie wstanie. Co\u015B jest nie tak..
-      co\u015B jest nie tak."
-    nodePosition: {x: 949, y: 16}
-    isQuestGiver: 0
-    isQuestCompleter: 0
-    isExit: 0
+    isEnding: 0
   - nodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
     dialogueText: "S\u0142o\u0144ce nie wsta\u0142o! "
     nodePosition: {x: 1155, y: 205}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
+    isEnding: 0
+  - nodeGuid: f0e1061d-0a7e-421f-88c0-9c49bc02f987
+    dialogueText: "Dobrze. Skoro ju\u017C jeste\u015B na nogach, to czy mo\u017Cesz
+      mi w czym\u015B pom\xF3c?"
+    nodePosition: {x: 2592, y: 11}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 725e4593-6ce0-4774-92cc-978251163b47
+    dialogueText: "I tak nie mo\u017Cemy nic zrobi\u0107. Skoro ju\u017C jeste\u015B
+      na nogach, to czy mo\u017Cesz mi w czym\u015B pom\xF3c?"
+    nodePosition: {x: 2596, y: 229}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 912ac1e9-3587-414d-8180-408fd38eabd9
+    dialogueText: "Dzi\u0119kuj\u0119, kochanie."
+    nodePosition: {x: 4189, y: 159}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: dbf2b759-da05-4dc6-812b-88897b3a95bd
+    dialogueText: "Zam\xF3wi\u0142am nowy n\xF3\u017C u naszego kowala. Odbierz go
+      prosz\u0119."
+    nodePosition: {x: 3459, y: 145}
+    isQuestGiver: 1
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 1
   - nodeGuid: d50cc8ee-08af-4740-bfd5-a2b00453260a
     dialogueText: "So\u0142tys m\xF3wi\u0142, \u017Ce posla\u0142 po lokaln\u0105
       wied\u017Am\u0119. Maj\u0105 przynie\u015B\u0107 wie\u015Bci w ci\u0105gu dnia,
@@ -74,39 +100,22 @@ MonoBehaviour:
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
-  - nodeGuid: f0e1061d-0a7e-421f-88c0-9c49bc02f987
-    dialogueText: "Dobrze. Skoro ju\u017C jeste\u015B na nogach, to czy mo\u017Cesz
-      mi w czym\u015B pom\xF3c?"
-    nodePosition: {x: 2592, y: 11}
+    isEnding: 0
+  - nodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
+    dialogueText: "S\u0142o\u0144ce ju\u017C nie wstanie. Co\u015B jest nie tak..
+      co\u015B jest nie tak."
+    nodePosition: {x: 949, y: 16}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
-  - nodeGuid: 725e4593-6ce0-4774-92cc-978251163b47
-    dialogueText: "I tak nie mo\u017Cemy nic zrobi\u0107. Skoro ju\u017C jeste\u015B
-      na nogach, to czy mo\u017Cesz mi w czym\u015B pom\xF3c?"
-    nodePosition: {x: 2596, y: 229}
-    isQuestGiver: 0
-    isQuestCompleter: 0
-    isExit: 0
-  - nodeGuid: 912ac1e9-3587-414d-8180-408fd38eabd9
-    dialogueText: "Dzi\u0119kuj\u0119, kochanie."
-    nodePosition: {x: 4189, y: 159}
-    isQuestGiver: 0
-    isQuestCompleter: 0
-    isExit: 0
+    isEnding: 0
   - nodeGuid: 19315cea-55d2-496d-8813-826e901bba55
     dialogueText: Dialogue Node
-    nodePosition: {x: 4661, y: 163}
+    nodePosition: {x: 4821, y: 159}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 1
-  - nodeGuid: dbf2b759-da05-4dc6-812b-88897b3a95bd
-    dialogueText: "Zam\xF3wi\u0142am nowy n\xF3\u017C u naszego kowala. Odbierz go
-      prosz\u0119."
-    nodePosition: {x: 3459, y: 145}
-    isQuestGiver: 0
-    isQuestCompleter: 0
-    isExit: 0
+    isEnding: 0
   exposedProperties:
   - propertyName: New String
     propertyValue: New Value

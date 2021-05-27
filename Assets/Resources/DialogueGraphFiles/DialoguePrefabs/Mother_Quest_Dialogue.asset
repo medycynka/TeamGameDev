@@ -32,25 +32,30 @@ MonoBehaviour:
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
+    isEnding: 0
   - nodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
     dialogueText: "Mi\u0142ego dnia!"
     nodePosition: {x: 1069, y: 213}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 1
-  - nodeGuid: e18103a8-76be-494f-b617-efc86e7bc4f2
-    dialogueText: Dialogue Node
-    nodePosition: {x: 1735, y: 19}
-    isQuestGiver: 0
-    isQuestCompleter: 0
-    isExit: 1
+    isEnding: 0
   - nodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
     dialogueText: "\u015Awietnie. Dzi\u0119kuj\u0119 za pomoc. Gdyby\u015B mnie szuka\u0142,
-      to b\u0119d\u0119 w ogr\xF3dku."
+      to b\u0119d\u0119 w ogr\xF3dku. Je\u015Bli chcesz, to porozmawiaj z so\u0142tysem.
+      Mo\u017Ce powie Ci co\u015B wi\u0119cej, ni\u017C ja."
     nodePosition: {x: 959, y: 14}
     isQuestGiver: 0
     isQuestCompleter: 1
     isExit: 0
+    isEnding: 1
+  - nodeGuid: e18103a8-76be-494f-b617-efc86e7bc4f2
+    dialogueText: Dialogue Node
+    nodePosition: {x: 2192, y: 9}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
   exposedProperties:
   - propertyName: New String
     propertyValue: New Value
