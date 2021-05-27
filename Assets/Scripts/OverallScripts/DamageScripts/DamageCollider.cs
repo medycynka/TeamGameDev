@@ -1,4 +1,5 @@
-﻿using SzymonPeszek.BaseClasses;
+﻿using PolyPerfect;
+using SzymonPeszek.BaseClasses;
 using UnityEngine;
 using SzymonPeszek.PlayerScripts;
 using SzymonPeszek.EnemyScripts;
@@ -143,6 +144,11 @@ namespace SzymonPeszek.Damage
                 {
                     playerStats.DealDamage(null, currentWeaponDamage, DamageType.Physic, true, passiveEnemyStats);
                 }
+            }
+
+            if (collision.CompareTag("Animal"))
+            {
+                collision.GetComponentInParent<Animal_WanderScript>().TakeDamage(currentWeaponDamage);
             }
         }
     }

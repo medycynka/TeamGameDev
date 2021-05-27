@@ -42,6 +42,7 @@ TagManager:
   - Stone
   - Terrain
   - NPC
+  - Animal
   layers:
   - Default
   - TransparentFX

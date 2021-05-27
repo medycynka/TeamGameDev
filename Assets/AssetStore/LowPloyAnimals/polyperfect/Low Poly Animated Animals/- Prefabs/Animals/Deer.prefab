@@ -5467,7 +5467,7 @@ MonoBehaviour:
   matchSurfaceRotation: 0
   surfaceRotationSpeed: 2
   logChanges: 0
-  showGizmos: 0
+  showGizmos: 1
   drawWanderRange: 1
   drawScentRange: 1
   drawAwarenessRange: 1
@@ -5483,6 +5483,9 @@ MonoBehaviour:
   movementEvent:
     m_PersistentCalls:
       m_Calls: []
+  canAttackPlayer: 0
+  playerStats: {fileID: 0}
+  playerTransform: {fileID: 0}
   useNavMesh: 0
 --- !u!195 &195227739123809562
 NavMeshAgent:

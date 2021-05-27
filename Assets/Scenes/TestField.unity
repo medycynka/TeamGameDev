@@ -3855,22 +3855,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 5.172857e-25
       objectReference: {fileID: 0}
-    - target: {fileID: 114964019524279002, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
-      propertyPath: logChanges
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114964019524279002, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
-      propertyPath: showGizmos
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114964019524279002, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
-      propertyPath: drawScentRange
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114964019524279002, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
-      propertyPath: drawAwarenessRange
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 143392860941281564, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -5164,10 +5148,6 @@ PrefabInstance:
       propertyPath: cameraHandler
       value: 
       objectReference: {fileID: 1308016337}
-    - target: {fileID: 6676873441362283216, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
-      propertyPath: spawnParent
-      value: 
-      objectReference: {fileID: 2120790220}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
 --- !u!4 &904466046 stripped
@@ -5698,10 +5678,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 469020819, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
-      propertyPath: isEnemy
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 469020819, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
       propertyPath: leftFoot
       value: 
       objectReference: {fileID: 904466059}
@@ -5713,10 +5689,6 @@ PrefabInstance:
       propertyPath: spawnParent
       value: 
       objectReference: {fileID: 2120790220}
-    - target: {fileID: 469020819, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
-      propertyPath: currentBackgroundMusic
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3060950883499712634, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
       propertyPath: playerStats
       value: 
