@@ -367,10 +367,12 @@ namespace SzymonPeszek.SaveScripts
             npcDialogues = new NpcDialogues[npcs.Length];
             for (int i = 0; i < npcDialogues.Length; i++)
             {
-                npcDialogues[i] = new NpcDialogues();
-                npcDialogues[i].npcId = npcs[i].npcId;
                 NpcInteractionManager npcInteract = npcs[i].GetComponent<NpcInteractionManager>();
-                npcDialogues[i].dialogueCompleted = new bool[npcInteract.dialogueDataContainer.Count];
+                npcDialogues[i] = new NpcDialogues
+                {
+                    npcId = npcs[i].npcId,
+                    dialogueCompleted = new bool[npcInteract.dialogueDataContainer.Count]
+                };
                 for (int j = 0; j < npcDialogues[i].dialogueCompleted.Length; j++)
                 {
                     npcDialogues[i].dialogueCompleted[j] = npcInteract.dialogueDataContainer[j].isCompleted;
