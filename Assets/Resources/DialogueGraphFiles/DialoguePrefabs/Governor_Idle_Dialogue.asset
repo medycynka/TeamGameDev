@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Governor_Idle_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: 8a795a78-113b-40b5-93e1-b607bd512853
+    portName: Next
+    targetNodeGuid: 6225b30d-ab25-415e-a9ac-8137d6640593
+  - baseNodeGuid: 6225b30d-ab25-415e-a9ac-8137d6640593
+    portName: Szukam kowala.
+    targetNodeGuid: d8c856d5-6c08-4534-9636-54ccd50158ab
+  - baseNodeGuid: 6225b30d-ab25-415e-a9ac-8137d6640593
+    portName: "Rozgl\u0105dam si\u0119 tylko."
+    targetNodeGuid: b128fe3f-4417-4b25-94c7-0f84e9e35071
+  dialogueNodeData:
+  - nodeGuid: d8c856d5-6c08-4534-9636-54ccd50158ab
+    dialogueText: "Kowal jest na zach\xF3d st\u0105d. Id\u017A drog\u0105 w kierunku
+      p\u0142otu i znajdziesz go po swojej prawej."
+    nodePosition: {x: 978, y: 132}
+    isQuestGiver: 0
+    isQuestCompleter: 1
+    isExit: 0
+    isEnding: 1
+  - nodeGuid: b128fe3f-4417-4b25-94c7-0f84e9e35071
+    dialogueText: Dialogue Node
+    nodePosition: {x: 1054, y: 302}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  - nodeGuid: 6225b30d-ab25-415e-a9ac-8137d6640593
+    dialogueText: "Witaj. Mog\u0119 Ci jako\u015B pom\xF3c?"
+    nodePosition: {x: 410, y: 201}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  exposedProperties: []
+  commentBlockData: []

@@ -23,7 +23,7 @@ MonoBehaviour:
     portName: "Dzi\u0119kuj\u0119, niczego mi nie trzeba."
     targetNodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
   - baseNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
-    portName: "Dzi\u0119kuj\u0119, mamo."
+    portName: Dobrze.
     targetNodeGuid: e18103a8-76be-494f-b617-efc86e7bc4f2
   dialogueNodeData:
   - nodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
@@ -41,9 +41,7 @@ MonoBehaviour:
     isExit: 1
     isEnding: 0
   - nodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
-    dialogueText: "\u015Awietnie. Dzi\u0119kuj\u0119 za pomoc. Gdyby\u015B mnie szuka\u0142,
-      to b\u0119d\u0119 w ogr\xF3dku. Je\u015Bli chcesz, to porozmawiaj z so\u0142tysem.
-      Mo\u017Ce powie Ci co\u015B wi\u0119cej, ni\u017C ja."
+    dialogueText: "Tak? Pozw\xF3l, \u017Ce go obejrz\u0119."
     nodePosition: {x: 959, y: 14}
     isQuestGiver: 0
     isQuestCompleter: 1
@@ -51,7 +49,7 @@ MonoBehaviour:
     isEnding: 1
   - nodeGuid: e18103a8-76be-494f-b617-efc86e7bc4f2
     dialogueText: Dialogue Node
-    nodePosition: {x: 2192, y: 9}
+    nodePosition: {x: 1534, y: 7}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 1

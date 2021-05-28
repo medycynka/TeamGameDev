@@ -17,8 +17,11 @@ MonoBehaviour:
     portName: Next
     targetNodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
   - baseNodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
-    portName: "Przychodz\u0119 po n\xF3\u017C dla mojej mamy."
+    portName: "Tylko si\u0119 rozgl\u0105dam."
     targetNodeGuid: 90dfd2cf-2736-459b-ab6f-19130a11ba5f
+  - baseNodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
+    portName: "Chc\u0119 zapyta\u0107 o barier\u0119."
+    targetNodeGuid: 7efa6604-55b5-4bec-9ba4-9ed2820b6d76
   dialogueNodeData:
   - nodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
     dialogueText: "Witaj. Co mog\u0119 dla Ciebie zrobi\u0107? "
@@ -26,11 +29,21 @@ MonoBehaviour:
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
+    isEnding: 0
   - nodeGuid: 90dfd2cf-2736-459b-ab6f-19130a11ba5f
-    dialogueText: "Mam go tutaj. Prosz\u0119, pozdr\xF3w j\u0105 ode mnie!"
+    dialogueText: "Hm, tylko nie za d\u0142ugo. Mam du\u017Co pracy."
     nodePosition: {x: 914, y: 19}
     isQuestGiver: 0
-    isQuestCompleter: 1
+    isQuestCompleter: 0
     isExit: 0
+    isEnding: 0
+  - nodeGuid: 7efa6604-55b5-4bec-9ba4-9ed2820b6d76
+    dialogueText: "S\u0142uchaj, ani ja, ani Ty nie jeste\u015Bmy magami. Mnie te\u017C
+      to martwi, ale od tego mamy czarodzieji, prawda?"
+    nodePosition: {x: 989, y: 289}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
   exposedProperties: []
   commentBlockData: []
