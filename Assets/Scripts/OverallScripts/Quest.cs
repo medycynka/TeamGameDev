@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using SzymonPeszek.BaseClasses;
 using SzymonPeszek.Items.Consumable;
+using SzymonPeszek.Npc;
 using UnityEngine;
 
 
@@ -29,5 +30,9 @@ namespace SzymonPeszek.Quests
         [Header("Objects activated at quest get/complete", order = 1)]
         public List<GameObject> activateOnGive = new List<GameObject>();
         public List<GameObject> activateOnComplete = new List<GameObject>();
+
+        [Header("Npc which dialogue should be change to next one on get/complete", order = 1)]
+        public List<NpcInteractionManager> changeToNextDialogueOnGive = new List<NpcInteractionManager>();
+        public List<NpcInteractionManager> changeToNextDialogueOnComplete = new List<NpcInteractionManager>();
     }
 }

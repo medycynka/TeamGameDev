@@ -23,6 +23,7 @@ namespace SzymonPeszek.Environment.Sounds
             public string tagName;
             public AudioClip[] footsteps;
             public GameObject stepEffect;
+            public bool isUniqueForPooling;
         }
         
         [Serializable]
@@ -89,7 +90,7 @@ namespace SzymonPeszek.Environment.Sounds
             _helperTagger = new Dictionary<string, string>();
             foreach (EnvironmentFootstepSound efs in environmentFootstepSounds)
             {
-                _helperTagger.Add(efs.tagName, efs.tagName == "Water" ? efs.tagName : "Default");
+                _helperTagger.Add(efs.tagName, efs.isUniqueForPooling ? efs.tagName : "Default");
             }
             pools = new List<Pool>();
             foreach (EnvironmentFootstepSound efs in environmentFootstepSounds)

@@ -175,7 +175,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
                         HandleRollInput(delta);
                         HandleWalkInput(delta);
                         HandleAttackInput(delta);
-                        HandleQuickSlotsInput();
+                        // HandleQuickSlotsInput();
                         HandleLockOnInput();
                         HandleTwoHandInput();
                         HandleQuickHealInput();

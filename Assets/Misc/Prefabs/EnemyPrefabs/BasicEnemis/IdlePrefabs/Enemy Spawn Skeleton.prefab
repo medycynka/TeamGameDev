@@ -1199,6 +1199,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: d57b7287c860b634da78c3771a487b0a, type: 3}
     - {fileID: 8300000, guid: e06e42b395d5ccd44b437cc384594de7, type: 3}
     stepEffect: {fileID: 1878560746460868, guid: 2397083e876e5b1408fcc1333f50c082, type: 3}
+    isUniqueForPooling: 0
   - tagName: Dirt
     footsteps:
     - {fileID: 8300000, guid: f6a0604181d205c48a1487b0a420b0e0, type: 3}
@@ -1222,6 +1223,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 0107856a8ad9a31498651137a892e49d, type: 3}
     - {fileID: 8300000, guid: 5ec4507ee2b342e48a3de0355249e568, type: 3}
     stepEffect: {fileID: 1878560746460868, guid: 2397083e876e5b1408fcc1333f50c082, type: 3}
+    isUniqueForPooling: 0
   - tagName: Glass
     footsteps:
     - {fileID: 8300000, guid: 1aea27ebb967ae84b9a0a187545c502c, type: 3}
@@ -1245,6 +1247,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 11be9b8ff25991c49a379b3168e1c0ef, type: 3}
     - {fileID: 8300000, guid: 0644a1dbbc9343440b04c7e4015b64c1, type: 3}
     stepEffect: {fileID: 1878560746460868, guid: 2397083e876e5b1408fcc1333f50c082, type: 3}
+    isUniqueForPooling: 0
   - tagName: Grass
     footsteps:
     - {fileID: 8300000, guid: cd260586ae2eb2b4ab9409331df38b2e, type: 3}
@@ -1268,6 +1271,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: e5e74bc9c86e2e942b89a732039ef79f, type: 3}
     - {fileID: 8300000, guid: 40dd1aab3293a334a98b09633252ba73, type: 3}
     stepEffect: {fileID: 1878560746460868, guid: 2397083e876e5b1408fcc1333f50c082, type: 3}
+    isUniqueForPooling: 0
   - tagName: Gravel
     footsteps:
     - {fileID: 8300000, guid: 2e894e548b8f6094d83167f1de21bb24, type: 3}
@@ -1291,6 +1295,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 405afc83c1a8891429bba80576491c29, type: 3}
     - {fileID: 8300000, guid: d88c91db1acd10a428f39268b559c11c, type: 3}
     stepEffect: {fileID: 1878560746460868, guid: 2397083e876e5b1408fcc1333f50c082, type: 3}
+    isUniqueForPooling: 0
   - tagName: Hardwood
     footsteps:
     - {fileID: 8300000, guid: 4ad1502bce6339c4a91b0b1bd186cf5a, type: 3}
@@ -1314,6 +1319,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: a238a5c3416c3a24d82b4f021daf3e77, type: 3}
     - {fileID: 8300000, guid: 4632cd29cede7ef4d8ab222c92ea7b11, type: 3}
     stepEffect: {fileID: 1878560746460868, guid: 2397083e876e5b1408fcc1333f50c082, type: 3}
+    isUniqueForPooling: 0
   - tagName: Ice
     footsteps:
     - {fileID: 8300000, guid: 1bf13ecd0c4067d47852ffec40402c1c, type: 3}
@@ -1337,6 +1343,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 5eb4788eedf316a4e8ab32bbad2d577c, type: 3}
     - {fileID: 8300000, guid: 7dedf4ca010c425479ed117003652677, type: 3}
     stepEffect: {fileID: 1878560746460868, guid: 2397083e876e5b1408fcc1333f50c082, type: 3}
+    isUniqueForPooling: 0
   - tagName: Metal
     footsteps:
     - {fileID: 8300000, guid: aafe04bd72e4aba43b8b9d1b0f894a53, type: 3}
@@ -1360,6 +1367,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: be711df85188f644d86c58ffb10a64f4, type: 3}
     - {fileID: 8300000, guid: b408aff3325cea64e838527ed03989ea, type: 3}
     stepEffect: {fileID: 1878560746460868, guid: 2397083e876e5b1408fcc1333f50c082, type: 3}
+    isUniqueForPooling: 0
   - tagName: Mud
     footsteps:
     - {fileID: 8300000, guid: 0ffc70416b6cc5a4fbf190e1ec633d26, type: 3}
@@ -1383,6 +1391,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 44454b27a7f001f4092a91fc8f0d235b, type: 3}
     - {fileID: 8300000, guid: bd3c7c0d7865c2444b5fe74c3e1da48f, type: 3}
     stepEffect: {fileID: 1878560746460868, guid: 2397083e876e5b1408fcc1333f50c082, type: 3}
+    isUniqueForPooling: 0
   - tagName: Sand
     footsteps:
     - {fileID: 8300000, guid: 9e73bc2898add4f449bb6915dee95a79, type: 3}
@@ -1406,6 +1415,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: aff463fa3a30d834fac798605a5dded8, type: 3}
     - {fileID: 8300000, guid: 9a29a22991f3fdf499d2137dc0f84c89, type: 3}
     stepEffect: {fileID: 1878560746460868, guid: 2397083e876e5b1408fcc1333f50c082, type: 3}
+    isUniqueForPooling: 0
   - tagName: Snow
     footsteps:
     - {fileID: 8300000, guid: bb3c210fc9d417c46a61be1a124ae30c, type: 3}
@@ -1429,6 +1439,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 3ca600358c9bcd843ac2ab6e2ad27850, type: 3}
     - {fileID: 8300000, guid: 9b489997629bdac47acebd5a0e92f835, type: 3}
     stepEffect: {fileID: 1878560746460868, guid: 2397083e876e5b1408fcc1333f50c082, type: 3}
+    isUniqueForPooling: 0
   - tagName: Stone
     footsteps:
     - {fileID: 8300000, guid: 5a5492c8fa1159245880fb43d7c108ff, type: 3}
@@ -1452,6 +1463,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 6223c83f2649cc241b4e072809c2513d, type: 3}
     - {fileID: 8300000, guid: 4a2985644c72e2a46af1cd6858688e48, type: 3}
     stepEffect: {fileID: 1878560746460868, guid: 2397083e876e5b1408fcc1333f50c082, type: 3}
+    isUniqueForPooling: 0
   - tagName: Water
     footsteps:
     - {fileID: 8300000, guid: 7d04e69118bbd754d8bb8c0be3621d8b, type: 3}
@@ -1475,6 +1487,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 1c942804f00c2ef4dbdd2157a13c766e, type: 3}
     - {fileID: 8300000, guid: 7ce99c131455c444395c93c01393ae57, type: 3}
     stepEffect: {fileID: 1932552764689772, guid: 55c7caedf64d935419e00dac831d338a, type: 3}
+    isUniqueForPooling: 1
   - tagName: Wood
     footsteps:
     - {fileID: 8300000, guid: 2062aa21ff236584c911508163e8cf53, type: 3}
@@ -1498,6 +1511,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 6a41fa3e4f55249478bfff37f365b9c9, type: 3}
     - {fileID: 8300000, guid: 3fa92e2c2185123428e0b199e9180312, type: 3}
     stepEffect: {fileID: 1878560746460868, guid: 2397083e876e5b1408fcc1333f50c082, type: 3}
+    isUniqueForPooling: 0
   - tagName: Environment
     footsteps:
     - {fileID: 8300000, guid: 3b41f9afcfa1ee24599e0cf25740235a, type: 3}
@@ -1521,6 +1535,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: d57b7287c860b634da78c3771a487b0a, type: 3}
     - {fileID: 8300000, guid: e06e42b395d5ccd44b437cc384594de7, type: 3}
     stepEffect: {fileID: 1878560746460868, guid: 2397083e876e5b1408fcc1333f50c082, type: 3}
+    isUniqueForPooling: 0
   currentMovingClips: []
   attackingClips:
   - {fileID: 8300000, guid: cfd2d72e418513b4bba799c6b4031418, type: 3}
@@ -1599,13 +1614,12 @@ MonoBehaviour:
   jumpClip: {fileID: 8300000, guid: 0de47defcc5ed77428cd29bd069096af, type: 3}
   estusUse: {fileID: 8300000, guid: 9657dd2357d68b94e9eec02a4ab65abc, type: 3}
   soulUse: {fileID: 8300000, guid: 975fc88c34b13854688ac612795d8a33, type: 3}
-  currentBackgroundMusic: {fileID: 8300000, guid: 48b6e9306a539bc43b16444db62a0951, type: 3}
-  musicFadeIn: 2
-  musicFadeOut: 2
-  fadingMusic: 0
+  currentBackgroundMusic: {fileID: 0}
   leftFoot: {fileID: 7686385314094288618}
   rightFoot: {fileID: 7686385314094281730}
-  _currentEnvironmentTag: 
+  currentEnvironmentTag: 
+  spawnParent: {fileID: 7686385313952653156}
+  pools: []
 --- !u!1 &7686385314093859084
 GameObject:
   m_ObjectHideFlags: 0

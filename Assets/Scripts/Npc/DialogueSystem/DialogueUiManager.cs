@@ -114,13 +114,17 @@ namespace SzymonPeszek.Npc.DialogueSystem
                     mainText.text = _npcManager.currentMainQuest.quest.questTaskText;
                     options[0].optionObject.SetActive(true);
                     options[0].button.onClick.AddListener(GiveQuest);
-                    options[0].optionText.text = "Exit";
+                    options[0].optionText.text = _npcInteractionManager.dialogueMap[targetGuid].links.Count > 0
+                        ? _npcInteractionManager.dialogueMap[targetGuid].links[0].portName
+                        : "Exit";
                 }
                 else if(_npcInteractionManager.dialogueMap[targetGuid].completer && _npcInteractionManager.isQuestGiven)
                 {
                     options[0].optionObject.SetActive(true);
                     options[0].button.onClick.AddListener(CompleteQuest);
-                    options[0].optionText.text = "Exit";
+                    options[0].optionText.text = _npcInteractionManager.dialogueMap[targetGuid].links.Count > 0
+                        ? _npcInteractionManager.dialogueMap[targetGuid].links[0].portName
+                        : "Exit";
                 }
                 else
                 {

@@ -15,6 +15,10 @@ namespace PolyPerfect
         {
             Common_WanderScript myWanderScript = (Common_WanderScript)target;
             serializedObject.Update();
+            
+            SerializedProperty canAttackPlayer = serializedObject.FindProperty("canAttackPlayer");
+            SerializedProperty playerStats = serializedObject.FindProperty("playerStats");
+            SerializedProperty playerTransform = serializedObject.FindProperty("playerTransform");
 
             //Get Lists
             SerializedProperty idleStates = serializedObject.FindProperty("idleStates");
@@ -64,6 +68,10 @@ namespace PolyPerfect
 
             GUILayout.EndHorizontal();
 
+            EditorGUILayout.PropertyField(canAttackPlayer);
+            EditorGUILayout.PropertyField(playerStats);
+            EditorGUILayout.PropertyField(playerTransform);
+            
             //Draw The Species Name
             EditorGUILayout.PropertyField(species);
             EditorGUILayout.PropertyField(stats);
