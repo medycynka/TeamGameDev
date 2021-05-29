@@ -48,7 +48,7 @@ namespace SzymonPeszek.PlayerScripts
                 {
                     int prevId = mainQuests.Find(p => p.quest = quest).prevQuestId;
 
-                    if (prevId < 0 || mainQuests[prevId].isCompleted)
+                    if (prevId < 0)
                     {
                         currentQuests.Add(quest);
                         
@@ -62,9 +62,43 @@ namespace SzymonPeszek.PlayerScripts
                         
                         if (quest.changeToNextDialogueOnGive.Count > 0)
                         {
-                            foreach (NpcInteractionManager npc in quest.changeToNextDialogueOnGive)
+                            NpcInteractionManager[] npcs = FindObjectsOfType<NpcInteractionManager>();
+                            for (int i = 0; i < quest.changeToNextDialogueOnGive.Count; i++)
                             {
-                                npc.dialogueDataContainer.First(d => !d.isCompleted).isCompleted = true;
+                                for (int j = 0; j < npcs.Length; j++)
+                                {
+                                    if (npcs[j].npcManager.npcId == quest.changeToNextDialogueOnGive[i])
+                                    {
+                                        npcs[j].dialogueDataContainer.First(d => !d.isCompleted).isCompleted = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else if (mainQuests[prevId].isCompleted)
+                    {
+                        currentQuests.Add(quest);
+                        
+                        if (quest.activateOnGive.Count > 0)
+                        {
+                            foreach (GameObject toActivate in quest.activateOnGive)
+                            {
+                                toActivate.SetActive(true);
+                            }
+                        }
+                        
+                        if (quest.changeToNextDialogueOnGive.Count > 0)
+                        {
+                            NpcInteractionManager[] npcs = FindObjectsOfType<NpcInteractionManager>();
+                            for (int i = 0; i < quest.changeToNextDialogueOnGive.Count; i++)
+                            {
+                                for (int j = 0; j < npcs.Length; j++)
+                                {
+                                    if (npcs[j].npcManager.npcId == quest.changeToNextDialogueOnGive[i])
+                                    {
+                                        npcs[j].dialogueDataContainer.First(d => !d.isCompleted).isCompleted = true;
+                                    }
+                                }
                             }
                         }
                     }
@@ -88,9 +122,16 @@ namespace SzymonPeszek.PlayerScripts
 
             if (quest.changeToNextDialogueOnComplete.Count > 0)
             {
-                foreach (NpcInteractionManager npc in quest.changeToNextDialogueOnComplete)
+                NpcInteractionManager[] npcs = FindObjectsOfType<NpcInteractionManager>();
+                for (int i = 0; i < quest.changeToNextDialogueOnComplete.Count; i++)
                 {
-                    npc.dialogueDataContainer.First(d => !d.isCompleted).isCompleted = true;
+                    for (int j = 0; j < npcs.Length; j++)
+                    {
+                        if (npcs[j].npcManager.npcId == quest.changeToNextDialogueOnComplete[i])
+                        {
+                            npcs[j].dialogueDataContainer.First(d => !d.isCompleted).isCompleted = true;
+                        }
+                    }
                 }
             }
             
