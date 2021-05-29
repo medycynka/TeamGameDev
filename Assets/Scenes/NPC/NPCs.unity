@@ -5344,6 +5344,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9513408, guid: 3f42b29f9f09e0e40b05df7c984384f1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f5f95e93624028f4b97260e3fb74d08e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f42b29f9f09e0e40b05df7c984384f1, type: 3}
 --- !u!4 &249948673 stripped
@@ -6015,7 +6019,7 @@ MonoBehaviour:
   - dialogueId: 0
     isCompleted: 0
     dialogueData: {fileID: 11400000, guid: e52fda1530b0e9f46968db8a7f4b576a, type: 2}
-  - dialogueId: 0
+  - dialogueId: 1
     isCompleted: 0
     dialogueData: {fileID: 11400000, guid: edb2830b18dd1b140aded0d4d6ba7403, type: 2}
   dialogueUiManager: {fileID: 1670588496}
@@ -6047,7 +6051,7 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
-  npcId: name_number
+  npcId: Governor
   mainQuests:
   - prevQuestId: 0
     questId: 1
@@ -10310,7 +10314,7 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
-  npcId: name_number
+  npcId: SpellMerchant
   mainQuests: []
   sideQuests: []
   currentMainQuest:
@@ -12203,7 +12207,7 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
-  npcId: MotherNPC
+  npcId: Mother
   mainQuests:
   - prevQuestId: -1
     questId: 0
@@ -16208,7 +16212,7 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
-  npcId: name_number
+  npcId: FoodMerchant
   mainQuests: []
   sideQuests: []
   currentMainQuest:
@@ -20693,7 +20697,7 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
-  npcId: name_number
+  npcId: VillageMerchant
   mainQuests: []
   sideQuests: []
   currentMainQuest:
