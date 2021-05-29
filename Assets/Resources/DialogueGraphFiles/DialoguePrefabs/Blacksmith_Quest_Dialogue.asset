@@ -26,11 +26,14 @@ MonoBehaviour:
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
+    isEnding: 0
   - nodeGuid: 90dfd2cf-2736-459b-ab6f-19130a11ba5f
-    dialogueText: "Mam go tutaj. Prosz\u0119, pozdr\xF3w j\u0105 ode mnie!"
+    dialogueText: "Powinien gdzie\u015B tu by\u0107. Pewnie le\u017Cy na jednym ze
+      sto\u0142\xF3w. We\u017A go prosz\u0119 i pozdr\xF3w mam\u0119 ode mnie."
     nodePosition: {x: 914, y: 19}
     isQuestGiver: 0
-    isQuestCompleter: 1
+    isQuestCompleter: 0
     isExit: 0
+    isEnding: 1
   exposedProperties: []
   commentBlockData: []

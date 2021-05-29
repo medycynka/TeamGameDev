@@ -34,6 +34,15 @@ MonoBehaviour:
   - baseNodeGuid: c54f8245-6c4e-4fe1-94f4-bc7370ab5501
     portName: Oby.
     targetNodeGuid: ae6b8322-3b26-4cfe-a5ea-1f5afbce9a81
+  - baseNodeGuid: 6225b30d-ab25-415e-a9ac-8137d6640593
+    portName: "Chc\u0119 zapyta\u0107 o barier\u0119."
+    targetNodeGuid: 90b938e0-aaed-44be-8199-d65e90b28ecb
+  - baseNodeGuid: 90b938e0-aaed-44be-8199-d65e90b28ecb
+    portName: "Wiesz co\u015B o czarach?"
+    targetNodeGuid: cc2fefc3-cf38-4360-9c2a-9d4e27fddd79
+  - baseNodeGuid: cc2fefc3-cf38-4360-9c2a-9d4e27fddd79
+    portName: "Czy ona nie mo\u017Ce nam pom\xF3c?"
+    targetNodeGuid: 0f54c119-aa33-4321-8f00-53bc86dd5183
   dialogueNodeData:
   - nodeGuid: 6225b30d-ab25-415e-a9ac-8137d6640593
     dialogueText: "Co tam, kochanie? Jak si\u0119 czujesz?"
@@ -41,6 +50,7 @@ MonoBehaviour:
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
+    isEnding: 0
   - nodeGuid: 40f4b153-6da3-45df-a8a7-f9bd893a8b22
     dialogueText: "Dobrze, nawet bardzo dobrze. Noc mi chyba s\u0142u\u017Cy. Mo\u017Ce
       to przez ten brak upa\u0142u..."
@@ -48,23 +58,52 @@ MonoBehaviour:
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
+    isEnding: 0
   - nodeGuid: 8b5d8592-9b89-4651-9a1b-68438f07ed91
     dialogueText: "Och, co si\u0119 dzieje, kochanie?"
     nodePosition: {x: 1010, y: 209}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
+    isEnding: 0
   - nodeGuid: c54f8245-6c4e-4fe1-94f4-bc7370ab5501
     dialogueText: "Och, nie przejmuj si\u0119. Wszystko si\u0119 u\u0142o\u017Cy."
     nodePosition: {x: 1558, y: 200}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
+    isEnding: 0
   - nodeGuid: ae6b8322-3b26-4cfe-a5ea-1f5afbce9a81
     dialogueText: Dialogue Node
     nodePosition: {x: 2241, y: -66}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 1
+    isEnding: 0
+  - nodeGuid: 90b938e0-aaed-44be-8199-d65e90b28ecb
+    dialogueText: "Och, my\u015Bl\u0119, \u017Ce wszystko si\u0119 jako\u015B u\u0142o\u017Cy.
+      Czary nie s\u0105 wieczne przecie\u017C."
+    nodePosition: {x: 1067, y: 395}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: cc2fefc3-cf38-4360-9c2a-9d4e27fddd79
+    dialogueText: "Nie m\xF3w mamie, ale Twoja ciotka jest wied\u017Am\u0105. Nie
+      uk\u0142ada si\u0119 mi\u0119dzy nami, wi\u0119c nie utrzymujemy kontak\xF3w."
+    nodePosition: {x: 1869, y: 405}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 0f54c119-aa33-4321-8f00-53bc86dd5183
+    dialogueText: "W\u0105tpi\u0119. Dawno urwa\u0142a kontakt z nasz\u0105 rodzin\u0105.
+      Podobno mieszka\u0142a na wyspie na po\u0142udniu, ale pewnie ju\u017C dawno
+      si\u0119 wyprowadzi\u0142a. Nie ma sensu jej szuka\u0107."
+    nodePosition: {x: 2907, y: 408}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
   exposedProperties: []
   commentBlockData: []

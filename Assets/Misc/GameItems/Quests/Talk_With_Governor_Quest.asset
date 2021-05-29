@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 150b172181693344eab3c6bda19caf4a, type: 3}
-  m_Name: Q2
+  m_Name: Talk_With_Governor_Quest
   m_EditorClassIdentifier: 
-  questName: "Pocz\u0105tki"
-  questTaskText: "Udaj si\u0119 do kowala i przynie\u015B n\xF3\u017C, kt\xF3ry zam\xF3wi\u0142a
-    Twoja matka."
+  questName: "Kto\u015B musi co\u015B wiedzie\u0107, prawda?"
+  questTaskText: "Popytaj mieszka\u0144c\xF3w miasta o barier\u0119. Mo\u017Ce so\u0142tys
+    b\u0119dzie co\u015B wiedzia\u0142?"
   isItemQuest: 1
   taskItem: {fileID: 11400000, guid: 53a5f4a5fef77bd49ba4a1c7f225541f, type: 2}
   taskItemAmount: 1

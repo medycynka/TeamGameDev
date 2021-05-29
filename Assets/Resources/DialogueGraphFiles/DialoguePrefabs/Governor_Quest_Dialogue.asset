@@ -35,10 +35,10 @@ MonoBehaviour:
   - baseNodeGuid: e18103a8-76be-494f-b617-efc86e7bc4f2
     portName: "Wied\u017Ama przypadkiem nie jest samowystarczalna?"
     targetNodeGuid: 3bb57c07-b2de-41cc-a593-7499ac9fa12a
-  - baseNodeGuid: 6607b0a1-1179-4132-93aa-4b44b7dbf837
+  - baseNodeGuid: e18103a8-76be-494f-b617-efc86e7bc4f2
     portName: "Macie jaki\u015B inny plan?"
     targetNodeGuid: 98cd5030-fae4-4996-9915-21e23258221a
-  - baseNodeGuid: e18103a8-76be-494f-b617-efc86e7bc4f2
+  - baseNodeGuid: 6607b0a1-1179-4132-93aa-4b44b7dbf837
     portName: "Macie jaki\u015B inny plan?"
     targetNodeGuid: 98cd5030-fae4-4996-9915-21e23258221a
   dialogueNodeData:
@@ -106,7 +106,7 @@ MonoBehaviour:
     isEnding: 0
   - nodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
     dialogueText: "Mo\u017Ce. "
-    nodePosition: {x: 3076, y: 65}
+    nodePosition: {x: 0, y: 0}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0

@@ -84,14 +84,6 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
-  - nodeGuid: dbf2b759-da05-4dc6-812b-88897b3a95bd
-    dialogueText: "Zam\xF3wi\u0142am nowy n\xF3\u017C u naszego kowala. Odbierz go
-      prosz\u0119."
-    nodePosition: {x: 3459, y: 145}
-    isQuestGiver: 1
-    isQuestCompleter: 0
-    isExit: 0
-    isEnding: 1
   - nodeGuid: d50cc8ee-08af-4740-bfd5-a2b00453260a
     dialogueText: "So\u0142tys m\xF3wi\u0142, \u017Ce posla\u0142 po lokaln\u0105
       wied\u017Am\u0119. Maj\u0105 przynie\u015B\u0107 wie\u015Bci w ci\u0105gu dnia,
@@ -116,6 +108,14 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 1
     isEnding: 0
+  - nodeGuid: dbf2b759-da05-4dc6-812b-88897b3a95bd
+    dialogueText: "Zam\xF3wi\u0142am nowy n\xF3\u017C u naszego kowala. Odbierz go
+      prosz\u0119."
+    nodePosition: {x: 3477, y: 145}
+    isQuestGiver: 1
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 1
   exposedProperties:
   - propertyName: New String
     propertyValue: New Value
