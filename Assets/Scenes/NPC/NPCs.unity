@@ -609,7 +609,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95537781}
   m_Mesh: {fileID: 4300010, guid: e2958561779b1a748a4246b9d0c0b309, type: 3}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &107257434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,7 +1012,11 @@ Transform:
   m_Father: {fileID: 590992942}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &132726703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,7 +1092,11 @@ MonoBehaviour:
   dialogueUiManager: {fileID: 1670588496}
 =======
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -1095,7 +1107,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 =======
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &132726707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1120,7 +1136,11 @@ MonoBehaviour:
 <<<<<<< HEAD
   npcId: name_number
 =======
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   mainQuests:
   - prevQuestId: -1
     questId: 0
@@ -1139,7 +1159,11 @@ MonoBehaviour:
     quest: {fileID: 0}
     isCompleted: 0
 =======
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &132726708
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1364,7 +1388,11 @@ Transform:
   m_Father: {fileID: 1785142720}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1001 &167190772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5678,7 +5706,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: f5f95e93624028f4b97260e3fb74d08e, type: 2}
 =======
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f42b29f9f09e0e40b05df7c984384f1, type: 3}
 --- !u!4 &249948673 stripped
@@ -5719,7 +5751,11 @@ Transform:
   m_Father: {fileID: 2040813441}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &258131888
 GameObject:
   m_ObjectHideFlags: 0
@@ -5834,7 +5870,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285643106}
   m_Mesh: {fileID: 4300016, guid: e2958561779b1a748a4246b9d0c0b309, type: 3}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &287052160
 GameObject:
   m_ObjectHideFlags: 0
@@ -6120,7 +6160,11 @@ GameObject:
   m_Layer: 19
   m_Name: Hand_R
   m_TagString: Untagged
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6186,7 +6230,11 @@ Transform:
   m_Children:
   - {fileID: 1988083331}
   m_Father: {fileID: 1163322223}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &304536175
@@ -6389,7 +6437,11 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 93.519905, z: -8.237763}
     m_Extent: {x: 102.120445, y: 103.083336, z: 28.211483}
   m_DirtyAABB: 0
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1001 &314826937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6551,7 +6603,11 @@ Transform:
   m_Father: {fileID: 1444009319}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &321402090
 GameObject:
   m_ObjectHideFlags: 0
@@ -6709,7 +6765,11 @@ MonoBehaviour:
 =======
   dialogueDataContainer: []
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -6723,7 +6783,11 @@ MonoBehaviour:
   dialogueMapKeys: []
   dialogueMapValues: []
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &328003757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6770,7 +6834,11 @@ MonoBehaviour:
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &328003758
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7791,7 +7859,11 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0004348755, y: 86.71605, z: -7.1418514}
     m_Extent: {x: 102.45622, y: 96.82539, z: 29.05353}
   m_DirtyAABB: 0
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1001 &412661858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7948,7 +8020,11 @@ Transform:
   m_Father: {fileID: 748441104}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &420091251
 GameObject:
   m_ObjectHideFlags: 0
@@ -8058,7 +8134,11 @@ Transform:
   m_Father: {fileID: 707233596}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &441024770
 GameObject:
   m_ObjectHideFlags: 0
@@ -8334,7 +8414,11 @@ Transform:
   m_Father: {fileID: 725826833}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &472806041
 GameObject:
   m_ObjectHideFlags: 0
@@ -8617,7 +8701,11 @@ GameObject:
   - component: {fileID: 488801972}
   m_Layer: 19
   m_Name: Item_WarriorSholderArmor 1
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8759,7 +8847,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492432144}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -8956,7 +9048,11 @@ Transform:
   m_Father: {fileID: 460440379}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &510889357
 GameObject:
   m_ObjectHideFlags: 0
@@ -9434,7 +9530,11 @@ Transform:
   m_Father: {fileID: 1586134835}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &540234196
 GameObject:
   m_ObjectHideFlags: 0
@@ -9591,7 +9691,11 @@ MonoBehaviour:
 =======
   dialogueDataContainer: []
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -9605,7 +9709,11 @@ MonoBehaviour:
   dialogueMapKeys: []
   dialogueMapValues: []
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &542113708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9648,7 +9756,11 @@ MonoBehaviour:
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &542113709
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9757,7 +9869,11 @@ MonoBehaviour:
 =======
   dialogueDataContainer: []
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -9771,7 +9887,11 @@ MonoBehaviour:
   dialogueMapKeys: []
   dialogueMapValues: []
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &554614860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9796,7 +9916,11 @@ MonoBehaviour:
 <<<<<<< HEAD
   npcId: M3
 =======
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   mainQuests:
   - prevQuestId: -1
     questId: 0
@@ -9815,7 +9939,11 @@ MonoBehaviour:
     quest: {fileID: 0}
     isCompleted: 0
 =======
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &554614861
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10098,7 +10226,11 @@ GameObject:
   m_Layer: 30
   m_Name: Push Blocker
   m_TagString: Combat Collider
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10272,7 +10404,11 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583975940}
   m_Enabled: 1
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
@@ -10374,7 +10510,11 @@ Transform:
   m_Father: {fileID: 866449702}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &610300506
 GameObject:
   m_ObjectHideFlags: 0
@@ -10439,7 +10579,11 @@ Transform:
   m_Father: {fileID: 2040813441}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1001 &622936693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11014,7 +11158,11 @@ Transform:
   m_Father: {fileID: 1926803891}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1001 &724087199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11201,7 +11349,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736138735}
   m_Mesh: {fileID: 4300022, guid: e2958561779b1a748a4246b9d0c0b309, type: 3}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &739963263
 GameObject:
   m_ObjectHideFlags: 0
@@ -11499,7 +11651,11 @@ Transform:
   m_Father: {fileID: 1677095986}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1001 &756326186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11810,7 +11966,11 @@ GameObject:
   - component: {fileID: 801829600}
   m_Layer: 29
   m_Name: Canvas
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12031,7 +12191,11 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0000038146973, y: 84.63601, z: -4.067767}
     m_Extent: {x: 102.21837, y: 97.02071, z: 29.463238}
   m_DirtyAABB: 0
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &811683298
 GameObject:
   m_ObjectHideFlags: 0
@@ -12165,7 +12329,11 @@ Transform:
   m_Father: {fileID: 298174336}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &835747648
 GameObject:
   m_ObjectHideFlags: 0
@@ -12245,7 +12413,11 @@ MonoBehaviour:
 =======
   dialogueDataContainer: []
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -12256,7 +12428,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 =======
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &835747652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12295,7 +12471,11 @@ MonoBehaviour:
 =======
   mainQuests: []
   sideQuests: []
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &835747653
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12358,7 +12538,11 @@ Transform:
   m_Father: {fileID: 2066346200}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &837976822
 GameObject:
   m_ObjectHideFlags: 0
@@ -12798,7 +12982,11 @@ Transform:
   m_Father: {fileID: 151018160}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1001 &870084281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13106,7 +13294,11 @@ MonoBehaviour:
 =======
   dialogueDataContainer: []
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -13120,7 +13312,11 @@ MonoBehaviour:
   dialogueMapKeys: []
   dialogueMapValues: []
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &879267865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13145,7 +13341,11 @@ MonoBehaviour:
 <<<<<<< HEAD
   npcId: M1
 =======
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   mainQuests:
   - prevQuestId: -1
     questId: 0
@@ -13164,7 +13364,11 @@ MonoBehaviour:
     quest: {fileID: 0}
     isCompleted: 0
 =======
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &879267866
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13229,7 +13433,11 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &900771072
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14026,7 +14234,11 @@ Transform:
   m_Father: {fileID: 1766473026}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &961168394
 GameObject:
   m_ObjectHideFlags: 0
@@ -14060,7 +14272,11 @@ Transform:
   m_LocalPosition: {x: -7.1801286, y: 5.874163, z: 12.1}
 =======
   m_LocalPosition: {x: -7.1801286, y: 5.874163, z: 11.787678}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1636654025}
@@ -14110,7 +14326,11 @@ MonoBehaviour:
 =======
   dialogueDataContainer: []
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -14124,7 +14344,11 @@ MonoBehaviour:
   dialogueMapKeys: []
   dialogueMapValues: []
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &961168398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14167,7 +14391,11 @@ MonoBehaviour:
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &961168399
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14307,7 +14535,11 @@ Transform:
   m_Father: {fileID: 315662255}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &976061836
 GameObject:
   m_ObjectHideFlags: 0
@@ -14422,7 +14654,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980376899}
   m_Mesh: {fileID: 4300006, guid: e2958561779b1a748a4246b9d0c0b309, type: 3}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1001 &983305406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14623,7 +14859,11 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00005340576, y: 85.60412, z: -7.7402678}
     m_Extent: {x: 102.12039, y: 98.132774, z: 29.261993}
   m_DirtyAABB: 0
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &992919067
 GameObject:
   m_ObjectHideFlags: 0
@@ -14757,7 +14997,11 @@ Transform:
   m_LocalPosition: {x: 0.97, y: 5.8586273, z: 7.975}
 =======
   m_LocalPosition: {x: 0.97, y: 5.8586273, z: 16.883}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 457492527}
@@ -14812,7 +15056,11 @@ MonoBehaviour:
   dialogueUiManager: {fileID: 1670588496}
 =======
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -14823,7 +15071,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 =======
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &993294681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14848,7 +15100,11 @@ MonoBehaviour:
 <<<<<<< HEAD
   npcId: Mother
 =======
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   mainQuests:
   - prevQuestId: -1
     questId: 0
@@ -14867,7 +15123,11 @@ MonoBehaviour:
     quest: {fileID: 0}
     isCompleted: 0
 =======
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &993294682
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15012,7 +15272,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 53a5f4a5fef77bd49ba4a1c7f225541f, type: 2}
 =======
   - {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &994234660
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15121,7 +15385,11 @@ Transform:
   m_Father: {fileID: 509025593}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1016925385
 GameObject:
   m_ObjectHideFlags: 0
@@ -15217,7 +15485,11 @@ GameObject:
   m_Name: Blacksmith
 =======
   m_Name: Kowal
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15284,7 +15556,11 @@ MonoBehaviour:
 =======
   dialogueDataContainer: []
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -15298,7 +15574,11 @@ MonoBehaviour:
   dialogueMapKeys: []
   dialogueMapValues: []
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &1017690953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15341,7 +15621,11 @@ MonoBehaviour:
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &1017690954
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15428,7 +15712,11 @@ MonoBehaviour:
     quest: {fileID: 11400000, guid: cea6f90ce8def644f91d059208a2de9d, type: 2}
     isCompleted: 0
 =======
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!4 &1030449823
 Transform:
   m_ObjectHideFlags: 0
@@ -15506,7 +15794,11 @@ Transform:
   m_Father: {fileID: 1895811271}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1054999142
 GameObject:
   m_ObjectHideFlags: 0
@@ -15710,7 +16002,11 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1106343679
 PrefabInstance:
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
@@ -16165,7 +16461,11 @@ MonoBehaviour:
 =======
   dialogueDataContainer: []
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -16179,7 +16479,11 @@ MonoBehaviour:
   dialogueMapKeys: []
   dialogueMapValues: []
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &1163322226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16222,7 +16526,11 @@ MonoBehaviour:
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &1163322227
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16499,7 +16807,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1199647807
 GameObject:
   m_ObjectHideFlags: 0
@@ -16695,7 +17007,11 @@ MonoBehaviour:
   soundVolume: 0.75
 =======
   soundDistance: 7
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   logSounds: 0
 --- !u!1 &1211818205
 GameObject:
@@ -17000,7 +17316,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224820928}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1228022444
 GameObject:
   m_ObjectHideFlags: 0
@@ -17240,7 +17560,11 @@ Transform:
   m_Father: {fileID: 789512230}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1264976311
 GameObject:
   m_ObjectHideFlags: 0
@@ -17351,7 +17675,11 @@ MonoBehaviour:
 =======
   dialogueDataContainer: []
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -17365,7 +17693,11 @@ MonoBehaviour:
   dialogueMapKeys: []
   dialogueMapValues: []
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &1280336886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17390,7 +17722,11 @@ MonoBehaviour:
 <<<<<<< HEAD
   npcId: P2
 =======
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   mainQuests:
   - prevQuestId: -1
     questId: 0
@@ -17409,7 +17745,11 @@ MonoBehaviour:
     quest: {fileID: 0}
     isCompleted: 0
 =======
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &1280336887
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -17803,7 +18143,11 @@ GameObject:
   - component: {fileID: 1340208057}
   m_Layer: 19
   m_Name: UpperLeg_R
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17929,7 +18273,11 @@ GameObject:
   m_IsActive: 1
 --- !u!224 &1363935222
 RectTransform:
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -18517,7 +18865,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391154710}
   m_Mesh: {fileID: 4300014, guid: e2958561779b1a748a4246b9d0c0b309, type: 3}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1391902060
 GameObject:
   m_ObjectHideFlags: 0
@@ -18658,7 +19010,11 @@ Transform:
   m_Father: {fileID: 121576272}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1410395689
 GameObject:
   m_ObjectHideFlags: 0
@@ -19258,7 +19614,11 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 85.934616, z: -7.7496347}
     m_Extent: {x: 102.45596, y: 96.04396, z: 26.803024}
   m_DirtyAABB: 0
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1442322649
 GameObject:
   m_ObjectHideFlags: 0
@@ -19427,7 +19787,11 @@ Transform:
   m_Father: {fileID: 256962701}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1445016278
 GameObject:
   m_ObjectHideFlags: 0
@@ -20139,7 +20503,11 @@ Transform:
   m_Father: {fileID: 622312590}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1534205274
 GameObject:
   m_ObjectHideFlags: 0
@@ -20219,7 +20587,11 @@ MonoBehaviour:
 =======
   dialogueDataContainer: []
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -20230,7 +20602,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 =======
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &1548865928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20273,7 +20649,11 @@ MonoBehaviour:
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &1548865929
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20475,7 +20855,11 @@ MonoBehaviour:
 =======
   dialogueDataContainer: []
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -20489,7 +20873,11 @@ MonoBehaviour:
   dialogueMapKeys: []
   dialogueMapValues: []
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &1557284228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20532,7 +20920,11 @@ MonoBehaviour:
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &1557284229
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20688,7 +21080,11 @@ Transform:
   m_Father: {fileID: 821999611}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1600322317
 GameObject:
   m_ObjectHideFlags: 0
@@ -20954,7 +21350,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624308577}
   m_Mesh: {fileID: 4300018, guid: e2958561779b1a748a4246b9d0c0b309, type: 3}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1624564858
 GameObject:
   m_ObjectHideFlags: 0
@@ -21289,7 +21689,11 @@ MonoBehaviour:
 =======
   dialogueDataContainer: []
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -21300,7 +21704,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 =======
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &1647757274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21343,7 +21751,11 @@ MonoBehaviour:
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &1647757275
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -21538,7 +21950,11 @@ Transform:
   m_Father: {fileID: 887728793}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1653148433
 GameObject:
   m_ObjectHideFlags: 0
@@ -21821,7 +22237,11 @@ Transform:
   m_Father: {fileID: 1016475031}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1672817253
 GameObject:
   m_ObjectHideFlags: 0
@@ -21967,7 +22387,11 @@ Transform:
   m_Father: {fileID: 2040813441}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1687349759
 GameObject:
   m_ObjectHideFlags: 0
@@ -22495,7 +22919,11 @@ Transform:
   m_Father: {fileID: 1651825247}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1769354605
 GameObject:
   m_ObjectHideFlags: 0
@@ -22634,7 +23062,11 @@ Transform:
   m_Father: {fileID: 1959667147}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1787857066
 GameObject:
   m_ObjectHideFlags: 0
@@ -22814,7 +23246,11 @@ MonoBehaviour:
 =======
   dialogueDataContainer: []
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -22828,7 +23264,11 @@ MonoBehaviour:
   dialogueMapKeys: []
   dialogueMapValues: []
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &1793841602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22853,7 +23293,11 @@ MonoBehaviour:
 <<<<<<< HEAD
   npcId: P1
 =======
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   mainQuests:
   - prevQuestId: -1
     questId: 0
@@ -22872,7 +23316,11 @@ MonoBehaviour:
     quest: {fileID: 0}
     isCompleted: 0
 =======
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &1793841603
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -23046,7 +23494,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1803560204
 GameObject:
   m_ObjectHideFlags: 0
@@ -23313,7 +23765,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813454623}
   m_Mesh: {fileID: 4300020, guid: e2958561779b1a748a4246b9d0c0b309, type: 3}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1816462263
 GameObject:
   m_ObjectHideFlags: 0
@@ -23509,7 +23965,11 @@ Transform:
   m_Father: {fileID: 2085887601}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1832145088
 GameObject:
   m_ObjectHideFlags: 0
@@ -23694,7 +24154,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855543238}
   m_Mesh: {fileID: 4300008, guid: e2958561779b1a748a4246b9d0c0b309, type: 3}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1866990684
 GameObject:
   m_ObjectHideFlags: 0
@@ -23996,7 +24460,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1904782600
 GameObject:
   m_ObjectHideFlags: 0
@@ -24176,7 +24644,11 @@ MonoBehaviour:
 =======
   dialogueDataContainer: []
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -24190,7 +24662,11 @@ MonoBehaviour:
   dialogueMapKeys: []
   dialogueMapValues: []
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &1908310201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24233,7 +24709,11 @@ MonoBehaviour:
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &1908310202
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -24542,7 +25022,11 @@ Transform:
   m_Father: {fileID: 529953216}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!224 &1947196960 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3241641749953408786, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
@@ -24581,7 +25065,11 @@ Transform:
   m_Father: {fileID: 298174336}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &1988083330
 GameObject:
   m_ObjectHideFlags: 0
@@ -24843,7 +25331,11 @@ MonoBehaviour:
 =======
   dialogueDataContainer: []
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -24857,7 +25349,11 @@ MonoBehaviour:
   dialogueMapKeys: []
   dialogueMapValues: []
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!114 &2018143527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24900,7 +25396,11 @@ MonoBehaviour:
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &2018143528
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -24967,7 +25467,11 @@ Transform:
   m_Father: {fileID: 836521546}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1001 &2042705336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25073,7 +25577,11 @@ Transform:
   m_Father: {fileID: 851054696}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!4 &2054103342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4819606783095600, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
@@ -25141,7 +25649,11 @@ Transform:
   m_Father: {fileID: 725826833}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &2068980478
 GameObject:
   m_ObjectHideFlags: 0
@@ -25206,7 +25718,11 @@ Transform:
   m_Father: {fileID: 1684332286}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &2101672406
 GameObject:
   m_ObjectHideFlags: 0
@@ -25444,7 +25960,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105588695}
   m_Mesh: {fileID: 4300004, guid: e2958561779b1a748a4246b9d0c0b309, type: 3}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!1 &2110091907
 GameObject:
   m_ObjectHideFlags: 0
@@ -25589,7 +26109,11 @@ PrefabInstance:
       objectReference: {fileID: 1670588496}
 =======
       objectReference: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
     - target: {fileID: 301754168852192502, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
       propertyPath: playerAnimatorManager
       value: 
@@ -26032,7 +26556,11 @@ MonoBehaviour:
     quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     isCompleted: 0
   sideQuests: []
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!135 &3872957942517591173
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -26090,7 +26618,11 @@ MonoBehaviour:
 =======
   dialogueDataContainer: []
   dialogueUiManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
@@ -26101,7 +26633,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 =======
   _npcManager: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 56cee35c... NPC
+=======
+>>>>>>> 56cee35c63520d343dec326fdc797bfa8ef76079
+>>>>>>> e33e490b5556d9bf17b59f7803bc2b74b7e8073e
 --- !u!136 &3872957942517591176
 CapsuleCollider:
   m_ObjectHideFlags: 0
