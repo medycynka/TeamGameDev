@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SzymonPeszek.Npc;
 using SzymonPeszek.Quests;
 using SzymonPeszek.SaveScripts;
 using UnityEngine;
@@ -47,7 +48,7 @@ namespace SzymonPeszek.PlayerScripts
                 {
                     int prevId = mainQuests.Find(p => p.quest = quest).prevQuestId;
 
-                    if (prevId < 0)
+                    if (prevId < 0 || mainQuests[prevId].isCompleted)
                     {
                         currentQuests.Add(quest);
                         
@@ -58,16 +59,12 @@ namespace SzymonPeszek.PlayerScripts
                                 toActivate.SetActive(true);
                             }
                         }
-                    }
-                    else if (mainQuests[prevId].isCompleted)
-                    {
-                        currentQuests.Add(quest);
                         
-                        if (quest.activateOnGive.Count > 0)
+                        if (quest.changeToNextDialogueOnGive.Count > 0)
                         {
-                            foreach (GameObject toActivate in quest.activateOnGive)
+                            foreach (NpcInteractionManager npc in quest.changeToNextDialogueOnGive)
                             {
-                                toActivate.SetActive(true);
+                                npc.dialogueDataContainer.First(d => !d.isCompleted).isCompleted = true;
                             }
                         }
                     }
@@ -86,6 +83,14 @@ namespace SzymonPeszek.PlayerScripts
                 foreach (GameObject toActivate in quest.activateOnComplete)
                 {
                     toActivate.SetActive(true);
+                }
+            }
+
+            if (quest.changeToNextDialogueOnComplete.Count > 0)
+            {
+                foreach (NpcInteractionManager npc in quest.changeToNextDialogueOnComplete)
+                {
+                    npc.dialogueDataContainer.First(d => !d.isCompleted).isCompleted = true;
                 }
             }
             
