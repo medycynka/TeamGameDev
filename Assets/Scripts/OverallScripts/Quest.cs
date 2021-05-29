@@ -32,7 +32,7 @@ namespace SzymonPeszek.Quests
         public List<GameObject> activateOnComplete = new List<GameObject>();
 
         [Header("Npc which dialogue should be change to next one on get/complete", order = 1)]
-        public List<NpcInteractionManager> changeToNextDialogueOnGive = new List<NpcInteractionManager>();
-        public List<NpcInteractionManager> changeToNextDialogueOnComplete = new List<NpcInteractionManager>();
+        public List<string> changeToNextDialogueOnGive = new List<string>();
+        public List<string> changeToNextDialogueOnComplete = new List<string>();
     }
 }

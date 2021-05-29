@@ -23,20 +23,20 @@ namespace SzymonPeszek.Npc
 
         //For "simulating" dialogue map in the inspector
         [SerializeField] private List<string> dialogueMapKeys;
-        [SerializeField] [ItemCanBeNull] private List<DialogueNodeStorage> dialogueMapValues;
+        [SerializeField] private List<DialogueNodeStorage> dialogueMapValues;
 
-        private NpcManager _npcManager;
+        [HideInInspector] public NpcManager npcManager;
 
         private void Awake()
         {
-            _npcManager = GetComponent<NpcManager>();
+            npcManager = GetComponent<NpcManager>();
         }
 
         public override void Interact(PlayerManager playerManager)
         {
             InitializeDialogue();
 
-            dialogueUiManager.Init(playerManager, _npcManager, this);
+            dialogueUiManager.Init(playerManager, npcManager, this);
             dialogueUiManager.HandleDialogue();
         }
 
@@ -57,13 +57,13 @@ namespace SzymonPeszek.Npc
             //base.PickUpItem(playerManager);
             isQuestGiven = true;
             interactableText = "[E] Talk";
-            playerManager.AcceptNewQuest(_npcManager.GiveMainQuest());
+            playerManager.AcceptNewQuest(npcManager.GiveMainQuest());
             playerManager.dialogueFlag = false;
         }
 
         public void CompleteQuest(PlayerManager playerManager)
         {
-            if (_npcManager.EndCurrentMainQuest(playerManager))
+            if (npcManager.EndCurrentMainQuest(playerManager))
             {
                 interactableText = "[E] Talk";
                 isQuestGiven = false;
@@ -72,7 +72,7 @@ namespace SzymonPeszek.Npc
 
         public bool TryCompleteQuest(PlayerManager playerManager)
         {
-            return playerManager.CanCompleteQuest(_npcManager.currentMainQuest.quest);
+            return playerManager.CanCompleteQuest(npcManager.currentMainQuest.quest);
         }
     }
 
