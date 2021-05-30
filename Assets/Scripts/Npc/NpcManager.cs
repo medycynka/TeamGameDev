@@ -53,7 +53,7 @@ namespace SzymonPeszek.Npc
 
         public bool EndCurrentMainQuest(PlayerManager playerManager)
         {
-            if (currentMainQuest == null)
+            if (currentMainQuest.quest == null)
             {
                 Debug.Log("Current quest is null");
             }

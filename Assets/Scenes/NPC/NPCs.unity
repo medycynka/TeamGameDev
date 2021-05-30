@@ -970,6 +970,7 @@ MonoBehaviour:
     dialogueData: {fileID: 0}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &132726707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6026,6 +6027,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: e52fda1530b0e9f46968db8a7f4b576a, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &328003757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8295,6 +8297,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: de2f30cc54c1bfe47acfe75da013b9df, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &542113708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8440,6 +8443,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: de2f30cc54c1bfe47acfe75da013b9df, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &554614860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8860,6 +8864,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 4c4166b8974cf49499cd92ea7a806edb, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!1 &610300506
 GameObject:
   m_ObjectHideFlags: 0
@@ -10289,6 +10294,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: c71b8aaa3eab33e4bb27adc5abc88cf1, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &835747652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10845,6 +10851,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: de2f30cc54c1bfe47acfe75da013b9df, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &879267865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11309,7 +11316,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: dedfdf8ca651cef4abff2aad05324c89, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 108ea882493216c45aee108474805986, type: 2}
 --- !u!4 &916175469
 Transform:
   m_ObjectHideFlags: 0
@@ -11759,6 +11766,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: cdb36c228f8c97c4cb28b667d41a388e, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &961168398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12182,6 +12190,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 4c4166b8974cf49499cd92ea7a806edb, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &993294681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12597,6 +12606,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 39b8c055554c8de448f81068432a826a, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &1017690953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12774,7 +12784,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 22ab99f34520ee149ac5043d6d3bd222, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: d8ea2370446aacf4da50571545ffa9cc, type: 2}
 --- !u!4 &1054999144
 Transform:
   m_ObjectHideFlags: 0
@@ -13354,6 +13364,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: cdb36c228f8c97c4cb28b667d41a388e, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &1163322226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14168,6 +14179,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 275016fbb9aa22342905b54063bee9b8, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &1280336886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16187,6 +16199,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: c6deebd4d7d5bbc4898df1fe58862cad, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &1548865928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16425,6 +16438,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: cdb36c228f8c97c4cb28b667d41a388e, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &1557284228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17100,6 +17114,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 4a7efa4a2928c4a44b05c6c688d56710, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &1647757274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18268,6 +18283,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 275016fbb9aa22342905b54063bee9b8, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &1793841602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19198,6 +19214,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 275016fbb9aa22342905b54063bee9b8, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &1908310201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19776,6 +19793,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: cdb36c228f8c97c4cb28b667d41a388e, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &2018143527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20766,6 +20784,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 62022df244421d04bbb47a00e0b01dbe, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!136 &3872957942517591176
 CapsuleCollider:
   m_ObjectHideFlags: 0
