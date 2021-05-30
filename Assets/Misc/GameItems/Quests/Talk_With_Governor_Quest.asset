@@ -27,3 +27,5 @@ MonoBehaviour:
   - {fileID: 0}
   activateOnGive: []
   activateOnComplete: []
+  changeToNextDialogueOnGive: []
+  changeToNextDialogueOnComplete: []
