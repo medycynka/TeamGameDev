@@ -16,6 +16,8 @@ namespace SzymonPeszek.PlayerScripts
         public List<QuestContainer> mainQuests = new List<QuestContainer>();
         public List<QuestContainer> sideQuests = new List<QuestContainer>();
         public List<Quest> currentQuests = new List<Quest>();
+        
+        private Dictionary<string, NpcInteractionManager> npcMap;
 
         private void Awake()
         {
@@ -37,6 +39,13 @@ namespace SzymonPeszek.PlayerScripts
                     quest = quest.quest,
                     isCompleted = quest.isCompleted
                 });
+            }
+            
+            npcMap = new Dictionary<string, NpcInteractionManager>();
+            NpcInteractionManager[] tmp = FindObjectsOfType<NpcInteractionManager>();
+            foreach(NpcInteractionManager npc in tmp)
+            {
+                npcMap.Add(npc.npcManager.npcId, npc);
             }
         }
 
@@ -62,15 +71,13 @@ namespace SzymonPeszek.PlayerScripts
                         
                         if (quest.changeToNextDialogueOnGive.Count > 0)
                         {
-                            NpcInteractionManager[] npcs = FindObjectsOfType<NpcInteractionManager>();
                             for (int i = 0; i < quest.changeToNextDialogueOnGive.Count; i++)
                             {
-                                for (int j = 0; j < npcs.Length; j++)
+                                if (npcMap[quest.changeToNextDialogueOnGive[i]].dialogueDataContainer
+                                    .Any(d => !d.isCompleted))
                                 {
-                                    if (npcs[j].npcManager.npcId == quest.changeToNextDialogueOnGive[i])
-                                    {
-                                        npcs[j].dialogueDataContainer.First(d => !d.isCompleted).isCompleted = true;
-                                    }
+                                    npcMap[quest.changeToNextDialogueOnGive[i]].dialogueDataContainer
+                                        .First(d => !d.isCompleted).isCompleted = true;
                                 }
                             }
                         }
@@ -89,15 +96,13 @@ namespace SzymonPeszek.PlayerScripts
                         
                         if (quest.changeToNextDialogueOnGive.Count > 0)
                         {
-                            NpcInteractionManager[] npcs = FindObjectsOfType<NpcInteractionManager>();
                             for (int i = 0; i < quest.changeToNextDialogueOnGive.Count; i++)
                             {
-                                for (int j = 0; j < npcs.Length; j++)
+                                if (npcMap[quest.changeToNextDialogueOnGive[i]].dialogueDataContainer
+                                    .Any(d => !d.isCompleted))
                                 {
-                                    if (npcs[j].npcManager.npcId == quest.changeToNextDialogueOnGive[i])
-                                    {
-                                        npcs[j].dialogueDataContainer.First(d => !d.isCompleted).isCompleted = true;
-                                    }
+                                    npcMap[quest.changeToNextDialogueOnGive[i]].dialogueDataContainer
+                                        .First(d => !d.isCompleted).isCompleted = true;
                                 }
                             }
                         }
@@ -122,15 +127,13 @@ namespace SzymonPeszek.PlayerScripts
 
             if (quest.changeToNextDialogueOnComplete.Count > 0)
             {
-                NpcInteractionManager[] npcs = FindObjectsOfType<NpcInteractionManager>();
                 for (int i = 0; i < quest.changeToNextDialogueOnComplete.Count; i++)
                 {
-                    for (int j = 0; j < npcs.Length; j++)
+                    if (npcMap[quest.changeToNextDialogueOnComplete[i]].dialogueDataContainer
+                        .Any(d => !d.isCompleted))
                     {
-                        if (npcs[j].npcManager.npcId == quest.changeToNextDialogueOnComplete[i])
-                        {
-                            npcs[j].dialogueDataContainer.First(d => !d.isCompleted).isCompleted = true;
-                        }
+                        npcMap[quest.changeToNextDialogueOnComplete[i]].dialogueDataContainer
+                            .First(d => !d.isCompleted).isCompleted = true;
                     }
                 }
             }
