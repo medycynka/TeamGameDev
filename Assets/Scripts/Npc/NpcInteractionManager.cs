@@ -54,9 +54,7 @@ namespace SzymonPeszek.Npc
 
         public void GiveQuest(PlayerManager playerManager)
         {
-            //base.PickUpItem(playerManager);
             isQuestGiven = true;
-            interactableText = "[E] Talk";
             playerManager.AcceptNewQuest(npcManager.GiveMainQuest());
             playerManager.dialogueFlag = false;
         }
@@ -65,7 +63,6 @@ namespace SzymonPeszek.Npc
         {
             if (npcManager.EndCurrentMainQuest(playerManager))
             {
-                interactableText = "[E] Talk";
                 isQuestGiven = false;
             }
         }

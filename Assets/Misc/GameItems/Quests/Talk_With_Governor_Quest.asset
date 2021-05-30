@@ -22,9 +22,7 @@ MonoBehaviour:
   enemyToKillName: 
   enemyToKillCount: 0
   moneyReward: 10
-  rewardItems:
-  - {fileID: 0}
-  - {fileID: 0}
+  rewardItems: []
   activateOnGive: []
   activateOnComplete: []
   changeToNextDialogueOnGive: []
