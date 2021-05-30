@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 150b172181693344eab3c6bda19caf4a, type: 3}
-  m_Name: Mother_Knife_Quest
+  m_Name: Q5_Witch
   m_EditorClassIdentifier: 
-  questName: "Pocz\u0105tki"
-  questTaskText: "Udaj si\u0119 do kowala i przynie\u015B n\xF3\u017C, kt\xF3ry zam\xF3wi\u0142a
-    Twoja matka."
-  isItemQuest: 1
-  taskItem: {fileID: 11400000, guid: 53a5f4a5fef77bd49ba4a1c7f225541f, type: 2}
+  questName: Urok Osobisty
+  questTaskText: "Wied\u017Ama okazuje si\u0119 by\u0107 moj\u0105 ciotk\u0105. Niestety
+    nie bardzo chce nam pom\xF3c. Musz\u0119 znale\u017Ac spos\xF3b, jak j\u0105
+    przekona\u0107 do pomocy."
+  isItemQuest: 0
+  taskItem: {fileID: 0}
   taskItemAmount: 1
   isEnemyQuest: 0
   enemyToKillName: 
   enemyToKillCount: 0
   moneyReward: 10
-  rewardItems:
-  - {fileID: 0}
-  - {fileID: 0}
+  rewardItems: []
   activateOnGive: []
   activateOnComplete: []
+  changeToNextDialogueOnGive: []
+  changeToNextDialogueOnComplete: []

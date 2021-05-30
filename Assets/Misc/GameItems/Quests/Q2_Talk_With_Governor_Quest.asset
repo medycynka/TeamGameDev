@@ -10,17 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 150b172181693344eab3c6bda19caf4a, type: 3}
-  m_Name: Find_The_Witch
+  m_Name: Q2_Talk_With_Governor_Quest
   m_EditorClassIdentifier: 
-  questName: 
-  questTaskText: 
-  isItemQuest: 0
-  taskItem: {fileID: 0}
+  questName: Pierwsze Kroki
+  questTaskText: "Mama ma racj\u0119. Trzeba pom\xF3wi\u0107 z so\u0142tysem i zbada\u0107
+    barier\u0119. Mo\u017Ce mieszka\u0144cy mi co\u015B powiedz\u0105 o barierze?
+    \n"
+  isItemQuest: 1
+  taskItem: {fileID: 11400000, guid: 53a5f4a5fef77bd49ba4a1c7f225541f, type: 2}
   taskItemAmount: 1
   isEnemyQuest: 0
   enemyToKillName: 
   enemyToKillCount: 0
   moneyReward: 10
-  rewardItems: []
+  rewardItems:
+  - {fileID: 0}
+  - {fileID: 0}
   activateOnGive: []
   activateOnComplete: []
+  changeToNextDialogueOnGive: []
+  changeToNextDialogueOnComplete: []

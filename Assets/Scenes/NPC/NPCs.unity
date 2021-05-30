@@ -970,6 +970,7 @@ MonoBehaviour:
     dialogueData: {fileID: 0}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &132726707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,7 +992,7 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
-  npcId: name_number
+  npcId: Amael
   mainQuests:
   - prevQuestId: -1
     questId: 0
@@ -2612,6 +2613,10 @@ PrefabInstance:
     - target: {fileID: 1567582185033856, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
       propertyPath: m_Layer
       value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567582185033856, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1567582185033856, guid: 3a9b422ae305e3b49aadf8ece0bfa915, type: 3}
       propertyPath: m_TagString
@@ -6026,6 +6031,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: e52fda1530b0e9f46968db8a7f4b576a, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &328003757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6047,7 +6053,7 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
-  npcId: name_number
+  npcId: Governor
   mainQuests:
   - prevQuestId: 0
     questId: 1
@@ -8295,6 +8301,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: de2f30cc54c1bfe47acfe75da013b9df, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &542113708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8440,6 +8447,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: de2f30cc54c1bfe47acfe75da013b9df, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &554614860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8860,6 +8868,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 4c4166b8974cf49499cd92ea7a806edb, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!1 &610300506
 GameObject:
   m_ObjectHideFlags: 0
@@ -10289,6 +10298,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: c71b8aaa3eab33e4bb27adc5abc88cf1, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &835747652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10310,7 +10320,7 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
-  npcId: name_number
+  npcId: Spell_Merchant
   mainQuests: []
   sideQuests: []
   currentMainQuest:
@@ -10845,6 +10855,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: de2f30cc54c1bfe47acfe75da013b9df, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &879267865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11071,12 +11082,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
     - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
+      propertyPath: mainQuests.Array.data[1].quest
+      value: 
+      objectReference: {fileID: 11400000, guid: cea6f90ce8def644f91d059208a2de9d, type: 2}
+    - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
+      propertyPath: mainQuests.Array.data[2].quest
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e97bff4091f21548bec0389b93b3895, type: 2}
+    - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
       propertyPath: mainQuests.Array.data[0].questId
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
+      propertyPath: mainQuests.Array.data[1].questId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
+      propertyPath: mainQuests.Array.data[2].questId
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
       propertyPath: mainQuests.Array.data[0].prevQuestId
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
+      propertyPath: mainQuests.Array.data[1].prevQuestId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
+      propertyPath: mainQuests.Array.data[2].prevQuestId
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
@@ -11309,7 +11344,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: dedfdf8ca651cef4abff2aad05324c89, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 7e95fb2a2e3448d438832e81b63c8f20, type: 2}
 --- !u!4 &916175469
 Transform:
   m_ObjectHideFlags: 0
@@ -11759,6 +11794,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: cdb36c228f8c97c4cb28b667d41a388e, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &961168398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12182,6 +12218,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 4c4166b8974cf49499cd92ea7a806edb, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &993294681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12203,7 +12240,7 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
-  npcId: MotherNPC
+  npcId: Mother
   mainQuests:
   - prevQuestId: -1
     questId: 0
@@ -12597,6 +12634,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 39b8c055554c8de448f81068432a826a, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &1017690953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12715,6 +12753,10 @@ MonoBehaviour:
     questId: 1
     quest: {fileID: 11400000, guid: cea6f90ce8def644f91d059208a2de9d, type: 2}
     isCompleted: 0
+  - prevQuestId: 1
+    questId: 2
+    quest: {fileID: 11400000, guid: 1e97bff4091f21548bec0389b93b3895, type: 2}
+    isCompleted: 0
 --- !u!4 &1030449823
 Transform:
   m_ObjectHideFlags: 0
@@ -12827,6 +12869,10 @@ PrefabInstance:
     - target: {fileID: 3060950883499712635, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
       propertyPath: m_Name
       value: Enemy Rock Golem
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060950883499712635, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3060950883499712638, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
       propertyPath: canPatrol
@@ -13354,6 +13400,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: cdb36c228f8c97c4cb28b667d41a388e, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &1163322226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14168,6 +14215,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 275016fbb9aa22342905b54063bee9b8, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &1280336886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16187,6 +16235,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: c6deebd4d7d5bbc4898df1fe58862cad, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &1548865928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16208,7 +16257,7 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
-  npcId: name_number
+  npcId: Food_Merchant
   mainQuests: []
   sideQuests: []
   currentMainQuest:
@@ -16425,6 +16474,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: cdb36c228f8c97c4cb28b667d41a388e, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &1557284228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16446,7 +16496,7 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
-  npcId: G4
+  npcId: Guard4
   mainQuests: []
   sideQuests: []
   currentMainQuest:
@@ -17100,6 +17150,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 4a7efa4a2928c4a44b05c6c688d56710, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &1647757274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18268,6 +18319,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 275016fbb9aa22342905b54063bee9b8, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &1793841602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19198,6 +19250,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 275016fbb9aa22342905b54063bee9b8, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &1908310201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19776,6 +19829,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: cdb36c228f8c97c4cb28b667d41a388e, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!114 &2018143527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19797,7 +19851,7 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
-  npcId: G3
+  npcId: Guard3
   mainQuests: []
   sideQuests: []
   currentMainQuest:
@@ -20693,7 +20747,7 @@ MonoBehaviour:
   isBlocking: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
-  npcId: name_number
+  npcId: Village_Merchant
   mainQuests: []
   sideQuests: []
   currentMainQuest:
@@ -20766,6 +20820,7 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 62022df244421d04bbb47a00e0b01dbe, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!136 &3872957942517591176
 CapsuleCollider:
   m_ObjectHideFlags: 0
