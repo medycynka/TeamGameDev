@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using SzymonPeszek.Npc;
 using SzymonPeszek.Quests;
 using SzymonPeszek.SaveScripts;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 
@@ -11,23 +13,22 @@ namespace SzymonPeszek.PlayerScripts
 {
     public class QuestManager : MonoBehaviour
     {
-        public static QuestManager instance;
+        public static QuestManager instance => _instance;
 
         public List<QuestContainer> mainQuests = new List<QuestContainer>();
         public List<QuestContainer> sideQuests = new List<QuestContainer>();
         public List<Quest> currentQuests = new List<Quest>();
-        
-        private Dictionary<string, NpcInteractionManager> npcMap;
+        public Dictionary<string, NpcInteractionManager> npcMap;
+
+        private static QuestManager _instance;
 
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
+            if (_instance != null && _instance != this)
             {
                 Destroy(gameObject);
+            } else {
+                _instance = this;
             }
 
             foreach (QuestContainer quest in SettingsHolder.worldManager.quests)
@@ -45,7 +46,21 @@ namespace SzymonPeszek.PlayerScripts
             NpcInteractionManager[] tmp = FindObjectsOfType<NpcInteractionManager>();
             foreach(NpcInteractionManager npc in tmp)
             {
-                npcMap.Add(npc.npcManager.npcId, npc);
+                if (npc.npcManager != null)
+                {
+                    if (!npcMap.ContainsKey(npc.npcManager.npcId))
+                    {
+                        npcMap.Add(npc.npcManager.npcId, npc);
+                    }
+                }
+                else
+                {
+                    NpcManager tmpManager = npc.GetComponent<NpcManager>();
+                    if (!npcMap.ContainsKey(tmpManager.npcId))
+                    {
+                        npcMap.Add(tmpManager.npcId, npc);
+                    }
+                }
             }
         }
 
