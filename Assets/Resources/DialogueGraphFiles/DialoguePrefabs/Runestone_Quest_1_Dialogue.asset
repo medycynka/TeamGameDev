@@ -41,7 +41,7 @@ MonoBehaviour:
       litery spo\u015Br\xF3d run wyr\xF3\u017Cniaj\u0105 si\u0119 na tyle, \u017Ce
       musz\u0105 mie\u0107 specjalne znaczenie - MTGZ."
     nodePosition: {x: 1992, y: -297}
-    isQuestGiver: 0
+    isQuestGiver: 1
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0

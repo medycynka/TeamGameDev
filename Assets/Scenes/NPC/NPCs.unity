@@ -18949,13 +18949,25 @@ MonoBehaviour:
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
   uIManager: {fileID: 204355862}
-  dialogueDataContainer: []
+  dialogueDataContainer:
+  - dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: 6a0c5d267b14e914ea6dfc4acc2bdec4, type: 2}
+  - dialogueId: 1
+    isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: 4ee527e828c5b1b489d043576deb579e, type: 2}
+  - dialogueId: 2
+    isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: 626459e67e405b5438bcd048e44cc9de, type: 2}
+  - dialogueId: 3
+    isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: 6a0c5d267b14e914ea6dfc4acc2bdec4, type: 2}
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
     isCompleted: 0
-    dialogueData: {fileID: 0}
+    dialogueData: {fileID: 11400000, guid: 6a0c5d267b14e914ea6dfc4acc2bdec4, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
   npcManager: {fileID: 0}
@@ -18989,6 +19001,10 @@ MonoBehaviour:
   - prevQuestId: 2
     questId: 3
     quest: {fileID: 11400000, guid: d775e4ea26318d54c86a298ead288682, type: 2}
+    isCompleted: 0
+  - prevQuestId: 3
+    questId: 4
+    quest: {fileID: 11400000, guid: 0b32efb1b02894540b10eba85cfafcdd, type: 2}
     isCompleted: 0
   sideQuests: []
   currentMainQuest:
