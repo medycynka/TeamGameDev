@@ -1,0 +1,191 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Mother_Quest_2_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: c4416039-d4a4-4134-bd54-cb3d686f00cb
+    portName: Next
+    targetNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+  - baseNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
+    portName: "Chc\u0119 porozmawia\u0107 o tacie."
+    targetNodeGuid: bc12897e-bec9-484a-8ed0-ebdde949e963
+  - baseNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
+    portName: "Musz\u0119 ju\u017C i\u015B\u0107, mamo."
+    targetNodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
+  - baseNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
+    portName: "Chc\u0119 porozmawia\u0107 o babci"
+    targetNodeGuid: 736fb758-8164-4c0c-90c6-9ea68ccbba2f
+  - baseNodeGuid: bc12897e-bec9-484a-8ed0-ebdde949e963
+    portName: "Chc\u0119 pom\xF3wi\u0107 o czym\u015B innym."
+    targetNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
+  - baseNodeGuid: bc12897e-bec9-484a-8ed0-ebdde949e963
+    portName: Gdzie jest tata?
+    targetNodeGuid: ad22b8b1-2627-40c7-8bb5-658a8c0298aa
+  - baseNodeGuid: bc12897e-bec9-484a-8ed0-ebdde949e963
+    portName: "Te\u017C za nim t\u0119skni\u0119."
+    targetNodeGuid: 647d8256-31ca-4f26-bb69-f8933c19c018
+  - baseNodeGuid: ad22b8b1-2627-40c7-8bb5-658a8c0298aa
+    portName: "Na pewno sobie poradzi. Jest przecie\u017C \u015Bwietnym wojownikiem!"
+    targetNodeGuid: 9ab12dbf-ea5e-445f-9930-f1aa9c1a09cd
+  - baseNodeGuid: 9ab12dbf-ea5e-445f-9930-f1aa9c1a09cd
+    portName: "Ja te\u017C, mamo. Ja te\u017C."
+    targetNodeGuid: d9c3dfec-e43c-4fd5-8006-830c4f4ab99b
+  - baseNodeGuid: 647d8256-31ca-4f26-bb69-f8933c19c018
+    portName: "B\u0119d\u0119 go szuka\u0107."
+    targetNodeGuid: 1f929869-04e5-440a-a355-a5b757948104
+  - baseNodeGuid: 1f929869-04e5-440a-a355-a5b757948104
+    portName: "Obiecuj\u0119."
+    targetNodeGuid: 9b40e221-4fe5-49f2-b7e6-c230b8360dd4
+  - baseNodeGuid: 736fb758-8164-4c0c-90c6-9ea68ccbba2f
+    portName: "Chc\u0119 pom\xF3wi\u0107 o czym\u015B innym."
+    targetNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
+  - baseNodeGuid: 736fb758-8164-4c0c-90c6-9ea68ccbba2f
+    portName: "Nie wygl\u0105da na przej\u0119t\u0105..."
+    targetNodeGuid: eea54566-835d-4863-9e73-45524d48c8ea
+  - baseNodeGuid: 736fb758-8164-4c0c-90c6-9ea68ccbba2f
+    portName: "Czy nie b\u0119dzie problem\xF3w z lekarstwami?"
+    targetNodeGuid: 7c24d0ca-e68d-4468-be6f-d45fbdd0b2f8
+  - baseNodeGuid: eea54566-835d-4863-9e73-45524d48c8ea
+    portName: Rozumiem.
+    targetNodeGuid: 4a6c8834-f326-470e-ad18-e3bd28c9fefb
+  - baseNodeGuid: 7c24d0ca-e68d-4468-be6f-d45fbdd0b2f8
+    portName: Rozumiem.
+    targetNodeGuid: 4a6c8834-f326-470e-ad18-e3bd28c9fefb
+  - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    portName: "Dzi\u0119kuj\u0119, niczego mi nie trzeba."
+    targetNodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
+  - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    portName: "Czy mo\u017Cemy porozmawia\u0107 chwil\u0119?"
+    targetNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
+  - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    portName: "Z kim mog\u0119 pom\xF3wi\u0107 o kopule?"
+    targetNodeGuid: a618a84c-a658-4fab-ade3-dab610719782
+  dialogueNodeData:
+  - nodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
+    dialogueText: "S\u0142ucham."
+    nodePosition: {x: 1075, y: -73}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: bc12897e-bec9-484a-8ed0-ebdde949e963
+    dialogueText: "Och, o tacie? Bardzo martwi\u0119 si\u0119 o niego."
+    nodePosition: {x: 1423, y: -513}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: ad22b8b1-2627-40c7-8bb5-658a8c0298aa
+    dialogueText: "My\u015Bla\u0142am, \u017Ce Ci m\xF3wi\u0142am. Od kiedy zapad\u0142a
+      Noc, Tw\xF3j tata nie wr\xF3ci\u0142 do domu. Mo\u017Ce si\u0119 zgubi\u0142,
+      albo..."
+    nodePosition: {x: 2139, y: -582}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 9ab12dbf-ea5e-445f-9930-f1aa9c1a09cd
+    dialogueText: "Tak. Masz racj\u0119. Po prostu bardzo si\u0119 o niego boj\u0119."
+    nodePosition: {x: 3151, y: -580}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: d9c3dfec-e43c-4fd5-8006-830c4f4ab99b
+    dialogueText: Dialogue Node
+    nodePosition: {x: 3843, y: -577}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  - nodeGuid: 647d8256-31ca-4f26-bb69-f8933c19c018
+    dialogueText: "Na pewno sobie poradzi. Jest przecie\u017C zdolnym wojownikiem.
+      Pewnie rozbi\u0142 gdzie\u015B ob\xF3z."
+    nodePosition: {x: 2144, y: -469}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 1f929869-04e5-440a-a355-a5b757948104
+    dialogueText: "Tylko na siebie uwa\u017Caj!"
+    nodePosition: {x: 3155, y: -465}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 9b40e221-4fe5-49f2-b7e6-c230b8360dd4
+    dialogueText: Dialogue Node
+    nodePosition: {x: 3847, y: -458}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  - nodeGuid: 736fb758-8164-4c0c-90c6-9ea68ccbba2f
+    dialogueText: "Babci? Co\u015B nie tak?"
+    nodePosition: {x: 1658, y: -225}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: eea54566-835d-4863-9e73-45524d48c8ea
+    dialogueText: "Babcia du\u017Co przesz\u0142a w \u017Cyciu. Na pewno si\u0119
+      martwi tym wszystkim, tylko inaczej to okazuje."
+    nodePosition: {x: 2174, y: -267}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 7c24d0ca-e68d-4468-be6f-d45fbdd0b2f8
+    dialogueText: "Zrobi\u0142am zapas zi\xF3\u0142, ale nie wiem, na ile to starczy.
+      Mam nadziej\u0119, \u017Ce wystarczaj\u0105co d\u0142ugo."
+    nodePosition: {x: 2176, y: -153}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 4a6c8834-f326-470e-ad18-e3bd28c9fefb
+    dialogueText: Dialogue Node
+    nodePosition: {x: 3133, y: -217}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  - nodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
+    dialogueText: "Mi\u0142ego dnia!"
+    nodePosition: {x: 2199, y: 145}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  - nodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    dialogueText: "Ten n\xF3\u017C, kt\xF3ry mi przynios\u0142e\u015B sprawuje si\u0119
+      \u015Bwietnie. Co tam, kochanie? Rozmawia\u0142e\u015B ju\u017C mo\u017Ce z
+      mieszka\u0144cami? So\u0142tys mo\u017Ce powiedzie\u0107 Ci wi\u0119cej o kopule.
+      Powinien by\u0107 w centrum wioski. Mog\u0119 Ci w czym\u015B pom\xF3c? "
+    nodePosition: {x: 384, y: 214}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: a618a84c-a658-4fab-ade3-dab610719782
+    dialogueText: "Powiniene\u015B pom\xF3wi\u0107 z so\u0142tysem. Inni mieszka\u0144cy
+      te\u017C mog\u0105 by\u0107 pomocni, nawet babcia!"
+    nodePosition: {x: 2203, y: 349}
+    isQuestGiver: 1
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 1
+  exposedProperties:
+  - propertyName: New String
+    propertyValue: New Value
+  commentBlockData: []

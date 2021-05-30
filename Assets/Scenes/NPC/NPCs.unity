@@ -12432,6 +12432,9 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: b0bf1c11cab4fd6489523936b77ad9b6, type: 2}
   - dialogueId: 2
     isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: aaf9f8fa0568196408647cdd28c0f0b3, type: 2}
+  - dialogueId: 3
+    isCompleted: 0
     dialogueData: {fileID: 11400000, guid: f30623ab37b2c374cadabdf824f2f678, type: 2}
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0

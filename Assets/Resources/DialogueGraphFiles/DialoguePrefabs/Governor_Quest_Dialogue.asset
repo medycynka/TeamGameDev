@@ -16,12 +16,6 @@ MonoBehaviour:
   - baseNodeGuid: c4416039-d4a4-4134-bd54-cb3d686f00cb
     portName: Next
     targetNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
-  - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
-    portName: "Chcia\u0142em zapyta\u0107 o par\u0119 spraw."
-    targetNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
-  - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
-    portName: "Tylko si\u0119 rozgl\u0105dam."
-    targetNodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
   - baseNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
     portName: "Sk\u0105d wiesz, \u017Ce wied\u017Ama nam pomo\u017Ce?"
     targetNodeGuid: e18103a8-76be-494f-b617-efc86e7bc4f2
@@ -41,14 +35,13 @@ MonoBehaviour:
   - baseNodeGuid: 6607b0a1-1179-4132-93aa-4b44b7dbf837
     portName: "Macie jaki\u015B inny plan?"
     targetNodeGuid: 98cd5030-fae4-4996-9915-21e23258221a
+  - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    portName: "Chcia\u0142em zapyta\u0107 o par\u0119 spraw."
+    targetNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
+  - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    portName: "Tylko si\u0119 rozgl\u0105dam."
+    targetNodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
   dialogueNodeData:
-  - nodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
-    dialogueText: "Witaj. Co Ci\u0119 do mnie sprowadza?"
-    nodePosition: {x: 348, y: 198}
-    isQuestGiver: 0
-    isQuestCompleter: 0
-    isExit: 0
-    isEnding: 0
   - nodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
     dialogueText: "Mi\u0142ego dnia!"
     nodePosition: {x: 1069, y: 213}
@@ -85,21 +78,28 @@ MonoBehaviour:
       karawan\u0119 na wschodzie. Je\u015Bli si\u0119 po\u015Bpieszy\u0142, to mo\u017Cliwe,
       \u017Ce go nawet nie ma pod kopu\u0142\u0105."
     nodePosition: {x: 1852, y: 152}
-    isQuestGiver: 0
-    isQuestCompleter: 0
+    isQuestGiver: 1
+    isQuestCompleter: 1
     isExit: 0
     isEnding: 0
   - nodeGuid: 3bb57c07-b2de-41cc-a593-7499ac9fa12a
     dialogueText: Jest...
     nodePosition: {x: 2751, y: -247}
-    isQuestGiver: 0
-    isQuestCompleter: 0
+    isQuestGiver: 1
+    isQuestCompleter: 1
     isExit: 0
     isEnding: 0
   - nodeGuid: 98cd5030-fae4-4996-9915-21e23258221a
     dialogueText: "Nie bardzo. Kopu\u0142a musi kiedy\u015B upa\u015B\u0107, bo przecie\u017C
       czar kiedy\u015B si\u0119 wyczerpie. Na pewno co\u015B wymy\u015Blimy!"
     nodePosition: {x: 2692, y: -104}
+    isQuestGiver: 1
+    isQuestCompleter: 1
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    dialogueText: "Witaj. Co Ci\u0119 do mnie sprowadza?"
+    nodePosition: {x: 348, y: 198}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
