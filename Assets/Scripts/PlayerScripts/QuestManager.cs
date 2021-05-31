@@ -31,17 +31,20 @@ namespace SzymonPeszek.PlayerScripts
                 _instance = this;
             }
 
-            foreach (QuestContainer quest in SettingsHolder.worldManager.quests)
+            if (SettingsHolder.firstStart)
             {
-                instance.mainQuests.Add(new QuestContainer
+                foreach (QuestContainer quest in SettingsHolder.worldManager.quests)
                 {
-                    prevQuestId = quest.prevQuestId,
-                    questId = quest.questId,
-                    quest = quest.quest,
-                    isCompleted = quest.isCompleted
-                });
+                    instance.mainQuests.Add(new QuestContainer
+                    {
+                        prevQuestId = quest.prevQuestId,
+                        questId = quest.questId,
+                        quest = quest.quest,
+                        isCompleted = quest.isCompleted
+                    });
+                }
             }
-            
+
             npcMap = new Dictionary<string, NpcInteractionManager>();
             NpcInteractionManager[] tmp = FindObjectsOfType<NpcInteractionManager>();
             foreach(NpcInteractionManager npc in tmp)
@@ -97,27 +100,30 @@ namespace SzymonPeszek.PlayerScripts
                             }
                         }
                     }
-                    else if (mainQuests[prevId].isCompleted)
+                    else if (mainQuests.Any(q => q.questId == prevId))
                     {
-                        currentQuests.Add(quest);
-                        
-                        if (quest.activateOnGive.Count > 0)
+                        if (mainQuests.First(q => q.questId == prevId).isCompleted)
                         {
-                            foreach (GameObject toActivate in quest.activateOnGive)
+                            currentQuests.Add(quest);
+
+                            if (quest.activateOnGive.Count > 0)
                             {
-                                toActivate.SetActive(true);
-                            }
-                        }
-                        
-                        if (quest.changeToNextDialogueOnGive.Count > 0)
-                        {
-                            for (int i = 0; i < quest.changeToNextDialogueOnGive.Count; i++)
-                            {
-                                if (npcMap[quest.changeToNextDialogueOnGive[i]].dialogueDataContainer
-                                    .Any(d => !d.isCompleted))
+                                foreach (GameObject toActivate in quest.activateOnGive)
                                 {
-                                    npcMap[quest.changeToNextDialogueOnGive[i]].dialogueDataContainer
-                                        .First(d => !d.isCompleted).isCompleted = true;
+                                    toActivate.SetActive(true);
+                                }
+                            }
+
+                            if (quest.changeToNextDialogueOnGive.Count > 0)
+                            {
+                                for (int i = 0; i < quest.changeToNextDialogueOnGive.Count; i++)
+                                {
+                                    if (npcMap[quest.changeToNextDialogueOnGive[i]].dialogueDataContainer
+                                        .Any(d => !d.isCompleted))
+                                    {
+                                        npcMap[quest.changeToNextDialogueOnGive[i]].dialogueDataContainer
+                                            .First(d => !d.isCompleted).isCompleted = true;
+                                    }
                                 }
                             }
                         }
@@ -128,32 +134,35 @@ namespace SzymonPeszek.PlayerScripts
 
         public void CompleteQuest(Quest quest)
         {
-            QuestContainer q = mainQuests.Find(p => p.quest = quest);
-            q.isCompleted = true;
-            SettingsHolder.worldManager.quests[q.questId].isCompleted = true;
-            
-            if (quest.activateOnComplete.Count > 0)
+            if (mainQuests.Any(q => q.quest == quest))
             {
-                foreach (GameObject toActivate in quest.activateOnComplete)
-                {
-                    toActivate.SetActive(true);
-                }
-            }
+                QuestContainer q = mainQuests.First(p => p.quest == quest);
+                q.isCompleted = true;
+                SettingsHolder.worldManager.quests[q.questId].isCompleted = true;
 
-            if (quest.changeToNextDialogueOnComplete.Count > 0)
-            {
-                for (int i = 0; i < quest.changeToNextDialogueOnComplete.Count; i++)
+                if (quest.activateOnComplete.Count > 0)
                 {
-                    if (npcMap[quest.changeToNextDialogueOnComplete[i]].dialogueDataContainer
-                        .Any(d => !d.isCompleted))
+                    foreach (GameObject toActivate in quest.activateOnComplete)
                     {
-                        npcMap[quest.changeToNextDialogueOnComplete[i]].dialogueDataContainer
-                            .First(d => !d.isCompleted).isCompleted = true;
+                        toActivate.SetActive(true);
                     }
                 }
+
+                if (quest.changeToNextDialogueOnComplete.Count > 0)
+                {
+                    for (int i = 0; i < quest.changeToNextDialogueOnComplete.Count; i++)
+                    {
+                        if (npcMap[quest.changeToNextDialogueOnComplete[i]].dialogueDataContainer
+                            .Any(d => !d.isCompleted))
+                        {
+                            npcMap[quest.changeToNextDialogueOnComplete[i]].dialogueDataContainer
+                                .First(d => !d.isCompleted).isCompleted = true;
+                        }
+                    }
+                }
+
+                currentQuests.Remove(quest);
             }
-            
-            currentQuests.Remove(quest);
         }
     }
 
