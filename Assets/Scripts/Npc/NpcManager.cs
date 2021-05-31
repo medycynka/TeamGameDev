@@ -33,11 +33,13 @@ namespace SzymonPeszek.Npc
         {
             if (mainQuests.Any(q => !q.isCompleted))
             {
-                if (currentMainQuest.isCompleted)
+                if (currentMainQuest.isCompleted && 
+                    mainQuests.Any(q => !q.isCompleted) && 
+                    QuestManager.instance.mainQuests.Any(q => !q.isCompleted))
                 {
                     currentMainQuest = mainQuests.First(q => !q.isCompleted);
-                    if (QuestManager.instance.mainQuests.First(q => q == currentMainQuest).prevQuestId < 0 || 
-                        QuestManager.instance.mainQuests.First(q => q.questId == currentMainQuest.prevQuestId).isCompleted)
+                    if (currentMainQuest.prevQuestId < 0 || QuestManager.instance.mainQuests.First(q =>
+                        q.questId == currentMainQuest.prevQuestId).isCompleted)
                     {
                         return currentMainQuest.quest;
                     }
@@ -53,7 +55,7 @@ namespace SzymonPeszek.Npc
 
         public bool EndCurrentMainQuest(PlayerManager playerManager)
         {
-            if (currentMainQuest == null)
+            if (currentMainQuest.quest == null)
             {
                 Debug.Log("Current quest is null");
             }

@@ -1478,6 +1478,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 38164938}
     m_Modifications:
+    - target: {fileID: 590605429, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 904466052}
+    - target: {fileID: 590605429, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
+      propertyPath: playerLocomotion
+      value: 
+      objectReference: {fileID: 904466056}
+    - target: {fileID: 590605429, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
+      propertyPath: playerAnimatorManager
+      value: 
+      objectReference: {fileID: 904466048}
     - target: {fileID: 1576880051, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
       propertyPath: playerStats
       value: 
@@ -1506,10 +1518,6 @@ PrefabInstance:
       propertyPath: playerManager
       value: 
       objectReference: {fileID: 904466054}
-    - target: {fileID: 2074387295, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 112923516464747510, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
       propertyPath: playerInventory
       value: 
@@ -7656,7 +7664,6 @@ Transform:
   m_LocalPosition: {x: 0.23543656, y: -6.905691, z: -31.11196}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 328003754}
   - {fileID: 132726704}
   - {fileID: 1797936128}
   m_Father: {fileID: 0}
@@ -8607,7 +8614,7 @@ PrefabInstance:
       objectReference: {fileID: 904466056}
     - target: {fileID: 7008002646701870445, guid: cc4aaba428446444b838a9e0830e6917, type: 3}
       propertyPath: equipments.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7008002646701870445, guid: cc4aaba428446444b838a9e0830e6917, type: 3}
       propertyPath: playerAnimatorManager
@@ -8617,6 +8624,10 @@ PrefabInstance:
       propertyPath: equipments.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: c68b17206972ff94aa1599ab960f3316, type: 2}
+    - target: {fileID: 7008002646701870445, guid: cc4aaba428446444b838a9e0830e6917, type: 3}
+      propertyPath: equipments.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4091e9a68340f254fa69570456f2cd5e, type: 2}
     - target: {fileID: 7499049790854619129, guid: cc4aaba428446444b838a9e0830e6917, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -8876,6 +8887,7 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+<<<<<<< HEAD
 --- !u!1 &590605427 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1670588494, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
@@ -8909,6 +8921,8 @@ MonoBehaviour:
   dialogueMapKeys: []
   dialogueMapValues: []
   npcManager: {fileID: 0}
+=======
+>>>>>>> 043376fe9d5613e27086bd66e1cb0a84fbc860c7
 --- !u!1 &610300506
 GameObject:
   m_ObjectHideFlags: 0
@@ -11491,7 +11505,11 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
+<<<<<<< HEAD
   m_NavMeshData: {fileID: 23800000, guid: 7e95fb2a2e3448d438832e81b63c8f20, type: 2}
+=======
+  m_NavMeshData: {fileID: 23800000, guid: 108ea882493216c45aee108474805986, type: 2}
+>>>>>>> 043376fe9d5613e27086bd66e1cb0a84fbc860c7
 --- !u!4 &916175469
 Transform:
   m_ObjectHideFlags: 0
@@ -13071,7 +13089,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 22ab99f34520ee149ac5043d6d3bd222, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: d8ea2370446aacf4da50571545ffa9cc, type: 2}
 --- !u!4 &1054999144
 Transform:
   m_ObjectHideFlags: 0
@@ -17950,7 +17968,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8452670287836662050, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
   m_PrefabInstance: {fileID: 204355851}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590605427}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5bdf7a6a25926b418bb489410aa912d, type: 3}

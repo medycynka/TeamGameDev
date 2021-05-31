@@ -1,8 +1,10 @@
-﻿using BattleDrakeStudios.ModularCharacters;
+﻿using System;
+using BattleDrakeStudios.ModularCharacters;
 using SzymonPeszek.PlayerScripts.Inventory;
 using SzymonPeszek.BaseClasses;
 using SzymonPeszek.Enums;
 using SzymonPeszek.Items.Equipment;
+using UnityEngine;
 
 
 namespace SzymonPeszek.GameUI.Slots
@@ -15,7 +17,7 @@ namespace SzymonPeszek.GameUI.Slots
         public CurrentEquipments currentEquipments;
         public ModularCharacterManager modularCharacterManager;
         public bool equipUnEquip;
-        
+
         private EquipmentItem _item;
         private bool _shouldDeactivate;
 
@@ -227,6 +229,8 @@ namespace SzymonPeszek.GameUI.Slots
 
             currentEquipments.SaveCurrentEqIds();
             currentEquipments.UpdateArmorValue();
+            currentArmorText.text = $"Total defence: {(int)currentEquipments.GetArmorValue()}";
+            slotIcon.sprite = _item.itemIcon;
         }
 
         /// <summary>
@@ -298,6 +302,8 @@ namespace SzymonPeszek.GameUI.Slots
 
             currentEquipments.SaveCurrentEqIds();
             currentEquipments.UpdateArmorValue();
+            currentArmorText.text = $"Total defence: {(int)currentEquipments.GetArmorValue()}";
+            slotIcon.sprite = baseSlotIcon;
         }
     }
 
