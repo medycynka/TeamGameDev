@@ -10,32 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
-  m_Name: Mother_Quest_1_Dialogue
+  m_Name: Governor_Quest_1_Dialogue
   m_EditorClassIdentifier: 
   nodeLinks:
   - baseNodeGuid: c4416039-d4a4-4134-bd54-cb3d686f00cb
     portName: Next
     targetNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
   - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
-    portName: "Mam n\xF3\u017C od kowala"
+    portName: "Chcia\u0142em zapyta\u0107 o par\u0119 spraw. Mam te\u017C dla Ciebie
+      fiolk\u0119."
     targetNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
   - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
-    portName: "Dzi\u0119kuj\u0119, niczego mi nie trzeba."
+    portName: "Tylko si\u0119 rozgl\u0105dam."
     targetNodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
   - baseNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
-    portName: "[Poczekaj chwilk\u0119]"
-    targetNodeGuid: e18103a8-76be-494f-b617-efc86e7bc4f2
+    portName: '[Poczekaj]'
+    targetNodeGuid: 794a10d2-1346-4699-bbde-f39f18695f3e
   - baseNodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
-    portName: "Dzi\u0119kuj\u0119."
-    targetNodeGuid: e18103a8-76be-494f-b617-efc86e7bc4f2
+    portName: Wzajemnie.
+    targetNodeGuid: 794a10d2-1346-4699-bbde-f39f18695f3e
   dialogueNodeData:
-  - nodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
-    dialogueText: "Co tam, kochanie? Mog\u0119 Ci w czym\u015B pom\xF3c?"
-    nodePosition: {x: 348, y: 198}
-    isQuestGiver: 0
-    isQuestCompleter: 0
-    isExit: 0
-    isEnding: 0
   - nodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
     dialogueText: "Mi\u0142ego dnia!"
     nodePosition: {x: 1069, y: 213}
@@ -44,15 +38,22 @@ MonoBehaviour:
     isExit: 1
     isEnding: 0
   - nodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
-    dialogueText: "Tak? Pozw\xF3l, \u017Ce go obejrz\u0119."
+    dialogueText: "Fiolk\u0119? Pozw\xF3l, \u017Ce j\u0105 obejrz\u0119"
     nodePosition: {x: 959, y: 14}
     isQuestGiver: 0
     isQuestCompleter: 1
     isExit: 0
     isEnding: 1
-  - nodeGuid: e18103a8-76be-494f-b617-efc86e7bc4f2
+  - nodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    dialogueText: "Witaj. Co Ci\u0119 do mnie sprowadza?"
+    nodePosition: {x: 348, y: 198}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 794a10d2-1346-4699-bbde-f39f18695f3e
     dialogueText: Dialogue Node
-    nodePosition: {x: 1534, y: 7}
+    nodePosition: {x: 1555, y: 9}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 1

@@ -179,7 +179,9 @@ MonoBehaviour:
     isEnding: 0
   - nodeGuid: a618a84c-a658-4fab-ade3-dab610719782
     dialogueText: "Powiniene\u015B pom\xF3wi\u0107 z so\u0142tysem. Inni mieszka\u0144cy
-      te\u017C mog\u0105 by\u0107 pomocni, nawet babcia!"
+      te\u017C mog\u0105 by\u0107 pomocni, nawet babcia! Czy mo\u017Cesz zanie\u015B\u0107
+      so\u0142tysowi mikstur\u0119, kt\xF3r\u0105 dla niego przygotowa\u0142am? Zielona
+      buteleczka w kuchni na stole."
     nodePosition: {x: 2203, y: 349}
     isQuestGiver: 1
     isQuestCompleter: 0

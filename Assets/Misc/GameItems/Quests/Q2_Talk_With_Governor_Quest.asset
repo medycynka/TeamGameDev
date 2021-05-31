@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Q2_Talk_With_Governor_Quest
   m_EditorClassIdentifier: 
   questName: Pierwsze Kroki
-  questTaskText: "Mama ma racj\u0119. Trzeba pom\xF3wi\u0107 z so\u0142tysem i zbada\u0107
-    barier\u0119. Mo\u017Ce mieszka\u0144cy mi co\u015B powiedz\u0105 o barierze?
-    \n"
+  questTaskText: "Trzeba pom\xF3wi\u0107 z so\u0142tysem i zbada\u0107 barier\u0119.
+    Mo\u017Ce mieszka\u0144cy mi co\u015B powiedz\u0105 o barierze? Mama kaza\u0142a
+    mi zanie\u015B\u0107 mikstur\u0119 so\u0142tysowi, wi\u0119c mog\u0119 z nim
+    przy okazji porozmawia\u0107.\n"
   isItemQuest: 1
-  taskItem: {fileID: 11400000, guid: 53a5f4a5fef77bd49ba4a1c7f225541f, type: 2}
+  taskItem: {fileID: 11400000, guid: 1c94e1f07eaf6524a9e008db63b490dd, type: 2}
   taskItemAmount: 1
   isEnemyQuest: 0
   enemyToKillName: 
