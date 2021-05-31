@@ -378,6 +378,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2129525349}
+    - target: {fileID: 3454041924395339369, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 3454041924395339370, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4445,7 +4449,7 @@ PrefabInstance:
       objectReference: {fileID: 904466056}
     - target: {fileID: 7008002646701870445, guid: cc4aaba428446444b838a9e0830e6917, type: 3}
       propertyPath: equipments.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7008002646701870445, guid: cc4aaba428446444b838a9e0830e6917, type: 3}
       propertyPath: playerAnimatorManager
@@ -4455,6 +4459,10 @@ PrefabInstance:
       propertyPath: equipments.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: c68b17206972ff94aa1599ab960f3316, type: 2}
+    - target: {fileID: 7008002646701870445, guid: cc4aaba428446444b838a9e0830e6917, type: 3}
+      propertyPath: equipments.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0ba5ada8fe8e4ba49ae2671b583f47e3, type: 2}
     - target: {fileID: 7499049790854619129, guid: cc4aaba428446444b838a9e0830e6917, type: 3}
       propertyPath: m_RootOrder
       value: 3

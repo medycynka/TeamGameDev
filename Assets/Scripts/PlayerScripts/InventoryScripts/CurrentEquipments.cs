@@ -130,6 +130,15 @@ namespace SzymonPeszek.PlayerScripts.Inventory
         }
 
         /// <summary>
+        /// Get current armor value
+        /// </summary>
+        /// <returns>Current armor value</returns>
+        public float GetArmorValue()
+        {
+            return _playerStats.currentArmorValue;
+        }
+
+        /// <summary>
         /// Calculate cumulative armor from current equipments
         /// </summary>
         /// <returns>Cumulative armor value</returns>

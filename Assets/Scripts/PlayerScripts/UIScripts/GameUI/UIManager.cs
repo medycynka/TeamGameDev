@@ -340,6 +340,7 @@ namespace SzymonPeszek.GameUI
                         weaponInventorySlots = weaponInventorySlotsParent.GetComponentsInChildren<WeaponInventorySlot>();
                     }
                     weaponInventorySlots[i].AddItem(playerInventory.weaponsInventory[i]);
+                    weaponInventorySlots[i].equipUnEquip = false;
                 }
                 else
                 {
@@ -365,6 +366,7 @@ namespace SzymonPeszek.GameUI
                         shieldInventorySlots = shieldInventorySlotsParent.GetComponentsInChildren<WeaponInventorySlot>();
                     }
                     shieldInventorySlots[i].AddItem(playerInventory.shieldsInventory[i]);
+                    shieldInventorySlots[i].equipUnEquip = false;
                 }
                 else
                 {

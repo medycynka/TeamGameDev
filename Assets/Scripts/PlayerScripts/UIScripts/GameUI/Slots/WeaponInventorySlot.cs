@@ -10,6 +10,8 @@ namespace SzymonPeszek.GameUI.Slots
     /// </summary>
     public class WeaponInventorySlot : InventorySlotBase
     {
+        public WeaponItem unarmedItem;
+        public bool equipUnEquip;
         private WeaponItem _item;
 
         /// <summary>
@@ -22,6 +24,23 @@ namespace SzymonPeszek.GameUI.Slots
             icon.sprite = _item.itemIcon;
             icon.enabled = true;
             gameObject.SetActive(true);
+        }
+
+        public void HandleEquipping()
+        {
+            if (_item != null)
+            {
+                equipUnEquip = !equipUnEquip;
+
+                if (equipUnEquip)
+                {
+                    EquipThisItem();
+                }
+                else
+                {
+                    UnequipThisItem();
+                }
+            }
         }
 
         /// <summary>
@@ -53,46 +72,31 @@ namespace SzymonPeszek.GameUI.Slots
                     playerInventory.rightWeapon = _item;
                     weaponSlotManager.LoadWeaponOnSlot(playerInventory.rightWeapon, false);
                 }
-                
+
+                slotIcon.sprite = _item.itemIcon;
                 uiManager.equipmentWindowUI.LoadWeaponsOnEquipmentScreen(playerInventory);
                 uiManager.ResetAllSelectedSlots();
-                // if (uiManager.rightHandSlot01Selected)
-                // {
-                //     playerInventory.weaponsInventory.Add(playerInventory.weaponsInRightHandSlots[0]);
-                //     playerInventory.weaponsInRightHandSlots[0] = _item;
-                //     playerInventory.weaponsInventory.Remove(_item);
-                // }
-                // else if (uiManager.rightHandSlot02Selected)
-                // {
-                //     playerInventory.weaponsInventory.Add(playerInventory.weaponsInRightHandSlots[1]);
-                //     playerInventory.weaponsInRightHandSlots[1] = _item;
-                //     playerInventory.weaponsInventory.Remove(_item);
-                // }
-                // else if (uiManager.leftHandSlot01Selected)
-                // {
-                //     playerInventory.weaponsInventory.Add(playerInventory.weaponsInLeftHandSlots[0]);
-                //     playerInventory.weaponsInLeftHandSlots[0] = _item;
-                //     playerInventory.weaponsInventory.Remove(_item);
-                // }
-                // else if (uiManager.leftHandSlot02Selected)
-                // {
-                //    playerInventory.weaponsInventory.Add(playerInventory.weaponsInLeftHandSlots[1]);
-                //    playerInventory.weaponsInLeftHandSlots[1] = _item;
-                //    playerInventory.weaponsInventory.Remove(_item);
-                // }
-                // else
-                // {
-                //    return;
-                // }
-                //
-                // playerInventory.rightWeapon = playerInventory.weaponsInRightHandSlots[playerInventory.currentRightWeaponIndex];
-                // playerInventory.leftWeapon = playerInventory.weaponsInLeftHandSlots[playerInventory.currentLeftWeaponIndex];
-                //
-                // weaponSlotManager.LoadWeaponOnSlot(playerInventory.rightWeapon, false);
-                // weaponSlotManager.LoadWeaponOnSlot(playerInventory.leftWeapon, true);
-                //
-                // uiManager.equipmentWindowUI.LoadWeaponsOnEquipmentScreen(playerInventory);
-                // uiManager.ResetAllSelectedSlots();
+            }
+        }
+
+        public void UnequipThisItem()
+        {
+            if (_item != null)
+            {
+                if (_item.itemType == ItemType.Shield)
+                {
+                    playerInventory.leftWeapon = unarmedItem;
+                    weaponSlotManager.LoadWeaponOnSlot(playerInventory.leftWeapon, true);
+                }
+                else
+                {
+                    playerInventory.rightWeapon = unarmedItem;
+                    weaponSlotManager.LoadWeaponOnSlot(playerInventory.rightWeapon, false);
+                }
+
+                slotIcon.sprite = baseSlotIcon;
+                uiManager.equipmentWindowUI.LoadWeaponsOnEquipmentScreen(playerInventory);
+                uiManager.ResetAllSelectedSlots();
             }
         }
     }
