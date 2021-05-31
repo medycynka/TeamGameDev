@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using SzymonPeszek.PlayerScripts.Inventory;
 using SzymonPeszek.Items.Weapons;
 using SzymonPeszek.GameUI;
+using TMPro;
 
 
 namespace SzymonPeszek.BaseClasses
@@ -20,5 +21,8 @@ namespace SzymonPeszek.BaseClasses
 
         [Header("Inventory Slot Icon", order = 1)]
         public Image icon;
+        public Image slotIcon;
+        public Sprite baseSlotIcon;
+        public TextMeshProUGUI currentArmorText;
     }
 }
