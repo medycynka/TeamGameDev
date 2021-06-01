@@ -137,9 +137,19 @@ MonoBehaviour:
   mainQuests:
   - prevQuestId: -1
     questId: 0
-    quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
+    quest: {fileID: 11400000, guid: 6ca1dde5c938f11458a26743f2144d42, type: 2}
     isCompleted: 0
   sideQuests: []
+  currentMainQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 11400000, guid: 6ca1dde5c938f11458a26743f2144d42, type: 2}
+    isCompleted: 0
+  currentSideQuest:
+    prevQuestId: 0
+    questId: 0
+    quest: {fileID: 0}
+    isCompleted: 0
 --- !u!114 &301754168852192502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +183,7 @@ MonoBehaviour:
     dialogueData: {fileID: 0}
   dialogueMapKeys: []
   dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!1 &301754169000249363
 GameObject:
   m_ObjectHideFlags: 0
