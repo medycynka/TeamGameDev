@@ -22,6 +22,12 @@ MonoBehaviour:
   - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
     portName: "Przychodz\u0119 z Surbmy. Potrzebujemy Twojej pomocy z kopu\u0142\u0105!"
     targetNodeGuid: 9ffb2943-2b91-47dc-af15-e7535e545031
+  - baseNodeGuid: efcd6558-96d9-4f4c-84d8-3ea47dd648ed
+    portName: Moim ojcem jest Mekowir.
+    targetNodeGuid: a84f98ff-b59b-48a2-a0a2-cc0bd53cca77
+  - baseNodeGuid: 9ffb2943-2b91-47dc-af15-e7535e545031
+    portName: Na brzegu jest portal.
+    targetNodeGuid: efcd6558-96d9-4f4c-84d8-3ea47dd648ed
   dialogueNodeData:
   - nodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
     dialogueText: "Kim jeste\u015B? Jakim cudem jeste\u015B na mojej wyspie?!"
@@ -39,12 +45,21 @@ MonoBehaviour:
     isEnding: 0
   - nodeGuid: 9ffb2943-2b91-47dc-af15-e7535e545031
     dialogueText: "M\xF3wi\u0142am wam ju\u017C, \u017Ce si\u0119 masz st\u0105d
-      wynosi\u0107. Zmykaj, albo zamieni\u0119 Ci\u0119 w stokrotk\u0119."
+      wynosi\u0107. Zmykaj, albo zamieni\u0119 Ci\u0119 w stokrotk\u0119. Jakim cudem
+      tu jeste\u015B?"
     nodePosition: {x: 1113, y: 260}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
+  - nodeGuid: a84f98ff-b59b-48a2-a0a2-cc0bd53cca77
+    dialogueText: "Och...oooch. To troch\u0119 wyja\u015Bnia. Dobrze, mo\u017Cesz
+      chwil\u0119 zosta\u0107, ale nie zawracaj mi g\u0142owy."
+    nodePosition: {x: 1799, y: -29}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 1
   exposedProperties:
   - propertyName: New String
     propertyValue: New Value

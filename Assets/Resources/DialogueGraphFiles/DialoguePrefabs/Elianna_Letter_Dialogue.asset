@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Elianna_Letter_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: c4416039-d4a4-4134-bd54-cb3d686f00cb
+    portName: Next
+    targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+  - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    portName: '[Przeczytaj listy Anrianny]'
+    targetNodeGuid: c899d97b-38f2-4062-9a37-898b3bf342c0
+  - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    portName: '[Przeczytaj listy nieznanej kobiety, Elianny]'
+    targetNodeGuid: e24e1ef6-486d-4226-8116-31dbadd7dc20
+  - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    portName: "[Przeczytaj listy wied\u017Amy]"
+    targetNodeGuid: a7321b33-6106-4578-ae6a-86419b454af7
+  - baseNodeGuid: c899d97b-38f2-4062-9a37-898b3bf342c0
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: 7dc38062-7417-4663-a842-379b06ca32a1
+  - baseNodeGuid: e24e1ef6-486d-4226-8116-31dbadd7dc20
+    portName: "[Odejd\u017A. Musisz pami\u0119tac, aby wzi\u0105\u0107 kopi\u0119
+      list\xF3w ze sob\u0105]"
+    targetNodeGuid: 7dc38062-7417-4663-a842-379b06ca32a1
+  - baseNodeGuid: a7321b33-6106-4578-ae6a-86419b454af7
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: 7dc38062-7417-4663-a842-379b06ca32a1
+  - baseNodeGuid: c899d97b-38f2-4062-9a37-898b3bf342c0
+    portName: "[Wr\xF3\u0107 do innych list\xF3w]"
+    targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+  dialogueNodeData:
+  - nodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    dialogueText: "Znajdujesz ksi\u0105\u017Ck\u0119 pe\u0142n\u0105 list\xF3w. Niekt\xF3re
+      z nich s\u0105 napisane przez Anriann\u0119, Twoj\u0105 babci\u0119. Inne nale\u017C\u0105
+      do samej wied\u017Amy, a inne nale\u017C\u0105 do kogo\u015B obcego."
+    nodePosition: {x: 405, y: 181}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: c899d97b-38f2-4062-9a37-898b3bf342c0
+    dialogueText: "Z list\xF3w dowiadujesz si\u0119, \u017Ce Anrianna jest tak\u0105
+      sam\u0105 wied\u017Am\u0105 jak mieszkanka wyspy. Czujesz bij\u0105ce ciep\u0142o
+      z list\xF3w. Siostry \u0142\u0105czy najwyra\u017Aniej g\u0142\u0119bokie uczucie."
+    nodePosition: {x: 1673, y: 25}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: e24e1ef6-486d-4226-8116-31dbadd7dc20
+    dialogueText: "Elianna okazuje si\u0119 by\u0107 Twoj\u0105 prababci\u0105. Z
+      list\xF3w dowiadujesz si\u0119, \u017Ce ponad 50 lat temu pok\u0142\xF3ci\u0142y
+      si\u0119 i rodzina zosta\u0142a rozbita. Mimo to, Twojej cioci nigdy nie przesta\u0142o
+      zale\u017Ce\u0107 na rodzinie. Chocia\u017C listy pe\u0142ne s\u0105 smutku
+      i goryczy, znajdujesz w ich tre\u015Bci pokrzepienie. By\u0107 mo\u017Ce i
+      Twojej ciotce, Emali, to te\u017C pomo\u017Ce."
+    nodePosition: {x: 1678, y: 324}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 7dc38062-7417-4663-a842-379b06ca32a1
+    dialogueText: Dialogue Node
+    nodePosition: {x: 3653, y: 190}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  - nodeGuid: a7321b33-6106-4578-ae6a-86419b454af7
+    dialogueText: "Wied\u017Ama wypisywa\u0142a wiadomo\u015Bci do so\u0142tysa jak
+      i do r\xF3\u017Cnych osobisto\u015Bci kr\xF3lestwa. Nie znajdujesz w nich nic
+      ciekawego."
+    nodePosition: {x: 1919, y: 202}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  exposedProperties:
+  - propertyName: New String
+    propertyValue: New Value
+  commentBlockData: []

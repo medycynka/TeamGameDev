@@ -1,0 +1,260 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Witch_Quest_2_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: c4416039-d4a4-4134-bd54-cb3d686f00cb
+    portName: Next
+    targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+  - baseNodeGuid: 3104498f-238f-46ca-aeaa-31105e7ca146
+    portName: "Ca\u0142kiem dobrze si\u0119 czuje."
+    targetNodeGuid: 0abc4cd5-c0c7-4215-b6d3-3c99ab0ceb30
+  - baseNodeGuid: 3104498f-238f-46ca-aeaa-31105e7ca146
+    portName: "Ostatnio dziwnie si\u0119 zachowuje."
+    targetNodeGuid: 7693845a-17e2-45b5-8933-c97c38cd9849
+  - baseNodeGuid: 3104498f-238f-46ca-aeaa-31105e7ca146
+    portName: "Czemu o ni\u0105 pytasz?"
+    targetNodeGuid: bdc75694-6801-46fe-a4ac-d75652335c0d
+  - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    portName: U mojej babci?
+    targetNodeGuid: 3104498f-238f-46ca-aeaa-31105e7ca146
+  - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: 159dd4f3-2071-4e90-b10f-c6de1ad2f6ed
+  - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    portName: "Czy mo\u017Cemy porozmawia\u0107 o kopule?"
+    targetNodeGuid: 8d94b9e3-0d20-4a7d-8c4c-1e0240a52915
+  - baseNodeGuid: 0abc4cd5-c0c7-4215-b6d3-3c99ab0ceb30
+    portName: "Czemu o ni\u0105 pytasz?"
+    targetNodeGuid: bdc75694-6801-46fe-a4ac-d75652335c0d
+  - baseNodeGuid: 0abc4cd5-c0c7-4215-b6d3-3c99ab0ceb30
+    portName: "Czy mo\u017Cemy porozmawia\u0107 o kopule?"
+    targetNodeGuid: 8d94b9e3-0d20-4a7d-8c4c-1e0240a52915
+  - baseNodeGuid: 7693845a-17e2-45b5-8933-c97c38cd9849
+    portName: "Nie wydaje si\u0119 by\u0107 przej\u0119ta t\u0105 spraw\u0105."
+    targetNodeGuid: 56822b22-57b3-4972-abb1-4307d54ab227
+  - baseNodeGuid: 56822b22-57b3-4972-abb1-4307d54ab227
+    portName: "Poniewa\u017C jeste\u015Bmy odci\u0119ci od \u015Bwiata."
+    targetNodeGuid: dca279dd-5c9f-414e-a24c-0ae3a5437215
+  - baseNodeGuid: 56822b22-57b3-4972-abb1-4307d54ab227
+    portName: "Poniewa\u017C moga sko\u0144czy\u0107 si\u0119 jej leki i mo\u017Ce
+      umrze\u0107?"
+    targetNodeGuid: 4c336971-10bf-4c2d-b0e2-d3f2c67170ae
+  - baseNodeGuid: 56822b22-57b3-4972-abb1-4307d54ab227
+    portName: "Poniewa\u017C powinno jej zale\u017Ce\u0107 na naszym bezpiecze\u0144stwie?"
+    targetNodeGuid: 58426082-e959-4808-bcbd-298b4d776236
+  - baseNodeGuid: 58426082-e959-4808-bcbd-298b4d776236
+    portName: W sumie, to...nic.
+    targetNodeGuid: 7cc4304c-b788-4504-ac55-635f9d03c28d
+  - baseNodeGuid: 58426082-e959-4808-bcbd-298b4d776236
+    portName: "\u015Amier\u0107 z g\u0142odu, bo przestan\u0105 rosn\u0105\u0107
+      ro\u015Bliny."
+    targetNodeGuid: 5581d166-d63e-48f2-a7de-05f5950595ed
+  - baseNodeGuid: 58426082-e959-4808-bcbd-298b4d776236
+    portName: "Ludzie mog\u0105 straci\u0107 rozum."
+    targetNodeGuid: 0ba5b45c-8744-46b1-b5eb-7137eae05b66
+  - baseNodeGuid: 4c336971-10bf-4c2d-b0e2-d3f2c67170ae
+    portName: "Mo\u017Ce masz racj\u0119."
+    targetNodeGuid: 7cc4304c-b788-4504-ac55-635f9d03c28d
+  - baseNodeGuid: dca279dd-5c9f-414e-a24c-0ae3a5437215
+    portName: "Wioska potrzebuje handlu z kr\xF3lestwem."
+    targetNodeGuid: 7badccd6-a780-4525-a82d-81ac53a197d1
+  - baseNodeGuid: dca279dd-5c9f-414e-a24c-0ae3a5437215
+    portName: "Mojego ojca nie ma pod barier\u0105!"
+    targetNodeGuid: 3546b3d5-ebe4-4c6b-a3ef-9ae14aa4dbbb
+  - baseNodeGuid: 7cc4304c-b788-4504-ac55-635f9d03c28d
+    portName: "Mo\u017Ce, ale musz\u0119 co\u015B zrobi\u0107. Musisz nam pom\xF3c!"
+    targetNodeGuid: f828f9a9-9cfd-436f-8b83-3c4083cb76b4
+  - baseNodeGuid: f828f9a9-9cfd-436f-8b83-3c4083cb76b4
+    portName: "[Odejd\u017A.  Musi istnie\u0107 co\u015B, co j\u0105 przekona]"
+    targetNodeGuid: 52d7703d-b0f3-47cb-ac65-f1b7baa33f3b
+  - baseNodeGuid: 5581d166-d63e-48f2-a7de-05f5950595ed
+    portName: "Mo\u017Ce sobie poradzimy, ale musz\u0119 co\u015B zrobi\u0107. Musisz
+      nam pom\xF3c!"
+    targetNodeGuid: f828f9a9-9cfd-436f-8b83-3c4083cb76b4
+  - baseNodeGuid: 0ba5b45c-8744-46b1-b5eb-7137eae05b66
+    portName: "Dlatego te\u017C musze co\u015B zrobi\u0107! Musisz nam pom\xF3c!"
+    targetNodeGuid: f828f9a9-9cfd-436f-8b83-3c4083cb76b4
+  - baseNodeGuid: 7badccd6-a780-4525-a82d-81ac53a197d1
+    portName: "Mo\u017Cesz masz racj\u0119, ale musz\u0119 co\u015B zrobi\u0107!
+      Musisz nam pom\xF3c!"
+    targetNodeGuid: f828f9a9-9cfd-436f-8b83-3c4083cb76b4
+  - baseNodeGuid: 839da2ea-4c65-48bc-a445-185e9dfdb186
+    portName: "Nie wydaje si\u0119 by\u0107 przej\u0119ta t\u0105 spraw\u0105."
+    targetNodeGuid: 7693845a-17e2-45b5-8933-c97c38cd9849
+  - baseNodeGuid: bdc75694-6801-46fe-a4ac-d75652335c0d
+    portName: "Z jej krwi? Zaraz, to Ty jeste\u015B...?"
+    targetNodeGuid: 839da2ea-4c65-48bc-a445-185e9dfdb186
+  - baseNodeGuid: ebf0b5e0-df66-428b-b4d7-cf8e9676c046
+    portName: "Poniewa\u017C jeste\u015Bmy odci\u0119ci od \u015Bwiatata."
+    targetNodeGuid: dca279dd-5c9f-414e-a24c-0ae3a5437215
+  - baseNodeGuid: ebf0b5e0-df66-428b-b4d7-cf8e9676c046
+    portName: "Poniewa\u017C mog\u0105 sko\u0144czy\u0107 si\u0119 leki mojej babci
+      i mo\u017Ce umrze\u0107?"
+    targetNodeGuid: 4c336971-10bf-4c2d-b0e2-d3f2c67170ae
+  - baseNodeGuid: 8d94b9e3-0d20-4a7d-8c4c-1e0240a52915
+    portName: Potrzebujemy Twojej pomocy!
+    targetNodeGuid: ebf0b5e0-df66-428b-b4d7-cf8e9676c046
+  - baseNodeGuid: 3546b3d5-ebe4-4c6b-a3ef-9ae14aa4dbbb
+    portName: "Dlatego musz\u0119 co\u015B zrobi\u0107. Musisz nam pom\xF3c!"
+    targetNodeGuid: f828f9a9-9cfd-436f-8b83-3c4083cb76b4
+  dialogueNodeData:
+  - nodeGuid: 3104498f-238f-46ca-aeaa-31105e7ca146
+    dialogueText: "Tak. Nie wyra\u017Anie m\xF3wi\u0119? "
+    nodePosition: {x: 1085, y: 380}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 159dd4f3-2071-4e90-b10f-c6de1ad2f6ed
+    dialogueText: Dialogue Node
+    nodePosition: {x: 1137, y: 178}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  - nodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    dialogueText: "Jak Ci si\u0119 podoba moja wyspa? Co u Twojej babci?"
+    nodePosition: {x: 408, y: 156}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 0abc4cd5-c0c7-4215-b6d3-3c99ab0ceb30
+    dialogueText: "Mi\u0142o to s\u0142ysze\u0107."
+    nodePosition: {x: 1632, y: 286}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 7693845a-17e2-45b5-8933-c97c38cd9849
+    dialogueText: "Och, co masz na my\u015Bli? "
+    nodePosition: {x: 1643, y: 414}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 56822b22-57b3-4972-abb1-4307d54ab227
+    dialogueText: "Czemu ma by\u0107 przej\u0119ta?"
+    nodePosition: {x: 2246, y: 412}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 58426082-e959-4808-bcbd-298b4d776236
+    dialogueText: "A grozi wam co\u015B?"
+    nodePosition: {x: 2808, y: 558}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 4c336971-10bf-4c2d-b0e2-d3f2c67170ae
+    dialogueText: "Twoja babcia jest w takiej sytuacji i wieku, \u017Ce ma nieco
+      inne priorytety."
+    nodePosition: {x: 2805, y: 412}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: dca279dd-5c9f-414e-a24c-0ae3a5437215
+    dialogueText: "Ca\u0142e \u017Cycie sp\u0119dzili\u015Bcie w tej wiosce, wi\u0119c
+      czemu nagle mia\u0142aby chcie\u0107 si\u0119 wydosta\u0107."
+    nodePosition: {x: 2803, y: 257}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 7cc4304c-b788-4504-ac55-635f9d03c28d
+    dialogueText: "My\u015Bl\u0119, \u017Ce za bardzo si\u0119 tym wszystkim przejmujesz."
+    nodePosition: {x: 3687, y: 519}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: f828f9a9-9cfd-436f-8b83-3c4083cb76b4
+    dialogueText: "Jedyne co ja musz\u0119, to umrze\u0107, m\xF3j drogi."
+    nodePosition: {x: 4382, y: 519}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 5581d166-d63e-48f2-a7de-05f5950595ed
+    dialogueText: "Rolnicy ju\u017C teraz pracuj\u0105 nad zamontowaniem nowych lamp
+      przy uprawach. Macie te\u017C mag\xF3w."
+    nodePosition: {x: 3287, y: 694}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 0ba5b45c-8744-46b1-b5eb-7137eae05b66
+    dialogueText: "Nie wiesz ile to potrwa, ani jak to si\u0119 odbije na umys\u0142ach
+      mieszka\u0144c\xF3w."
+    nodePosition: {x: 3285, y: 813}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 7badccd6-a780-4525-a82d-81ac53a197d1
+    dialogueText: "Nie do prze\u017Cycia."
+    nodePosition: {x: 3712, y: 133}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 839da2ea-4c65-48bc-a445-185e9dfdb186
+    dialogueText: "Twoj\u0105 cioci\u0105, kochanie. Nie licz jednak na wiele. Wystarczy,
+      \u017Ce pozwol\u0119 Ci tutaj chodzi\u0107. To jak u mojej siostry?"
+    nodePosition: {x: 1251, y: 902}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: bdc75694-6801-46fe-a4ac-d75652335c0d
+    dialogueText: "To moja siostra. Jeste\u015B z jej krwi. Z mojej krwi."
+    nodePosition: {x: 1629, y: 621}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: ebf0b5e0-df66-428b-b4d7-cf8e9676c046
+    dialogueText: "Tak, zauwa\u017Cy\u0142am. Czemu mam si\u0119 przejmowa\u0107?"
+    nodePosition: {x: 1740, y: -189}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 8d94b9e3-0d20-4a7d-8c4c-1e0240a52915
+    dialogueText: "Je\u015Bli musisz. Co Ci\u0119 dr\u0119czy?"
+    nodePosition: {x: 1118, y: -81}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 3546b3d5-ebe4-4c6b-a3ef-9ae14aa4dbbb
+    dialogueText: "Nie jego jedynego. To nie jest tylko Tw\xF3j problem."
+    nodePosition: {x: 3737, y: 260}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 52d7703d-b0f3-47cb-ac65-f1b7baa33f3b
+    dialogueText: Dialogue Node
+    nodePosition: {x: 5009, y: 493}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  exposedProperties:
+  - propertyName: New String
+    propertyValue: New Value
+  commentBlockData: []
