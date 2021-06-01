@@ -89,9 +89,6 @@ MonoBehaviour:
     portName: "Mo\u017Cesz masz racj\u0119, ale musz\u0119 co\u015B zrobi\u0107!
       Musisz nam pom\xF3c!"
     targetNodeGuid: f828f9a9-9cfd-436f-8b83-3c4083cb76b4
-  - baseNodeGuid: 839da2ea-4c65-48bc-a445-185e9dfdb186
-    portName: "Nie wydaje si\u0119 by\u0107 przej\u0119ta t\u0105 spraw\u0105."
-    targetNodeGuid: 7693845a-17e2-45b5-8933-c97c38cd9849
   - baseNodeGuid: bdc75694-6801-46fe-a4ac-d75652335c0d
     portName: "Z jej krwi? Zaraz, to Ty jeste\u015B...?"
     targetNodeGuid: 839da2ea-4c65-48bc-a445-185e9dfdb186
@@ -108,6 +105,9 @@ MonoBehaviour:
   - baseNodeGuid: 3546b3d5-ebe4-4c6b-a3ef-9ae14aa4dbbb
     portName: "Dlatego musz\u0119 co\u015B zrobi\u0107. Musisz nam pom\xF3c!"
     targetNodeGuid: f828f9a9-9cfd-436f-8b83-3c4083cb76b4
+  - baseNodeGuid: 839da2ea-4c65-48bc-a445-185e9dfdb186
+    portName: "Nie wydaje si\u0119 by\u0107 przej\u0119ta t\u0105 spraw\u0105."
+    targetNodeGuid: 56822b22-57b3-4972-abb1-4307d54ab227
   dialogueNodeData:
   - nodeGuid: 3104498f-238f-46ca-aeaa-31105e7ca146
     dialogueText: "Tak. Nie wyra\u017Anie m\xF3wi\u0119? "
