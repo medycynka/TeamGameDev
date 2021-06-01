@@ -26,7 +26,7 @@ MonoBehaviour:
     portName: "[Mi\u0119so]"
     targetNodeGuid: 2acca24b-a926-42a5-abb4-f53a58c9a33a
   - baseNodeGuid: 07190b10-f18e-46e7-9964-d61bcb9b6463
-    portName: "[W\u0142asna Krew]"
+    portName: '[Krew]'
     targetNodeGuid: 70358c12-835b-4890-8e5b-37a341fbd4c5
   - baseNodeGuid: 07190b10-f18e-46e7-9964-d61bcb9b6463
     portName: '[Wino]'
@@ -86,9 +86,8 @@ MonoBehaviour:
     isExit: 0
     isEnding: 0
   - nodeGuid: 70358c12-835b-4890-8e5b-37a341fbd4c5
-    dialogueText: "Nacinasz d\u0142o\u0144 i par\u0119 kropel krwi sp\u0142ywa po
-      Twojej sk\xF3rze. Jedna z nich spada na kamie\u0144. Runy zab\u0142ysn\u0119\u0142y,
-      a medalion znikn\u0105\u0142. Zaraz... Czy ziemia nie zawibrowa\u0142a?"
+    dialogueText: "Polewasz krwi\u0105 kamie\u0144. Runy zab\u0142ysn\u0119\u0142y.
+      Zaraz... Czy ziemia nie zawibrowa\u0142a?"
     nodePosition: {x: 2821, y: 236}
     isQuestGiver: 1
     isQuestCompleter: 1

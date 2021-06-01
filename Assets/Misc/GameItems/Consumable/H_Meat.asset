@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cff426da42eb9d44ae0c2748159e888, type: 3}
-  m_Name: Governor_Potion
+  m_Name: H_Meat
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: a20d322c5e65a6746808e67a31dfe555, type: 3}
-  itemName: "Miksutra dla So\u0142tysa"
-  itemId: 2
-  itemType: 11
-  consumableType: 3
-  healAmount: 0
+  itemIcon: {fileID: 21300000, guid: 4a39cb4b272639541b7bd5ac0649acf7, type: 3}
+  itemName: "Mi\u0119so"
+  itemId: 101
+  itemType: 9
+  consumableType: 0
+  healAmount: 25
   soulAmount: 0
   manaAmount: 0
-  isDeathDrop: 0
+  isDeathDrop: 1
