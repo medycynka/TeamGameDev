@@ -446,6 +446,8 @@ namespace SzymonPeszek.PlayerScripts
 
         public bool CanCompleteQuest(Quest quest)
         {
+            Debug.Log($"PlayerManager, CanCompleteQuest: Quest type: {(quest.isEnemyQuest ? "Enemy" : "Item")}, " +
+                      $"Can complete: {(quest.isEnemyQuest ? _playerStats.IsKillCountFulfilled(quest.enemyToKillName, quest.enemyToKillCount) : _playerInventory.HasNeededItems(quest.taskItem, quest.taskItemAmount))}");
             if (quest.isEnemyQuest)
             {
                 return _playerStats.IsKillCountFulfilled(quest.enemyToKillName, quest.enemyToKillCount);
