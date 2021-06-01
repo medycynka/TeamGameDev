@@ -23,6 +23,8 @@ MonoBehaviour:
   isEnemyQuest: 0
   enemyToKillName: 
   enemyToKillCount: 0
+  isEndingNotInGiver: 1
+  giverNpcId: Mother
   moneyReward: 10
   rewardItems: []
   activateOnGive: []

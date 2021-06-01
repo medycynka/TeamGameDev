@@ -134,8 +134,10 @@ namespace SzymonPeszek.PlayerScripts
 
         public void CompleteQuest(Quest quest)
         {
+            Debug.Log("QuestManager: CompleteQuest");
             if (mainQuests.Any(q => q.quest == quest))
             {
+                Debug.Log("QuestManager: CompleteQuest - quest found");
                 QuestContainer q = mainQuests.First(p => p.quest == quest);
                 q.isCompleted = true;
                 SettingsHolder.worldManager.quests[q.questId].isCompleted = true;
