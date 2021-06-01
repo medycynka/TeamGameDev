@@ -10,18 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
-  m_Name: Governor_Quest_Dialogue
+  m_Name: Governor_End_Dialogue
   m_EditorClassIdentifier: 
   nodeLinks:
   - baseNodeGuid: c4416039-d4a4-4134-bd54-cb3d686f00cb
     portName: Next
     targetNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
-  - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
-    portName: "Chcia\u0142em zapyta\u0107 o par\u0119 spraw."
-    targetNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
-  - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
-    portName: "Tylko si\u0119 rozgl\u0105dam."
-    targetNodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
   - baseNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
     portName: "Sk\u0105d wiesz, \u017Ce wied\u017Ama nam pomo\u017Ce?"
     targetNodeGuid: e18103a8-76be-494f-b617-efc86e7bc4f2
@@ -41,14 +35,22 @@ MonoBehaviour:
   - baseNodeGuid: 6607b0a1-1179-4132-93aa-4b44b7dbf837
     portName: "Macie jaki\u015B inny plan?"
     targetNodeGuid: 98cd5030-fae4-4996-9915-21e23258221a
+  - baseNodeGuid: 3bb57c07-b2de-41cc-a593-7499ac9fa12a
+    portName: "\u015Awietnie."
+    targetNodeGuid: fea2188c-4764-494f-9493-de1ee12b3848
+  - baseNodeGuid: 98cd5030-fae4-4996-9915-21e23258221a
+    portName: "Z pewno\u015Bci\u0105."
+    targetNodeGuid: fea2188c-4764-494f-9493-de1ee12b3848
+  - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    portName: "Chcia\u0142em zapyta\u0107 o par\u0119 spraw."
+    targetNodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
+  - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    portName: "Tylko si\u0119 rozgl\u0105dam."
+    targetNodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
+  - baseNodeGuid: d7b5c3e2-1fb9-45b2-b79b-48577df16c8a
+    portName: "Mo\u017Ce go odnajd\u0119."
+    targetNodeGuid: fea2188c-4764-494f-9493-de1ee12b3848
   dialogueNodeData:
-  - nodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
-    dialogueText: "Witaj. Co Ci\u0119 do mnie sprowadza?"
-    nodePosition: {x: 348, y: 198}
-    isQuestGiver: 0
-    isQuestCompleter: 0
-    isExit: 0
-    isEnding: 0
   - nodeGuid: d373c344-fb88-44ea-81ae-a49784d5a2ee
     dialogueText: "Mi\u0142ego dnia!"
     nodePosition: {x: 1069, y: 213}
@@ -61,7 +63,7 @@ MonoBehaviour:
       Pos\u0142a\u0142em ju\u017C po okoliczn\u0105 wied\u017Am\u0119."
     nodePosition: {x: 959, y: 14}
     isQuestGiver: 0
-    isQuestCompleter: 1
+    isQuestCompleter: 0
     isExit: 0
     isEnding: 0
   - nodeGuid: e18103a8-76be-494f-b617-efc86e7bc4f2
@@ -76,15 +78,6 @@ MonoBehaviour:
     dialogueText: "Okolicznych? Masz na my\u015Bli t\u0119 oszustk\u0119 sprzedaj\u0105c\u0105
       zwyk\u0142e ksi\u0105\u017Cki? Nic z tego."
     nodePosition: {x: 1850, y: 21}
-    isQuestGiver: 0
-    isQuestCompleter: 0
-    isExit: 0
-    isEnding: 0
-  - nodeGuid: d7b5c3e2-1fb9-45b2-b79b-48577df16c8a
-    dialogueText: "Mekowir wczoraj zg\u0142asza\u0142 mi, \u017Ce wyrusza wspom\xF3c
-      karawan\u0119 na wschodzie. Je\u015Bli si\u0119 po\u015Bpieszy\u0142, to mo\u017Cliwe,
-      \u017Ce go nawet nie ma pod kopu\u0142\u0105."
-    nodePosition: {x: 1852, y: 152}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
@@ -104,12 +97,28 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
-  - nodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
-    dialogueText: "Mo\u017Ce. "
-    nodePosition: {x: 0, y: 0}
+  - nodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
+    dialogueText: "Witaj. Co Ci\u0119 do mnie sprowadza?"
+    nodePosition: {x: 348, y: 198}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
+    isEnding: 0
+  - nodeGuid: d7b5c3e2-1fb9-45b2-b79b-48577df16c8a
+    dialogueText: "Mekowir wczoraj zg\u0142asza\u0142 mi, \u017Ce wyrusza wspom\xF3c
+      karawan\u0119 na wschodzie. Je\u015Bli si\u0119 po\u015Bpieszy\u0142, to mo\u017Cliwe,
+      \u017Ce go nawet nie ma pod kopu\u0142\u0105."
+    nodePosition: {x: 1852, y: 152}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: fea2188c-4764-494f-9493-de1ee12b3848
+    dialogueText: Dialogue Node
+    nodePosition: {x: 3746, y: -15}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
     isEnding: 0
   exposedProperties:
   - propertyName: New String
