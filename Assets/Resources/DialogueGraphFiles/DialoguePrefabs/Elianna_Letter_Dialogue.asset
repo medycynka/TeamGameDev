@@ -32,12 +32,15 @@ MonoBehaviour:
     portName: "[Wr\xF3\u0107 do innych list\xF3w]"
     targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
   - baseNodeGuid: e24e1ef6-486d-4226-8116-31dbadd7dc20
-    portName: "[Odejd\u017A. Musisz pami\u0119tac, aby wzi\u0105\u0107 kopi\u0119
-      list\xF3w ze sob\u0105]"
+    portName: "[Musisz pami\u0119tac, aby wzi\u0105\u0107 kopi\u0119 list\xF3w ze
+      sob\u0105]"
     targetNodeGuid: 7dc38062-7417-4663-a842-379b06ca32a1
   - baseNodeGuid: a7321b33-6106-4578-ae6a-86419b454af7
     portName: "[Odejd\u017A]"
     targetNodeGuid: 7dc38062-7417-4663-a842-379b06ca32a1
+  - baseNodeGuid: 7dc38062-7417-4663-a842-379b06ca32a1
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: 2380e2d8-2a78-4c16-aab0-369df2dc7269
   dialogueNodeData:
   - nodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
     dialogueText: "Znajdujesz ksi\u0105\u017Ck\u0119 pe\u0142n\u0105 list\xF3w. Niekt\xF3re
@@ -79,9 +82,16 @@ MonoBehaviour:
     isExit: 0
     isEnding: 0
   - nodeGuid: 7dc38062-7417-4663-a842-379b06ca32a1
-    dialogueText: 
+    dialogueText: "Zamykasz ksi\u0105\u017Ck\u0119. "
     nodePosition: {x: 3825, y: 198}
     isQuestGiver: 1
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 2380e2d8-2a78-4c16-aab0-369df2dc7269
+    dialogueText: Dialogue Node
+    nodePosition: {x: 4347, y: 191}
+    isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 1
     isEnding: 0

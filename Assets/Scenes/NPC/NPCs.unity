@@ -10015,11 +10015,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4386742730690280, guid: 2ae1d9d2d0f873845aa93b546c38bf86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.383038
+      value: 8.38
       objectReference: {fileID: 0}
     - target: {fileID: 4386742730690280, guid: 2ae1d9d2d0f873845aa93b546c38bf86, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.563
+      value: 6.37
       objectReference: {fileID: 0}
     - target: {fileID: 4386742730690280, guid: 2ae1d9d2d0f873845aa93b546c38bf86, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11792,6 +11792,14 @@ PrefabInstance:
       propertyPath: mainQuests.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
+      propertyPath: currentQuests.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
+      propertyPath: currentQuests.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b32efb1b02894540b10eba85cfafcdd, type: 2}
     - target: {fileID: 5493518819219691622, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
       propertyPath: mainQuests.Array.data[0].quest
       value: 
@@ -13830,6 +13838,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3060950883499712634, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
       propertyPath: maxHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060950883499712634, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
+      propertyPath: healthLevel
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3060950883499712634, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
@@ -17470,7 +17482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 1
-  interactableText: '[E] Examine'
+  interactableText: '[E] Zbadaj'
   playerInventory: {fileID: 904466052}
   playerLocomotion: {fileID: 904466056}
   playerAnimatorManager: {fileID: 904466048}
@@ -17484,7 +17496,7 @@ MonoBehaviour:
   currentDialogue:
     dialogueId: 0
     isCompleted: 0
-    dialogueData: {fileID: 11400000, guid: 6a0c5d267b14e914ea6dfc4acc2bdec4, type: 2}
+    dialogueData: {fileID: 11400000, guid: 62875e7ce02aaa94880d3254697a6490, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
   npcManager: {fileID: 0}
