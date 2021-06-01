@@ -8156,14 +8156,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 301754168852192501, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
-      propertyPath: currentMainQuest.quest
-      value: 
-      objectReference: {fileID: 11400000, guid: 6ca1dde5c938f11458a26743f2144d42, type: 2}
-    - target: {fileID: 301754168852192501, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
-      propertyPath: mainQuests.Array.data[0].quest
-      value: 
-      objectReference: {fileID: 11400000, guid: 6ca1dde5c938f11458a26743f2144d42, type: 2}
     - target: {fileID: 301754168852192502, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
       propertyPath: uIManager
       value: 

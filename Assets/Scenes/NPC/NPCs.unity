@@ -13401,7 +13401,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 22ab99f34520ee149ac5043d6d3bd222, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: d8ea2370446aacf4da50571545ffa9cc, type: 2}
 --- !u!4 &1054999144
 Transform:
   m_ObjectHideFlags: 0
@@ -13462,6 +13462,10 @@ PrefabInstance:
     - target: {fileID: 3060950883499712638, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
       propertyPath: canPatrol
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060950883499712638, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
+      propertyPath: isNeutral
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3060950883499712638, guid: ec3e58eeb41dc224c9d3d00795f15b66, type: 3}
       propertyPath: navmeshAgent
