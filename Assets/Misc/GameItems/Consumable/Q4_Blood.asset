@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cff426da42eb9d44ae0c2748159e888, type: 3}
-  m_Name: Mother_Quest_Item
+  m_Name: Q4_Blood
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: 4e3aab6d9ac6b48f430cb1a6e67e6315, type: 3}
-  itemName: "N\xF3\u017C Matki"
-  itemId: 1
+  itemIcon: {fileID: 21300000, guid: 7f66ccfa3d7ad95543ca5289c66a7b31, type: 3}
+  itemName: Buteleczka Krwi
+  itemId: 3
   itemType: 11
   consumableType: 3
   healAmount: 0

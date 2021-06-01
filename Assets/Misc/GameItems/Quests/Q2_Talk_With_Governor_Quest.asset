@@ -30,4 +30,5 @@ MonoBehaviour:
   activateOnGive: []
   activateOnComplete: []
   changeToNextDialogueOnGive: []
-  changeToNextDialogueOnComplete: []
+  changeToNextDialogueOnComplete:
+  - Runestone

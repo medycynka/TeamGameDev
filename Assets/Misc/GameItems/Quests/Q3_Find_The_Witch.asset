@@ -20,9 +20,11 @@ MonoBehaviour:
   isItemQuest: 0
   taskItem: {fileID: 0}
   taskItemAmount: 1
-  isEnemyQuest: 0
-  enemyToKillName: 
-  enemyToKillCount: 0
+  isEnemyQuest: 1
+  enemyToKillName: Q3_CircleGuardian
+  enemyToKillCount: 1
+  isEndingNotInGiver: 1
+  giverNpcId: Governor
   moneyReward: 10
   rewardItems: []
   activateOnGive: []
