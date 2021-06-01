@@ -16,12 +16,14 @@ MonoBehaviour:
   questTaskText: "Wied\u017Ama okazuje si\u0119 by\u0107 moj\u0105 ciotk\u0105. Niestety
     nie bardzo chce nam pom\xF3c. Musz\u0119 znale\u017Ac spos\xF3b, jak j\u0105
     przekona\u0107 do pomocy."
-  isItemQuest: 0
+  isItemQuest: 1
   taskItem: {fileID: 0}
   taskItemAmount: 1
   isEnemyQuest: 0
   enemyToKillName: 
   enemyToKillCount: 0
+  isEndingNotInGiver: 1
+  giverNpcId: Runestone
   moneyReward: 10
   rewardItems: []
   activateOnGive: []

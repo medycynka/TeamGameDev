@@ -16,12 +16,14 @@ MonoBehaviour:
   questTaskText: "Sterta kamieni nie jest niczym niezwyk\u0142ym, ale te maj\u0105
     na sobie b\u0142yszcz\u0105ce znaki. Zdaj\u0105 si\u0119 reagowa\u0107 na moj\u0105
     obecno\u015B\u0107, wi\u0119c mo\u017Ce mog\u0119 co\u015B z nimi zrobi\u0107?"
-  isItemQuest: 0
-  taskItem: {fileID: 0}
+  isItemQuest: 1
+  taskItem: {fileID: 11400000, guid: 613a3532cf02b4b4a9aa882c5ee96dba, type: 2}
   taskItemAmount: 1
   isEnemyQuest: 0
   enemyToKillName: 
   enemyToKillCount: 0
+  isEndingNotInGiver: 0
+  giverNpcId: 
   moneyReward: 10
   rewardItems: []
   activateOnGive: []
