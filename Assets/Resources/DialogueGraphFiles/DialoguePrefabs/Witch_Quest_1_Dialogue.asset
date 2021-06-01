@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Witch_Quest_1_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: c4416039-d4a4-4134-bd54-cb3d686f00cb
+    portName: Next
+    targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+  - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    portName: "Umm... po z\u0142o\u017Ceniu ofiary runom otworzy\u0142 si\u0119 portal."
+    targetNodeGuid: efcd6558-96d9-4f4c-84d8-3ea47dd648ed
+  - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    portName: "Przychodz\u0119 z Surbmy. Potrzebujemy Twojej pomocy z kopu\u0142\u0105!"
+    targetNodeGuid: 9ffb2943-2b91-47dc-af15-e7535e545031
+  dialogueNodeData:
+  - nodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    dialogueText: "Kim jeste\u015B? Jakim cudem jeste\u015B na mojej wyspie?!"
+    nodePosition: {x: 429, y: 158}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: efcd6558-96d9-4f4c-84d8-3ea47dd648ed
+    dialogueText: "Och... Kim Ty jeste\u015B? Z jakiej rodziny?"
+    nodePosition: {x: 1118, y: -16}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 9ffb2943-2b91-47dc-af15-e7535e545031
+    dialogueText: "M\xF3wi\u0142am wam ju\u017C, \u017Ce si\u0119 masz st\u0105d
+      wynosi\u0107. Zmykaj, albo zamieni\u0119 Ci\u0119 w stokrotk\u0119."
+    nodePosition: {x: 1113, y: 260}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  exposedProperties:
+  - propertyName: New String
+    propertyValue: New Value
+  commentBlockData: []
