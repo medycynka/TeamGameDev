@@ -22,6 +22,10 @@ namespace SzymonPeszek.Quests
         public bool isEnemyQuest;
         public string enemyToKillName;
         public int enemyToKillCount;
+
+        [Header("Quest ending property", order = 1)]
+        public bool isEndingNotInGiver;
+        public string giverNpcId;
         
         [Header("Rewards", order = 1)]
         public int moneyReward = 10;

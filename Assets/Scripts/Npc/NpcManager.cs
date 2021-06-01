@@ -55,14 +55,21 @@ namespace SzymonPeszek.Npc
 
         public bool EndCurrentMainQuest(PlayerManager playerManager)
         {
+            Debug.Log("NpcManager: Complete quest");
             if (currentMainQuest.quest == null)
             {
                 Debug.Log("Current quest is null");
             }
             if (playerManager.CompleteQuest(currentMainQuest.quest))
             {
+                Debug.Log("NpcManager: Completed quest");
                 mainQuests.First(q => q == currentMainQuest).isCompleted = true;
                 currentMainQuest.isCompleted = true;
+
+                if (currentMainQuest.quest.isEndingNotInGiver)
+                {
+                    QuestManager.instance.npcMap[currentMainQuest.quest.giverNpcId].isQuestGiven = false;
+                }
                 
                 return true;
             }

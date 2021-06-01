@@ -80,8 +80,10 @@ namespace SzymonPeszek.Npc.DialogueSystem
             {
                 if (_npcInteractionManager.dialogueMap[targetGuid].completer)
                 {
+                    Debug.Log("DialogUiManager: Ender + Completer");
                     if (_npcInteractionManager.TryCompleteQuest(_playerManager))
                     {
+                        Debug.Log("DialogUiManager: Can complete quest");
                         _npcInteractionManager.dialogueDataContainer.First(
                                 d => d.dialogueId == _npcInteractionManager.currentDialogue.dialogueId)
                             .isCompleted = true;
@@ -117,7 +119,8 @@ namespace SzymonPeszek.Npc.DialogueSystem
                         ? _npcInteractionManager.dialogueMap[targetGuid].links[0].portName
                         : "Exit";
                 }
-                else if(_npcInteractionManager.dialogueMap[targetGuid].completer && _npcInteractionManager.isQuestGiven)
+                else if(_npcInteractionManager.dialogueMap[targetGuid].completer && (_npcInteractionManager.isQuestGiven || 
+                    _npcManager.currentMainQuest.quest.isEndingNotInGiver))
                 {
                     options[0].optionObject.SetActive(true);
                     options[0].button.onClick.AddListener(CompleteQuest);
@@ -167,6 +170,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
 
         private void CompleteQuest()
         {
+            Debug.Log("DialogUiManager: Complete quest");
             _npcInteractionManager.CompleteQuest(_playerManager);
             CloseDialogue();
         }

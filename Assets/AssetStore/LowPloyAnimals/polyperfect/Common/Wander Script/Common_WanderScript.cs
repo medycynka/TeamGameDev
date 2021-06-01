@@ -510,7 +510,11 @@ namespace PolyPerfect
                 return;
             }
 
-            Debug.Log(currentState);
+            if (logChanges)
+            {
+                Debug.Log(currentState);
+            }
+
             if (!string.IsNullOrEmpty(idleStates[currentState].animationBool))
             {
                 animator.SetBool(idleStates[currentState].animationBool, true);
