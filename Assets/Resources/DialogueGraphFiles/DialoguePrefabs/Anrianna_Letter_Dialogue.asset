@@ -58,6 +58,9 @@ MonoBehaviour:
   - baseNodeGuid: b895b526-badb-4ab5-88bf-e69d86507763
     portName: '[Poczytaj inne listy]'
     targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+  - baseNodeGuid: ebf8b758-78a9-49c4-875f-4924f06355aa
+    portName: '[Przeczytaj inne listy]'
+    targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
   dialogueNodeData:
   - nodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
     dialogueText: "Znajdujesz ksi\u0105\u017Ck\u0119 pe\u0142n\u0105 list\xF3w. Niekt\xF3re
@@ -74,18 +77,6 @@ MonoBehaviour:
       zdystansowany. Nie dzieli si\u0119 szczeg\xF3\u0142ami. Ostatni jego list skierowany
       jest do babci. Zauwa\u017Casz, \u017Ce kto\u015B go sklei\u0142 po podarciu."
     nodePosition: {x: 1698, y: 338}
-    isQuestGiver: 0
-    isQuestCompleter: 0
-    isExit: 0
-    isEnding: 0
-  - nodeGuid: ebf8b758-78a9-49c4-875f-4924f06355aa
-    dialogueText: "Wszystkie listy skierowane s\u0105 do wied\u017Amy. Babcia opowiada
-      o codziennych wydarzeniach, czasem zaprasza na herbat\u0119. W pewnym momencie
-      zauwa\u017Casz, \u017Ce babcia zaczyna prosi\u0107 o rady w kwestii ci\u0105\u017Cy.
-      Bardzo martwi si\u0119 o to jak prze\u017Cywa j\u0105 matka. Nie znajdujesz
-      w listach niczego ciekawego, ale wiesz ju\u017C, \u017Ce pozosta\u0142e s\u0105
-      za\u0142\u0105cznikami. "
-    nodePosition: {x: 1782, y: -95}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
@@ -130,6 +121,18 @@ MonoBehaviour:
       Czy babcia chcia\u0142\u0105 si\u0119 go pozby\u0107 i wykorzysta\u0142a do
       tego okazj\u0119?"
     nodePosition: {x: 3596, y: 514}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: ebf8b758-78a9-49c4-875f-4924f06355aa
+    dialogueText: "Wszystkie listy skierowane s\u0105 do wied\u017Amy. Babcia opowiada
+      o codziennych wydarzeniach, czasem zaprasza na herbat\u0119. W pewnym momencie
+      zauwa\u017Casz, \u017Ce babcia zaczyna prosi\u0107 o rady w kwestii ci\u0105\u017Cy.
+      Bardzo martwi si\u0119 o to jak prze\u017Cywa j\u0105 matka. Nie znajdujesz
+      w listach niczego ciekawego, ale wiesz ju\u017C, \u017Ce pozosta\u0142e s\u0105
+      za\u0142\u0105cznikami. "
+    nodePosition: {x: 1748, y: -193}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
