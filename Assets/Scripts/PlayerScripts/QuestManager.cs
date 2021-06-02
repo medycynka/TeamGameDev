@@ -79,11 +79,11 @@ namespace SzymonPeszek.PlayerScripts
                     {
                         currentQuests.Add(quest);
                         
-                        if (quest.activateOnGive.Count > 0)
+                        if (quest.switchActiveStateOnGive.Count > 0)
                         {
-                            foreach (GameObject toActivate in quest.activateOnGive)
+                            foreach (GameObject toActivate in quest.switchActiveStateOnGive)
                             {
-                                toActivate.SetActive(true);
+                                toActivate.SetActive(!toActivate.activeSelf);
                             }
                         }
                         
@@ -106,11 +106,11 @@ namespace SzymonPeszek.PlayerScripts
                         {
                             currentQuests.Add(quest);
 
-                            if (quest.activateOnGive.Count > 0)
+                            if (quest.switchActiveStateOnGive.Count > 0)
                             {
-                                foreach (GameObject toActivate in quest.activateOnGive)
+                                foreach (GameObject toActivate in quest.switchActiveStateOnGive)
                                 {
-                                    toActivate.SetActive(true);
+                                    toActivate.SetActive(!toActivate.activeSelf);
                                 }
                             }
 
@@ -142,11 +142,13 @@ namespace SzymonPeszek.PlayerScripts
                 q.isCompleted = true;
                 SettingsHolder.worldManager.quests[q.questId].isCompleted = true;
 
-                if (quest.activateOnComplete.Count > 0)
+                if (quest.switchActiveStateOnComplete.Count > 0)
                 {
-                    foreach (GameObject toActivate in quest.activateOnComplete)
+                    Debug.Log("Activating objects...");
+                    foreach (GameObject toActivate in quest.switchActiveStateOnComplete)
                     {
-                        toActivate.SetActive(true);
+                        Debug.Log($"{(toActivate.activeSelf ? "Deactivating" : "Activating")} {toActivate.name}");
+                        toActivate.SetActive(!toActivate.activeSelf);
                     }
                 }
 
