@@ -71,7 +71,7 @@ MonoBehaviour:
     dialogueText: Niezwykle skutecznie...
     nodePosition: {x: 1106, y: 33}
     isQuestGiver: 0
-    isQuestCompleter: 1
+    isQuestCompleter: 0
     isExit: 0
     isEnding: 0
   - nodeGuid: 09f60e0c-34ea-4820-9f2a-d0e7845eb963
@@ -132,7 +132,7 @@ MonoBehaviour:
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
-    isEnding: 0
+    isEnding: 1
   - nodeGuid: 3f03f102-9698-4897-86e9-72b26822f1dd
     dialogueText: Dialogue Node
     nodePosition: {x: 5787, y: -246}

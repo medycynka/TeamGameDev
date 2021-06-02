@@ -72,7 +72,7 @@ MonoBehaviour:
   - nodeGuid: 7dc38062-7417-4663-a842-379b06ca32a1
     dialogueText: "Zamykasz ksi\u0105\u017Ck\u0119. "
     nodePosition: {x: 3825, y: 198}
-    isQuestGiver: 1
+    isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0

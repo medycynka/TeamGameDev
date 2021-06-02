@@ -18,16 +18,16 @@ MonoBehaviour:
     Musze tylko pami\u0119ta\u0107, aby zanie\u015B\u0107 jej listy, kt\xF3re da\u0142a
     mi ciotka."
   isItemQuest: 1
-  taskItem: {fileID: 0}
+  taskItem: {fileID: 11400000, guid: d78c943de4912a74e9865262c3a1252a, type: 2}
   taskItemAmount: 1
   isEnemyQuest: 0
   enemyToKillName: 
   enemyToKillCount: 0
-  isEndingNotInGiver: 0
-  giverNpcId: 
+  isEndingNotInGiver: 1
+  giverNpcId: Witch
   moneyReward: 10
   rewardItems: []
-  activateOnGive: []
-  activateOnComplete: []
+  switchActiveStateOnGive: []
+  switchActiveStateOnComplete: []
   changeToNextDialogueOnGive: []
   changeToNextDialogueOnComplete: []

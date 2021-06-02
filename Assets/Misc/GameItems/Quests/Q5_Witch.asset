@@ -26,9 +26,9 @@ MonoBehaviour:
   giverNpcId: Runestone
   moneyReward: 10
   rewardItems: []
-  switchActiveStateOnGive: []
-  switchActiveStateOnComplete:
+  switchActiveStateOnGive:
   - TeleportMainLand
+  switchActiveStateOnComplete: []
   changeToNextDialogueOnGive: []
   changeToNextDialogueOnComplete:
   - Witch

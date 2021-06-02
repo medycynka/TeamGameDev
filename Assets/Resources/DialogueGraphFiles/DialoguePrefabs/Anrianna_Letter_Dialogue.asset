@@ -17,77 +17,119 @@ MonoBehaviour:
     portName: Next
     targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
   - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
-    portName: '[Przeczytaj listy Anrianny]'
-    targetNodeGuid: c899d97b-38f2-4062-9a37-898b3bf342c0
+    portName: Babci.
+    targetNodeGuid: ebf8b758-78a9-49c4-875f-4924f06355aa
   - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
-    portName: '[Przeczytaj listy nieznanej kobiety, Elianny]'
-    targetNodeGuid: e24e1ef6-486d-4226-8116-31dbadd7dc20
+    portName: Mamy.
+    targetNodeGuid: d5036840-5a5b-4d94-81fe-1180b420e991
   - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
-    portName: "[Przeczytaj listy wied\u017Amy]"
-    targetNodeGuid: a7321b33-6106-4578-ae6a-86419b454af7
-  - baseNodeGuid: c899d97b-38f2-4062-9a37-898b3bf342c0
-    portName: "[Wr\xF3\u0107 do innych list\xF3w]"
+    portName: Ojca.
+    targetNodeGuid: eb8361c7-a6f3-4749-ac3b-4cb9c263b70b
+  - baseNodeGuid: d5036840-5a5b-4d94-81fe-1180b420e991
+    portName: "[Zostaw je i skup si\u0119 na innych listach]"
     targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
-  - baseNodeGuid: e24e1ef6-486d-4226-8116-31dbadd7dc20
-    portName: "[Musisz pami\u0119tac, aby wzi\u0105\u0107 kopi\u0119 list\xF3w ze
-      sob\u0105]"
-    targetNodeGuid: 7dc38062-7417-4663-a842-379b06ca32a1
-  - baseNodeGuid: 7dc38062-7417-4663-a842-379b06ca32a1
+  - baseNodeGuid: d5036840-5a5b-4d94-81fe-1180b420e991
+    portName: "[Przeczytaj zalane \u0142zami listy]"
+    targetNodeGuid: 99b75e70-1c76-4c8a-9a88-38f0d8e50689
+  - baseNodeGuid: eb8361c7-a6f3-4749-ac3b-4cb9c263b70b
+    portName: "[Zostaw go i skup si\u0119 na innych listach]"
+    targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+  - baseNodeGuid: eb8361c7-a6f3-4749-ac3b-4cb9c263b70b
+    portName: "[Zostaw to. Nie chcesz czyta\u0107 tych przykro\u015Bci]"
+    targetNodeGuid: 303e25bf-3d80-4ac8-b9c6-fd941af52121
+  - baseNodeGuid: ebf8b758-78a9-49c4-875f-4924f06355aa
+    portName: "[Zostaw to. Nie chcesz czyta\u0107 dalej]"
+    targetNodeGuid: 303e25bf-3d80-4ac8-b9c6-fd941af52121
+  - baseNodeGuid: d5036840-5a5b-4d94-81fe-1180b420e991
+    portName: "[Zostaw to. Nie chcesz czyta\u0107 tych przykro\u015Bci]"
+    targetNodeGuid: 303e25bf-3d80-4ac8-b9c6-fd941af52121
+  - baseNodeGuid: 99b75e70-1c76-4c8a-9a88-38f0d8e50689
     portName: "[Odejd\u017A]"
-    targetNodeGuid: 2380e2d8-2a78-4c16-aab0-369df2dc7269
-  - baseNodeGuid: a7321b33-6106-4578-ae6a-86419b454af7
-    portName: "[Wr\xF3c do innych list\xF3w]"
+    targetNodeGuid: 303e25bf-3d80-4ac8-b9c6-fd941af52121
+  - baseNodeGuid: 99b75e70-1c76-4c8a-9a88-38f0d8e50689
+    portName: '[Poczytaj inne listy]'
     targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+  - baseNodeGuid: b895b526-badb-4ab5-88bf-e69d86507763
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: 303e25bf-3d80-4ac8-b9c6-fd941af52121
+  - baseNodeGuid: b895b526-badb-4ab5-88bf-e69d86507763
+    portName: '[Poczytaj inne listy]'
+    targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+  - baseNodeGuid: eb8361c7-a6f3-4749-ac3b-4cb9c263b70b
+    portName: '[Przeczytaj sklejony list]'
+    targetNodeGuid: b895b526-badb-4ab5-88bf-e69d86507763
   dialogueNodeData:
   - nodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
     dialogueText: "Znajdujesz ksi\u0105\u017Ck\u0119 pe\u0142n\u0105 list\xF3w. Niekt\xF3re
-      z nich s\u0105 napisane przez Anriann\u0119, Twoj\u0105 babci\u0119. Inne nale\u017C\u0105
-      do samej wied\u017Amy, a inne nale\u017C\u0105 do kogo\u015B obcego."
+      z nich s\u0105 napisane przez Anriann\u0119, inne przez mam\u0119, a cz\u0119\u015B\u0107
+      jest r\u0119ki Twojego ojca. Kt\xF3re listy chcesz przeczyta\u0107?"
     nodePosition: {x: 405, y: 181}
     isQuestGiver: 0
     isQuestCompleter: 1
     isExit: 0
     isEnding: 0
-  - nodeGuid: c899d97b-38f2-4062-9a37-898b3bf342c0
-    dialogueText: "Z list\xF3w dowiadujesz si\u0119, \u017Ce Anrianna jest tak\u0105
-      sam\u0105 wied\u017Am\u0105 jak mieszkanka wyspy. Czujesz bij\u0105ce ciep\u0142o
-      z list\xF3w. Siostry \u0142\u0105czy najwyra\u017Aniej g\u0142\u0119bokie uczucie."
-    nodePosition: {x: 1673, y: 25}
+  - nodeGuid: eb8361c7-a6f3-4749-ac3b-4cb9c263b70b
+    dialogueText: "Wi\u0119kszo\u015B\u0107 list\xF3w skierowana jest do matki. Opr\xF3cz
+      zwyk\u0142ej rozmowy zauwa\u017Casz, \u017Ce ojciec robi si\u0119 coraz bardziej
+      zdystansowany. Nie dzieli si\u0119 szczeg\xF3\u0142ami. Ostatni jego list skierowany
+      jest do babci. Zauwa\u017Casz, \u017Ce kto\u015B go sklei\u0142 po podarciu."
+    nodePosition: {x: 1698, y: 338}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
-  - nodeGuid: e24e1ef6-486d-4226-8116-31dbadd7dc20
-    dialogueText: "Elianna okazuje si\u0119 by\u0107 Twoj\u0105 prababci\u0105. Z
-      list\xF3w dowiadujesz si\u0119, \u017Ce ponad 50 lat temu pok\u0142\xF3ci\u0142y
-      si\u0119 i rodzina zosta\u0142a rozbita. Mimo to, Twojej cioci nigdy nie przesta\u0142o
-      zale\u017Ce\u0107 na rodzinie. Chocia\u017C listy pe\u0142ne s\u0105 smutku
-      i goryczy, znajdujesz w ich tre\u015Bci pokrzepienie. By\u0107 mo\u017Ce i
-      Twojej ciotce, Emali, to te\u017C pomo\u017Ce."
-    nodePosition: {x: 1678, y: 324}
+  - nodeGuid: ebf8b758-78a9-49c4-875f-4924f06355aa
+    dialogueText: "Wszystkie listy skierowane s\u0105 do wied\u017Amy. Babcia opowiada
+      o codziennych wydarzeniach, czasem zaprasza na herbat\u0119. W pewnym momencie
+      zauwa\u017Casz, \u017Ce babcia zaczyna prosi\u0107 o rady w kwestii ci\u0105\u017Cy.
+      Bardzo martwi si\u0119 o to jak prze\u017Cywa j\u0105 matka. Nie znajdujesz
+      w listach niczego ciekawego, ale wiesz ju\u017C, \u017Ce pozosta\u0142e s\u0105
+      za\u0142\u0105cznikami. "
+    nodePosition: {x: 1782, y: -95}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
-  - nodeGuid: 7dc38062-7417-4663-a842-379b06ca32a1
-    dialogueText: "Zamykasz ksi\u0105\u017Ck\u0119. "
-    nodePosition: {x: 3825, y: 198}
-    isQuestGiver: 1
+  - nodeGuid: d5036840-5a5b-4d94-81fe-1180b420e991
+    dialogueText: " Widzisz codzienne rozterki matki, kt\xF3ra \u017Cali si\u0119
+      ojcowi, kt\xF3ry by\u0142 na kolejnej wyprawie z karawan\u0105. Uprawy, so\u0142tys,
+      podatki, a nawet narzekanie na pogod\u0119. Cz\u0119\u015B\u0107 list\xF3w
+      jest jednak zalana \u0142zami. Zaadresowane s\u0105 do nieznanej osoby, ale
+      mo\u017Ce nie potrafi\u0142e\u015B si\u0119 rozczyta\u0107. "
+    nodePosition: {x: 1743, y: 111}
+    isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
-  - nodeGuid: 2380e2d8-2a78-4c16-aab0-369df2dc7269
+  - nodeGuid: 99b75e70-1c76-4c8a-9a88-38f0d8e50689
+    dialogueText: "Listy pe\u0142ne s\u0105 goryczy i b\xF3lu. Matka zauwa\u017Ca
+      dziwne zachowanie ojca. Rozpisuje si\u0119 o  tym jak ozi\u0119ble j\u0105
+      traktuje. W pewnym momencie zauwa\u017Casz, \u017Ce powodem takiego stanu rzeczy
+      jest strata dziecka. Najwyra\u017Aniej masz rodze\u0144stwo. Ojciec uzna\u0142
+      to za z\u0142y omen. Kaza\u0142 si\u0119 wynie\u015B\u0107 babci, kt\xF3ra
+      przecie\u017C zna si\u0119 na czarach! Czy wp\u0142yn\u0119\u0142a na ci\u0105\u017C\u0119
+      mamy? Nie masz na to dowodu."
+    nodePosition: {x: 3745, y: 149}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 303e25bf-3d80-4ac8-b9c6-fd941af52121
     dialogueText: Dialogue Node
-    nodePosition: {x: 4347, y: 191}
+    nodePosition: {x: 6333, y: -44}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 1
     isEnding: 0
-  - nodeGuid: a7321b33-6106-4578-ae6a-86419b454af7
-    dialogueText: "Wied\u017Ama wypisywa\u0142a wiadomo\u015Bci do so\u0142tysa jak
-      i do r\xF3\u017Cnych osobisto\u015Bci kr\xF3lestwa. Nie znajdujesz w nich nic
-      ciekawego."
-    nodePosition: {x: 1855, y: 171}
+  - nodeGuid: b895b526-badb-4ab5-88bf-e69d86507763
+    dialogueText: "List przepe\u0142nia gniew ojca, kt\xF3ry domaga si\u0119 wyprowadzki
+      Twojej babci. Co gorsze, wspomina o r\xF3\u017Cnych innych magicznych wypadkach,
+      kt\xF3re wydarzy\u0142y si\u0119 przez ostatnie tygodnie. Co ciekawe, wygl\u0105da
+      na to, \u017Ce jest to ostatni list z tego cyklu i jest naj\u015Bwie\u017Cszy.
+      Poznajesz, \u017Ce ojciec napisa\u0142 go tu\u017C przed wyjazdem z karawan\u0105.
+      Czy babcia chcia\u0142\u0105 si\u0119 go pozby\u0107 i wykorzysta\u0142a do
+      tego okazj\u0119?"
+    nodePosition: {x: 3596, y: 514}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
