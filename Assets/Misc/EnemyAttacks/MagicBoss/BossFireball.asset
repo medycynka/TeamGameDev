@@ -9,20 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd387fffb7ea0c4b84e6f1191420616, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f5ba5d3dd95c7c4aa472998e8dd7204, type: 3}
   m_Name: BossFireball
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 4a8b11548ae1ade4ba8602f9191f1807, type: 3}
   itemName: Fireball
   itemId: 0
   itemType: 10
   spellWarmUpFX: {fileID: 1207433386840518, guid: fcdd5250b37436143a4d1d6f0274315d, type: 3}
   spellCastFX: {fileID: 1207433386840518, guid: 64e8c9a3a41ed274f9b976c56ecca9d9, type: 3}
-  spellAnimation: Fireball Cast
+  spellAnimation: 
   focusPointCost: 0
   spellType: 2
   spellDescription: 
   fireballPrefab: {fileID: 5153054892841941217, guid: efde9a71e315e004ebf1bda7118a9739, type: 3}
   spellDamage: 40
-  projectileSpeed: 600
+  projectileSpeed: 500
   maxTravelDistanceSqr: 10000

@@ -19,4 +19,4 @@ MonoBehaviour:
   minimumAttackAngle: -35
   minimumDistanceNeededToAttack: 0.5
   maximumDistanceNeededToAttack: 15
-  spell: {fileID: 11400000, guid: c8919844557cc3f4e9a5c5bada227ebe, type: 2}
+  spell: {fileID: 11400000, guid: 8642ff4ebf6d0644fbb07ad3d8326919, type: 2}
