@@ -80,9 +80,9 @@ namespace SzymonPeszek.PlayerScripts
         {
             if (!currentQuests.Contains(quest))
             {
-                if(mainQuests.Any(p => p.quest = quest))
+                if(mainQuests.Any(p => p.quest == quest))
                 {
-                    int prevId = mainQuests.Find(p => p.quest = quest).prevQuestId;
+                    int prevId = mainQuests.Find(p => p.quest == quest).prevQuestId;
 
                     if (prevId < 0)
                     {
@@ -147,9 +147,8 @@ namespace SzymonPeszek.PlayerScripts
             if (mainQuests.Any(q => q.quest == quest))
             {
                 Debug.Log("QuestManager: CompleteQuest - quest found");
-                QuestContainer q = mainQuests.First(p => p.quest == quest);
-                q.isCompleted = true;
-                SettingsHolder.worldManager.quests[q.questId].isCompleted = true;
+                mainQuests.First(p => p.quest == quest).isCompleted = true;
+                SettingsHolder.worldManager.quests[mainQuests.First(p => p.quest == quest).questId].isCompleted = true;
 
                 if (quest.switchActiveStateOnComplete.Count > 0)
                 {

@@ -4142,6 +4142,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372402473}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &446551191 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7583125289180390783, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
+  m_PrefabInstance: {fileID: 204355851}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &472806041
 GameObject:
   m_ObjectHideFlags: 0
@@ -5201,6 +5212,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4966070491420200268, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
+      propertyPath: shieldIcon
+      value: 
+      objectReference: {fileID: 446551191}
+    - target: {fileID: 4966070491420200268, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
+      propertyPath: weaponIcon
+      value: 
+      objectReference: {fileID: 1533942439}
     - target: {fileID: 4966070491420200269, guid: af9c25b9d53bc6144b03db375a32366f, type: 3}
       propertyPath: cameraHandler
       value: 
@@ -7362,6 +7381,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532228149}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1533942439 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5688642829740836464, guid: 84da8b3a542b35048a10f9ce890833ea, type: 3}
+  m_PrefabInstance: {fileID: 204355851}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1584577926
 PrefabInstance:
   m_ObjectHideFlags: 0
