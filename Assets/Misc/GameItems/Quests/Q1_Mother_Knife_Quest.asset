@@ -21,10 +21,15 @@ MonoBehaviour:
   isEnemyQuest: 0
   enemyToKillName: 
   enemyToKillCount: 0
+  isEndingNotInGiver: 0
+  giverNpcId: 
   moneyReward: 10
   rewardItems: []
-  activateOnGive: []
-  activateOnComplete: []
+  switchActiveStateOnGive: []
+  switchActiveStateOnComplete:
+  - TestDeActive
+  - TestActive
+  - Q2_Potion
   changeToNextDialogueOnGive: []
   changeToNextDialogueOnComplete:
   - Governor

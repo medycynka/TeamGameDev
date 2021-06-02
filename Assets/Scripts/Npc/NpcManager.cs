@@ -46,7 +46,19 @@ namespace SzymonPeszek.Npc
                 }
                 else
                 {
-                    return currentMainQuest.quest;
+                    if (currentMainQuest.prevQuestId < -1)
+                    {
+                        return currentMainQuest.quest;
+                    }
+                    
+                    if (QuestManager.instance.mainQuests.Any(q => q.questId == currentMainQuest.prevQuestId))
+                    {
+                        if (QuestManager.instance.mainQuests.First(q => q.questId == currentMainQuest.prevQuestId)
+                            .isCompleted)
+                        {
+                            return currentMainQuest.quest;
+                        }
+                    }
                 }
             }
 

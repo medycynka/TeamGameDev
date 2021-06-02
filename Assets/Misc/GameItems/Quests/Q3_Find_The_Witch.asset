@@ -19,7 +19,7 @@ MonoBehaviour:
     mieszka\u0144c\xF3w miasta lub pozwiedza\u0107."
   isItemQuest: 0
   taskItem: {fileID: 0}
-  taskItemAmount: 1
+  taskItemAmount: 0
   isEnemyQuest: 1
   enemyToKillName: Q3_CircleGuardian
   enemyToKillCount: 1
