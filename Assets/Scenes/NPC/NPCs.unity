@@ -11042,13 +11042,13 @@ MonoBehaviour:
   dialogueDataContainer:
   - dialogueId: 0
     isCompleted: 0
-    dialogueData: {fileID: 11400000, guid: 62875e7ce02aaa94880d3254697a6490, type: 2}
+    dialogueData: {fileID: 11400000, guid: 3394ef5c4cf34ad4ba047847c7e3da57, type: 2}
   dialogueUiManager: {fileID: 1670588496}
   isQuestGiven: 0
   currentDialogue:
     dialogueId: 0
     isCompleted: 0
-    dialogueData: {fileID: 11400000, guid: 62875e7ce02aaa94880d3254697a6490, type: 2}
+    dialogueData: {fileID: 11400000, guid: 3394ef5c4cf34ad4ba047847c7e3da57, type: 2}
   dialogueMapKeys: []
   dialogueMapValues: []
   npcManager: {fileID: 0}
