@@ -26,10 +26,7 @@ MonoBehaviour:
   moneyReward: 10
   rewardItems: []
   switchActiveStateOnGive: []
-  switchActiveStateOnComplete:
-  - TestDeActive
-  - TestActive
-  - Q2_Potion
+  switchActiveStateOnComplete: []
   changeToNextDialogueOnGive: []
   changeToNextDialogueOnComplete:
   - Governor
