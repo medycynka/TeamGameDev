@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using SzymonPeszek.Environment;
 using SzymonPeszek.Npc;
 using SzymonPeszek.Quests;
 using SzymonPeszek.SaveScripts;
@@ -19,6 +20,7 @@ namespace SzymonPeszek.PlayerScripts
         public List<QuestContainer> sideQuests = new List<QuestContainer>();
         public List<Quest> currentQuests = new List<Quest>();
         public Dictionary<string, NpcInteractionManager> npcMap;
+        public Dictionary<string, SwitchObjectActiveState> objectsSwitchingMap;
 
         private static QuestManager _instance;
 
@@ -46,8 +48,8 @@ namespace SzymonPeszek.PlayerScripts
             }
 
             npcMap = new Dictionary<string, NpcInteractionManager>();
-            NpcInteractionManager[] tmp = FindObjectsOfType<NpcInteractionManager>();
-            foreach(NpcInteractionManager npc in tmp)
+            NpcInteractionManager[] tmpIm = FindObjectsOfType<NpcInteractionManager>();
+            foreach(NpcInteractionManager npc in tmpIm)
             {
                 if (npc.npcManager != null)
                 {
@@ -65,6 +67,13 @@ namespace SzymonPeszek.PlayerScripts
                     }
                 }
             }
+
+            objectsSwitchingMap = new Dictionary<string, SwitchObjectActiveState>();
+            SwitchObjectActiveState[] tmpSo = FindObjectsOfType<SwitchObjectActiveState>();
+            foreach (SwitchObjectActiveState objectToSwitch in tmpSo)
+            {
+                objectsSwitchingMap.Add(objectToSwitch.objectId, objectToSwitch);
+            }
         }
 
         public void AddNewQuest(Quest quest)
@@ -79,11 +88,11 @@ namespace SzymonPeszek.PlayerScripts
                     {
                         currentQuests.Add(quest);
                         
-                        if (quest.activateOnGive.Count > 0)
+                        if (quest.switchActiveStateOnGive.Count > 0)
                         {
-                            foreach (GameObject toActivate in quest.activateOnGive)
+                            foreach (string oId in quest.switchActiveStateOnGive)
                             {
-                                toActivate.SetActive(true);
+                                objectsSwitchingMap[oId].SwitchActiveState();
                             }
                         }
                         
@@ -106,11 +115,11 @@ namespace SzymonPeszek.PlayerScripts
                         {
                             currentQuests.Add(quest);
 
-                            if (quest.activateOnGive.Count > 0)
+                            if (quest.switchActiveStateOnGive.Count > 0)
                             {
-                                foreach (GameObject toActivate in quest.activateOnGive)
+                                foreach (string oId in quest.switchActiveStateOnGive)
                                 {
-                                    toActivate.SetActive(true);
+                                    objectsSwitchingMap[oId].SwitchActiveState();
                                 }
                             }
 
@@ -142,11 +151,14 @@ namespace SzymonPeszek.PlayerScripts
                 q.isCompleted = true;
                 SettingsHolder.worldManager.quests[q.questId].isCompleted = true;
 
-                if (quest.activateOnComplete.Count > 0)
+                if (quest.switchActiveStateOnComplete.Count > 0)
                 {
-                    foreach (GameObject toActivate in quest.activateOnComplete)
+                    Debug.Log("Activating objects...");
+                    foreach (string oId in quest.switchActiveStateOnComplete)
                     {
-                        toActivate.SetActive(true);
+                        Debug.Log($"{(objectsSwitchingMap[oId].currentActiveState ? "Deactivating" : "Activating")} {oId}");
+                        objectsSwitchingMap[oId].SwitchActiveState();
+                        Debug.Log($"{(objectsSwitchingMap[oId].currentActiveState ? "Activated" : "Deactivated")} {oId}");
                     }
                 }
 

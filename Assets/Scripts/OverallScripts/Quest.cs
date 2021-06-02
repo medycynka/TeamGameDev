@@ -32,8 +32,8 @@ namespace SzymonPeszek.Quests
         public Item[] rewardItems;
 
         [Header("Objects activated at quest get/complete", order = 1)]
-        public List<GameObject> activateOnGive = new List<GameObject>();
-        public List<GameObject> activateOnComplete = new List<GameObject>();
+        public List<string> switchActiveStateOnGive = new List<string>();
+        public List<string> switchActiveStateOnComplete = new List<string>();
 
         [Header("Npc which dialogue should be change to next one on get/complete", order = 1)]
         public List<string> changeToNextDialogueOnGive = new List<string>();

@@ -16,8 +16,7 @@ MonoBehaviour:
   itemName: Unarmed
   itemId: 11
   itemType: 0
-  modelPrefab: {fileID: 8638161128593808972, guid: b16e888c6532fe14b9801f061750562b,
-    type: 3}
+  modelPrefab: {fileID: 8638161128593808972, guid: b16e888c6532fe14b9801f061750562b, type: 3}
   isUnarmed: 1
   pivotPositionTransform: {x: 0, y: 0, z: 0}
   pivotRotationTransform: {x: 0, y: 0, z: 0}
@@ -28,6 +27,7 @@ MonoBehaviour:
   lightAttackDamageMult: 1
   heavyAttackDamageMult: 1.5
   criticalDamageMult: 2.5
+  physicalDamageAbsorption: 2
   weight: 0
   durability: 0
   rightHandIdle: Right Arm Empty
@@ -49,7 +49,7 @@ MonoBehaviour:
   ohHeavyAttackMultiplier: 0
   thLightAttackMultiplier: 0
   thHeavyAttackMultiplier: 0
-  weaponType: 0
+  weaponType: 3
   meleeType: 9
   castingType: 3
   shootingType: 3
