@@ -29,6 +29,7 @@ MonoBehaviour:
   switchActiveStateOnComplete:
   - TestDeActive
   - TestActive
+  - Q2_Potion
   changeToNextDialogueOnGive: []
   changeToNextDialogueOnComplete:
   - Governor
