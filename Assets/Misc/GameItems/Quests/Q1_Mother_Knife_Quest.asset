@@ -27,8 +27,6 @@ MonoBehaviour:
   rewardItems: []
   switchActiveStateOnGive: []
   switchActiveStateOnComplete:
-  - TestDeActive
-  - TestActive
   - Q2_Potion
   changeToNextDialogueOnGive: []
   changeToNextDialogueOnComplete:
