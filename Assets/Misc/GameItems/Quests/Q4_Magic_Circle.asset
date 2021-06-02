@@ -27,6 +27,7 @@ MonoBehaviour:
   moneyReward: 10
   rewardItems: []
   activateOnGive: []
-  activateOnComplete: []
+  activateOnComplete:
+  - {fileID: 7729521078616892360, guid: 550fb11e9a836694797f1840084da7dc, type: 3}
   changeToNextDialogueOnGive: []
   changeToNextDialogueOnComplete: []
