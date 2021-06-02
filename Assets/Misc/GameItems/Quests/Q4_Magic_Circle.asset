@@ -27,7 +27,6 @@ MonoBehaviour:
   moneyReward: 10
   rewardItems: []
   switchActiveStateOnGive: []
-  switchActiveStateOnComplete:
-  - TeleportMainLand
+  switchActiveStateOnComplete: []
   changeToNextDialogueOnGive: []
   changeToNextDialogueOnComplete: []
