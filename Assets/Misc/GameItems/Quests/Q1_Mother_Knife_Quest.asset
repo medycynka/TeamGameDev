@@ -27,8 +27,8 @@ MonoBehaviour:
   rewardItems: []
   switchActiveStateOnGive: []
   switchActiveStateOnComplete:
-  - {fileID: 7318239757053674600, guid: 1bcac1c7775afb341806507bfd707946, type: 3}
-  - {fileID: 6106721186083832213, guid: 66d2120ad003be44786344ad9e13051d, type: 3}
+  - TestDeActive
+  - TestActive
   changeToNextDialogueOnGive: []
   changeToNextDialogueOnComplete:
   - Governor

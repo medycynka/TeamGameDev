@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using SzymonPeszek.Environment;
 using SzymonPeszek.Npc;
 using SzymonPeszek.Quests;
 using SzymonPeszek.SaveScripts;
@@ -19,6 +20,7 @@ namespace SzymonPeszek.PlayerScripts
         public List<QuestContainer> sideQuests = new List<QuestContainer>();
         public List<Quest> currentQuests = new List<Quest>();
         public Dictionary<string, NpcInteractionManager> npcMap;
+        public Dictionary<string, SwitchObjectActiveState> objectsSwitchingMap;
 
         private static QuestManager _instance;
 
@@ -46,8 +48,8 @@ namespace SzymonPeszek.PlayerScripts
             }
 
             npcMap = new Dictionary<string, NpcInteractionManager>();
-            NpcInteractionManager[] tmp = FindObjectsOfType<NpcInteractionManager>();
-            foreach(NpcInteractionManager npc in tmp)
+            NpcInteractionManager[] tmpIm = FindObjectsOfType<NpcInteractionManager>();
+            foreach(NpcInteractionManager npc in tmpIm)
             {
                 if (npc.npcManager != null)
                 {
@@ -65,6 +67,13 @@ namespace SzymonPeszek.PlayerScripts
                     }
                 }
             }
+
+            objectsSwitchingMap = new Dictionary<string, SwitchObjectActiveState>();
+            SwitchObjectActiveState[] tmpSo = FindObjectsOfType<SwitchObjectActiveState>();
+            foreach (SwitchObjectActiveState objectToSwitch in tmpSo)
+            {
+                objectsSwitchingMap.Add(objectToSwitch.objectId, objectToSwitch);
+            }
         }
 
         public void AddNewQuest(Quest quest)
@@ -81,9 +90,9 @@ namespace SzymonPeszek.PlayerScripts
                         
                         if (quest.switchActiveStateOnGive.Count > 0)
                         {
-                            foreach (GameObject toActivate in quest.switchActiveStateOnGive)
+                            foreach (string oId in quest.switchActiveStateOnGive)
                             {
-                                toActivate.SetActive(!toActivate.activeSelf);
+                                objectsSwitchingMap[oId].SwitchActiveState();
                             }
                         }
                         
@@ -108,9 +117,9 @@ namespace SzymonPeszek.PlayerScripts
 
                             if (quest.switchActiveStateOnGive.Count > 0)
                             {
-                                foreach (GameObject toActivate in quest.switchActiveStateOnGive)
+                                foreach (string oId in quest.switchActiveStateOnGive)
                                 {
-                                    toActivate.SetActive(!toActivate.activeSelf);
+                                    objectsSwitchingMap[oId].SwitchActiveState();
                                 }
                             }
 
@@ -145,10 +154,11 @@ namespace SzymonPeszek.PlayerScripts
                 if (quest.switchActiveStateOnComplete.Count > 0)
                 {
                     Debug.Log("Activating objects...");
-                    foreach (GameObject toActivate in quest.switchActiveStateOnComplete)
+                    foreach (string oId in quest.switchActiveStateOnComplete)
                     {
-                        Debug.Log($"{(toActivate.activeSelf ? "Deactivating" : "Activating")} {toActivate.name}");
-                        toActivate.SetActive(!toActivate.activeSelf);
+                        Debug.Log($"{(objectsSwitchingMap[oId].currentActiveState ? "Deactivating" : "Activating")} {oId}");
+                        objectsSwitchingMap[oId].SwitchActiveState();
+                        Debug.Log($"{(objectsSwitchingMap[oId].currentActiveState ? "Activated" : "Deactivated")} {oId}");
                     }
                 }
 
