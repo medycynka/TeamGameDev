@@ -4396,7 +4396,9 @@ MonoBehaviour:
   rightWeapon: {fileID: 11400000, guid: e628e226889a60f46bef691624ac7789, type: 2}
   leftWeapon: {fileID: 11400000, guid: 4452ceaeb82267747aa82f670193e40d, type: 2}
   unarmedWeapon: {fileID: 11400000, guid: 179a4f0368fb0c64c8a791d4150536d1, type: 2}
-  currentSpell: {fileID: 11400000, guid: 66ee5fb93f78d574ea574991e1063037, type: 2}
+  weaponIcon: {fileID: 0}
+  shieldIcon: {fileID: 0}
+  currentSpell: {fileID: 11400000, guid: 2b9064889006580449f2f9bfeb2eaf63, type: 2}
   weaponsInRightHandSlots:
   - {fileID: 11400000, guid: e628e226889a60f46bef691624ac7789, type: 2}
   - {fileID: 11400000, guid: b4bfca7ae14a20d409431db3ec18aa0c, type: 2}
