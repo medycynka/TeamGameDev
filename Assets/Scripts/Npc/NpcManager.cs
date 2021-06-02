@@ -31,10 +31,13 @@ namespace SzymonPeszek.Npc
 
         public Quest GiveMainQuest()
         {
+            if (!currentMainQuest.isCompleted)
+            {
+                return currentMainQuest.quest;
+            }
             if (mainQuests.Any(q => !q.isCompleted))
             {
                 if (currentMainQuest.isCompleted && 
-                    mainQuests.Any(q => !q.isCompleted) && 
                     QuestManager.instance.mainQuests.Any(q => !q.isCompleted))
                 {
                     currentMainQuest = mainQuests.First(q => !q.isCompleted);
