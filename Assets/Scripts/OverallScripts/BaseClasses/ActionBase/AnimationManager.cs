@@ -42,6 +42,22 @@ namespace SzymonPeszek.BaseClasses
             anim.SetBool(isEnemy ? StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.IsInteractingName] : StaticAnimatorIds.animationIds[StaticAnimatorIds.IsInteractingName], isInteracting);
             anim.CrossFade(targetAnim, 0.2f);
         }
+        
+        public void PlayTargetAnimationWithRootRotation(string targetAnim, bool isInteracting)
+        {
+            anim.applyRootMotion = isInteracting;
+            anim.SetBool(isEnemy ? StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.IsRotatingWithRootMotionName] : StaticAnimatorIds.animationIds[StaticAnimatorIds.IsRotatingWithRootMotionName], true);
+            anim.SetBool(isEnemy ? StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.IsInteractingName] : StaticAnimatorIds.animationIds[StaticAnimatorIds.IsInteractingName], isInteracting);
+            anim.CrossFade(targetAnim, 0.2f);
+        }
+        
+        public void PlayTargetAnimationWithRootRotation(int targetAnim, bool isInteracting)
+        {
+            anim.applyRootMotion = isInteracting;
+            anim.SetBool(isEnemy ? StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.IsRotatingWithRootMotionName] : StaticAnimatorIds.animationIds[StaticAnimatorIds.IsRotatingWithRootMotionName], true);
+            anim.SetBool(isEnemy ? StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.IsInteractingName] : StaticAnimatorIds.animationIds[StaticAnimatorIds.IsInteractingName], isInteracting);
+            anim.CrossFade(targetAnim, 0.2f);
+        }
 
         /// <summary>
         /// Get back stabbed or riposted

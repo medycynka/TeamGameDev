@@ -38,6 +38,7 @@ namespace SzymonPeszek.EnemyScripts.Animations
                     {StaticAnimatorIds.IsDeadName, Animator.StringToHash(StaticAnimatorIds.IsDeadName)},
                     {StaticAnimatorIds.IsInAirName, Animator.StringToHash(StaticAnimatorIds.IsInAirName)},
                     {StaticAnimatorIds.CanRotateName, Animator.StringToHash(StaticAnimatorIds.CanRotateName)},
+                    {StaticAnimatorIds.IsRotatingWithRootMotionName, Animator.StringToHash(StaticAnimatorIds.IsRotatingWithRootMotionName)},
                     {StaticAnimatorIds.EmptyName, Animator.StringToHash(StaticAnimatorIds.EmptyName)},
                     {StaticAnimatorIds.Damage01Name, Animator.StringToHash(StaticAnimatorIds.Damage01Name)},
                     {StaticAnimatorIds.Death01Name, Animator.StringToHash(StaticAnimatorIds.Death01Name)},
@@ -72,7 +73,10 @@ namespace SzymonPeszek.EnemyScripts.Animations
                     {StaticAnimatorIds.ParriedName, Animator.StringToHash(StaticAnimatorIds.ParriedName)}, 
                     {StaticAnimatorIds.BlockDamageName, Animator.StringToHash(StaticAnimatorIds.BlockDamageName)},
                     {StaticAnimatorIds.FireballSpell, Animator.StringToHash(StaticAnimatorIds.FireballSpell)},
-                    {StaticAnimatorIds.Summon, Animator.StringToHash(StaticAnimatorIds.Summon)}
+                    {StaticAnimatorIds.Summon, Animator.StringToHash(StaticAnimatorIds.Summon)},
+                    {StaticAnimatorIds.TurnBehindName, Animator.StringToHash(StaticAnimatorIds.TurnBehindName)},
+                    {StaticAnimatorIds.TurnRightName, Animator.StringToHash(StaticAnimatorIds.TurnRightName)},
+                    {StaticAnimatorIds.TurnLeftName, Animator.StringToHash(StaticAnimatorIds.TurnLeftName)}
                 };
             }
 
@@ -94,6 +98,11 @@ namespace SzymonPeszek.EnemyScripts.Animations
             else
             {
                 _enemyManager.enemyRigidBody.velocity = Vector3.zero;
+            }
+
+            if (_enemyManager.isRotatingWithRootMotion)
+            {
+                _enemyManager.characterTransform.rotation *= anim.deltaRotation;
             }
         }
         

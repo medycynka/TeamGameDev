@@ -22,6 +22,9 @@ namespace SzymonPeszek.BaseClasses
         public bool canBeParried;
         public bool isParrying;
         public bool isBlocking;
+        
+        [Header("Movement Flags", order = 1)]
+        public bool isRotatingWithRootMotion;
 
         [Header("Combat Colliders", order = 1)]
         public Transform characterTransform;
