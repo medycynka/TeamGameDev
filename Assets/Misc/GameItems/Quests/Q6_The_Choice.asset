@@ -14,16 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: "Z rodzin\u0105 najlepiej na obrazie?"
   questTaskText: "Ciotka wyzna\u0142a mi prawd\u0119 o pochodzeniu bariery. Musz\u0119
-    pom\xF3wi\u0107 z babci\u0105. Je\u015Bli to jej sprawka, to przywr\xF3ci dzie\u0144!"
-  isItemQuest: 0
-  taskItem: {fileID: 0}
+    pom\xF3wi\u0107 z mam\u0105. Je\u015Bli to sprawka babci, to musi zna\u0107 prawd\u0119.
+    Mo\u017Ce mi nawet doradzi. Nie wiem co robi\u0107 dalej..."
+  isItemQuest: 1
+  taskItem: {fileID: 11400000, guid: d78c943de4912a74e9865262c3a1252a, type: 2}
   taskItemAmount: 1
   isEnemyQuest: 0
   enemyToKillName: 
   enemyToKillCount: 0
+  isEndingNotInGiver: 1
+  giverNpcId: Witch
   moneyReward: 10
   rewardItems: []
-  activateOnGive: []
-  activateOnComplete: []
-  changeToNextDialogueOnGive: []
-  changeToNextDialogueOnComplete: []
+  switchActiveStateOnGive: []
+  switchActiveStateOnComplete:
+  - Quest_Rock
+  - Mother
+  - MotherEnding
+  changeToNextDialogueOnGive:
+  - Mother
+  changeToNextDialogueOnComplete:
+  - Grandma

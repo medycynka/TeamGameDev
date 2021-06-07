@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Witch_Quest_3_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: c4416039-d4a4-4134-bd54-cb3d686f00cb
+    portName: Next
+    targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+  - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    portName: "Ratuj\u0119 i dlatego wci\u0105\u017C tu jestem!"
+    targetNodeGuid: 80ea23ac-0742-4a19-8949-bc72fe7bbf9c
+  - baseNodeGuid: 80ea23ac-0742-4a19-8949-bc72fe7bbf9c
+    portName: "Chc\u0119 z Tob\u0105 pom\xF3wi\u0107 o li\u015Bcie od Elianny."
+    targetNodeGuid: 09f60e0c-34ea-4820-9f2a-d0e7845eb963
+  - baseNodeGuid: 09f60e0c-34ea-4820-9f2a-d0e7845eb963
+    portName: "By\u0142 zakopany pod wie\u017C\u0105. Chc\u0119 Ci go da\u0107."
+    targetNodeGuid: e9a368d5-d078-4376-ad0d-9dc3aa272be1
+  - baseNodeGuid: e9a368d5-d078-4376-ad0d-9dc3aa272be1
+    portName: "Ile to b\u0119dzie trwa\u0107?"
+    targetNodeGuid: 62ab8d52-6eb5-455a-ae5e-1f3bdae8ee19
+  - baseNodeGuid: e9a368d5-d078-4376-ad0d-9dc3aa272be1
+    portName: "Czy mo\u017Cesz zdj\u0105\u0107 kopu\u0142\u0119?"
+    targetNodeGuid: 71c4cf95-2f46-4edb-b611-f9bbfb6eb238
+  - baseNodeGuid: 71c4cf95-2f46-4edb-b611-f9bbfb6eb238
+    portName: "Nie mog\u0119 Ci przynie\u015B\u0107 jakiego\u015B kryszta\u0142u,
+      \u017Ceby\u015B mia\u0142a wi\u0119cej si\u0142y?"
+    targetNodeGuid: 63d00cf6-b728-4b78-a096-37f6f8060cd4
+  - baseNodeGuid: 71c4cf95-2f46-4edb-b611-f9bbfb6eb238
+    portName: Nie ma innego sposobu?
+    targetNodeGuid: 63d00cf6-b728-4b78-a096-37f6f8060cd4
+  - baseNodeGuid: 71c4cf95-2f46-4edb-b611-f9bbfb6eb238
+    portName: "Wiesz kto jest rzucaj\u0105cym?"
+    targetNodeGuid: 5dbd5ec8-c635-48f9-b2ed-2977a644b66a
+  - baseNodeGuid: 62ab8d52-6eb5-455a-ae5e-1f3bdae8ee19
+    portName: "Wi\u0119c musz\u0119 zabi\u0107 jednego z mag\xF3w? Proste."
+    targetNodeGuid: e82bcdbd-896f-4ee3-9abb-bf63dbf5394f
+  - baseNodeGuid: 62ab8d52-6eb5-455a-ae5e-1f3bdae8ee19
+    portName: "Wiesz kto rzuci\u0142 czar?"
+    targetNodeGuid: 5dbd5ec8-c635-48f9-b2ed-2977a644b66a
+  - baseNodeGuid: 63d00cf6-b728-4b78-a096-37f6f8060cd4
+    portName: "Dobrze, to kto rzuci\u0142 ten czar?"
+    targetNodeGuid: 5dbd5ec8-c635-48f9-b2ed-2977a644b66a
+  - baseNodeGuid: e82bcdbd-896f-4ee3-9abb-bf63dbf5394f
+    portName: "Kto stworzy\u0142 kopu\u0142\u0119?"
+    targetNodeGuid: 5dbd5ec8-c635-48f9-b2ed-2977a644b66a
+  - baseNodeGuid: 5dbd5ec8-c635-48f9-b2ed-2977a644b66a
+    portName: Ale...dlaczego?
+    targetNodeGuid: fecda489-a650-4952-8e70-dc25e6edde94
+  - baseNodeGuid: fecda489-a650-4952-8e70-dc25e6edde94
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: 3f03f102-9698-4897-86e9-72b26822f1dd
+  dialogueNodeData:
+  - nodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    dialogueText: "Jeszcze tu jeste\u015B? My\u015Bla\u0142am, \u017Ce ratujesz Surbm\u0119."
+    nodePosition: {x: 408, y: 156}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 80ea23ac-0742-4a19-8949-bc72fe7bbf9c
+    dialogueText: Niezwykle skutecznie...
+    nodePosition: {x: 1106, y: 33}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 09f60e0c-34ea-4820-9f2a-d0e7845eb963
+    dialogueText: "Sk\u0105d to masz?!"
+    nodePosition: {x: 1638, y: 20}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: e9a368d5-d078-4376-ad0d-9dc3aa272be1
+    dialogueText: "Dawno go zgubi\u0142am... Niech b\u0119dzie. Odpowiem na Twoje
+      pytania."
+    nodePosition: {x: 2139, y: -8}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 71c4cf95-2f46-4edb-b611-f9bbfb6eb238
+    dialogueText: "Nie mog\u0119 jej zdj\u0105\u0107. To stary czar, kt\xF3ry musi
+      zdj\u0105\u0107 rzucajacy."
+    nodePosition: {x: 2906, y: -220}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 62ab8d52-6eb5-455a-ae5e-1f3bdae8ee19
+    dialogueText: "Tak d\u0142ugo, jak chce tego mag lub do jego \u015Bmierci."
+    nodePosition: {x: 2946, y: -33}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 63d00cf6-b728-4b78-a096-37f6f8060cd4
+    dialogueText: "To tak nie dzia\u0142a."
+    nodePosition: {x: 3657, y: -234}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: e82bcdbd-896f-4ee3-9abb-bf63dbf5394f
+    dialogueText: "Nie s\u0105dz\u0119, aby to by\u0142o takie proste."
+    nodePosition: {x: 3657, y: -55}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 5dbd5ec8-c635-48f9-b2ed-2977a644b66a
+    dialogueText: "Twoja babcia, Anrianna rzuci\u0142a ten czar."
+    nodePosition: {x: 4244, y: -154}
+    isQuestGiver: 1
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: fecda489-a650-4952-8e70-dc25e6edde94
+    dialogueText: "O to musisz podpyta\u0107 sam\u0105 Anriann\u0119, ale ja mog\u0119
+      da\u0107 Ci te listy. Nie pytaj sk\u0105d je mam."
+    nodePosition: {x: 4877, y: -255}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 1
+  - nodeGuid: 3f03f102-9698-4897-86e9-72b26822f1dd
+    dialogueText: Dialogue Node
+    nodePosition: {x: 5787, y: -246}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  exposedProperties:
+  - propertyName: New String
+    propertyValue: New Value
+  commentBlockData: []

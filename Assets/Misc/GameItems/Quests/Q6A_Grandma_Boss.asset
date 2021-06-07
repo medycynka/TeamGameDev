@@ -16,15 +16,17 @@ MonoBehaviour:
   questTaskText: "Nie mog\u0119 uwierzy\u0107, \u017Ce babcia chcia\u0142a pozby\u0107
     si\u0119 taty! Jak ona mog\u0142a mi to zrobi\u0107!? Je\u015Bli chc\u0119 przywr\xF3ci\u0107
     dzie\u0144, to nie mam innego wyj\u015Bcia. \u017Begnaj, babciu...\n"
-  isItemQuest: 0
+  isItemQuest: 1
   taskItem: {fileID: 0}
   taskItemAmount: 1
   isEnemyQuest: 0
   enemyToKillName: 
   enemyToKillCount: 0
+  isEndingNotInGiver: 0
+  giverNpcId: 
   moneyReward: 10
   rewardItems: []
-  activateOnGive: []
-  activateOnComplete: []
+  switchActiveStateOnGive: []
+  switchActiveStateOnComplete: []
   changeToNextDialogueOnGive: []
   changeToNextDialogueOnComplete: []

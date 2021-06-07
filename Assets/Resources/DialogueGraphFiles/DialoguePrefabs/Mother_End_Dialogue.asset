@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Mother_End_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: b7e7f6d4-26c9-44ec-b55f-531b0a1aec97
+    portName: Next
+    targetNodeGuid: 71bc961e-bd4e-483c-b4b7-506ded79591e
+  - baseNodeGuid: 71bc961e-bd4e-483c-b4b7-506ded79591e
+    portName: "Wszystko w porz\u0105dku mamo?"
+    targetNodeGuid: d05e51d4-de46-4893-92c5-86acf3eff34b
+  - baseNodeGuid: 71bc961e-bd4e-483c-b4b7-506ded79591e
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: de1fd4d2-e0d7-4381-afd3-0c52a2b45f38
+  - baseNodeGuid: d05e51d4-de46-4893-92c5-86acf3eff34b
+    portName: "[Musz\u0119 co\u015B zrobi\u0107. Mo\u017Ce poszuka\u0107 ojca? Albo
+      zmierzy\u0107 si\u0119 z babci\u0105!]"
+    targetNodeGuid: de1fd4d2-e0d7-4381-afd3-0c52a2b45f38
+  dialogueNodeData:
+  - nodeGuid: 71bc961e-bd4e-483c-b4b7-506ded79591e
+    dialogueText: ...
+    nodePosition: {x: 378, y: 192}
+    isQuestGiver: 0
+    isQuestCompleter: 1
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: d05e51d4-de46-4893-92c5-86acf3eff34b
+    dialogueText: "Musz\u0119 to przemy\u015Ble\u0107. Prosz\u0119...zostaw mnie."
+    nodePosition: {x: 789, y: 83}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: de1fd4d2-e0d7-4381-afd3-0c52a2b45f38
+    dialogueText: Dialogue Node
+    nodePosition: {x: 911, y: 312}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  exposedProperties: []
+  commentBlockData: []

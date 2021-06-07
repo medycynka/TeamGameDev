@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Witch_Quest_4_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: c4416039-d4a4-4134-bd54-cb3d686f00cb
+    portName: Next
+    targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+  - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    portName: "Teraz to ju\u017C nie wiem co robi\u0107..."
+    targetNodeGuid: 80ea23ac-0742-4a19-8949-bc72fe7bbf9c
+  - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: c3ba9585-65df-4a11-8e72-422f9acd02a0
+  - baseNodeGuid: 80ea23ac-0742-4a19-8949-bc72fe7bbf9c
+    portName: "Tak. Nie wiem co mam zrobi\u0107."
+    targetNodeGuid: e964cfc5-dd09-45ff-9ed4-b5008ac6cdd5
+  - baseNodeGuid: e964cfc5-dd09-45ff-9ed4-b5008ac6cdd5
+    portName: "Czy musz\u0119 wybiera\u0107?"
+    targetNodeGuid: 5a4ed828-d49c-45c8-ae94-4c19d3022901
+  - baseNodeGuid: 5a4ed828-d49c-45c8-ae94-4c19d3022901
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: c3ba9585-65df-4a11-8e72-422f9acd02a0
+  - baseNodeGuid: e964cfc5-dd09-45ff-9ed4-b5008ac6cdd5
+    portName: "Babcia. Ojciec niepotrzebnie obwinia j\u0105 o naturalne sprawy."
+    targetNodeGuid: 1832d15b-081a-4a23-af85-d1fcc71cf64b
+  - baseNodeGuid: e964cfc5-dd09-45ff-9ed4-b5008ac6cdd5
+    portName: "Ojciec. Babcia ju\u017C przecie\u017C wcze\u015Bniej u\u017Cywa\u0142a
+      magii!"
+    targetNodeGuid: 9646597e-aecf-47c4-b1a6-3db6350766f4
+  - baseNodeGuid: 1832d15b-081a-4a23-af85-d1fcc71cf64b
+    portName: "Czemu za ka\u017Cdym razem jak Ci odpowiem, to podwa\u017Casz moj\u0105
+      opini\u0119?"
+    targetNodeGuid: 331a4cfc-603e-4f13-9338-4e28a1eced1a
+  - baseNodeGuid: 9646597e-aecf-47c4-b1a6-3db6350766f4
+    portName: "Czemu za ka\u017Cdym razem jak Ci odpowiem, to podwa\u017Casz moj\u0105
+      opini\u0119?"
+    targetNodeGuid: 331a4cfc-603e-4f13-9338-4e28a1eced1a
+  - baseNodeGuid: 331a4cfc-603e-4f13-9338-4e28a1eced1a
+    portName: Jakie to ma znaczenie?
+    targetNodeGuid: 34d0f4d0-a6a9-429b-8ecc-f94ba061d4f0
+  - baseNodeGuid: 331a4cfc-603e-4f13-9338-4e28a1eced1a
+    portName: "Co je\u015Bli nie chc\u0119 nigdy zdecydowa\u0107?"
+    targetNodeGuid: 828933ed-92c1-417c-a16e-4be4e6c93191
+  - baseNodeGuid: 331a4cfc-603e-4f13-9338-4e28a1eced1a
+    portName: "Przecie\u017C mog\u0105 si\u0119 pogodzi\u0107."
+    targetNodeGuid: 8fe1be75-0384-4778-b8e1-04a38023f20b
+  - baseNodeGuid: 34d0f4d0-a6a9-429b-8ecc-f94ba061d4f0
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: 002ce61a-a247-461d-994f-71a85d8488d5
+  - baseNodeGuid: 828933ed-92c1-417c-a16e-4be4e6c93191
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: 002ce61a-a247-461d-994f-71a85d8488d5
+  - baseNodeGuid: 8fe1be75-0384-4778-b8e1-04a38023f20b
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: 002ce61a-a247-461d-994f-71a85d8488d5
+  dialogueNodeData:
+  - nodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    dialogueText: "Jeszcze tu jeste\u015B? My\u015Bla\u0142am, \u017Ce ratujesz Surbm\u0119."
+    nodePosition: {x: 408, y: 156}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 80ea23ac-0742-4a19-8949-bc72fe7bbf9c
+    dialogueText: Chodzi o listy?
+    nodePosition: {x: 1081, y: 25}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: c3ba9585-65df-4a11-8e72-422f9acd02a0
+    dialogueText: Dialogue Node
+    nodePosition: {x: 1149, y: 254}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  - nodeGuid: e964cfc5-dd09-45ff-9ed4-b5008ac6cdd5
+    dialogueText: "Hmmm. Kto ma racj\u0119 w tej sytuacji?"
+    nodePosition: {x: 1572, y: -71}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 5a4ed828-d49c-45c8-ae94-4c19d3022901
+    dialogueText: "Brak wyboru to te\u017C jaka\u015B decyzja."
+    nodePosition: {x: 1927, y: 160}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 1832d15b-081a-4a23-af85-d1fcc71cf64b
+    dialogueText: "Co je\u015Bli rzeczywi\u015Bcie spowodowa\u0142a utrat\u0119 ci\u0105\u017Cy?
+      Co je\u015Bli kolejne dziecko mog\u0142o by\u0107 kolejn\u0105 ofiar\u0105?"
+    nodePosition: {x: 2176, y: -214}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 9646597e-aecf-47c4-b1a6-3db6350766f4
+    dialogueText: "Ojciec te\u017C nie by\u0142 \u015Bwi\u0119ty. Ci\u0105g\u0142e
+      wyjazdy i problemy z agresj\u0105 mog\u0142y si\u0119 przyczyni\u0107 do naturalnego
+      poronienia."
+    nodePosition: {x: 2176, y: -46}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 331a4cfc-603e-4f13-9338-4e28a1eced1a
+    dialogueText: "Stoisz przed decyzj\u0105, kt\xF3ra mo\u017Ce na zawsze rozbi\u0107
+      Twoj\u0105 rodzin\u0119. Wola\u0142abym, aby by\u0142a przemy\u015Blana."
+    nodePosition: {x: 3178, y: -167}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 34d0f4d0-a6a9-429b-8ecc-f94ba061d4f0
+    dialogueText: "To pytanie, kt\xF3re musisz zada\u0107 sobie. Jakie ma dla Ciebie
+      znacznie rodzina?"
+    nodePosition: {x: 4144, y: -290}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 828933ed-92c1-417c-a16e-4be4e6c93191
+    dialogueText: "Nawet brak akcji jest decyzj\u0105. Bez wzgl\u0119du na to co
+      zrobisz, poniesiesz konsekwencje swojego wyboru. Chyba lepiej wierzy\u0107
+      w s\u0142uszno\u015B\u0107 swojej decyzji."
+    nodePosition: {x: 4168, y: -160}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 8fe1be75-0384-4778-b8e1-04a38023f20b
+    dialogueText: Powodzenia w godzeniu ich.
+    nodePosition: {x: 4179, y: -27}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 002ce61a-a247-461d-994f-71a85d8488d5
+    dialogueText: Dialogue Node
+    nodePosition: {x: 4968, y: 49}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  exposedProperties:
+  - propertyName: New String
+    propertyValue: New Value
+  commentBlockData: []

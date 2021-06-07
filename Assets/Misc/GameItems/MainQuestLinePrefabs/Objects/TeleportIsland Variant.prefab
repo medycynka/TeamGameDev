@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6009205798641019504
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4456760435809309742, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: uIManager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456760435809309742, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: teleportScreen
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456760435809309742, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456760435809309742, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: playerLocomotion
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456760435809309742, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: teleportDestination
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456760435809309742, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: playerAnimatorManager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670434461810414538, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670434462143542056, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670434463609233334, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: m_Name
+      value: TeleportIsland
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670434463609233334, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670434463609233334, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670434463609233335, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670434463609233335, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.836
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670434463609233335, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6864165
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670434463609233335, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.2332635
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670434463609233335, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670434463609233335, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670434463609233335, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670434463609233335, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670434463609233335, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670434463609233335, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670434463609233335, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 07e1ce7e921848748bd5c6f2394f8075, type: 3}

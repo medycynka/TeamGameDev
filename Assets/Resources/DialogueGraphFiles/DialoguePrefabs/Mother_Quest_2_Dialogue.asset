@@ -70,6 +70,9 @@ MonoBehaviour:
   - baseNodeGuid: 41309f14-f00f-4834-a022-3ec093b823dd
     portName: "Z kim mog\u0119 pom\xF3wi\u0107 o kopule?"
     targetNodeGuid: a618a84c-a658-4fab-ade3-dab610719782
+  - baseNodeGuid: a618a84c-a658-4fab-ade3-dab610719782
+    portName: Dobrze.
+    targetNodeGuid: 4a6c8834-f326-470e-ad18-e3bd28c9fefb
   dialogueNodeData:
   - nodeGuid: 85955fbd-53dd-4738-96cc-d3bbbad94878
     dialogueText: "S\u0142ucham."
@@ -182,7 +185,7 @@ MonoBehaviour:
       te\u017C mog\u0105 by\u0107 pomocni, nawet babcia! Czy mo\u017Cesz zanie\u015B\u0107
       so\u0142tysowi mikstur\u0119, kt\xF3r\u0105 dla niego przygotowa\u0142am? Zielona
       buteleczka w kuchni na stole."
-    nodePosition: {x: 2203, y: 349}
+    nodePosition: {x: 2196, y: 351}
     isQuestGiver: 1
     isQuestCompleter: 0
     isExit: 0

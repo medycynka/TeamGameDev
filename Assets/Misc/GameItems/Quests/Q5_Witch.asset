@@ -17,7 +17,7 @@ MonoBehaviour:
     nie bardzo chce nam pom\xF3c. Musz\u0119 znale\u017Ac spos\xF3b, jak j\u0105
     przekona\u0107 do pomocy."
   isItemQuest: 1
-  taskItem: {fileID: 0}
+  taskItem: {fileID: 11400000, guid: 08a3aeb162ac4404297ae95674a384cc, type: 2}
   taskItemAmount: 1
   isEnemyQuest: 0
   enemyToKillName: 
@@ -26,7 +26,9 @@ MonoBehaviour:
   giverNpcId: Runestone
   moneyReward: 10
   rewardItems: []
-  activateOnGive: []
-  activateOnComplete: []
+  switchActiveStateOnGive:
+  - TeleportMainLand
+  switchActiveStateOnComplete: []
   changeToNextDialogueOnGive: []
-  changeToNextDialogueOnComplete: []
+  changeToNextDialogueOnComplete:
+  - Witch
