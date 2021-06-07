@@ -7,6 +7,7 @@ using SzymonPeszek.Items.Consumable;
 using SzymonPeszek.BaseClasses;
 using SzymonPeszek.Environment.Areas;
 using SzymonPeszek.SaveScripts;
+using UnityEngine.UI;
 
 
 namespace SzymonPeszek.PlayerScripts.Inventory
@@ -23,6 +24,10 @@ namespace SzymonPeszek.PlayerScripts.Inventory
         public WeaponItem rightWeapon;
         public WeaponItem leftWeapon;
         public WeaponItem unarmedWeapon;
+
+        [Header("Weapons inventory icons", order = 1)]
+        public Image weaponIcon;
+        public Image shieldIcon;
 
         [Header("Current Spell", order = 1)] 
         public SpellItem currentSpell;
@@ -209,6 +214,17 @@ namespace SzymonPeszek.PlayerScripts.Inventory
             leftWeapon = weaponsInLeftHandSlots[0];
             _weaponSlotManager.LoadWeaponOnSlot(rightWeapon, false);
             _weaponSlotManager.LoadWeaponOnSlot(leftWeapon, true);
+            
+            if (rightWeapon != unarmedWeapon)
+            {
+                weaponsInventory.Add(rightWeapon);
+                weaponIcon.sprite = rightWeapon.itemIcon;
+            }
+            if (leftWeapon != unarmedWeapon)
+            {
+                shieldsInventory.Add(leftWeapon);
+                shieldIcon.sprite = leftWeapon.itemIcon;
+            }
         }
 
         /// <summary>

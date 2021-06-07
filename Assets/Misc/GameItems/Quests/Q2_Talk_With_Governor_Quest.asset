@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 150b172181693344eab3c6bda19caf4a, type: 3}
+  m_Name: Q2_Talk_With_Governor_Quest
+  m_EditorClassIdentifier: 
+  questName: Pierwsze Kroki
+  questTaskText: "Trzeba pom\xF3wi\u0107 z so\u0142tysem i zbada\u0107 barier\u0119.
+    Mo\u017Ce mieszka\u0144cy mi co\u015B powiedz\u0105 o barierze? Mama kaza\u0142a
+    mi zanie\u015B\u0107 mikstur\u0119 so\u0142tysowi, wi\u0119c mog\u0119 z nim
+    przy okazji porozmawia\u0107.\n"
+  isItemQuest: 1
+  taskItem: {fileID: 11400000, guid: 1c94e1f07eaf6524a9e008db63b490dd, type: 2}
+  taskItemAmount: 1
+  isEnemyQuest: 0
+  enemyToKillName: 
+  enemyToKillCount: 0
+  isEndingNotInGiver: 1
+  giverNpcId: Mother
+  moneyReward: 10
+  rewardItems: []
+  activateOnGive: []
+  activateOnComplete: []
+  changeToNextDialogueOnGive: []
+  changeToNextDialogueOnComplete:
+  - Runestone

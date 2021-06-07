@@ -31,20 +31,37 @@ namespace SzymonPeszek.Npc
 
         public Quest GiveMainQuest()
         {
+            if (!currentMainQuest.isCompleted)
+            {
+                return currentMainQuest.quest;
+            }
             if (mainQuests.Any(q => !q.isCompleted))
             {
-                if (currentMainQuest.isCompleted)
+                if (currentMainQuest.isCompleted && 
+                    QuestManager.instance.mainQuests.Any(q => !q.isCompleted))
                 {
                     currentMainQuest = mainQuests.First(q => !q.isCompleted);
-                    if (QuestManager.instance.mainQuests.First(q => q == currentMainQuest).prevQuestId < 0 || 
-                        QuestManager.instance.mainQuests.First(q => q.questId == currentMainQuest.prevQuestId).isCompleted)
+                    if (currentMainQuest.prevQuestId < 0 || QuestManager.instance.mainQuests.First(q =>
+                        q.questId == currentMainQuest.prevQuestId).isCompleted)
                     {
                         return currentMainQuest.quest;
                     }
                 }
                 else
                 {
-                    return currentMainQuest.quest;
+                    if (currentMainQuest.prevQuestId < -1)
+                    {
+                        return currentMainQuest.quest;
+                    }
+                    
+                    if (QuestManager.instance.mainQuests.Any(q => q.questId == currentMainQuest.prevQuestId))
+                    {
+                        if (QuestManager.instance.mainQuests.First(q => q.questId == currentMainQuest.prevQuestId)
+                            .isCompleted)
+                        {
+                            return currentMainQuest.quest;
+                        }
+                    }
                 }
             }
 
@@ -53,10 +70,22 @@ namespace SzymonPeszek.Npc
 
         public bool EndCurrentMainQuest(PlayerManager playerManager)
         {
+            Debug.Log("NpcManager: Complete quest");
+            if (currentMainQuest.quest == null)
+            {
+                Debug.Log("Current quest is null");
+            }
             if (playerManager.CompleteQuest(currentMainQuest.quest))
             {
-                mainQuests.First(q => q == currentMainQuest).isCompleted = true;
+                Debug.Log("NpcManager: Completed quest");
+                mainQuests.First(q => q.questId == currentMainQuest.questId).isCompleted = true;
                 currentMainQuest.isCompleted = true;
+
+                if (currentMainQuest.quest.isEndingNotInGiver)
+                {
+                    QuestManager.instance.npcMap[currentMainQuest.quest.giverNpcId].isQuestGiven = false;
+                    QuestManager.instance.npcMap[currentMainQuest.quest.giverNpcId].npcManager.currentMainQuest.isCompleted = true;
+                }
                 
                 return true;
             }

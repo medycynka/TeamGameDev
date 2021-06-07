@@ -54,24 +54,24 @@ namespace SzymonPeszek.Npc
 
         public void GiveQuest(PlayerManager playerManager)
         {
-            //base.PickUpItem(playerManager);
             isQuestGiven = true;
-            interactableText = "[E] Talk";
             playerManager.AcceptNewQuest(npcManager.GiveMainQuest());
             playerManager.dialogueFlag = false;
         }
 
         public void CompleteQuest(PlayerManager playerManager)
         {
+            Debug.Log("NpcInteractionManager: Can complete quest");
             if (npcManager.EndCurrentMainQuest(playerManager))
             {
-                interactableText = "[E] Talk";
+                Debug.Log("NpcInteractionManager: Completed quest");
                 isQuestGiven = false;
             }
         }
 
         public bool TryCompleteQuest(PlayerManager playerManager)
         {
+            Debug.Log("NpcInteractionManager: Can complete quest?: " + playerManager.CanCompleteQuest(npcManager.currentMainQuest.quest));
             return playerManager.CanCompleteQuest(npcManager.currentMainQuest.quest);
         }
     }

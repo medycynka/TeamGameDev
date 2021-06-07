@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 150b172181693344eab3c6bda19caf4a, type: 3}
+  m_Name: Q5_Witch
+  m_EditorClassIdentifier: 
+  questName: Urok Osobisty
+  questTaskText: "Wied\u017Ama okazuje si\u0119 by\u0107 moj\u0105 ciotk\u0105. Niestety
+    nie bardzo chce nam pom\xF3c. Musz\u0119 znale\u017Ac spos\xF3b, jak j\u0105
+    przekona\u0107 do pomocy."
+  isItemQuest: 1
+  taskItem: {fileID: 0}
+  taskItemAmount: 1
+  isEnemyQuest: 0
+  enemyToKillName: 
+  enemyToKillCount: 0
+  isEndingNotInGiver: 1
+  giverNpcId: Runestone
+  moneyReward: 10
+  rewardItems: []
+  activateOnGive: []
+  activateOnComplete: []
+  changeToNextDialogueOnGive: []
+  changeToNextDialogueOnComplete: []

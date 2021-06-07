@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Runestone_Quest_1_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: c4416039-d4a4-4134-bd54-cb3d686f00cb
+    portName: Next
+    targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+  - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    portName: '[Przeczytaj runy na nim napisane]'
+    targetNodeGuid: ce08e18a-c8ff-4353-9b56-5ab84ef3500c
+  - baseNodeGuid: ce08e18a-c8ff-4353-9b56-5ab84ef3500c
+    portName: '[Czytaj dalej]'
+    targetNodeGuid: b1101459-1d93-463e-975d-70f57f1d86df
+  dialogueNodeData:
+  - nodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    dialogueText: "Znajdujesz tajemniczy kamie\u0144, kt\xF3ry reaguje na Twoj\u0105
+      obecno\u015B\u0107. Kiedy go dotykasz czujesz od niego delikatny ch\u0142\xF3d.
+      Nie jest szczypi\u0105cy, ale im mocniej na niego naciskasz, tym dotkliwiej
+      ch\u0142odzi Twoj\u0105 sk\xF3r\u0119."
+    nodePosition: {x: 429, y: 158}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: ce08e18a-c8ff-4353-9b56-5ab84ef3500c
+    dialogueText: "Cz\u0119\u015B\u0107 run napisana jest w Twoim j\u0119zyku, ale
+      najwi\u0119ksze z nich s\u0105 zapisane w narzeczu, kt\xF3re nie rozumiesz.
+      Kiedy d\u0142u\u017Cej im si\u0119 przygl\u0105dasz, zauwa\u017Casz, \u017Ce
+      jest to kr\u0105g portalu, kt\xF3ry dok\u0105d\u015B musi prowadzi\u0107. Cztery
+      litery spo\u015Br\xF3d run wyr\xF3\u017Cniaj\u0105 si\u0119 na tyle, \u017Ce
+      musz\u0105 mie\u0107 specjalne znaczenie - MTGZ."
+    nodePosition: {x: 1992, y: -297}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: b1101459-1d93-463e-975d-70f57f1d86df
+    dialogueText: "Zauwa\u017Casz, \u017Ce nieznane narzecze nie mo\u017Ce by\u0107
+      j\u0119zykiem, kt\xF3rego si\u0119 u\u017Cywa. Brakuje samog\u0142osek i porozpisywane
+      wyrazy rzadko maj\u0105 \u0142adne brzmienie. Zauwa\u017Casz te\u017C, \u017Ce
+      litera C wyst\u0119puje r\xF3wnie cz\u0119sto co litera A. To nie mo\u017Ce
+      by\u0107 przypadek."
+    nodePosition: {x: 4077, y: -421}
+    isQuestGiver: 0
+    isQuestCompleter: 1
+    isExit: 0
+    isEnding: 1
+  exposedProperties:
+  - propertyName: New String
+    propertyValue: New Value
+  commentBlockData: []

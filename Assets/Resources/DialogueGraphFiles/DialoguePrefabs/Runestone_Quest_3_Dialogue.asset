@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Runestone_Quest_3_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: c4416039-d4a4-4134-bd54-cb3d686f00cb
+    portName: Next
+    targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+  - baseNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: 8cb58623-3429-4e15-9dce-e968ce7dc9cc
+  dialogueNodeData:
+  - nodeGuid: 8cb58623-3429-4e15-9dce-e968ce7dc9cc
+    dialogueText: Dialogue Node
+    nodePosition: {x: 1399, y: 155}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  - nodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
+    dialogueText: "Kamie\u0144 przesta\u0142 by\u0107 ch\u0142odny, a Ty zauwa\u017Casz,
+      \u017Ce pojawi\u0142 si\u0119 przed Tob\u0105 b\u0142\u0119kitny b\u0142ysk.
+      Co\u015B si\u0119 sta\u0142o."
+    nodePosition: {x: 429, y: 158}
+    isQuestGiver: 1
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 1
+  exposedProperties:
+  - propertyName: New String
+    propertyValue: New Value
+  commentBlockData: []

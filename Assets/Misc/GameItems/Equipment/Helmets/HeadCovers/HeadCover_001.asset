@@ -21,6 +21,6 @@ MonoBehaviour:
   removeHead: 0
   removeHeadFeatures: 1
   canDeactivate: 1
-  armor: 0
+  armor: 16
   weight: 0
   durability: 0

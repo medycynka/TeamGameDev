@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 150b172181693344eab3c6bda19caf4a, type: 3}
+  m_Name: Q3_Find_The_Witch
+  m_EditorClassIdentifier: 
+  questName: "Poszukiwania Wied\u017Amy"
+  questTaskText: "So\u0142tys nie brzmia\u0142 zbyt pozytywnie, gdy m\xF3wi\u0142
+    o wied\u017Amie. Je\u015Bli chc\u0119 si\u0119 czego\u015B dowiedzie\u0107, to
+    musz\u0119 wzi\u0105\u0107 sprawy w swoje r\u0119ce. Mog\u0119 podpyta\u0107
+    mieszka\u0144c\xF3w miasta lub pozwiedza\u0107."
+  isItemQuest: 0
+  taskItem: {fileID: 0}
+  taskItemAmount: 0
+  isEnemyQuest: 1
+  enemyToKillName: Q3_CircleGuardian
+  enemyToKillCount: 1
+  isEndingNotInGiver: 1
+  giverNpcId: Governor
+  moneyReward: 10
+  rewardItems: []
+  activateOnGive: []
+  activateOnComplete: []
+  changeToNextDialogueOnGive: []
+  changeToNextDialogueOnComplete: []

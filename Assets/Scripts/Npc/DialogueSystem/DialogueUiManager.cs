@@ -39,10 +39,22 @@ namespace SzymonPeszek.Npc.DialogueSystem
         public void HandleDialogue()
         {
             _playerManager.dialogueFlag = true;
-            mainText.text = _npcInteractionManager.dialogueMap[GetFirstNode()].dialogueText;
+            string firstNode = GetFirstNode();
+            mainText.text = _npcInteractionManager.dialogueMap[firstNode].dialogueText;
             hudWindow.SetActive(false);
             uIWindow.SetActive(true);
             dialogueWindow.SetActive(true);
+
+            if (_npcInteractionManager.dialogueMap[firstNode].giver)
+            {
+                Debug.Log("Getting quest from initial node");
+                _npcInteractionManager.GiveQuest(_playerManager);
+            }
+            if (_npcInteractionManager.dialogueMap[firstNode].completer)
+            {
+                Debug.Log("Completing quest in initial node");
+                _npcInteractionManager.CompleteQuest(_playerManager);
+            }
             
             foreach (DialogueOption option in options)
             {
@@ -80,8 +92,10 @@ namespace SzymonPeszek.Npc.DialogueSystem
             {
                 if (_npcInteractionManager.dialogueMap[targetGuid].completer)
                 {
+                    Debug.Log("DialogUiManager: Ender + Completer");
                     if (_npcInteractionManager.TryCompleteQuest(_playerManager))
                     {
+                        Debug.Log("DialogUiManager: Can complete quest");
                         _npcInteractionManager.dialogueDataContainer.First(
                                 d => d.dialogueId == _npcInteractionManager.currentDialogue.dialogueId)
                             .isCompleted = true;
@@ -111,14 +125,14 @@ namespace SzymonPeszek.Npc.DialogueSystem
                 
                 if (_npcInteractionManager.dialogueMap[targetGuid].giver && !_npcInteractionManager.isQuestGiven)
                 {
-                    mainText.text = _npcManager.currentMainQuest.quest.questTaskText;
                     options[0].optionObject.SetActive(true);
                     options[0].button.onClick.AddListener(GiveQuest);
                     options[0].optionText.text = _npcInteractionManager.dialogueMap[targetGuid].links.Count > 0
                         ? _npcInteractionManager.dialogueMap[targetGuid].links[0].portName
                         : "Exit";
                 }
-                else if(_npcInteractionManager.dialogueMap[targetGuid].completer && _npcInteractionManager.isQuestGiven)
+                else if(_npcInteractionManager.dialogueMap[targetGuid].completer && (_npcInteractionManager.isQuestGiven || 
+                    _npcManager.currentMainQuest.quest.isEndingNotInGiver))
                 {
                     options[0].optionObject.SetActive(true);
                     options[0].button.onClick.AddListener(CompleteQuest);
@@ -146,7 +160,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
                     {
                         options[0].optionObject.SetActive(true);
                         options[0].button.onClick.AddListener(CloseDialogue);
-                        options[0].optionText.text = "Exit";
+                        options[0].optionText.text = "[Odejdź]";
                     }
                 }
             }
@@ -168,6 +182,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
 
         private void CompleteQuest()
         {
+            Debug.Log("DialogUiManager: Complete quest");
             _npcInteractionManager.CompleteQuest(_playerManager);
             CloseDialogue();
         }

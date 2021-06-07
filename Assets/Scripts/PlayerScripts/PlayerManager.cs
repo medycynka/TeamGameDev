@@ -446,6 +446,8 @@ namespace SzymonPeszek.PlayerScripts
 
         public bool CanCompleteQuest(Quest quest)
         {
+            Debug.Log($"PlayerManager, CanCompleteQuest: Quest type: {(quest.isEnemyQuest ? "Enemy" : "Item")}, " +
+                      $"Can complete: {(quest.isEnemyQuest ? _playerStats.IsKillCountFulfilled(quest.enemyToKillName, quest.enemyToKillCount) : _playerInventory.HasNeededItems(quest.taskItem, quest.taskItemAmount))}");
             if (quest.isEnemyQuest)
             {
                 return _playerStats.IsKillCountFulfilled(quest.enemyToKillName, quest.enemyToKillCount);
@@ -478,45 +480,48 @@ namespace SzymonPeszek.PlayerScripts
                 {
                     for (int i = 0; i < quest.rewardItems.Length; i++)
                     {
-                        switch (quest.rewardItems[i].itemType)
+                        if (quest.rewardItems[i] != null)
                         {
-                            case ItemType.Weapon:
-                                _playerInventory.weaponsInventory.Add((WeaponItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.Shield:
-                                _playerInventory.shieldsInventory.Add((WeaponItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.Helmet:
-                                _playerInventory.helmetsInventory.Add((EquipmentItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.ChestArmor:
-                                _playerInventory.chestsInventory.Add((EquipmentItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.ShoulderArmor:
-                                _playerInventory.shouldersInventory.Add((EquipmentItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.HandArmor:
-                                _playerInventory.handsInventory.Add((EquipmentItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.LegArmor:
-                                _playerInventory.legsInventory.Add((EquipmentItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.FootArmor:
-                                _playerInventory.feetInventory.Add((EquipmentItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.Ring:
-                                _playerInventory.ringsInventory.Add((EquipmentItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.Consumable:
-                                _playerInventory.consumablesInventory.Add((ConsumableItem)quest.rewardItems[i]);
-                                break;
-                            case ItemType.Spell:
-                                break;
-                            case ItemType.QuestItem:
-                                _playerInventory.consumablesInventory.Add((ConsumableItem)quest.rewardItems[i]);
-                                break;
-                            default:
-                                throw new ArgumentOutOfRangeException();
+                            switch (quest.rewardItems[i].itemType)
+                            {
+                                case ItemType.Weapon:
+                                    _playerInventory.weaponsInventory.Add((WeaponItem) quest.rewardItems[i]);
+                                    break;
+                                case ItemType.Shield:
+                                    _playerInventory.shieldsInventory.Add((WeaponItem) quest.rewardItems[i]);
+                                    break;
+                                case ItemType.Helmet:
+                                    _playerInventory.helmetsInventory.Add((EquipmentItem) quest.rewardItems[i]);
+                                    break;
+                                case ItemType.ChestArmor:
+                                    _playerInventory.chestsInventory.Add((EquipmentItem) quest.rewardItems[i]);
+                                    break;
+                                case ItemType.ShoulderArmor:
+                                    _playerInventory.shouldersInventory.Add((EquipmentItem) quest.rewardItems[i]);
+                                    break;
+                                case ItemType.HandArmor:
+                                    _playerInventory.handsInventory.Add((EquipmentItem) quest.rewardItems[i]);
+                                    break;
+                                case ItemType.LegArmor:
+                                    _playerInventory.legsInventory.Add((EquipmentItem) quest.rewardItems[i]);
+                                    break;
+                                case ItemType.FootArmor:
+                                    _playerInventory.feetInventory.Add((EquipmentItem) quest.rewardItems[i]);
+                                    break;
+                                case ItemType.Ring:
+                                    _playerInventory.ringsInventory.Add((EquipmentItem) quest.rewardItems[i]);
+                                    break;
+                                case ItemType.Consumable:
+                                    _playerInventory.consumablesInventory.Add((ConsumableItem) quest.rewardItems[i]);
+                                    break;
+                                case ItemType.Spell:
+                                    break;
+                                case ItemType.QuestItem:
+                                    _playerInventory.consumablesInventory.Add((ConsumableItem) quest.rewardItems[i]);
+                                    break;
+                                default:
+                                    throw new ArgumentOutOfRangeException();
+                            }
                         }
                     }
                 }

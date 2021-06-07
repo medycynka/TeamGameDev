@@ -518,6 +518,7 @@ namespace SzymonPeszek.PlayerScripts
         {
             if (isHavingQuest)
             {
+                Debug.Log($"Incrementing {enemyName} kill count");
                 if (killCount.ContainsKey(enemyName))
                 {
                     killCount[enemyName]++;
@@ -525,6 +526,11 @@ namespace SzymonPeszek.PlayerScripts
                 else
                 {
                     killCount.Add(enemyName, 1);
+                }
+
+                foreach (var enemyKillCount in killCount)
+                {
+                    Debug.Log($"Current {enemyKillCount.Key} kill count: {enemyKillCount.Value}");
                 }
             }
         }

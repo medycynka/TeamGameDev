@@ -315,11 +315,12 @@ namespace SzymonPeszek.PlayerScripts
                 if (_playerManager.isInAir && (_playerManager.isInteracting || _playerManager.isJumping))
                 {
                     playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.LandName], true);
+                    _playerManager.StopPlayer();
                 }
                 
-                if (inAirTimer > 3f)
+                if (inAirTimer > 4f)
                 {
-                    _playerStats.TakeDamage(fallDamage * (inAirTimer - 1f), DamageType.Fall);
+                    _playerStats.TakeDamage(fallDamage * (inAirTimer - 2f), DamageType.Fall);
                 }
                 
                 _targetPosition.y = _hit.point.y;
