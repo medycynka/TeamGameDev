@@ -15,5 +15,6 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
         public bool isQuestCompleter;
         public bool isExitNode;
         public bool isEndingDialogueNode;
+        public bool isItemGiver;
     }
 }

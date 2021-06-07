@@ -34,6 +34,7 @@ namespace SzymonPeszek.Npc
 
         public override void Interact(PlayerManager playerManager)
         {
+            playerManager.dialogueFlag = true;
             InitializeDialogue();
 
             dialogueUiManager.Init(playerManager, npcManager, this);
@@ -61,10 +62,10 @@ namespace SzymonPeszek.Npc
 
         public void CompleteQuest(PlayerManager playerManager)
         {
-            Debug.Log("NpcInteractionManager: Can complete quest");
+            // Debug.Log("NpcInteractionManager: Can complete quest");
             if (npcManager.EndCurrentMainQuest(playerManager))
             {
-                Debug.Log("NpcInteractionManager: Completed quest");
+                // Debug.Log("NpcInteractionManager: Completed quest");
                 isQuestGiven = false;
             }
         }

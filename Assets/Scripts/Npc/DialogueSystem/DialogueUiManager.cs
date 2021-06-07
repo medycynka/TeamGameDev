@@ -35,6 +35,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
             _playerManager = playerManager;
             _npcManager = npcManager;
             _npcInteractionManager = npcInteractionManager;
+            _playerManager.dialogueFlag = true;
         }
         public void HandleDialogue()
         {
@@ -44,15 +45,20 @@ namespace SzymonPeszek.Npc.DialogueSystem
             hudWindow.SetActive(false);
             uIWindow.SetActive(true);
             dialogueWindow.SetActive(true);
+            
+            if (_npcInteractionManager.dialogueMap[firstNode].item)
+            {
+                GiveItems();
+            }
 
             if (_npcInteractionManager.dialogueMap[firstNode].giver)
             {
-                Debug.Log("Getting quest from initial node");
+                // Debug.Log("Getting quest from initial node");
                 _npcInteractionManager.GiveQuest(_playerManager);
             }
             if (_npcInteractionManager.dialogueMap[firstNode].completer)
             {
-                Debug.Log("Completing quest in initial node");
+                // Debug.Log("Completing quest in initial node");
                 _npcInteractionManager.CompleteQuest(_playerManager);
             }
             
@@ -92,10 +98,10 @@ namespace SzymonPeszek.Npc.DialogueSystem
             {
                 if (_npcInteractionManager.dialogueMap[targetGuid].completer)
                 {
-                    Debug.Log("DialogUiManager: Ender + Completer");
+                    // Debug.Log("DialogUiManager: Ender + Completer");
                     if (_npcInteractionManager.TryCompleteQuest(_playerManager))
                     {
-                        Debug.Log("DialogUiManager: Can complete quest");
+                        // Debug.Log("DialogUiManager: Can complete quest");
                         _npcInteractionManager.dialogueDataContainer.First(
                                 d => d.dialogueId == _npcInteractionManager.currentDialogue.dialogueId)
                             .isCompleted = true;
@@ -107,6 +113,11 @@ namespace SzymonPeszek.Npc.DialogueSystem
                             d => d.dialogueId == _npcInteractionManager.currentDialogue.dialogueId)
                         .isCompleted = true;
                 }
+            }
+
+            if (_npcInteractionManager.dialogueMap[targetGuid].item)
+            {
+                GiveItems();
             }
             
             if (_npcInteractionManager.dialogueMap[targetGuid].exit)
@@ -182,9 +193,22 @@ namespace SzymonPeszek.Npc.DialogueSystem
 
         private void CompleteQuest()
         {
-            Debug.Log("DialogUiManager: Complete quest");
+            // Debug.Log("DialogUiManager: Complete quest");
             _npcInteractionManager.CompleteQuest(_playerManager);
             CloseDialogue();
+        }
+
+        private void GiveItems()
+        {
+            Debug.Log("Adding items during dialogue...");
+            int currDialogueId = _npcInteractionManager.currentDialogue.dialogueId;
+
+            while (_npcManager.itemsToGiveOnDialogue.Any(i => i.dialogueId == currDialogueId))
+            {
+                ItemOnDialogueGetter tmp = _npcManager.itemsToGiveOnDialogue.First(i => i.dialogueId == currDialogueId);
+                _playerManager.GetItemFromQuest(tmp.itemToGive);
+                _npcManager.itemsToGiveOnDialogue.Remove(tmp);
+            }
         }
     }
 }

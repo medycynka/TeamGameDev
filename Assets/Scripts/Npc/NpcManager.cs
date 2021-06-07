@@ -9,6 +9,13 @@ using UnityEngine;
 
 namespace SzymonPeszek.Npc
 {
+    [Serializable]
+    public class ItemOnDialogueGetter
+    {
+        public int dialogueId;
+        public Item itemToGive;
+    }
+    
     public class NpcManager : CharacterManager
     {
         public string npcId = "name_number";
@@ -16,6 +23,7 @@ namespace SzymonPeszek.Npc
         public List<QuestContainer> sideQuests = new List<QuestContainer>();
         public QuestContainer currentMainQuest;
         public QuestContainer currentSideQuest;
+        public List<ItemOnDialogueGetter> itemsToGiveOnDialogue;
 
         private void Awake()
         {
