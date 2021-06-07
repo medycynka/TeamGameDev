@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5321812539932845386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5321812539932845384}
+  - component: {fileID: 5321812539932845385}
+  m_Layer: 0
+  m_Name: WorldManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5321812539932845384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5321812539932845386}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 648.5, y: 210, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5321812539932845385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5321812539932845386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0567bbd4b9957bd40884d241a1ef38cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossAreaManagers: []
+  bonfireManagers: []
+  weaponsHolder: []
+  shieldsHolder: []
+  helmetsHolder: []
+  chestsHolder: []
+  shouldersHolder: []
+  handsHolder: []
+  legsHolder: []
+  feetHolder: []
+  ringsHolder: []
+  consumableHolder: []
+  quests:
+  - prevQuestId: -1
+    questId: 0
+    quest: {fileID: 11400000, guid: dd4449ddb1a6ee8468bb27b1b7c04a48, type: 2}
+    isCompleted: 0
+  - prevQuestId: 0
+    questId: 1
+    quest: {fileID: 11400000, guid: cea6f90ce8def644f91d059208a2de9d, type: 2}
+    isCompleted: 0
+  - prevQuestId: 1
+    questId: 2
+    quest: {fileID: 11400000, guid: 1e97bff4091f21548bec0389b93b3895, type: 2}
+    isCompleted: 0
+  - prevQuestId: 2
+    questId: 3
+    quest: {fileID: 11400000, guid: d775e4ea26318d54c86a298ead288682, type: 2}
+    isCompleted: 0
+  - prevQuestId: 3
+    questId: 4
+    quest: {fileID: 11400000, guid: 0b32efb1b02894540b10eba85cfafcdd, type: 2}
+    isCompleted: 0
+  - prevQuestId: 4
+    questId: 5
+    quest: {fileID: 11400000, guid: 70ae2e389e0c1c2469cea9997ffeacc1, type: 2}
+    isCompleted: 0
+  - prevQuestId: 5
+    questId: 61
+    quest: {fileID: 11400000, guid: 55a3c2e2578f99d44bea5c2c2e8a4fc6, type: 2}
+    isCompleted: 0
+  - prevQuestId: 5
+    questId: 62
+    quest: {fileID: 11400000, guid: 3980516076bf6d54790fb9c61997fa08, type: 2}
+    isCompleted: 0
+  - prevQuestId: 5
+    questId: 63
+    quest: {fileID: 11400000, guid: d08e0d9b0ad2df84d89c96016c7277bf, type: 2}
+    isCompleted: 0
