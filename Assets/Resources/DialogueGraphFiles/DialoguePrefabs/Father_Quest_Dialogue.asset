@@ -1,0 +1,220 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Father_Quest_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: ca584691-66bc-42ca-aaa4-7723e7256447
+    portName: Next
+    targetNodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
+  - baseNodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: 935b6769-4d58-4ccd-9819-5445a88e7612
+  - baseNodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
+    portName: "To Ty mi powiedz co si\u0119 dzieje? Czemu jeste\u015Bcie w dolinie?"
+    targetNodeGuid: d4b7a886-b738-475d-b2e2-e92ef4cdd60f
+  - baseNodeGuid: d4b7a886-b738-475d-b2e2-e92ef4cdd60f
+    portName: Ojcze, to wszystko jest bardziej skomplikowane.
+    targetNodeGuid: 4d9c4b47-2509-4743-85f7-dad109417b4d
+  - baseNodeGuid: 4d9c4b47-2509-4743-85f7-dad109417b4d
+    portName: "Babcia chcia\u0142a tylko chroni\u0107 swoj\u0105 rodzin\u0119!"
+    targetNodeGuid: 1162a66d-6ecc-4c4d-97a7-3a25d2176066
+  - baseNodeGuid: 4d9c4b47-2509-4743-85f7-dad109417b4d
+    portName: "Dlaczego obwinia\u0142e\u015B mam\u0119?"
+    targetNodeGuid: cc16e456-06de-4392-9a0d-025f0f97302e
+  - baseNodeGuid: 4d9c4b47-2509-4743-85f7-dad109417b4d
+    portName: "Twoje listy do matki...to prawda? Naprawd\u0119 taki by\u0142e\u015B?"
+    targetNodeGuid: 7bf18fdd-351e-4c2f-8ae9-0fcf28b63b59
+  - baseNodeGuid: 1162a66d-6ecc-4c4d-97a7-3a25d2176066
+    portName: "Jeste\u015B przemocowcem."
+    targetNodeGuid: b8232a91-d532-43ec-9baa-83a195e05bea
+  - baseNodeGuid: 1162a66d-6ecc-4c4d-97a7-3a25d2176066
+    portName: "Taka rodzina, \u017Ce j\u0105 sk\u0142\xF3ci\u0142e\u015B."
+    targetNodeGuid: 3d682f24-0c5c-49a9-ab17-b488b0dbfc61
+  - baseNodeGuid: 7bf18fdd-351e-4c2f-8ae9-0fcf28b63b59
+    portName: W sumie nie...
+    targetNodeGuid: 69e5e566-fe1a-4763-8187-e1832fc36b36
+  - baseNodeGuid: cc16e456-06de-4392-9a0d-025f0f97302e
+    portName: "I to by\u0142 pow\xF3d, aby tak traktowa\u0107 mam\u0119?"
+    targetNodeGuid: 9c1065c9-fab4-48b0-ae63-6907cd9cdb72
+  - baseNodeGuid: 3d682f24-0c5c-49a9-ab17-b488b0dbfc61
+    portName: To Ciebie nie usprawiedliwia.
+    targetNodeGuid: 0a625df3-3a3c-4978-b396-dceea8569aef
+  - baseNodeGuid: d856c2e9-7c8f-4353-ab5d-dcaf1a113e2c
+    portName: "I wysz\u0142o jak zwykle..."
+    targetNodeGuid: 0a625df3-3a3c-4978-b396-dceea8569aef
+  - baseNodeGuid: b8232a91-d532-43ec-9baa-83a195e05bea
+    portName: A Twoje listy?
+    targetNodeGuid: 0a625df3-3a3c-4978-b396-dceea8569aef
+  - baseNodeGuid: 9c1065c9-fab4-48b0-ae63-6907cd9cdb72
+    portName: "My\u015Bl\u0119, \u017Ce nie krzywdzenie bliskich jest do\u015B\u0107
+      proste."
+    targetNodeGuid: 0a625df3-3a3c-4978-b396-dceea8569aef
+  - baseNodeGuid: dc0abf6b-9453-4bfa-9098-90c92174b86c
+    portName: "Babcia jest najgorsza, a Ty jeste\u015B naj\u015Bwi\u0119tszy."
+    targetNodeGuid: 0a625df3-3a3c-4978-b396-dceea8569aef
+  - baseNodeGuid: 69e5e566-fe1a-4763-8187-e1832fc36b36
+    portName: "Nie m\xF3w tak o niej."
+    targetNodeGuid: 0a625df3-3a3c-4978-b396-dceea8569aef
+  - baseNodeGuid: 0a625df3-3a3c-4978-b396-dceea8569aef
+    portName: "Przepraszam, ojcze. Wiem jak zdj\u0105\u0107 barier\u0119. Zajm\u0119
+      si\u0119 tym. "
+    targetNodeGuid: b94ae840-d87a-4d58-b010-a4e67e393a43
+  - baseNodeGuid: b94ae840-d87a-4d58-b010-a4e67e393a43
+    portName: "Nie. Lepiej nie. Nie chc\u0119, \u017Ceby co\u015B si\u0119 sta\u0142o."
+    targetNodeGuid: f6deeef6-bc94-4af7-b458-6dd06579ce29
+  - baseNodeGuid: 0a625df3-3a3c-4978-b396-dceea8569aef
+    portName: "Przepraszam ojcze, ale nie umiem Ci wybaczy\u0107. Mama zas\u0142uguje
+      na powr\xF3t dnia."
+    targetNodeGuid: db1dce6c-a592-4b36-9f40-d9f269dedbe1
+  - baseNodeGuid: db1dce6c-a592-4b36-9f40-d9f269dedbe1
+    portName: "Wybacz ojcze. [Widzisz jak ojciec kr\u0119ci g\u0142ow\u0105 z niedowierzaniem
+      i ucieka w portal. Je\u015Bli chcesz go dopa\u015B\u0107, to tylko przez niego] "
+    targetNodeGuid: f6deeef6-bc94-4af7-b458-6dd06579ce29
+  dialogueNodeData:
+  - nodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
+    dialogueText: "Dziecko! Odnalezienie mnie nie musia\u0142o by\u0107 \u0142atwe.
+      Ciesz\u0119 si\u0119, \u017Ce jeste\u015B! Co si\u0119 dzieje?"
+    nodePosition: {x: 425, y: 182}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 935b6769-4d58-4ccd-9819-5445a88e7612
+    dialogueText: Dialogue Node
+    nodePosition: {x: 1394, y: -35}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  - nodeGuid: d4b7a886-b738-475d-b2e2-e92ef4cdd60f
+    dialogueText: "Widzieli\u015Bmy jak si\u0119 formuje kopu\u0142a. Pami\u0119ta\u0142em,
+      \u017Ce w pobli\u017Cu jest opuszczona kopalnia, wi\u0119c pr\xF3bowali\u015Bmy
+      ni\u0105 uciec przed magi\u0105, ale jak ju\u017C widzisz, sami trafili\u015Bmy
+      w zau\u0142ek. Czy kopu\u0142a upad\u0142a? Co si\u0119 dzieje?"
+    nodePosition: {x: 1384, y: 204}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 4d9c4b47-2509-4743-85f7-dad109417b4d
+    dialogueText: "Co Ty m\xF3wisz...?"
+    nodePosition: {x: 3014, y: 41}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 7bf18fdd-351e-4c2f-8ae9-0fcf28b63b59
+    dialogueText: "Kochanie...ka\u017Cdego ponosi czasami gniew. Zmieni\u0142em si\u0119
+      przecie\u017C. Czy kiedykolwiek co\u015B wam zrobi\u0142em za Twojego \u017Cycia?"
+    nodePosition: {x: 3571, y: -117}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: cc16e456-06de-4392-9a0d-025f0f97302e
+    dialogueText: "Bardzo mi zale\u017Ca\u0142o na dziecku. Chcieli\u015Bmy z mam\u0105
+      jak najlepiej, a wiesz...bardzo nas bola\u0142a ta strata."
+    nodePosition: {x: 3574, y: 28}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: b8232a91-d532-43ec-9baa-83a195e05bea
+    dialogueText: "Brednie. To s\u0105 zarzuty bez pokrycia."
+    nodePosition: {x: 4517, y: 182}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 1162a66d-6ecc-4c4d-97a7-3a25d2176066
+    dialogueText: "O czym Ty m\xF3wisz? Przecie\u017C to te\u017C MOJA rodzina."
+    nodePosition: {x: 3572, y: 197}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: d856c2e9-7c8f-4353-ab5d-dcaf1a113e2c
+    dialogueText: "Chcia\u0142em dla nas jak najlepiej..."
+    nodePosition: {x: 4532, y: 303}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 3d682f24-0c5c-49a9-ab17-b488b0dbfc61
+    dialogueText: "Niepotrzebnie si\u0119 wtr\u0105ca\u0142a w nasze sprawy. Trzeba
+      by\u0142o trzyma\u0107 si\u0119 z daleko."
+    nodePosition: {x: 4527, y: 427}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 69e5e566-fe1a-4763-8187-e1832fc36b36
+    dialogueText: "No widzisz. Ta stara raszpla oszala\u0142a, a teraz podburzy\u0142a
+      Ciebie przeciwko mnie."
+    nodePosition: {x: 4715, y: -212}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: dc0abf6b-9453-4bfa-9098-90c92174b86c
+    dialogueText: "A kto by si\u0119 z ni\u0105 nie k\u0142\xF3ci\u0142? Wielokrotnie
+      obraca\u0142a mam\u0119 przeciwko mnie, a teraz Ciebie nas\u0142a\u0142a na
+      mnie. Ona robi wszystko, \u017Ceby si\u0119 mnie pozby\u0107."
+    nodePosition: {x: 4716, y: -84}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 9c1065c9-fab4-48b0-ae63-6907cd9cdb72
+    dialogueText: "Nie, ale rozumiesz sk\u0105d moje nerwy. To te\u017C by\u0142
+      dla mnie cios. M\xF3wisz, jakby to by\u0142o takie proste."
+    nodePosition: {x: 4666, y: 21}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 0a625df3-3a3c-4978-b396-dceea8569aef
+    dialogueText: "O co Ci chodzi? Jeste\u015B tu, bo my\u015Bla\u0142em, \u017Ce
+      Ci na mnie zale\u017Cy i chcesz mi pom\xF3c. Przychodzisz i mnie tylko oczerniasz.
+      Nie zamierzam si\u0119 z Tob\u0105 k\u0142\xF3ci\u0107. Chce wr\xF3ci\u0107
+      do domu. Do normalno\u015Bci. Chc\u0119 znowu z wami \u017Cy\u0107, a ta starucha
+      zdecydowa\u0142a, \u017Ce mi was odbierze w imi\u0119 grzech\xF3w sprzed 20
+      lat. Co mam Ci powiedzie\u0107?"
+    nodePosition: {x: 5842, y: 200}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: b94ae840-d87a-4d58-b010-a4e67e393a43
+    dialogueText: "Mog\u0119 Ci jako\u015B pom\xF3c? "
+    nodePosition: {x: 8086, y: 200}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: f6deeef6-bc94-4af7-b458-6dd06579ce29
+    dialogueText: Dialogue Node
+    nodePosition: {x: 8621, y: 201}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  - nodeGuid: db1dce6c-a592-4b36-9f40-d9f269dedbe1
+    dialogueText: 'Ale...ale jak to... Kochanie? '
+    nodePosition: {x: 8093, y: 308}
+    isQuestGiver: 1
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  exposedProperties: []
+  commentBlockData: []

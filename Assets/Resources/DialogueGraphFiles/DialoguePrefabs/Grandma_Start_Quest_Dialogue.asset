@@ -17,8 +17,57 @@ MonoBehaviour:
     portName: Next
     targetNodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
   - baseNodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
-    portName: "By\u0142em u Elienny. Przesy\u0142a pozdrowienia."
+    portName: "Czy mo\u017Cemy pom\xF3wi\u0107 o kopule?"
     targetNodeGuid: 90dfd2cf-2736-459b-ab6f-19130a11ba5f
+  - baseNodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: d186e99a-7685-4457-9360-d3e784fbf84e
+  - baseNodeGuid: 90dfd2cf-2736-459b-ab6f-19130a11ba5f
+    portName: "Ojciec nie zas\u0142u\u017Cy\u0142 na takie traktowanie."
+    targetNodeGuid: 48ce8aa7-d9be-4758-8082-f6c1a7cd5337
+  - baseNodeGuid: 90dfd2cf-2736-459b-ab6f-19130a11ba5f
+    portName: "Dlaczego chcia\u0142a\u015B si\u0119 pozby\u0107 ojca?"
+    targetNodeGuid: c277e15a-d506-4b84-8f43-230d4d0230b8
+  - baseNodeGuid: 48ce8aa7-d9be-4758-8082-f6c1a7cd5337
+    portName: "Co takiego robi\u0142? "
+    targetNodeGuid: 98c99f91-6e70-4233-8715-1027d8a1a9be
+  - baseNodeGuid: 98c99f91-6e70-4233-8715-1027d8a1a9be
+    portName: "Nie wierz\u0119."
+    targetNodeGuid: 1d7bf526-5e0a-4ec0-b408-2f3c60a6aec7
+  - baseNodeGuid: c277e15a-d506-4b84-8f43-230d4d0230b8
+    portName: "K\u0142amiesz."
+    targetNodeGuid: 1d7bf526-5e0a-4ec0-b408-2f3c60a6aec7
+  - baseNodeGuid: 98c99f91-6e70-4233-8715-1027d8a1a9be
+    portName: "Mama mi nic nie m\xF3wi\u0142a."
+    targetNodeGuid: 1d7bf526-5e0a-4ec0-b408-2f3c60a6aec7
+  - baseNodeGuid: c277e15a-d506-4b84-8f43-230d4d0230b8
+    portName: "Mama mi nic nie m\xF3wi\u0142a.."
+    targetNodeGuid: 1d7bf526-5e0a-4ec0-b408-2f3c60a6aec7
+  - baseNodeGuid: 1d7bf526-5e0a-4ec0-b408-2f3c60a6aec7
+    portName: "Nie! Zdejmiesz barier\u0119."
+    targetNodeGuid: c22bb889-95bf-4d4c-8f88-622513c53081
+  - baseNodeGuid: 1d7bf526-5e0a-4ec0-b408-2f3c60a6aec7
+    portName: "Nie ma innego wyj\u015Bcia, ni\u017C czeka\u0107?"
+    targetNodeGuid: 8d2e9ef5-a201-4a8d-addf-e3b124ac6d22
+  - baseNodeGuid: c22bb889-95bf-4d4c-8f88-622513c53081
+    portName: "Nie ma innego wyj\u015Bcia, ni\u017C czeka\u0107?"
+    targetNodeGuid: 8d2e9ef5-a201-4a8d-addf-e3b124ac6d22
+  - baseNodeGuid: c22bb889-95bf-4d4c-8f88-622513c53081
+    portName: Nie dajesz mi innego wyboru.
+    targetNodeGuid: dc238c2e-1aca-4829-a3ae-769f4fbfbdbc
+  - baseNodeGuid: dc238c2e-1aca-4829-a3ae-769f4fbfbdbc
+    portName: "[Widzisz jak za babci\u0105 pojawia si\u0119 portal, a ona znika.
+      Dokonano wyboru, trzeba ponie\u015B\u0107 jego konsekwencje]"
+    targetNodeGuid: 5e8f41c2-2875-4eaf-8083-0cf1084ccb63
+  - baseNodeGuid: 8d2e9ef5-a201-4a8d-addf-e3b124ac6d22
+    portName: "Nie! Zdejmiesz barier\u0119."
+    targetNodeGuid: dc238c2e-1aca-4829-a3ae-769f4fbfbdbc
+  - baseNodeGuid: 8d2e9ef5-a201-4a8d-addf-e3b124ac6d22
+    portName: "Zrobi\u0119 to. Dla mamy. Dla wioski."
+    targetNodeGuid: 778c8264-bf37-46a3-91ac-07ca9666ac0d
+  - baseNodeGuid: 778c8264-bf37-46a3-91ac-07ca9666ac0d
+    portName: '[Odchodzisz.]'
+    targetNodeGuid: 5e8f41c2-2875-4eaf-8083-0cf1084ccb63
   dialogueNodeData:
   - nodeGuid: dc55259c-ca0d-478f-91af-7f44020d0c1b
     dialogueText: Witaj, kochanie. Jak tam na wyprawie?
@@ -26,11 +75,98 @@ MonoBehaviour:
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
+    isEnding: 0
+  - nodeGuid: d186e99a-7685-4457-9360-d3e784fbf84e
+    dialogueText: Dialogue Node
+    nodePosition: {x: 1059, y: 324}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
   - nodeGuid: 90dfd2cf-2736-459b-ab6f-19130a11ba5f
-    dialogueText: "Och, co tam u niej s\u0142ycha\u0107?"
-    nodePosition: {x: 1035, y: 182}
+    dialogueText: "S\u0142ucham, kochanie. Jak ju\u017C m\xF3wi\u0142am, na pewno
+      b\u0119dzie dobrze."
+    nodePosition: {x: 999, y: -1}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
+    isEnding: 0
+  - nodeGuid: 48ce8aa7-d9be-4758-8082-f6c1a7cd5337
+    dialogueText: "Och, widz\u0119, \u017Ce ju\u017C wiesz. Zrobi\u0142am co w mojej
+      mocy, aby ochroni\u0107 moj\u0105 ukochan\u0105 c\xF3rk\u0119 przed nim. Gdyby
+      nie ja, dalej, by j\u0105 gn\u0119bi\u0142."
+    nodePosition: {x: 1729, y: -194}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 98c99f91-6e70-4233-8715-1027d8a1a9be
+    dialogueText: "Tw\xF3j ojciec by\u0142 toksycznym, manipulacyjnym...cz\u0142owiekiem.
+      Moja c\xF3rka do\u015B\u0107 si\u0119 wycierpia\u0142a i zas\u0142ugiwa\u0142a
+      na kogo\u015B lepszego. My\u015Blisz, \u017Ce czemu tyle wyje\u017Cd\u017Ca\u0142?
+      Czemu tyle pi\u0142? Jemu nie mo\u017Cna ufa\u0107."
+    nodePosition: {x: 2883, y: -240}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: c277e15a-d506-4b84-8f43-230d4d0230b8
+    dialogueText: "Och, wiesz ju\u017C? Tw\xF3j ojciec by\u0142 toksycznym, manipulacyjnym...cz\u0142owiekiem.
+      Moja c\xF3rka do\u015B\u0107 si\u0119 wycierpia\u0142a i zas\u0142ugiwa\u0142a
+      na kogo\u015B lepszego. Ty, zas\u0142ugujesz na kogo\u015B lepszego. My\u015Blisz,
+      \u017Ce czemu tyle wyje\u017Cd\u017Ca\u0142? Czemu tyle pi\u0142? Jemu nie
+      mo\u017Cna ufa\u0107."
+    nodePosition: {x: 2167, y: -15}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 1d7bf526-5e0a-4ec0-b408-2f3c60a6aec7
+    dialogueText: "Kochanie, chroni\u0119 Ciebie i mam\u0119. Tw\xF3j ojciec do\u015B\u0107
+      nam naszkodzi\u0142. Wiosce nic si\u0119 nie stanie, bo nie pozwol\u0119 wam
+      przecie\u017C umrze\u0107 z g\u0142odu."
+    nodePosition: {x: 4408, y: -18}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: c22bb889-95bf-4d4c-8f88-622513c53081
+    dialogueText: "Raczysz wybaczy\u0107, ale dobro mojej c\xF3rki jest wa\u017Cniejsze.
+      Musisz to zrozumie\u0107."
+    nodePosition: {x: 5578, y: -116}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 8d2e9ef5-a201-4a8d-addf-e3b124ac6d22
+    dialogueText: "Wiesz jakie jest inne wyj\u015Bcie. On musi zap\u0142aci\u0107
+      za swoje grzechy."
+    nodePosition: {x: 5583, y: 108}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 5e8f41c2-2875-4eaf-8083-0cf1084ccb63
+    dialogueText: Dialogue Node
+    nodePosition: {x: 7386, y: -115}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: dc238c2e-1aca-4829-a3ae-769f4fbfbdbc
+    dialogueText: Skoro taka Twoja wola...
+    nodePosition: {x: 6524, y: -110}
+    isQuestGiver: 1
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 778c8264-bf37-46a3-91ac-07ca9666ac0d
+    dialogueText: "Przepraszam, kochanie, \u017Ce jeste\u015B w takiej sytuacji,
+      ale to s\u0142uszny wyb\xF3r."
+    nodePosition: {x: 6519, y: 152}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 1
   exposedProperties: []
   commentBlockData: []

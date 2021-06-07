@@ -14,17 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: "Czasami mo\u017Ce warto odpu\u015Bci\u0107"
   questTaskText: "Decyzja zapad\u0142a. Nie b\u0119d\u0119 ingerowa\u0107 w konflikt
-    mi\u0119dzy babci\u0105, a ojcem. Pom\xF3wi\u0119 z mam\u0105. Powinna o tym
-    wszystkim wiedzie\u0107."
+    mi\u0119dzy babci\u0105, a ojcem. "
   isItemQuest: 0
   taskItem: {fileID: 0}
   taskItemAmount: 1
   isEnemyQuest: 0
   enemyToKillName: 
   enemyToKillCount: 0
+  isEndingNotInGiver: 0
+  giverNpcId: 
   moneyReward: 10
   rewardItems: []
-  activateOnGive: []
-  activateOnComplete: []
+  switchActiveStateOnGive: []
+  switchActiveStateOnComplete: []
   changeToNextDialogueOnGive: []
   changeToNextDialogueOnComplete: []

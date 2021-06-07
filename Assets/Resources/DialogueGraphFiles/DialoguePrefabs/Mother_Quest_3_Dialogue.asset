@@ -1,0 +1,184 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Mother_Quest_3_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: b7e7f6d4-26c9-44ec-b55f-531b0a1aec97
+    portName: Next
+    targetNodeGuid: 71bc961e-bd4e-483c-b4b7-506ded79591e
+  - baseNodeGuid: 71bc961e-bd4e-483c-b4b7-506ded79591e
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: 93d8535d-50e5-47ca-9bff-f3a05ed00553
+  - baseNodeGuid: 71bc961e-bd4e-483c-b4b7-506ded79591e
+    portName: "Mamo, chc\u0119 z Toba porozmawia\u0107 o tacie?"
+    targetNodeGuid: c2bf2d59-d7d0-449d-b788-b8a4b831ca10
+  - baseNodeGuid: c2bf2d59-d7d0-449d-b788-b8a4b831ca10
+    portName: "Nie, ale my\u015Bl\u0119, \u017Ce wiem, gdzie jest."
+    targetNodeGuid: c4f4c596-9ed7-4e36-8ece-cc0eff0bb83f
+  - baseNodeGuid: c2bf2d59-d7d0-449d-b788-b8a4b831ca10
+    portName: "Nie, ale wiem sk\u0105d pochodzi kopu\u0142a."
+    targetNodeGuid: 023fd3be-3041-46fa-bb92-da1ef6062fbf
+  - baseNodeGuid: c2bf2d59-d7d0-449d-b788-b8a4b831ca10
+    portName: "Nie, ale wied\u017Ama mi powiedzia\u0142a wszystko."
+    targetNodeGuid: b3ca22c6-67f1-4d7c-be5b-906a1e2b4011
+  - baseNodeGuid: b3ca22c6-67f1-4d7c-be5b-906a1e2b4011
+    portName: "Nie. Wied\u017Ama nie mo\u017Ce tego zrobi\u0107. Powiedzia\u0142a
+      jednak, \u017Ce nied\u0142ugo czar upadnie."
+    targetNodeGuid: 8c7f639f-29f3-4764-8e29-c27e07f68cbd
+  - baseNodeGuid: b3ca22c6-67f1-4d7c-be5b-906a1e2b4011
+    portName: "Zdj\u0105\u0107 barier\u0119 mo\u017Ce tylko tw\xF3rca, czyli babcia!"
+    targetNodeGuid: 2517aac3-668d-4eda-ac84-2bd78705657b
+  - baseNodeGuid: b3ca22c6-67f1-4d7c-be5b-906a1e2b4011
+    portName: "Nie, ale powiedzia\u0142a mi dlaczego powsta\u0142a. Wiem, czyja to
+      wina."
+    targetNodeGuid: a8b01745-9aa5-48f9-a16a-bb1d1d6a8aa7
+  - baseNodeGuid: c4f4c596-9ed7-4e36-8ece-cc0eff0bb83f
+    portName: "Ja...to jego wina, \u017Ce ta bariera istnieje."
+    targetNodeGuid: a8b01745-9aa5-48f9-a16a-bb1d1d6a8aa7
+  - baseNodeGuid: c4f4c596-9ed7-4e36-8ece-cc0eff0bb83f
+    portName: "Jest poza barier\u0105, wi\u0119c jest bezpieczny."
+    targetNodeGuid: 8c7f639f-29f3-4764-8e29-c27e07f68cbd
+  - baseNodeGuid: c4f4c596-9ed7-4e36-8ece-cc0eff0bb83f
+    portName: "Stra\u017Cnicy si\u0119 przydadz\u0105, ale dla babci!"
+    targetNodeGuid: 2517aac3-668d-4eda-ac84-2bd78705657b
+  - baseNodeGuid: 023fd3be-3041-46fa-bb92-da1ef6062fbf
+    portName: "Nie, ale powiedzia\u0142a mi dlaczego powsta\u0142a. Wiem, czyja to
+      wina."
+    targetNodeGuid: a8b01745-9aa5-48f9-a16a-bb1d1d6a8aa7
+  - baseNodeGuid: 023fd3be-3041-46fa-bb92-da1ef6062fbf
+    portName: "Nie. Wied\u017Ama nie mo\u017Ce tego zrobi\u0107, bo nie ma na tyle
+      mocy. Powiedzia\u0142a jednak, \u017Ce nied\u0142ugo czar upadnie."
+    targetNodeGuid: 8c7f639f-29f3-4764-8e29-c27e07f68cbd
+  - baseNodeGuid: 023fd3be-3041-46fa-bb92-da1ef6062fbf
+    portName: "Nie. Zdj\u0105\u0107 barier\u0119 mo\u017Ce tylko tw\xF3rca, czyli
+      babcia!"
+    targetNodeGuid: 2517aac3-668d-4eda-ac84-2bd78705657b
+  - baseNodeGuid: a8b01745-9aa5-48f9-a16a-bb1d1d6a8aa7
+    portName: "Babcia stworzy\u0142a barier\u0119, aby chroni\u0107 Ciebie przed
+      tat\u0105."
+    targetNodeGuid: 92466990-3dca-4ea2-9543-268bfb258acc
+  - baseNodeGuid: a8b01745-9aa5-48f9-a16a-bb1d1d6a8aa7
+    portName: To wszystko wina ojca.
+    targetNodeGuid: 92466990-3dca-4ea2-9543-268bfb258acc
+  - baseNodeGuid: 8c7f639f-29f3-4764-8e29-c27e07f68cbd
+    portName: "Tak. Pozosta\u0142o nam czeka\u0107."
+    targetNodeGuid: a3cc2759-0f81-44fd-98f0-50f4d641fb16
+  - baseNodeGuid: 2517aac3-668d-4eda-ac84-2bd78705657b
+    portName: "Babcia chcia\u0142a si\u0119 pozby\u0107 ojca!"
+    targetNodeGuid: 92466990-3dca-4ea2-9543-268bfb258acc
+  - baseNodeGuid: 2517aac3-668d-4eda-ac84-2bd78705657b
+    portName: "Bariera powsta\u0142a, aby rozdzieli\u0107 Ciebie i tat\u0119."
+    targetNodeGuid: 92466990-3dca-4ea2-9543-268bfb258acc
+  - baseNodeGuid: a3cc2759-0f81-44fd-98f0-50f4d641fb16
+    portName: "Dobrze, mamo. Ja si\u0119 czym\u015B zajm\u0119, dobrze? Popracuj\u0119."
+    targetNodeGuid: 2f284e42-e8db-4b4b-8415-3700b64b4d58
+  - baseNodeGuid: 92466990-3dca-4ea2-9543-268bfb258acc
+    portName: "Mamo... Sp\xF3jrz na te listy."
+    targetNodeGuid: eb4fb6f0-593a-4a7a-ba15-d3a925aba884
+  dialogueNodeData:
+  - nodeGuid: 71bc961e-bd4e-483c-b4b7-506ded79591e
+    dialogueText: "Witaj, kochanie. Z czym mog\u0119 Ci pom\xF3c?"
+    nodePosition: {x: 378, y: 192}
+    isQuestGiver: 0
+    isQuestCompleter: 1
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 93d8535d-50e5-47ca-9bff-f3a05ed00553
+    dialogueText: Dialogue Node
+    nodePosition: {x: 994, y: 45}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  - nodeGuid: c2bf2d59-d7d0-449d-b788-b8a4b831ca10
+    dialogueText: "Och, uda\u0142o Ci si\u0119 go znale\u017A\u0107?"
+    nodePosition: {x: 997, y: 287}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: b3ca22c6-67f1-4d7c-be5b-906a1e2b4011
+    dialogueText: "I jak? Zdejmie barier\u0119? Kiedy to si\u0119 wszystko sko\u0144czy?"
+    nodePosition: {x: 1552, y: 403}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: c4f4c596-9ed7-4e36-8ece-cc0eff0bb83f
+    dialogueText: "Tak? Wr\xF3ci do domu? Mo\u017Ce wezw\u0119 stra\u017Cnik\xF3w!"
+    nodePosition: {x: 1543, y: 36}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 023fd3be-3041-46fa-bb92-da1ef6062fbf
+    dialogueText: "Och? Uda\u0142o si\u0119 dosta\u0107 do wied\u017Amy? Zdejmie
+      barier\u0119?"
+    nodePosition: {x: 1548, y: 219}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: a8b01745-9aa5-48f9-a16a-bb1d1d6a8aa7
+    dialogueText: "Jak to? Co Ty m\xF3wisz, dziecko?"
+    nodePosition: {x: 2384, y: -57}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 8c7f639f-29f3-4764-8e29-c27e07f68cbd
+    dialogueText: "To dobrze, kochanie. To dobrze, \u017Ce to zosta\u0142o odkryte. "
+    nodePosition: {x: 2487, y: 431}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 2517aac3-668d-4eda-ac84-2bd78705657b
+    dialogueText: "Jak to? Co Ty m\xF3wisz, dziecko?"
+    nodePosition: {x: 2487, y: 146}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: a3cc2759-0f81-44fd-98f0-50f4d641fb16
+    dialogueText: "Tak. Bariera nied\u0142ugo upadnie. Musze odpocz\u0105\u0107,
+      kochanie."
+    nodePosition: {x: 3238, y: 426}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+  - nodeGuid: 2f284e42-e8db-4b4b-8415-3700b64b4d58
+    dialogueText: Dialogue Node
+    nodePosition: {x: 3998, y: 429}
+    isQuestGiver: 1
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 1
+  - nodeGuid: 92466990-3dca-4ea2-9543-268bfb258acc
+    dialogueText: "Nie. To nie prawda. Wied\u017Ama k\u0142amie! Nie mo\u017Ce tak
+      by\u0107."
+    nodePosition: {x: 3072, y: -43}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 1
+  - nodeGuid: eb4fb6f0-593a-4a7a-ba15-d3a925aba884
+    dialogueText: "Co..? To k\u0142amstwo!"
+    nodePosition: {x: 3829, y: -53}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+  exposedProperties: []
+  commentBlockData: []
