@@ -8568,6 +8568,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 301754168852192501, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
+      propertyPath: itemsToGiveOnDialogue.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 301754168852192501, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
+      propertyPath: itemsToGiveOnDialogue.Array.data[0].itemToGive
+      value: 
+      objectReference: {fileID: 11400000, guid: 81ff5b8f5e7485b4ca20e3bc9e05c2c0, type: 2}
+    - target: {fileID: 301754168852192501, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
+      propertyPath: itemsToGiveOnDialogue.Array.data[1].itemToGive
+      value: 
+      objectReference: {fileID: 11400000, guid: 81ff5b8f5e7485b4ca20e3bc9e05c2c0, type: 2}
+    - target: {fileID: 301754168852192501, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
+      propertyPath: itemsToGiveOnDialogue.Array.data[2].itemToGive
+      value: 
+      objectReference: {fileID: 11400000, guid: 81ff5b8f5e7485b4ca20e3bc9e05c2c0, type: 2}
     - target: {fileID: 301754168852192502, guid: 11fbd815174228542ae9cc9fd3a5e85b, type: 3}
       propertyPath: uIManager
       value: 

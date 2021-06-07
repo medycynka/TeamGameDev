@@ -16,15 +16,6 @@ MonoBehaviour:
   - baseNodeGuid: c990936c-ca62-4918-ad3e-29084e621eee
     portName: Next
     targetNodeGuid: a0a9308e-a5d5-4d45-a949-dc180399dd59
-  - baseNodeGuid: b7ed67fa-0df6-4ae6-a32f-6789444b6c13
-    portName: Inner 1
-    targetNodeGuid: a5a0ad79-4758-443d-8cda-c6b8d8d53415
-  - baseNodeGuid: b7ed67fa-0df6-4ae6-a32f-6789444b6c13
-    portName: Inner 2
-    targetNodeGuid: 9e5ee090-fb13-4ae6-9479-9c21115d5f8b
-  - baseNodeGuid: ef5637ae-17f5-42d0-a9e6-06990181b076
-    portName: Inner 1
-    targetNodeGuid: 4fee232d-ef77-4fc1-9951-c4bc67be7ece
   - baseNodeGuid: a0a9308e-a5d5-4d45-a949-dc180399dd59
     portName: Opt 1
     targetNodeGuid: b7ed67fa-0df6-4ae6-a32f-6789444b6c13
@@ -34,6 +25,15 @@ MonoBehaviour:
   - baseNodeGuid: a0a9308e-a5d5-4d45-a949-dc180399dd59
     portName: Opt last
     targetNodeGuid: b78e14bb-6bd1-4311-8dac-71e206c3425e
+  - baseNodeGuid: b7ed67fa-0df6-4ae6-a32f-6789444b6c13
+    portName: Inner 1
+    targetNodeGuid: a5a0ad79-4758-443d-8cda-c6b8d8d53415
+  - baseNodeGuid: b7ed67fa-0df6-4ae6-a32f-6789444b6c13
+    portName: Inner 2
+    targetNodeGuid: 9e5ee090-fb13-4ae6-9479-9c21115d5f8b
+  - baseNodeGuid: ef5637ae-17f5-42d0-a9e6-06990181b076
+    portName: Inner 1
+    targetNodeGuid: 4fee232d-ef77-4fc1-9951-c4bc67be7ece
   dialogueNodeData:
   - nodeGuid: a0a9308e-a5d5-4d45-a949-dc180399dd59
     dialogueText: Longer testing dialogue
@@ -42,47 +42,54 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
+    isItem: 1
   - nodeGuid: b7ed67fa-0df6-4ae6-a32f-6789444b6c13
     dialogueText: Option inner 1
-    nodePosition: {x: 873, y: 89}
+    nodePosition: {x: 925, y: 78}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
+    isItem: 0
   - nodeGuid: ef5637ae-17f5-42d0-a9e6-06990181b076
     dialogueText: Option inner 2
-    nodePosition: {x: 873, y: 211}
+    nodePosition: {x: 925, y: 200}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
+    isItem: 0
   - nodeGuid: b78e14bb-6bd1-4311-8dac-71e206c3425e
     dialogueText: Exit inner 1
-    nodePosition: {x: 873, y: 309}
+    nodePosition: {x: 925, y: 298}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 1
     isEnding: 1
+    isItem: 0
   - nodeGuid: a5a0ad79-4758-443d-8cda-c6b8d8d53415
     dialogueText: Exit outer 1
-    nodePosition: {x: 1344, y: -9}
+    nodePosition: {x: 1440, y: -20}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 1
     isEnding: 0
+    isItem: 0
   - nodeGuid: 9e5ee090-fb13-4ae6-9479-9c21115d5f8b
     dialogueText: Exit outer 2
-    nodePosition: {x: 1344, y: 89}
+    nodePosition: {x: 1440, y: 78}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 1
     isEnding: 0
+    isItem: 0
   - nodeGuid: 4fee232d-ef77-4fc1-9951-c4bc67be7ece
     dialogueText: Exit outer 1
-    nodePosition: {x: 1344, y: 211}
+    nodePosition: {x: 1440, y: 200}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 1
     isEnding: 0
+    isItem: 0
   exposedProperties: []
   commentBlockData: []
