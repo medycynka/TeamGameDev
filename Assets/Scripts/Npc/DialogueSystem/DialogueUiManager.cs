@@ -48,6 +48,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
             
             if (_npcInteractionManager.dialogueMap[firstNode].item)
             {
+                Debug.Log("Adding items during dialogue...");
                 GiveItems();
             }
 
@@ -200,12 +201,12 @@ namespace SzymonPeszek.Npc.DialogueSystem
 
         private void GiveItems()
         {
-            Debug.Log("Adding items during dialogue...");
             int currDialogueId = _npcInteractionManager.currentDialogue.dialogueId;
 
             while (_npcManager.itemsToGiveOnDialogue.Any(i => i.dialogueId == currDialogueId))
             {
                 ItemOnDialogueGetter tmp = _npcManager.itemsToGiveOnDialogue.First(i => i.dialogueId == currDialogueId);
+                Debug.Log($"Adding {tmp.itemToGive.name}");
                 _playerManager.GetItemFromQuest(tmp.itemToGive);
                 _npcManager.itemsToGiveOnDialogue.Remove(tmp);
             }
