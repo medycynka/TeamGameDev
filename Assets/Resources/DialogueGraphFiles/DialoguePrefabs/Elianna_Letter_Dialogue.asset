@@ -45,9 +45,10 @@ MonoBehaviour:
       do samej wied\u017Amy, a inne nale\u017C\u0105 do kogo\u015B obcego."
     nodePosition: {x: 405, y: 181}
     isQuestGiver: 0
-    isQuestCompleter: 1
+    isQuestCompleter: 0
     isExit: 0
     isEnding: 0
+    isItem: 1
   - nodeGuid: c899d97b-38f2-4062-9a37-898b3bf342c0
     dialogueText: "Z list\xF3w dowiadujesz si\u0119, \u017Ce Anrianna jest tak\u0105
       sam\u0105 wied\u017Am\u0105 jak mieszkanka wyspy. Czujesz bij\u0105ce ciep\u0142o
@@ -57,6 +58,7 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
+    isItem: 0
   - nodeGuid: e24e1ef6-486d-4226-8116-31dbadd7dc20
     dialogueText: "Elianna okazuje si\u0119 by\u0107 Twoj\u0105 prababci\u0105. Z
       list\xF3w dowiadujesz si\u0119, \u017Ce ponad 50 lat temu pok\u0142\xF3ci\u0142y
@@ -66,9 +68,10 @@ MonoBehaviour:
       Twojej ciotce, Emali, to te\u017C pomo\u017Ce."
     nodePosition: {x: 1678, y: 324}
     isQuestGiver: 0
-    isQuestCompleter: 0
+    isQuestCompleter: 1
     isExit: 0
     isEnding: 0
+    isItem: 0
   - nodeGuid: 7dc38062-7417-4663-a842-379b06ca32a1
     dialogueText: "Zamykasz ksi\u0105\u017Ck\u0119. "
     nodePosition: {x: 3825, y: 198}
@@ -76,6 +79,7 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
+    isItem: 0
   - nodeGuid: 2380e2d8-2a78-4c16-aab0-369df2dc7269
     dialogueText: Dialogue Node
     nodePosition: {x: 4347, y: 191}
@@ -83,6 +87,7 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 1
     isEnding: 0
+    isItem: 0
   - nodeGuid: a7321b33-6106-4578-ae6a-86419b454af7
     dialogueText: "Wied\u017Ama wypisywa\u0142a wiadomo\u015Bci do so\u0142tysa jak
       i do r\xF3\u017Cnych osobisto\u015Bci kr\xF3lestwa. Nie znajdujesz w nich nic
@@ -92,6 +97,7 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
+    isItem: 0
   exposedProperties:
   - propertyName: New String
     propertyValue: New Value
