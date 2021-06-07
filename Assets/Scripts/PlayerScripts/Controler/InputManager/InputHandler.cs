@@ -257,7 +257,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
         /// </summary>
         private void HandleAttackInput(float delta)
         {
-            if (_playerStats.currentStamina > 0)
+            if (_playerStats.currentStamina > 0 && !inventoryFlag && !_playerManager.dialogueFlag)
             {
                 #region Handle Light Attack
                 if (rbInput)

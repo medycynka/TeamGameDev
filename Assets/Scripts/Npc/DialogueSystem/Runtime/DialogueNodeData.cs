@@ -14,5 +14,6 @@ namespace SzymonPeszek.Npc.DialogueSystem.Runtime
         public bool isQuestCompleter;
         public bool isExit;
         public bool isEnding;
+        public bool isItem;
     }
 }
