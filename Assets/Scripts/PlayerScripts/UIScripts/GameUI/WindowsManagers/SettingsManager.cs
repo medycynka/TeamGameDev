@@ -32,8 +32,17 @@ namespace SzymonPeszek.GameUI.WindowsManagers
 
         private void Start()
         {
-            _audioSources.Add(playerManager.GetComponent<AnimationSoundManager>());
+            if (playerManager == null)
+            {
+                playerManager = FindObjectOfType<PlayerManager>();
+            }
 
+            if (cameraHandler == null)
+            {
+                cameraHandler = FindObjectOfType<CameraHandler>();
+            }
+            
+            _audioSources.Add(playerManager.GetComponent<AnimationSoundManager>());
             foreach (var enemy in GameObject.FindGameObjectsWithTag("Enemy"))
             {
                 if (enemy.GetComponent<AnimationSoundManager>() != null)
@@ -65,16 +74,16 @@ namespace SzymonPeszek.GameUI.WindowsManagers
         /// </summary>
         public void LoadSettings()
         {
-            resolutionDropdown.value = SettingsHolder.resolutionID;
+            resolutionDropdown.SetValueWithoutNotify(SettingsHolder.resolutionID);
             resolutionDropdown.RefreshShownValue();
             
-            fullScreenToggle.isOn = SettingsHolder.isFullscreen;
+            fullScreenToggle.SetIsOnWithoutNotify(SettingsHolder.isFullscreen);
             
-            qualityDropdown.value = SettingsHolder.qualityID;
+            qualityDropdown.SetValueWithoutNotify(SettingsHolder.qualityID);
             qualityDropdown.RefreshShownValue();
             
-            mouseSlider.value = SettingsHolder.mouseSensibility;
-            volumeSlider.value = SettingsHolder.soundVolume;
+            mouseSlider.SetValueWithoutNotify(SettingsHolder.mouseSensibility);
+            volumeSlider.SetValueWithoutNotify(SettingsHolder.soundVolume);
         }
 
         /// <summary>
