@@ -105,7 +105,7 @@ namespace SzymonPeszek.Items.Bonfire
             _playerStats.characterTransform.position = _bonfireManager.spawnPoint.transform.position;
             _playerStats.characterTransform.rotation = _bonfireManager.spawnPoint.transform.rotation;
 
-            yield return CoroutineYielder.waitFor5Second;
+            yield return CoroutineYielder.waitFor1Second;
 
             _bonfireManager.CloseQuickMoveScreen();
             playerAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.animationIds[StaticAnimatorIds.StandUpName], true);

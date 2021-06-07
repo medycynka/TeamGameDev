@@ -446,6 +446,20 @@ namespace SzymonPeszek.Environment.Sounds
 
             if (_stepSounds.ContainsKey(_floor.tag))
             {
+                foreach (var _poolObj in _poolDictionary)
+                {
+                    foreach (GameObject obj in _poolObj.Value)
+                    {
+                        ParticleSystem objParticles = obj.GetComponent<ParticleSystem>();
+                        if (objParticles)
+                        {
+                            objParticles.Clear(true);
+                            objParticles.Play(true);
+                        }
+
+                        obj.SetActive(false);
+                    }
+                }
                 currentEnvironmentTag = _stepSounds[_floor.tag].tagName;
                 currentMovingClips = _stepSounds[_floor.tag].footsteps;
             }
