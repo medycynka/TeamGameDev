@@ -26,7 +26,8 @@ MonoBehaviour:
   giverNpcId: 
   moneyReward: 10
   rewardItems: []
-  switchActiveStateOnGive: []
+  switchActiveStateOnGive:
+  - TeleportGrandma
   switchActiveStateOnComplete: []
   changeToNextDialogueOnGive: []
   changeToNextDialogueOnComplete: []
