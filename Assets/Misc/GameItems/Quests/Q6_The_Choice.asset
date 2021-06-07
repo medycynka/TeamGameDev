@@ -29,6 +29,7 @@ MonoBehaviour:
   switchActiveStateOnGive: []
   switchActiveStateOnComplete:
   - Quest_Rock
-  changeToNextDialogueOnGive: []
+  changeToNextDialogueOnGive:
+  - Mother
   changeToNextDialogueOnComplete:
   - Grandma

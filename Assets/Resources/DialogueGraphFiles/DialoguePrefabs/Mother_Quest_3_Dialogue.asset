@@ -154,17 +154,17 @@ MonoBehaviour:
     dialogueText: "Tak. Bariera nied\u0142ugo upadnie. Musze odpocz\u0105\u0107,
       kochanie."
     nodePosition: {x: 3238, y: 426}
-    isQuestGiver: 0
+    isQuestGiver: 1
     isQuestCompleter: 0
     isExit: 0
-    isEnding: 0
+    isEnding: 1
   - nodeGuid: 2f284e42-e8db-4b4b-8415-3700b64b4d58
     dialogueText: Dialogue Node
     nodePosition: {x: 3998, y: 429}
-    isQuestGiver: 1
+    isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 1
-    isEnding: 1
+    isEnding: 0
   - nodeGuid: 92466990-3dca-4ea2-9543-268bfb258acc
     dialogueText: "Nie. To nie prawda. Wied\u017Ama k\u0142amie! Nie mo\u017Ce tak
       by\u0107."

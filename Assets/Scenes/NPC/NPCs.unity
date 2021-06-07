@@ -9525,11 +9525,6 @@ Transform:
   m_Father: {fileID: 1280336883}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &615435402 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9581768, guid: 4fd72ede44298284b89704ad0b9dedad, type: 3}
-  m_PrefabInstance: {fileID: 1894895241}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &622936693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10422,7 +10417,11 @@ PrefabInstance:
     - target: {fileID: 6182062130366261989, guid: 53be819d396bfb04d9acafcf0de14de4, type: 3}
       propertyPath: anim
       value: 
-      objectReference: {fileID: 615435402}
+      objectReference: {fileID: 1752947046}
+    - target: {fileID: 6182062130366261989, guid: 53be819d396bfb04d9acafcf0de14de4, type: 3}
+      propertyPath: isEnemy
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7305435531458517388, guid: 53be819d396bfb04d9acafcf0de14de4, type: 3}
       propertyPath: m_Controller
       value: 
@@ -10432,6 +10431,9 @@ PrefabInstance:
     - {fileID: 6295007665126383059, guid: 53be819d396bfb04d9acafcf0de14de4, type: 3}
     - {fileID: 3819166170925027274, guid: 53be819d396bfb04d9acafcf0de14de4, type: 3}
     - {fileID: 8729602245932980879, guid: 53be819d396bfb04d9acafcf0de14de4, type: 3}
+    - {fileID: 6182062130366261989, guid: 53be819d396bfb04d9acafcf0de14de4, type: 3}
+    - {fileID: 3119275141656034668, guid: 53be819d396bfb04d9acafcf0de14de4, type: 3}
+    - {fileID: 646567905188342887, guid: 53be819d396bfb04d9acafcf0de14de4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 53be819d396bfb04d9acafcf0de14de4, type: 3}
 --- !u!4 &715784577 stripped
 Transform:
@@ -17745,6 +17747,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478026679}
   m_CullTransparentMesh: 1
+--- !u!1 &1479516946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7219874039930118978, guid: 53be819d396bfb04d9acafcf0de14de4, type: 3}
+  m_PrefabInstance: {fileID: 715784576}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1479516947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479516946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1523f54f0117074684e5d15b8189486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.6
+  interactableText: '[E] Porozmawiaj'
+  playerInventory: {fileID: 904466052}
+  playerLocomotion: {fileID: 904466056}
+  playerAnimatorManager: {fileID: 904466048}
+  uIManager: {fileID: 204355862}
+  dialogueDataContainer:
+  - dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 11400000, guid: 749b4a378578e5d468e6d6bb07268d19, type: 2}
+  dialogueUiManager: {fileID: 0}
+  isQuestGiven: 0
+  currentDialogue:
+    dialogueId: 0
+    isCompleted: 0
+    dialogueData: {fileID: 0}
+  dialogueMapKeys: []
+  dialogueMapValues: []
+  npcManager: {fileID: 0}
 --- !u!1 &1479618651
 GameObject:
   m_ObjectHideFlags: 0
@@ -20522,6 +20560,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 425282, guid: a6ebdfa58063c6e40a19612fc9013404, type: 3}
   m_PrefabInstance: {fileID: 1744825043}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1752947046 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9554470, guid: 0ce8d79c0cd21d640acf39e223c5fd26, type: 3}
+  m_PrefabInstance: {fileID: 1322419862}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1761400111
 GameObject:
