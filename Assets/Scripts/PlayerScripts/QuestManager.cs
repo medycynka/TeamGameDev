@@ -46,7 +46,10 @@ namespace SzymonPeszek.PlayerScripts
                     });
                 }
             }
+        }
 
+        private void Start()
+        {
             npcMap = new Dictionary<string, NpcInteractionManager>();
             NpcInteractionManager[] tmpIm = FindObjectsOfType<NpcInteractionManager>();
             foreach(NpcInteractionManager npc in tmpIm)
@@ -61,9 +64,12 @@ namespace SzymonPeszek.PlayerScripts
                 else
                 {
                     NpcManager tmpManager = npc.GetComponent<NpcManager>();
-                    if (!npcMap.ContainsKey(tmpManager.npcId))
+                    if (tmpManager != null)
                     {
-                        npcMap.Add(tmpManager.npcId, npc);
+                        if (!npcMap.ContainsKey(tmpManager.npcId))
+                        {
+                            npcMap.Add(tmpManager.npcId, npc);
+                        }
                     }
                 }
             }
