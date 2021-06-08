@@ -44,12 +44,16 @@ namespace SzymonPeszek.Npc
         public void InitializeDialogue()
         {
             // Convert dialogue container data to dictionary for fast and easy access to options of given dialogue node
-            if (dialogueDataContainer.Count > 0)
+            if (dialogueDataContainer.Any(d => !d.isCompleted))
             {
                 currentDialogue = dialogueDataContainer.First(d => !d.isCompleted);
                 dialogueMapKeys = DialogueDataConverter.ToGuidList(currentDialogue.dialogueData);
                 dialogueMapValues = DialogueDataConverter.ToDialogueStorageList(currentDialogue.dialogueData);
                 dialogueMap = DialogueDataConverter.ToDictionary(currentDialogue.dialogueData);
+            }
+            else
+            {
+                Debug.Log("All dialogs completed!");
             }
         }
 
@@ -57,7 +61,6 @@ namespace SzymonPeszek.Npc
         {
             isQuestGiven = true;
             playerManager.AcceptNewQuest(npcManager.GiveMainQuest());
-            playerManager.dialogueFlag = false;
         }
 
         public void CompleteQuest(PlayerManager playerManager)

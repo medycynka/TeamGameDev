@@ -25,9 +25,9 @@ namespace SzymonPeszek.Npc.DialogueSystem
         public TextMeshProUGUI mainText;
         public DialogueOption[] options;
 
-        private PlayerManager _playerManager;
-        private NpcManager _npcManager;
-        private NpcInteractionManager _npcInteractionManager;
+        [SerializeField] private PlayerManager _playerManager;
+        [SerializeField] private NpcManager _npcManager;
+        [SerializeField] private NpcInteractionManager _npcInteractionManager;
 
         public void Init(PlayerManager playerManager, NpcManager npcManager, 
             NpcInteractionManager npcInteractionManager)
@@ -35,48 +35,64 @@ namespace SzymonPeszek.Npc.DialogueSystem
             _playerManager = playerManager;
             _npcManager = npcManager;
             _npcInteractionManager = npcInteractionManager;
+            _npcInteractionManager.InitializeDialogue();
             _playerManager.dialogueFlag = true;
         }
         public void HandleDialogue()
         {
             _playerManager.dialogueFlag = true;
             string firstNode = GetFirstNode();
-            mainText.text = _npcInteractionManager.dialogueMap[firstNode].dialogueText;
-            hudWindow.SetActive(false);
-            uIWindow.SetActive(true);
-            dialogueWindow.SetActive(true);
             
-            if (_npcInteractionManager.dialogueMap[firstNode].item)
+            if (_npcInteractionManager.dialogueMap.ContainsKey(firstNode))
             {
-                Debug.Log("Adding items during dialogue...");
-                GiveItems();
-            }
+                mainText.text = _npcInteractionManager.dialogueMap[firstNode].dialogueText;
+                hudWindow.SetActive(false);
+                uIWindow.SetActive(true);
+                dialogueWindow.SetActive(true);
 
-            if (_npcInteractionManager.dialogueMap[firstNode].giver)
-            {
-                // Debug.Log("Getting quest from initial node");
-                _npcInteractionManager.GiveQuest(_playerManager);
-            }
-            if (_npcInteractionManager.dialogueMap[firstNode].completer)
-            {
-                // Debug.Log("Completing quest in initial node");
-                _npcInteractionManager.CompleteQuest(_playerManager);
-            }
-            
-            foreach (DialogueOption option in options)
-            {
-                option.optionObject.SetActive(false);
-                option.button.onClick.RemoveAllListeners();
-            }
+                if (_npcInteractionManager.dialogueMap[firstNode].item)
+                {
+                    Debug.Log("Adding items during dialogue...");
+                    GiveItems();
+                }
 
-            List<LinkData> potentialOptions =
-                _npcInteractionManager.dialogueMap[GetFirstNode()].links;
-            for (int i = 0; i < potentialOptions.Count; i++)
+                if (_npcInteractionManager.dialogueMap[firstNode].giver)
+                {
+                    // Debug.Log("Getting quest from initial node");
+                    _npcInteractionManager.GiveQuest(_playerManager);
+                }
+
+                if (_npcInteractionManager.dialogueMap[firstNode].completer)
+                {
+                    // Debug.Log("Completing quest in initial node");
+                    _npcInteractionManager.CompleteQuest(_playerManager);
+                }
+
+                foreach (DialogueOption option in options)
+                {
+                    option.optionObject.SetActive(false);
+                    option.button.onClick.RemoveAllListeners();
+                }
+
+                List<LinkData> potentialOptions =
+                    _npcInteractionManager.dialogueMap[GetFirstNode()].links;
+                for (int i = 0; i < potentialOptions.Count; i++)
+                {
+                    int i1 = i;
+                    options[i].button.onClick.AddListener(() =>
+                    {
+                        HandleDialogueOption(potentialOptions[i1].targetGuid);
+                    });
+                    options[i].optionText.text = potentialOptions[i].portName;
+                    options[i].optionObject.SetActive(true);
+                }
+            }
+            else
             {
-                int i1 = i;
-                options[i].button.onClick.AddListener(()=>{ HandleDialogueOption(potentialOptions[i1].targetGuid); });
-                options[i].optionText.text = potentialOptions[i].portName;
-                options[i].optionObject.SetActive(true);
+                Debug.Log($"Error on dialogue loading with initial loaded node: {firstNode}");
+                options[0].optionText.text = "ERROR";
+                options[0].button.onClick.AddListener(CloseDialogue);
+                options[0].optionObject.SetActive(true);
             }
         }
 
@@ -95,6 +111,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
 
         private void HandleDialogueOption(string targetGuid)
         {
+            _playerManager.dialogueFlag = true;
             if (_npcInteractionManager.dialogueMap[targetGuid].ender)
             {
                 if (_npcInteractionManager.dialogueMap[targetGuid].completer)
@@ -183,7 +200,18 @@ namespace SzymonPeszek.Npc.DialogueSystem
             uIWindow.SetActive(false);
             dialogueWindow.SetActive(false);
             hudWindow.SetActive(true);
+
+            for (int i = 0; i < options.Length; i++)
+            {
+                options[i].optionObject.SetActive(false);
+                options[i].button.onClick.RemoveAllListeners();
+            }
+            
             _playerManager.DisableDialogueFlag();
+            
+            _playerManager = null;
+            _npcManager = null;
+            _npcInteractionManager = null;
         }
 
         private void GiveQuest()

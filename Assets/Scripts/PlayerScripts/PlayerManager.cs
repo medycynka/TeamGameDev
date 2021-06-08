@@ -295,6 +295,7 @@ namespace SzymonPeszek.PlayerScripts
                             if (_inputHandler.aInput)
                             {
                                 StopPlayer();
+                                dialogueFlag = true;
                                 interactableObject.Interact(this);
                             }
                         }
