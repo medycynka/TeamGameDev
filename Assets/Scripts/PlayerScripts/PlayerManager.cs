@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using SzymonPeszek.BaseClasses;
@@ -17,6 +18,8 @@ using SzymonPeszek.Items.Weapons;
 using SzymonPeszek.Npc;
 using SzymonPeszek.PlayerScripts.Inventory;
 using SzymonPeszek.Quests;
+using TMPro;
+using UnityEngine.UI;
 
 
 namespace SzymonPeszek.PlayerScripts
@@ -82,6 +85,8 @@ namespace SzymonPeszek.PlayerScripts
         private const string NpcTag = "NPC";
         private LayerMask _pickUpLayer;
         private Collider[] _interactColliders;
+        private TextMeshProUGUI _itemInteractableGameObjectText;
+        private RawImage _itemInteractableGameObjectImage;
 
         private void Awake()
         {
@@ -99,6 +104,9 @@ namespace SzymonPeszek.PlayerScripts
             _pickUpLayer = 1 << LayerMask.NameToLayer("Pick Up");
             interactableUI = FindObjectOfType<InteractableUI>();
             _interactColliders = new Collider[8];
+
+            _itemInteractableGameObjectText = itemInteractableGameObject.GetComponentInChildren<TextMeshProUGUI>();
+            _itemInteractableGameObjectImage = itemInteractableGameObject.GetComponentInChildren<RawImage>();
         }
 
         private void Update()
@@ -309,10 +317,10 @@ namespace SzymonPeszek.PlayerScripts
                     interactableUIGameObject.SetActive(false);
                 }
 
-                if (itemInteractableGameObject != null && _inputHandler.aInput)
-                {
-                    itemInteractableGameObject.SetActive(false);
-                }
+                // if (itemInteractableGameObject != null && _inputHandler.aInput)
+                // {
+                //     itemInteractableGameObject.SetActive(false);
+                // }
             }
         }
 
@@ -556,6 +564,33 @@ namespace SzymonPeszek.PlayerScripts
             _playerAnimatorManager.anim.SetFloat(StaticAnimatorIds.animationIds[StaticAnimatorIds.VerticalName], 0);
             _playerAnimatorManager.anim.SetFloat(StaticAnimatorIds.animationIds[StaticAnimatorIds.HorizontalName], 0);
         }
+
+        public void ShowPickUps(List<ItemVisuals> icons)
+        {
+            StartCoroutine(ShowPickUpIcons(icons));
+        }
+
+        private IEnumerator ShowPickUpIcons(List<ItemVisuals> icons)
+        {
+            if (icons.Count > 0)
+            {
+                _itemInteractableGameObjectText.text = icons[0].itemName;
+                _itemInteractableGameObjectImage.texture = icons[0].itemIcon.texture;
+                itemInteractableGameObject.SetActive(true);
+
+                yield return CoroutineYielder.waitFor075Second;
+                
+                for (int i = 1; i < icons.Count; i++)
+                {
+                    _itemInteractableGameObjectText.text = icons[i].itemName;
+                    _itemInteractableGameObjectImage.texture = icons[i].itemIcon.texture;
+                    
+                    yield return CoroutineYielder.waitFor1Second;
+                }
+
+                itemInteractableGameObject.SetActive(false);
+            }
+        }
         
         private IEnumerator EnablePlayerManager()
         {
@@ -563,5 +598,12 @@ namespace SzymonPeszek.PlayerScripts
             
             dialogueFlag = false;
         }
+    }
+    
+    [Serializable]
+    public class ItemVisuals
+    {
+        public string itemName;
+        public Sprite itemIcon;
     }
 }
