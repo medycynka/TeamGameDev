@@ -29,6 +29,7 @@ MonoBehaviour:
   rewardItems: []
   switchActiveStateOnGive:
   - TeleportFather
+  - Father
   switchActiveStateOnComplete: []
   changeToNextDialogueOnGive: []
   changeToNextDialogueOnComplete: []

@@ -28,6 +28,7 @@ MonoBehaviour:
   rewardItems: []
   switchActiveStateOnGive:
   - TeleportGrandma
+  - Grandma
   switchActiveStateOnComplete: []
   changeToNextDialogueOnGive: []
   changeToNextDialogueOnComplete: []
