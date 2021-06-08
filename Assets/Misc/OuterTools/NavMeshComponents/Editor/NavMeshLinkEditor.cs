@@ -1,5 +1,7 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEngine.AI;
+
 
 namespace UnityEditor.AI
 {
@@ -247,7 +249,7 @@ namespace UnityEditor.AI
             }
 
             EditorGUI.BeginChangeCheck();
-            pos = Handles.Slider(midPt + right * navLink.width * 0.5f, right, midSize * 0.03f, Handles.DotHandleCap, 0);
+            pos = Handles.Slider(midPt + right * (navLink.width * 0.5f), right, midSize * 0.03f, Handles.DotHandleCap, 0);
             if (EditorGUI.EndChangeCheck())
             {
                 Undo.RecordObject(navLink, "Adjust link width");
@@ -255,7 +257,7 @@ namespace UnityEditor.AI
             }
 
             EditorGUI.BeginChangeCheck();
-            pos = Handles.Slider(midPt - right * navLink.width * 0.5f, -right, midSize * 0.03f, Handles.DotHandleCap, 0);
+            pos = Handles.Slider(midPt - right * (navLink.width * 0.5f), -right, midSize * 0.03f, Handles.DotHandleCap, 0);
             if (EditorGUI.EndChangeCheck())
             {
                 Undo.RecordObject(navLink, "Adjust link width");
@@ -277,3 +279,4 @@ namespace UnityEditor.AI
         }
     }
 }
+#endif

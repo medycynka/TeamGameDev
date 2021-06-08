@@ -1,7 +1,9 @@
+#if UNITY_EDITOR
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(NavMeshPrefabInstance))]
@@ -144,3 +146,4 @@ class NavMeshPrefabInstanceEditor : Editor
             instance.UpdateInstance();
     }
 }
+#endif
