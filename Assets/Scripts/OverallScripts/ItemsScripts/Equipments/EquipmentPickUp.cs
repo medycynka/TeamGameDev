@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using SzymonPeszek.BaseClasses;
@@ -41,6 +42,8 @@ namespace SzymonPeszek.Items.Equipment
         {
             base.PickUpItem(playerManager);
 
+            List<ItemVisuals> icons = new List<ItemVisuals>();
+            
             for (var i = 0; i < equipments.Length; i++)
             {
                 if (equipments[i] != null)
@@ -83,13 +86,20 @@ namespace SzymonPeszek.Items.Equipment
                             uIManager.UpdateRingInventory();
                             break;
                     }
+                    
+                    icons.Add(new ItemVisuals
+                    {
+                        itemName = equipments[i].itemName,
+                        itemIcon = equipments[i].itemIcon
+                    });
                 }
             }
 
-            playerManager.itemInteractableGameObject.GetComponentInChildren<TextMeshProUGUI>().text = equipments[0].itemName;
-            playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture = equipments[0].itemIcon.texture;
-
-            playerManager.itemInteractableGameObject.SetActive(true);
+            // playerManager.itemInteractableGameObject.GetComponentInChildren<TextMeshProUGUI>().text = equipments[0].itemName;
+            // playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture = equipments[0].itemIcon.texture;
+            //
+            // playerManager.itemInteractableGameObject.SetActive(true);
+            playerManager.ShowPickUps(icons);
             Destroy(gameObject);
         }
     }

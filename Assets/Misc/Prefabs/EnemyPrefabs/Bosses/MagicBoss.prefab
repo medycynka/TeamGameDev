@@ -717,6 +717,7 @@ MonoBehaviour:
   canBeParried: 0
   isParrying: 0
   isBlocking: 0
+  isRotatingWithRootMotion: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
   isNeutral: 0
@@ -735,10 +736,10 @@ MonoBehaviour:
   navMeshBlocker: {fileID: 0}
   enemyRigidBody: {fileID: 5031821409934530119}
   rotationSpeed: 15
-  detectionRadius: 20
+  detectionRadius: 30
   maximumAttackRange: 15
-  maximumDetectionAngle: 120
-  minimumDetectionAngle: -120
+  maximumDetectionAngle: 150
+  minimumDetectionAngle: -150
   shouldFollowTarget: 0
   canPatrol: 0
   maxRandomPatrolDistance: 5
