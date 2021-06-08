@@ -17,20 +17,126 @@ MonoBehaviour:
     portName: Next
     targetNodeGuid: 567b43bd-c7b7-4321-9923-a57ce67e1cce
   - baseNodeGuid: 567b43bd-c7b7-4321-9923-a57ce67e1cce
-    portName: Pewnie tak.
+    portName: "Co si\u0119 sta\u0142o?"
     targetNodeGuid: b2dd6c50-1547-4447-87d7-43777add31f2
+  - baseNodeGuid: 567b43bd-c7b7-4321-9923-a57ce67e1cce
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: 7e8a03b1-e946-45e0-8600-a2154c739ec5
+  - baseNodeGuid: b2dd6c50-1547-4447-87d7-43777add31f2
+    portName: "Ob\xF3z? Bandyt\xF3w?"
+    targetNodeGuid: 7b5cc157-a775-4ba7-aac1-f5aca90c1781
+  - baseNodeGuid: b2dd6c50-1547-4447-87d7-43777add31f2
+    portName: I co z tego?
+    targetNodeGuid: 6ac3bfce-0285-4192-b9e0-b37fd57f0259
+  - baseNodeGuid: 6ac3bfce-0285-4192-b9e0-b37fd57f0259
+    portName: "Wygl\u0105dasz na wojowniczk\u0119. Czemu sama si\u0119 tym nie zajmiesz?"
+    targetNodeGuid: f7fa5a26-ef35-432d-9ccf-33adc8109c39
+  - baseNodeGuid: 7b5cc157-a775-4ba7-aac1-f5aca90c1781
+    portName: "Wygl\u0105dasz na wojowniczk\u0119. Czemu sama si\u0119 tym nie zajmiesz?"
+    targetNodeGuid: f7fa5a26-ef35-432d-9ccf-33adc8109c39
+  - baseNodeGuid: 6ac3bfce-0285-4192-b9e0-b37fd57f0259
+    portName: "Co na to so\u0142tys?"
+    targetNodeGuid: 3c4fb42d-7334-42d9-81f6-331f25c9561c
+  - baseNodeGuid: 7b5cc157-a775-4ba7-aac1-f5aca90c1781
+    portName: "Przecie\u017C mamy stra\u017Cnik\xF3w. \u017Badnego nie pos\u0142a\u0142?"
+    targetNodeGuid: 3c4fb42d-7334-42d9-81f6-331f25c9561c
+  - baseNodeGuid: f7fa5a26-ef35-432d-9ccf-33adc8109c39
+    portName: "Mo\u017Cesz mi co\u015B opowiedzie\u0107 o tym obozie?"
+    targetNodeGuid: deb61668-03fa-48ee-8cc1-5c2ad4d0166c
+  - baseNodeGuid: 3c4fb42d-7334-42d9-81f6-331f25c9561c
+    portName: "Mo\u017Cesz mi co\u015B opowiedzie\u0107 o tym obozie?"
+    targetNodeGuid: deb61668-03fa-48ee-8cc1-5c2ad4d0166c
+  - baseNodeGuid: deb61668-03fa-48ee-8cc1-5c2ad4d0166c
+    portName: "Co\u015B wi\u0119cej?"
+    targetNodeGuid: 86956c6f-ec6e-4d24-b774-a5c3d91c3e9f
+  - baseNodeGuid: 86956c6f-ec6e-4d24-b774-a5c3d91c3e9f
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: f1bc2602-bffa-481d-9b4a-4972a13c7874
   dialogueNodeData:
   - nodeGuid: 567b43bd-c7b7-4321-9923-a57ce67e1cce
-    dialogueText: "Witaj! Wybierasz si\u0119 mo\u017Ce za wiosk\u0119?"
+    dialogueText: Ta wioska schodzi na psy.
     nodePosition: {x: 373, y: 167}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
+    isEnding: 0
+    isItem: 0
+  - nodeGuid: 7e8a03b1-e946-45e0-8600-a2154c739ec5
+    dialogueText: Dialogue Node
+    nodePosition: {x: 996, y: 219}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+    isItem: 0
   - nodeGuid: b2dd6c50-1547-4447-87d7-43777add31f2
-    dialogueText: "\u015Awietnie. Mam pro\u015Bb\u0119. "
-    nodePosition: {x: 942, y: 61}
+    dialogueText: "Czy wiesz, \u017Ce na po\u0142udniu od miasta jest ob\xF3z bandyt\xF3w?"
+    nodePosition: {x: 997, y: 50}
     isQuestGiver: 0
     isQuestCompleter: 0
     isExit: 0
+    isEnding: 0
+    isItem: 0
+  - nodeGuid: 6ac3bfce-0285-4192-b9e0-b37fd57f0259
+    dialogueText: "To z tego, \u017Ce mog\u0105 w ka\u017Cdej chwili was zaatakowa\u0107.
+      Szczeg\xF3lnie jak im si\u0119 sko\u0144czy jedzenie."
+    nodePosition: {x: 1772, y: 98}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+    isItem: 0
+  - nodeGuid: f7fa5a26-ef35-432d-9ccf-33adc8109c39
+    dialogueText: "By\u0142am ju\u017C u niego w tej sprawie, ale ja za darmo nie
+      pracuj\u0119."
+    nodePosition: {x: 2602, y: -69}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+    isItem: 0
+  - nodeGuid: 3c4fb42d-7334-42d9-81f6-331f25c9561c
+    dialogueText: "Stwierdzi\u0142, \u017Ce ma zbyt ma\u0142o stra\u017Cnik\xF3w
+      i mnie odprawi\u0142. Proponowa\u0142am mu, \u017Ce mog\u0119 si\u0119 tym
+      zaj\u0105\u0107, ale stwierdzi\u0142, \u017Ce nie zap\u0142aci mi."
+    nodePosition: {x: 2779, y: 100}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+    isItem: 0
+  - nodeGuid: 7b5cc157-a775-4ba7-aac1-f5aca90c1781
+    dialogueText: "Tak, siedz\u0105 bezprawnie w \u015Brodku lasu i so\u0142tys nic
+      z nimi nie robi."
+    nodePosition: {x: 1795, y: -77}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+    isItem: 0
+  - nodeGuid: deb61668-03fa-48ee-8cc1-5c2ad4d0166c
+    dialogueText: "Na po\u0142udniu, w lesie iglastym. Jest ich oko\u0142o czterech."
+    nodePosition: {x: 3911, y: -40}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+    isItem: 0
+  - nodeGuid: 86956c6f-ec6e-4d24-b774-a5c3d91c3e9f
+    dialogueText: "Za co\u015B wi\u0119cej musisz zap\u0142aci\u0107."
+    nodePosition: {x: 4650, y: -42}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+    isItem: 0
+  - nodeGuid: f1bc2602-bffa-481d-9b4a-4972a13c7874
+    dialogueText: Dialogue Node
+    nodePosition: {x: 5262, y: -45}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+    isItem: 0
   exposedProperties: []
   commentBlockData: []

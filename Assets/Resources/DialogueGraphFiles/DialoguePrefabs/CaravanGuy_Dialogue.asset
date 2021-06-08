@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: CaravanGuy_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: 229082e1-eeaf-42d0-b4b6-fc95939d0486
+    portName: Next
+    targetNodeGuid: 8fe6e1c0-1b55-48b1-8142-bcac5326fb28
+  - baseNodeGuid: 8fe6e1c0-1b55-48b1-8142-bcac5326fb28
+    portName: "Tylko si\u0119 rozgl\u0105dam. "
+    targetNodeGuid: 48806db7-c970-4546-8eb7-06145dad972c
+  - baseNodeGuid: 8fe6e1c0-1b55-48b1-8142-bcac5326fb28
+    portName: Dlaczego nic nie sprzedajecie?
+    targetNodeGuid: 7e67d06d-3fae-4998-9bff-02f28a47cce5
+  - baseNodeGuid: 7e67d06d-3fae-4998-9bff-02f28a47cce5
+    portName: "Nie, dzi\u0119kuj\u0119."
+    targetNodeGuid: 48806db7-c970-4546-8eb7-06145dad972c
+  - baseNodeGuid: 7e67d06d-3fae-4998-9bff-02f28a47cce5
+    portName: Podobno macie dobre wino.
+    targetNodeGuid: 75ee8fdd-a99b-4200-aabe-ff3a16a6c44a
+  - baseNodeGuid: 75ee8fdd-a99b-4200-aabe-ff3a16a6c44a
+    portName: "Dzi\u0119kuj\u0119."
+    targetNodeGuid: 48806db7-c970-4546-8eb7-06145dad972c
+  dialogueNodeData:
+  - nodeGuid: 8fe6e1c0-1b55-48b1-8142-bcac5326fb28
+    dialogueText: "Witaj. Niestety nie mamy nic na sprzeda\u017C."
+    nodePosition: {x: 385, y: 193}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+    isItem: 0
+  - nodeGuid: 48806db7-c970-4546-8eb7-06145dad972c
+    dialogueText: Dialogue Node
+    nodePosition: {x: 1073, y: 370}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+    isItem: 0
+  - nodeGuid: 7e67d06d-3fae-4998-9bff-02f28a47cce5
+    dialogueText: "Zapasy, kt\xF3re mamy pozwol\u0105 nam prze\u017Cy\u0107, a nie
+      pieni\u0105dze, kt\xF3re mo\u017Cesz nam za nie da\u0107. Rozgl\u0105dasz si\u0119
+      za czym\u015B konkretnym?"
+    nodePosition: {x: 1083, y: 122}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+    isItem: 0
+  - nodeGuid: 75ee8fdd-a99b-4200-aabe-ff3a16a6c44a
+    dialogueText: "Mamy. Mo\u017Cesz wzi\u0105\u0107 z butelk\u0119, mo\u017Ce dwie."
+    nodePosition: {x: 2259, y: 143}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+    isItem: 0
+  exposedProperties: []
+  commentBlockData: []
