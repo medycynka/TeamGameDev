@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd72dad7d234021b4d4f40f2b75ff5a, type: 3}
+  m_Name: Draven_Dialogue
+  m_EditorClassIdentifier: 
+  nodeLinks:
+  - baseNodeGuid: 7e869c2f-2d16-4238-9c99-1af4f3d388f6
+    portName: Next
+    targetNodeGuid: e16a8722-1ba4-4e61-b896-d57a5ba1e878
+  - baseNodeGuid: e16a8722-1ba4-4e61-b896-d57a5ba1e878
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: ec181153-e293-4dfc-801a-6879e583e89b
+  - baseNodeGuid: e16a8722-1ba4-4e61-b896-d57a5ba1e878
+    portName: "Pom\xF3c? Potrzebujecie pomocy z czym\u015B?"
+    targetNodeGuid: 225c2a92-7143-4017-976f-562721b0627b
+  - baseNodeGuid: e16a8722-1ba4-4e61-b896-d57a5ba1e878
+    portName: "Nie, ale mam par\u0119 pyta\u0144."
+    targetNodeGuid: 1baad74b-964d-40ac-92d0-d44b4ca41890
+  - baseNodeGuid: 225c2a92-7143-4017-976f-562721b0627b
+    portName: "Hm, nie dzi\u0119kuj\u0119."
+    targetNodeGuid: ec181153-e293-4dfc-801a-6879e583e89b
+  - baseNodeGuid: 1baad74b-964d-40ac-92d0-d44b4ca41890
+    portName: "Masz mo\u017Ce troch\u0119 mi\u0119sa?"
+    targetNodeGuid: eb2c3407-f430-4317-b24c-8bf212662868
+  - baseNodeGuid: eb2c3407-f430-4317-b24c-8bf212662868
+    portName: "Dzi\u0119kuj\u0119."
+    targetNodeGuid: 2a64a6d9-d927-4b41-977b-18567ff793c5
+  dialogueNodeData:
+  - nodeGuid: e16a8722-1ba4-4e61-b896-d57a5ba1e878
+    dialogueText: "Witaj. Przyszed\u0142e\u015B pom\xF3c przy farmie?"
+    nodePosition: {x: 374, y: 206}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+    isItem: 0
+  - nodeGuid: 225c2a92-7143-4017-976f-562721b0627b
+    dialogueText: "Tak, trzeba wydoi\u0107 krowy."
+    nodePosition: {x: 1074, y: 169}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+    isItem: 0
+  - nodeGuid: ec181153-e293-4dfc-801a-6879e583e89b
+    dialogueText: Dialogue Node
+    nodePosition: {x: 965, y: 461}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+    isItem: 0
+  - nodeGuid: 1baad74b-964d-40ac-92d0-d44b4ca41890
+    dialogueText: 'Hm? '
+    nodePosition: {x: 1516, y: 313}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+    isItem: 0
+  - nodeGuid: 2a64a6d9-d927-4b41-977b-18567ff793c5
+    dialogueText: Dialogue Node
+    nodePosition: {x: 2987, y: 225}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+    isItem: 0
+  - nodeGuid: eb2c3407-f430-4317-b24c-8bf212662868
+    dialogueText: "Tak, ko\u0142o stodo\u0142y powinien by\u0107 koszyk mi\u0119sa.
+      Mia\u0142em robi\u0107 kaszank\u0119, ale jak potrzebujesz, to bierz."
+    nodePosition: {x: 2011, y: 234}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 0
+    isEnding: 0
+    isItem: 0
+  exposedProperties: []
+  commentBlockData: []
