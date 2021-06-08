@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+using UnityEngine;
 using UnityEditor;
+
 
 namespace BattleDrakeStudios.ModularCharacters {
     public class ModularSetupWizard : EditorWindow {
@@ -256,3 +258,4 @@ namespace BattleDrakeStudios.ModularCharacters {
         }
     }
 }
+#endif
