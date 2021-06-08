@@ -1,6 +1,7 @@
 ﻿using SzymonPeszek.BaseClasses;
 using SzymonPeszek.Enums;
 using SzymonPeszek.Items.Weapons;
+using SzymonPeszek.PlayerScripts.Inventory;
 
 
 namespace SzymonPeszek.GameUI.Slots
@@ -62,6 +63,16 @@ namespace SzymonPeszek.GameUI.Slots
         {
             if (_item != null)
             {
+                if (playerInventory == null)
+                {
+                    playerInventory = FindObjectOfType<PlayerInventory>();
+                }
+
+                if (weaponSlotManager == null)
+                {
+                    weaponSlotManager = FindObjectOfType<WeaponSlotManager>();
+                }
+                
                 if (_item.itemType == ItemType.Shield)
                 {
                     playerInventory.leftWeapon = _item;

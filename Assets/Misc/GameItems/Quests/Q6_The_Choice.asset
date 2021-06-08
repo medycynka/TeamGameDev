@@ -28,7 +28,7 @@ MonoBehaviour:
   rewardItems: []
   switchActiveStateOnGive: []
   switchActiveStateOnComplete:
-  - Quest_Rock
+  - QRock
   changeToNextDialogueOnGive:
   - Mother
   changeToNextDialogueOnComplete:

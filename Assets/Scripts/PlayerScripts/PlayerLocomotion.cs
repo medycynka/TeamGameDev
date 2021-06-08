@@ -366,7 +366,6 @@ namespace SzymonPeszek.PlayerScripts
                 nextJump = Time.time + 2f;
                 currentVelocity.y = Mathf.Sqrt(2 * jumpMultiplier * jumpHeight);
                 rigidbody.velocity = currentVelocity;
-                Debug.Log($"{rigidbody.velocity}");
             }
         }
 
