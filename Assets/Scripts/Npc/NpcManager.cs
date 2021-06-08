@@ -78,14 +78,15 @@ namespace SzymonPeszek.Npc
 
         public bool EndCurrentMainQuest(PlayerManager playerManager)
         {
-            Debug.Log("NpcManager: Complete quest");
+            // Debug.Log("NpcManager: Complete quest");
             if (currentMainQuest.quest == null)
             {
                 Debug.Log("Current quest is null");
+                return false;
             }
             if (playerManager.CompleteQuest(currentMainQuest.quest))
             {
-                Debug.Log("NpcManager: Completed quest");
+                // Debug.Log("NpcManager: Completed quest");
                 mainQuests.First(q => q.questId == currentMainQuest.questId).isCompleted = true;
                 currentMainQuest.isCompleted = true;
 
@@ -93,12 +94,24 @@ namespace SzymonPeszek.Npc
                 {
                     QuestManager.instance.npcMap[currentMainQuest.quest.giverNpcId].isQuestGiven = false;
                     QuestManager.instance.npcMap[currentMainQuest.quest.giverNpcId].npcManager.currentMainQuest.isCompleted = true;
+                    QuestManager.instance.npcMap[currentMainQuest.quest.giverNpcId].npcManager.SwitchCurrentMainQuest();
                 }
                 
                 return true;
             }
 
             return false;
+        }
+
+        public void SwitchCurrentMainQuest()
+        {
+            if (currentMainQuest.isCompleted)
+            {
+                if (QuestManager.instance.mainQuests.Any(q => !q.isCompleted) && mainQuests.Any(q => !q.isCompleted))
+                {
+                    currentMainQuest = mainQuests.First(q => !q.isCompleted);
+                }
+            }
         }
         
         public Quest GiveSideQuest()
@@ -134,6 +147,17 @@ namespace SzymonPeszek.Npc
             }
 
             return false;
+        }
+        
+        public void SwitchCurrentSideQuest()
+        {
+            if (currentSideQuest.isCompleted)
+            {
+                if (QuestManager.instance.sideQuests.Any(q => !q.isCompleted) && sideQuests.Any(q => !q.isCompleted))
+                {
+                    currentSideQuest = sideQuests.First(q => !q.isCompleted);
+                }
+            }
         }
     }
 }
