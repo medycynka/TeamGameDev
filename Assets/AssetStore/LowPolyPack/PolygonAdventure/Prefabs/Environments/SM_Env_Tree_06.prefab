@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3388232}
   - component: {fileID: 2336098}
   - component: {fileID: 3533864392425438650}
+  - component: {fileID: -1198668040059080865}
   m_Layer: 0
   m_Name: SM_Env_Tree_06
   m_TagString: Untagged
@@ -98,3 +99,17 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 1
   m_AffectedAgents: ffffffff
+--- !u!136 &-1198668040059080865
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143756}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0.1, y: 2, z: 0.4}
