@@ -22,6 +22,9 @@ MonoBehaviour:
   - baseNodeGuid: ce08e18a-c8ff-4353-9b56-5ab84ef3500c
     portName: '[Czytaj dalej]'
     targetNodeGuid: b1101459-1d93-463e-975d-70f57f1d86df
+  - baseNodeGuid: b1101459-1d93-463e-975d-70f57f1d86df
+    portName: "[Odejd\u017A]"
+    targetNodeGuid: 207788cb-e50d-4701-b2d7-5ca54fe12f92
   dialogueNodeData:
   - nodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
     dialogueText: "Znajdujesz tajemniczy kamie\u0144, kt\xF3ry reaguje na Twoj\u0105
@@ -33,6 +36,7 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
+    isItem: 0
   - nodeGuid: ce08e18a-c8ff-4353-9b56-5ab84ef3500c
     dialogueText: "Cz\u0119\u015B\u0107 run napisana jest w Twoim j\u0119zyku, ale
       najwi\u0119ksze z nich s\u0105 zapisane w narzeczu, kt\xF3re nie rozumiesz.
@@ -45,6 +49,7 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
+    isItem: 0
   - nodeGuid: b1101459-1d93-463e-975d-70f57f1d86df
     dialogueText: "Zauwa\u017Casz, \u017Ce nieznane narzecze nie mo\u017Ce by\u0107
       j\u0119zykiem, kt\xF3rego si\u0119 u\u017Cywa. Brakuje samog\u0142osek i porozpisywane
@@ -56,6 +61,15 @@ MonoBehaviour:
     isQuestCompleter: 1
     isExit: 0
     isEnding: 1
+    isItem: 0
+  - nodeGuid: 207788cb-e50d-4701-b2d7-5ca54fe12f92
+    dialogueText: Dialogue Node
+    nodePosition: {x: 5897, y: -424}
+    isQuestGiver: 0
+    isQuestCompleter: 0
+    isExit: 1
+    isEnding: 0
+    isItem: 0
   exposedProperties:
   - propertyName: New String
     propertyValue: New Value
