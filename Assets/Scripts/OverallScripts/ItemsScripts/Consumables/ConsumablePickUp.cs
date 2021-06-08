@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using SzymonPeszek.BaseClasses;
@@ -39,20 +40,34 @@ namespace SzymonPeszek.Items.Consumable
         protected override void PickUpItem(PlayerManager playerManager)
         {
             base.PickUpItem(playerManager);
+            
+            List<ItemVisuals> icons = new List<ItemVisuals>();
 
             if (consumableItems[0].isDeathDrop)
             {
                 playerManager.GetComponent<PlayerStats>().soulsAmount += consumableItems[0].soulAmount;
                 uIManager.UpdateSouls();
+                
+                icons.Add(new ItemVisuals
+                {
+                    itemName = consumableItems[0].itemName,
+                    itemIcon = consumableItems[0].itemIcon
+                });
             }
             else
             {
-                foreach (var consumableItem in consumableItems)
+                for (var i = 0; i < consumableItems.Length; i++)
                 {
-                    if (consumableItem != null)
+                    if (consumableItems[i] != null)
                     {
-                        playerInventory.consumablesInventory.Add(consumableItem);
+                        playerInventory.consumablesInventory.Add(consumableItems[i]);
                     }
+
+                    icons.Add(new ItemVisuals
+                    {
+                        itemName = consumableItems[i].itemName,
+                        itemIcon = consumableItems[i].itemIcon
+                    });
                 }
 
                 uIManager.GetConsumableInventorySlot();
@@ -60,12 +75,13 @@ namespace SzymonPeszek.Items.Consumable
                 uIManager.UpdateEstusAmount();
             }
 
-            playerManager.itemInteractableGameObject.GetComponentInChildren<TextMeshProUGUI>().text =
-                consumableItems[0].itemName;
-            playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture =
-                consumableItems[0].itemIcon.texture;
-
-            playerManager.itemInteractableGameObject.SetActive(true);
+            // playerManager.itemInteractableGameObject.GetComponentInChildren<TextMeshProUGUI>().text =
+            //     consumableItems[0].itemName;
+            // playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture =
+            //     consumableItems[0].itemIcon.texture;
+            //
+            // playerManager.itemInteractableGameObject.SetActive(true);
+            playerManager.ShowPickUps(icons);
             Destroy(gameObject);
         }
     }
