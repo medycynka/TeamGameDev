@@ -35,6 +35,7 @@ namespace SzymonPeszek.BaseClasses
 
         [Header("Player Stats", order = 1)]
         public PlayerStats playerStats;
+        public PlayerManager playerManager;
         protected const string PlayerTag = "Player";
     }
 }
