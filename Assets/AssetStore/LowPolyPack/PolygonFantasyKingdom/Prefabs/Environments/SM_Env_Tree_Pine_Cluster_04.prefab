@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4236481367882664}
   - component: {fileID: 33423732728330064}
   - component: {fileID: 23151199536811818}
-  - component: {fileID: 64000344600506004}
   - component: {fileID: -938995006130561639}
+  - component: {fileID: 8064850748979872194}
   m_Layer: 0
   m_Name: SM_Env_Tree_Pine_Cluster_04
   m_TagString: Untagged
@@ -83,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64000344600506004
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471537812038530}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43689078892493334, guid: 998c60d5b29e8e24dbc7de3410ea1810, type: 2}
 --- !u!114 &-938995006130561639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,3 +99,16 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 1
   m_AffectedAgents: ffffffff
+--- !u!65 &8064850748979872194
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471537812038530}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.3088493, y: 23.192556, z: 2.2727218}
+  m_Center: {x: 0, y: 7.7387347, z: 0}

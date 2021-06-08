@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4201672977004260}
   - component: {fileID: 33489415481675758}
   - component: {fileID: 23378106072742806}
-  - component: {fileID: 64934398045071736}
   - component: {fileID: -3097765104505961814}
+  - component: {fileID: 3620397886134034222}
   m_Layer: 0
   m_Name: SM_Env_Tree_Thin_06
   m_TagString: Untagged
@@ -83,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64934398045071736
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1692860896486146}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43539684831775822, guid: 8b39fb85dc5462e44814268b005be40d, type: 2}
 --- !u!114 &-3097765104505961814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,3 +99,17 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 1
   m_AffectedAgents: ffffffff
+--- !u!136 &3620397886134034222
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692860896486146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.75
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
