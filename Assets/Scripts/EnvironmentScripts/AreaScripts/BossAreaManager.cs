@@ -8,6 +8,7 @@ using SzymonPeszek.PlayerScripts;
 using SzymonPeszek.Environment.Sounds;
 using SzymonPeszek.Misc;
 using SzymonPeszek.EnemyScripts;
+using SzymonPeszek.GameUI.WindowsManagers;
 
 
 namespace SzymonPeszek.Environment.Areas
@@ -22,10 +23,10 @@ namespace SzymonPeszek.Environment.Areas
         public AudioClip bgMusicBossDefeat;
         private bool _insideReset = true;
 
-        [Header("Fog Walls")]
+        [Header("Fog Walls", order = 0)]
         public FogWallManager[] fogWalls;
 
-        [Header("Boss Prefab")]
+        [Header("Boss Prefab", order = 0)]
         public string bossName = "";
         public GameObject bossPrefab;
         public Vector3 startPosition;
@@ -33,6 +34,9 @@ namespace SzymonPeszek.Environment.Areas
         public Transform parentTransform;
         public GameObject bossHpBar;
         public bool isBossAlive = true;
+
+        [Header("Boss Prefab", order = 0)] 
+        public EndingScreenManager endingScreen;
 
         private EnemyStats _bossStats;
         private Slider _bossHpSlider;
@@ -162,8 +166,19 @@ namespace SzymonPeszek.Environment.Areas
                     }
 
                     areaBgMusic = bgMusicBossDefeat;
+                    StartCoroutine(EndGame());
                 }
             }
+        }
+
+        private IEnumerator EndGame()
+        {
+            playerManager.StopPlayer();
+            playerManager.dialogueFlag = true;
+
+            yield return CoroutineYielder.waitFor1HalfSecond;
+            
+            endingScreen.endingScreen.SetActive(true);
         }
 
         private IEnumerator ShowAreaName()
