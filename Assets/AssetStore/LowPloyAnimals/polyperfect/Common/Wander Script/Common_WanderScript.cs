@@ -193,12 +193,18 @@ namespace PolyPerfect
 
         private void Awake()
         {
-            if (playerStats == null)
+            if (canAttackPlayer)
             {
-                playerStats = FindObjectOfType<PlayerStats>();
-                playerTransform = playerStats.transform;
+                if (playerStats == null)
+                {
+                    playerStats = FindObjectOfType<PlayerStats>();
+                    if (playerStats == null)
+                    {
+                        playerTransform = playerStats.transform;
+                    }
+                }
             }
-            
+
             animator = GetComponent<Animator>();
 
             var runtimeController = animator.runtimeAnimatorController;
