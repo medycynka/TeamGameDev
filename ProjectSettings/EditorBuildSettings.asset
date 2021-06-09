@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu2.unity
     guid: d52d09e60b0028d4cae3e253c69ab368
   - enabled: 1
-    path: Assets/Scenes/WorkScenes/Map.unity
-    guid: 3b1135e46ff84644c8ae17a5d4065ee8
+    path: Assets/Scenes/TestField.unity
+    guid: a47fdbfef86cca346a6bfdd1171904ca
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 23779a8c370d4964a9845e998df54f02, type: 2}
