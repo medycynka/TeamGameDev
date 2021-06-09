@@ -4357,6 +4357,7 @@ MonoBehaviour:
   canBeParried: 0
   isParrying: 0
   isBlocking: 0
+  isRotatingWithRootMotion: 0
   characterTransform: {fileID: 0}
   pendingCriticalDamage: 0
   cameraHandler: {fileID: 0}
@@ -4401,10 +4402,10 @@ MonoBehaviour:
   currentSpell: {fileID: 11400000, guid: 2b9064889006580449f2f9bfeb2eaf63, type: 2}
   weaponsInRightHandSlots:
   - {fileID: 11400000, guid: e628e226889a60f46bef691624ac7789, type: 2}
-  - {fileID: 11400000, guid: b4bfca7ae14a20d409431db3ec18aa0c, type: 2}
+  - {fileID: 11400000, guid: e628e226889a60f46bef691624ac7789, type: 2}
   weaponsInLeftHandSlots:
   - {fileID: 11400000, guid: 4452ceaeb82267747aa82f670193e40d, type: 2}
-  - {fileID: 11400000, guid: 481525fa85548e84ba35ffaf4b07a57d, type: 2}
+  - {fileID: 11400000, guid: 4452ceaeb82267747aa82f670193e40d, type: 2}
   currentRightWeaponIndex: 0
   currentLeftWeaponIndex: 0
   weaponsInventory: []
@@ -4457,7 +4458,7 @@ MonoBehaviour:
   jumpDeathDropPosition: {x: 0, y: 0, z: 0}
   playerName: 
   playerLevel: 12
-  soulsAmount: 500000
+  soulsAmount: 0
   currentArmorValue: 0
   bonusBuffAttack: 1
   bonusBuffDefence: 1
