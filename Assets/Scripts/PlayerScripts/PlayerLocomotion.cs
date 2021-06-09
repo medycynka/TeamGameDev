@@ -318,9 +318,9 @@ namespace SzymonPeszek.PlayerScripts
                     _playerManager.StopPlayer();
                 }
                 
-                if (inAirTimer > 4f)
+                if (inAirTimer > 5f)
                 {
-                    _playerStats.TakeDamage(fallDamage * (inAirTimer - 2f), DamageType.Fall);
+                    _playerStats.TakeDamage(fallDamage * (inAirTimer - 3f), DamageType.Fall);
                 }
                 
                 _targetPosition.y = _hit.point.y;
