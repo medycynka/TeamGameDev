@@ -33,7 +33,7 @@ namespace SzymonPeszek.Environment.Areas
         public EquipmentItem[] feetHolder;
         public EquipmentItem[] ringsHolder;
         public ConsumableItem[] consumableHolder;
-        public QuestContainer[] quests;
+        public List<QuestContainer> quests;
 
         private const int FrameCheckRate = 3;
         private const int BossCheckVal = 0;
@@ -126,7 +126,10 @@ namespace SzymonPeszek.Environment.Areas
                 {
                     foreach (NpcQuests npcQ in dataManager.npcQuests)
                     {
-                        tmp[npcQ.npcId].mainQuests.Add(quests[npcQ.questId]);
+                        if (quests.Any(q => q.questId == npcQ.questId))
+                        {
+                            tmp[npcQ.npcId].mainQuests.Add(quests.First(q => q.questId == npcQ.questId));
+                        }
                     }
                 }
                 #endregion
@@ -154,12 +157,9 @@ namespace SzymonPeszek.Environment.Areas
 
         private Quest GetQuestById(int id)
         {
-            for (int i = 0; i < quests.Length; i++)
+            if (quests.Any(q => q.questId == id))
             {
-                if (quests[i].questId == id)
-                {
-                    return quests[i].quest;
-                }
+                return quests.First(q => q.questId == id).quest;
             }
 
             return null;

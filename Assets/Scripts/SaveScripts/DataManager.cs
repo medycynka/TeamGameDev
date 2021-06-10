@@ -324,8 +324,8 @@ namespace SzymonPeszek.SaveScripts
 
             #region Quests
             // Player
-            quests = new QuestContainer[SettingsHolder.worldManager.quests.Length];
-            for (int i = 0; i < SettingsHolder.worldManager.quests.Length; i++)
+            quests = new QuestContainer[SettingsHolder.worldManager.quests.Count];
+            for (int i = 0; i < SettingsHolder.worldManager.quests.Count; i++)
             {
                 quests[i] = new QuestContainer
                 {
