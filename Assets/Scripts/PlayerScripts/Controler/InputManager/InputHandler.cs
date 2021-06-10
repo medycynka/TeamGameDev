@@ -82,7 +82,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
 
         private float _bowTimer;
         private bool _canPlayBlock = true;
-        private bool _canPlayLeftIdle = true;
+        // private bool _canPlayLeftIdle = true;
 
         private Vector2 _movementInput;
         private Vector2 _cameraInput;
