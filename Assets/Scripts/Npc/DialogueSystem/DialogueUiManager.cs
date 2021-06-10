@@ -41,6 +41,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
         public void HandleDialogue()
         {
             _playerManager.dialogueFlag = true;
+            _playerManager.EnableCursor();
             string firstNode = GetFirstNode();
             
             if (_npcInteractionManager.dialogueMap.ContainsKey(firstNode))
@@ -208,6 +209,7 @@ namespace SzymonPeszek.Npc.DialogueSystem
             }
             
             _playerManager.DisableDialogueFlag();
+            _playerManager.DisableCursor();
             
             _playerManager = null;
             _npcManager = null;
