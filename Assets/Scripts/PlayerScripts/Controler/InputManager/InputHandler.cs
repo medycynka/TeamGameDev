@@ -390,7 +390,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
 
                 if (inventoryFlag)
                 {
-                    // Time.timeScale = 0f;
+                    _playerManager.EnableCursor();
                     horizontal = 0f;
                     vertical = 0f;
                     moveAmount = 0f;
@@ -404,7 +404,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
                 }
                 else
                 {
-                    // Time.timeScale = 1f;
+                    _playerManager.DisableCursor();
                     uiManager.CloseSelectWindow();
                     uiManager.CloseAllInventoryWindows();
                     uiManager.hudWindow.SetActive(true);

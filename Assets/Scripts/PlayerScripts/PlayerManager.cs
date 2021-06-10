@@ -107,6 +107,8 @@ namespace SzymonPeszek.PlayerScripts
 
             _itemInteractableGameObjectText = itemInteractableGameObject.GetComponentInChildren<TextMeshProUGUI>();
             _itemInteractableGameObjectImage = itemInteractableGameObject.GetComponentInChildren<RawImage>();
+            
+            DisableCursor();
         }
 
         private void Update()
@@ -570,6 +572,16 @@ namespace SzymonPeszek.PlayerScripts
             StartCoroutine(ShowPickUpIcons(icons));
         }
 
+        public void EnableCursor()
+        {
+            Cursor.visible = true;
+        }
+
+        public void DisableCursor()
+        {
+            Cursor.visible = false;
+        }
+        
         private IEnumerator ShowPickUpIcons(List<ItemVisuals> icons)
         {
             if (icons.Count > 0)
