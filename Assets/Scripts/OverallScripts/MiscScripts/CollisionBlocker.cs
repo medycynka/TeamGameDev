@@ -8,7 +8,7 @@ namespace SzymonPeszek.Misc
     /// </summary>
     public class CollisionBlocker : MonoBehaviour
     {
-        public CapsuleCollider characterCollider;
+        public Collider characterCollider;
         public CapsuleCollider blockerCollider;
 
         void Start()

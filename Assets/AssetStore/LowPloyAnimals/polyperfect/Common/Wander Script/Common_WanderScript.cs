@@ -200,7 +200,7 @@ namespace PolyPerfect
                     playerStats = FindObjectOfType<PlayerStats>();
                     if (playerStats == null)
                     {
-                        playerTransform = playerStats.transform;
+                        playerTransform = playerStats.characterTransform;
                     }
                 }
             }

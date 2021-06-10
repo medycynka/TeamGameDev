@@ -41,9 +41,15 @@ namespace SzymonPeszek.Environment.Areas
         private void Awake()
         {
             SettingsHolder.worldManager = this;
-            
-            bossAreaManagers = GetComponentsInChildren<BossAreaManager>();
-            bonfireManagers = GetComponentsInChildren<BonfireManager>();
+
+            if (bonfireManagers.Length == 0)
+            {
+                bossAreaManagers = GetComponentsInChildren<BossAreaManager>();
+            }
+            if (bonfireManagers.Length == 0)
+            {
+                bonfireManagers = GetComponentsInChildren<BonfireManager>();
+            }
 
             DataManager dataManager = SettingsHolder.dataManager;
 

@@ -30,6 +30,10 @@ namespace SzymonPeszek.Npc
         private void Awake()
         {
             npcManager = GetComponent<NpcManager>();
+            if (dialogueUiManager == null)
+            {
+                dialogueUiManager = FindObjectOfType<DialogueUiManager>();
+            }
         }
 
         public override void Interact(PlayerManager playerManager)
