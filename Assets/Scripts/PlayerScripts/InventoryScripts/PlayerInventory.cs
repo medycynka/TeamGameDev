@@ -218,12 +218,18 @@ namespace SzymonPeszek.PlayerScripts.Inventory
             
             if (rightWeapon.itemType == ItemType.Weapon && rightWeapon.meleeType != MeleeType.Shield && rightWeapon.meleeType != MeleeType.NotMelee)
             {
-                weaponsInventory.Add(rightWeapon);
+                if (!weaponsInventory.Contains(rightWeapon))
+                {
+                    weaponsInventory.Add(rightWeapon);
+                }
                 weaponIcon.sprite = rightWeapon.itemIcon;
             }
             if (leftWeapon.itemType == ItemType.Shield && leftWeapon.meleeType == MeleeType.Shield && leftWeapon.meleeType != MeleeType.NotMelee)
             {
-                shieldsInventory.Add(leftWeapon);
+                if (!shieldsInventory.Contains(leftWeapon))
+                {
+                    shieldsInventory.Add(leftWeapon);
+                }
                 shieldIcon.sprite = leftWeapon.itemIcon;
             }
         }
