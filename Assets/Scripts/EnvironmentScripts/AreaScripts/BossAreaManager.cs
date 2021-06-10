@@ -201,7 +201,11 @@ namespace SzymonPeszek.Environment.Areas
         private IEnumerator HealBoss()
         {
             bossHpBar.SetActive(false);
-            fogWalls[0].canInteract = true;
+
+            for (int i = 0; i < fogWalls.Length; i++)
+            {
+                fogWalls[i].canInteract = true;
+            }
 
             yield return CoroutineYielder.waitFor1Second;
 
