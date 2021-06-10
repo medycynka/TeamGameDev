@@ -33,7 +33,7 @@ namespace SzymonPeszek.SaveScripts
         public static float currentBonusFocus = 0f;
         
         // Bosses
-        public static bool[] bossAreaAlive = { true };
+        public static bool[] bossAreaAlive = { true, true };
 
         // Bonfires
         public static bool[] bonfiresActivation = { false, false, false, false, false, false, false, false, false };

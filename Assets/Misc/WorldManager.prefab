@@ -60,6 +60,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7200afbeeecc06a4d81460a3f5aa124b, type: 2}
   shieldsHolder:
   - {fileID: 11400000, guid: 4452ceaeb82267747aa82f670193e40d, type: 2}
+  - {fileID: 11400000, guid: 4452ceaeb82267747aa82f670193e40d, type: 2}
+  - {fileID: 11400000, guid: 4452ceaeb82267747aa82f670193e40d, type: 2}
+  - {fileID: 11400000, guid: 4452ceaeb82267747aa82f670193e40d, type: 2}
   helmetsHolder:
   - {fileID: 11400000, guid: bfa3170a09393424393b8ce64e9b8917, type: 2}
   - {fileID: 11400000, guid: 389e1cd150fbc41449d61744342ae4da, type: 2}

@@ -42,7 +42,7 @@ namespace SzymonPeszek.Environment.Areas
         {
             SettingsHolder.worldManager = this;
 
-            if (bonfireManagers.Length == 0)
+            if (bossAreaManagers.Length == 0)
             {
                 bossAreaManagers = GetComponentsInChildren<BossAreaManager>();
             }

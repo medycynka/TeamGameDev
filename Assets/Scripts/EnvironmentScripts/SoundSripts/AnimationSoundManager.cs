@@ -206,7 +206,7 @@ namespace SzymonPeszek.Environment.Sounds
                 if (currentMovingClips.Length > 0 && _playFootsteps)
                 {
                     _audioSource.PlayOneShot(GetRandomClip(currentMovingClips),
-                        Mathf.Clamp01(_audioSource.volume + Random.Range(-volumeVariance, volumeVariance)));
+                        Mathf.Clamp01((_audioSource.volume * 0.25f) + Random.Range(-volumeVariance, volumeVariance)));
                     
                     if (_currentFoot == "left")
                     {
