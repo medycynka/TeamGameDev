@@ -10,6 +10,7 @@ using SzymonPeszek.PlayerScripts;
 using SzymonPeszek.Quests;
 using SzymonPeszek.SaveScripts;
 using QuestContainer = SzymonPeszek.PlayerScripts.QuestContainer;
+using Random = System.Random;
 
 
 namespace SzymonPeszek.Environment.Areas
@@ -37,6 +38,8 @@ namespace SzymonPeszek.Environment.Areas
         private const int FrameCheckRate = 3;
         private const int BossCheckVal = 0;
         private const int BonfireCheckVal = 1;
+        private static Random _random = new Random();
+        private const string Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{};:<>,./?|";
         
         private void Awake()
         {
@@ -113,6 +116,10 @@ namespace SzymonPeszek.Environment.Areas
                 foreach (NpcManager npcManager in npcManagers)
                 {
                     npcManager.mainQuests.Clear();
+                    if (tmp.ContainsKey(npcManager.npcId))
+                    {
+                        npcManager.npcId = npcManager.name + GetRandomNpcIdSuffix(5);
+                    }
                     tmp.Add(npcManager.npcId, npcManager);
                 }
                 if (dataManager.npcQuests.Length > 0)
@@ -137,6 +144,12 @@ namespace SzymonPeszek.Environment.Areas
                 }
                 #endregion
             }
+        }
+
+        private string GetRandomNpcIdSuffix(int suffixLength = 10, string separator = "_")
+        {
+            return separator + new string(Enumerable.Repeat(Chars, suffixLength).Select(s => s[_random.Next(s.Length)])
+                .ToArray());
         }
 
         private Quest GetQuestById(int id)
