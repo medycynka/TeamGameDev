@@ -46,7 +46,7 @@ namespace SzymonPeszek.Items.Spells
 
         public override void EnemySuccessfullyCastSpell(EnemyAnimationManager enemyAnimationManager, EnemyStats enemyStats)
         {
-            spawnPrefab = Instantiate(spawnPrefab, _spawnPosition, enemyStats.characterTransform.rotation);
+            Instantiate(spawnPrefab, _spawnPosition, enemyStats.characterTransform.rotation);
         }
 
         private Vector3 GetSummonPosition(Vector3 casterPosition)
