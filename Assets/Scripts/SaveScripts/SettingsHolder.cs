@@ -31,6 +31,7 @@ namespace SzymonPeszek.SaveScripts
         public static float currentBonusHealth = 0f;
         public static float currentBonusStamina = 0f;
         public static float currentBonusFocus = 0f;
+        public static float soulsAmount = 0f;
         
         // Bosses
         public static bool[] bossAreaAlive = { true, true };

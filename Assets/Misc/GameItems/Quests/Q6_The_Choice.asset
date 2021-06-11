@@ -26,7 +26,8 @@ MonoBehaviour:
   giverNpcId: Witch
   moneyReward: 10
   rewardItems: []
-  switchActiveStateOnGive: []
+  switchActiveStateOnGive:
+  - Anrianna_Letter
   switchActiveStateOnComplete:
   - QRock
   changeToNextDialogueOnGive:
