@@ -18,7 +18,7 @@ MonoBehaviour:
   itemType: 10
   spellWarmUpFX: {fileID: 1207433386840518, guid: fcdd5250b37436143a4d1d6f0274315d, type: 3}
   spellCastFX: {fileID: 1207433386840518, guid: 64e8c9a3a41ed274f9b976c56ecca9d9, type: 3}
-  spellAnimation: 
+  spellAnimation: Fireball Cast
   focusPointCost: 0
   spellType: 2
   spellDescription: 
