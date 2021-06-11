@@ -44,6 +44,7 @@ namespace SzymonPeszek.PlayerScripts.Animations
                 {StaticAnimatorIds.IsUsingLeftHandName, Animator.StringToHash(StaticAnimatorIds.IsUsingLeftHandName)},
                 {StaticAnimatorIds.IsUsingRightHandName, Animator.StringToHash(StaticAnimatorIds.IsUsingRightHandName)},
                 {StaticAnimatorIds.IsBlockingName, Animator.StringToHash(StaticAnimatorIds.IsBlockingName)},
+                {StaticAnimatorIds.IsRotatingWithRootMotionName, Animator.StringToHash(StaticAnimatorIds.IsRotatingWithRootMotionName)},
                 {StaticAnimatorIds.EmptyName, Animator.StringToHash(StaticAnimatorIds.EmptyName)},
                 {StaticAnimatorIds.LeftArmEmptyName, Animator.StringToHash(StaticAnimatorIds.LeftArmEmptyName)},
                 {StaticAnimatorIds.RightArmEmptyName, Animator.StringToHash(StaticAnimatorIds.RightArmEmptyName)},
@@ -97,7 +98,10 @@ namespace SzymonPeszek.PlayerScripts.Animations
                 {StaticAnimatorIds.ParryName, Animator.StringToHash(StaticAnimatorIds.ParryName)},
                 {StaticAnimatorIds.ParriedName, Animator.StringToHash(StaticAnimatorIds.ParriedName)},
                 {StaticAnimatorIds.BowIdleName, Animator.StringToHash(StaticAnimatorIds.BowIdleName)},
-                {StaticAnimatorIds.BlockDamageName, Animator.StringToHash(StaticAnimatorIds.BlockDamageName)}
+                {StaticAnimatorIds.BlockDamageName, Animator.StringToHash(StaticAnimatorIds.BlockDamageName)},
+                {StaticAnimatorIds.TurnBehindName, Animator.StringToHash(StaticAnimatorIds.TurnBehindName)},
+                {StaticAnimatorIds.TurnRightName, Animator.StringToHash(StaticAnimatorIds.TurnRightName)},
+                {StaticAnimatorIds.TurnLeftName, Animator.StringToHash(StaticAnimatorIds.TurnLeftName)}
             };
             
             anim.SetBool(StaticAnimatorIds.animationIds[StaticAnimatorIds.IsDeadName], false);

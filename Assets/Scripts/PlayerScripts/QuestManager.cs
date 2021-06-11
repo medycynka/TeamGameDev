@@ -29,7 +29,9 @@ namespace SzymonPeszek.PlayerScripts
             if (_instance != null && _instance != this)
             {
                 Destroy(gameObject);
-            } else {
+            } 
+            else 
+            {
                 _instance = this;
             }
 
@@ -46,7 +48,10 @@ namespace SzymonPeszek.PlayerScripts
                     });
                 }
             }
+        }
 
+        private void Start()
+        {
             npcMap = new Dictionary<string, NpcInteractionManager>();
             NpcInteractionManager[] tmpIm = FindObjectsOfType<NpcInteractionManager>();
             foreach(NpcInteractionManager npc in tmpIm)
@@ -61,9 +66,12 @@ namespace SzymonPeszek.PlayerScripts
                 else
                 {
                     NpcManager tmpManager = npc.GetComponent<NpcManager>();
-                    if (!npcMap.ContainsKey(tmpManager.npcId))
+                    if (tmpManager != null)
                     {
-                        npcMap.Add(tmpManager.npcId, npc);
+                        if (!npcMap.ContainsKey(tmpManager.npcId))
+                        {
+                            npcMap.Add(tmpManager.npcId, npc);
+                        }
                     }
                 }
             }
@@ -143,21 +151,21 @@ namespace SzymonPeszek.PlayerScripts
 
         public void CompleteQuest(Quest quest)
         {
-            Debug.Log("QuestManager: CompleteQuest");
+            // Debug.Log("QuestManager: CompleteQuest");
             if (mainQuests.Any(q => q.quest == quest))
             {
-                Debug.Log("QuestManager: CompleteQuest - quest found");
+                // Debug.Log("QuestManager: CompleteQuest - quest found");
                 mainQuests.First(p => p.quest == quest).isCompleted = true;
                 SettingsHolder.worldManager.quests[mainQuests.First(p => p.quest == quest).questId].isCompleted = true;
 
                 if (quest.switchActiveStateOnComplete.Count > 0)
                 {
-                    Debug.Log("Activating objects...");
+                    // Debug.Log("Activating objects...");
                     foreach (string oId in quest.switchActiveStateOnComplete)
                     {
-                        Debug.Log($"{(objectsSwitchingMap[oId].currentActiveState ? "Deactivating" : "Activating")} {oId}");
+                        // Debug.Log($"{(objectsSwitchingMap[oId].currentActiveState ? "Deactivating" : "Activating")} {oId}");
                         objectsSwitchingMap[oId].SwitchActiveState();
-                        Debug.Log($"{(objectsSwitchingMap[oId].currentActiveState ? "Activated" : "Deactivated")} {oId}");
+                        // Debug.Log($"{(objectsSwitchingMap[oId].currentActiveState ? "Activated" : "Deactivated")} {oId}");
                     }
                 }
 

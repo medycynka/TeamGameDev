@@ -4,6 +4,7 @@ using System.Linq;
 using SzymonPeszek.PlayerScripts;
 using SzymonPeszek.PlayerScripts.Inventory;
 using SzymonPeszek.Enums;
+using SzymonPeszek.Environment.Areas;
 using SzymonPeszek.Npc;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -72,6 +73,9 @@ namespace SzymonPeszek.SaveScripts
         // Npcs
         public NpcQuests[] npcQuests;
         public NpcDialogues[] npcDialogues;
+        
+        // PickUps
+        public PickUpsActivation[] pickUps;
 
         // Constructor
         /// <summary>
@@ -320,8 +324,8 @@ namespace SzymonPeszek.SaveScripts
 
             #region Quests
             // Player
-            quests = new QuestContainer[SettingsHolder.worldManager.quests.Length];
-            for (int i = 0; i < SettingsHolder.worldManager.quests.Length; i++)
+            quests = new QuestContainer[SettingsHolder.worldManager.quests.Count];
+            for (int i = 0; i < SettingsHolder.worldManager.quests.Count; i++)
             {
                 quests[i] = new QuestContainer
                 {
@@ -379,6 +383,10 @@ namespace SzymonPeszek.SaveScripts
                 }
             }
             #endregion
+            
+            #region Pick Ups
+            pickUps = WorldPickUpsManager.instance.SavePickUps();
+            #endregion
         }
     }
 
@@ -403,5 +411,12 @@ namespace SzymonPeszek.SaveScripts
     {
         public string npcId;
         public bool[] dialogueCompleted;
+    }
+
+    [Serializable]
+    public class PickUpsActivation
+    {
+        public string pickUpId;
+        public bool isCollected;
     }
 }

@@ -37,82 +37,90 @@ namespace SzymonPeszek.Items
 
             if (items.Count > 0)
             {
+                List<ItemVisuals> icons = new List<ItemVisuals>();
+                
                 for (var i = 0; i < items.Count; i++)
                 {
-                    var item = items[i];
-                    if (item != null)
+                    if (items[i] != null)
                     {
-                        if (item is WeaponItem)
+                        if (items[i] is WeaponItem)
                         {
-                            if (item.itemType == ItemType.Weapon)
+                            if (items[i].itemType == ItemType.Weapon)
                             {
-                                playerInventory.weaponsInventory.Add((WeaponItem) item);
+                                playerInventory.weaponsInventory.Add((WeaponItem) items[i]);
                                 uIManager.GetWeaponInventorySlot();
                                 uIManager.UpdateWeaponInventory();
                             }
-                            else if (item.itemType == ItemType.Shield)
+                            else if (items[i].itemType == ItemType.Shield)
                             {
-                                playerInventory.shieldsInventory.Add((WeaponItem) item);
+                                playerInventory.shieldsInventory.Add((WeaponItem) items[i]);
                                 uIManager.GetShieldInventorySlot();
                                 uIManager.UpdateShieldInventory();
                             }
                         }
-                        else if (item is EquipmentItem)
+                        else if (items[i] is EquipmentItem)
                         {
-                            switch (item.itemType)
+                            switch (items[i].itemType)
                             {
                                 case ItemType.Helmet:
-                                    playerInventory.helmetsInventory.Add((EquipmentItem) item);
+                                    playerInventory.helmetsInventory.Add((EquipmentItem) items[i]);
                                     uIManager.GetHelmetInventorySlot();
                                     uIManager.UpdateHelmetInventory();
                                     break;
                                 case ItemType.ChestArmor:
-                                    playerInventory.chestsInventory.Add((EquipmentItem) item);
+                                    playerInventory.chestsInventory.Add((EquipmentItem) items[i]);
                                     uIManager.GetChestInventorySlot();
                                     uIManager.UpdateChestInventory();
                                     break;
                                 case ItemType.ShoulderArmor:
-                                    playerInventory.shouldersInventory.Add((EquipmentItem) item);
+                                    playerInventory.shouldersInventory.Add((EquipmentItem) items[i]);
                                     uIManager.GetShoulderInventorySlot();
                                     uIManager.UpdateShoulderInventory();
                                     break;
                                 case ItemType.HandArmor:
-                                    playerInventory.handsInventory.Add((EquipmentItem) item);
+                                    playerInventory.handsInventory.Add((EquipmentItem) items[i]);
                                     uIManager.GetHandInventorySlot();
                                     uIManager.UpdateHandInventory();
                                     break;
                                 case ItemType.LegArmor:
-                                    playerInventory.legsInventory.Add((EquipmentItem) item);
+                                    playerInventory.legsInventory.Add((EquipmentItem) items[i]);
                                     uIManager.GetLegInventorySlot();
                                     uIManager.UpdateLegInventory();
                                     break;
                                 case ItemType.FootArmor:
-                                    playerInventory.feetInventory.Add((EquipmentItem) item);
+                                    playerInventory.feetInventory.Add((EquipmentItem) items[i]);
                                     uIManager.GetFootInventorySlot();
                                     uIManager.UpdateFootInventory();
                                     break;
                                 case ItemType.Ring:
-                                    playerInventory.ringsInventory.Add((EquipmentItem) item);
+                                    playerInventory.ringsInventory.Add((EquipmentItem) items[i]);
                                     uIManager.GetRingInventorySlot();
                                     uIManager.UpdateRingInventory();
                                     break;
                             }
                         }
-                        else if (item is ConsumableItem)
+                        else if (items[i] is ConsumableItem)
                         {
-                            playerInventory.consumablesInventory.Add((ConsumableItem) item);
+                            playerInventory.consumablesInventory.Add((ConsumableItem) items[i]);
                             uIManager.GetConsumableInventorySlot();
                             uIManager.UpdateConsumableInventory();
                         }
+                        
+                        icons.Add(new ItemVisuals
+                        {
+                            itemName = items[i].itemName,
+                            itemIcon = items[i].itemIcon
+                        });
                     }
                 }
 
-                playerManager.itemInteractableGameObject.GetComponentInChildren<TextMeshProUGUI>().text = items[0].itemName;
-                playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture = items[0].itemIcon.texture;
+                // playerManager.itemInteractableGameObject.GetComponentInChildren<TextMeshProUGUI>().text = items[0].itemName;
+                // playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture = items[0].itemIcon.texture;
+                playerManager.ShowPickUps(icons);
                 uIManager.UpdateEstusAmount();
             }
-
-            playerManager.itemInteractableGameObject.SetActive(true);
+            
+            // playerManager.itemInteractableGameObject.SetActive(true);
             Destroy(gameObject);
         }
     }

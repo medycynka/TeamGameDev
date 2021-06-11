@@ -122,6 +122,7 @@ namespace SzymonPeszek.GameUI
         /// </summary>
         public void OpenSelectWindow()
         {
+            hudWindow.SetActive(false);
             uiWindow.SetActive(true);
             selectWindow.SetActive(true);
         }
@@ -133,6 +134,7 @@ namespace SzymonPeszek.GameUI
         {
             selectWindow.SetActive(false);
             uiWindow.SetActive(false);
+            hudWindow.SetActive(true);
         }
 
         /// <summary>

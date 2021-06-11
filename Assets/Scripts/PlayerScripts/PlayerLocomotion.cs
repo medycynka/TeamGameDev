@@ -318,9 +318,9 @@ namespace SzymonPeszek.PlayerScripts
                     _playerManager.StopPlayer();
                 }
                 
-                if (inAirTimer > 4f)
+                if (inAirTimer > 5f)
                 {
-                    _playerStats.TakeDamage(fallDamage * (inAirTimer - 2f), DamageType.Fall);
+                    _playerStats.TakeDamage(fallDamage * (inAirTimer - 3f), DamageType.Fall);
                 }
                 
                 _targetPosition.y = _hit.point.y;
@@ -366,7 +366,6 @@ namespace SzymonPeszek.PlayerScripts
                 nextJump = Time.time + 2f;
                 currentVelocity.y = Mathf.Sqrt(2 * jumpMultiplier * jumpHeight);
                 rigidbody.velocity = currentVelocity;
-                Debug.Log($"{rigidbody.velocity}");
             }
         }
 

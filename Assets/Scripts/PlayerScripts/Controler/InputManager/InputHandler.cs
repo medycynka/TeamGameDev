@@ -82,7 +82,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
 
         private float _bowTimer;
         private bool _canPlayBlock = true;
-        private bool _canPlayLeftIdle = true;
+        // private bool _canPlayLeftIdle = true;
 
         private Vector2 _movementInput;
         private Vector2 _cameraInput;
@@ -257,7 +257,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
         /// </summary>
         private void HandleAttackInput(float delta)
         {
-            if (_playerStats.currentStamina > 0)
+            if (_playerStats.currentStamina > 0 && !inventoryFlag && !_playerManager.dialogueFlag)
             {
                 #region Handle Light Attack
                 if (rbInput)
@@ -390,7 +390,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
 
                 if (inventoryFlag)
                 {
-                    // Time.timeScale = 0f;
+                    _playerManager.EnableCursor();
                     horizontal = 0f;
                     vertical = 0f;
                     moveAmount = 0f;
@@ -404,7 +404,7 @@ namespace SzymonPeszek.PlayerScripts.Controller
                 }
                 else
                 {
-                    // Time.timeScale = 1f;
+                    _playerManager.DisableCursor();
                     uiManager.CloseSelectWindow();
                     uiManager.CloseAllInventoryWindows();
                     uiManager.hudWindow.SetActive(true);

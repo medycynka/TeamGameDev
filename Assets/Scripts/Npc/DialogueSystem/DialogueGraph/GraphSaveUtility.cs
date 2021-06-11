@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -100,7 +101,8 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
                     isQuestGiver = node.isQuestGiver,
                     isQuestCompleter = node.isQuestCompleter,
                     isExit = node.isExitNode,
-                    isEnding = node.isEndingDialogueNode
+                    isEnding = node.isEndingDialogueNode,
+                    isItem = node.isItemGiver
                 });
             }
 
@@ -175,7 +177,7 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
             foreach (var perNode in _dialogueContainer.dialogueNodeData)
             {
                 var tempNode = _targetGraphView.CreateNode(perNode.dialogueText, Vector2.zero, perNode.isQuestGiver, 
-                    perNode.isQuestCompleter, perNode.isExit, perNode.isEnding);
+                    perNode.isQuestCompleter, perNode.isExit, perNode.isEnding, perNode.isItem);
                 tempNode.guID = perNode.nodeGuid;
                 _targetGraphView.AddElement(tempNode);
 
@@ -243,3 +245,4 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
         }
     }
 }
+#endif

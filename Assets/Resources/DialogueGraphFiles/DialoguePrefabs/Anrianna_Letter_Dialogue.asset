@@ -34,9 +34,6 @@ MonoBehaviour:
   - baseNodeGuid: eb8361c7-a6f3-4749-ac3b-4cb9c263b70b
     portName: '[Przeczytaj sklejony list]'
     targetNodeGuid: b895b526-badb-4ab5-88bf-e69d86507763
-  - baseNodeGuid: ebf8b758-78a9-49c4-875f-4924f06355aa
-    portName: "[Zostaw to. Nie chcesz czyta\u0107 dalej]"
-    targetNodeGuid: 303e25bf-3d80-4ac8-b9c6-fd941af52121
   - baseNodeGuid: d5036840-5a5b-4d94-81fe-1180b420e991
     portName: "[Zostaw je i skup si\u0119 na innych listach]"
     targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
@@ -59,6 +56,9 @@ MonoBehaviour:
     portName: '[Poczytaj inne listy]'
     targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
   - baseNodeGuid: ebf8b758-78a9-49c4-875f-4924f06355aa
+    portName: "[Zostaw to. Nie chcesz czyta\u0107 dalej]"
+    targetNodeGuid: 303e25bf-3d80-4ac8-b9c6-fd941af52121
+  - baseNodeGuid: ebf8b758-78a9-49c4-875f-4924f06355aa
     portName: '[Przeczytaj inne listy]'
     targetNodeGuid: 670bbf89-89a7-4683-b6ba-072212af3d27
   dialogueNodeData:
@@ -71,6 +71,7 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
+    isItem: 1
   - nodeGuid: eb8361c7-a6f3-4749-ac3b-4cb9c263b70b
     dialogueText: "Wi\u0119kszo\u015B\u0107 list\xF3w skierowana jest do matki. Opr\xF3cz
       zwyk\u0142ej rozmowy zauwa\u017Casz, \u017Ce ojciec robi si\u0119 coraz bardziej
@@ -81,6 +82,7 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
+    isItem: 0
   - nodeGuid: d5036840-5a5b-4d94-81fe-1180b420e991
     dialogueText: " Widzisz codzienne rozterki matki, kt\xF3ra \u017Cali si\u0119
       ojcowi, kt\xF3ry by\u0142 na kolejnej wyprawie z karawan\u0105. Uprawy, so\u0142tys,
@@ -92,6 +94,7 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
+    isItem: 0
   - nodeGuid: 99b75e70-1c76-4c8a-9a88-38f0d8e50689
     dialogueText: "Listy pe\u0142ne s\u0105 goryczy i b\xF3lu. Matka zauwa\u017Ca
       dziwne zachowanie ojca. Rozpisuje si\u0119 o  tym jak ozi\u0119ble j\u0105
@@ -105,6 +108,7 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
+    isItem: 0
   - nodeGuid: 303e25bf-3d80-4ac8-b9c6-fd941af52121
     dialogueText: Dialogue Node
     nodePosition: {x: 6333, y: -44}
@@ -112,6 +116,7 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 1
     isEnding: 0
+    isItem: 0
   - nodeGuid: b895b526-badb-4ab5-88bf-e69d86507763
     dialogueText: "List przepe\u0142nia gniew ojca, kt\xF3ry domaga si\u0119 wyprowadzki
       Twojej babci. Co gorsze, wspomina o r\xF3\u017Cnych innych magicznych wypadkach,
@@ -125,6 +130,7 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
+    isItem: 0
   - nodeGuid: ebf8b758-78a9-49c4-875f-4924f06355aa
     dialogueText: "Wszystkie listy skierowane s\u0105 do wied\u017Amy. Babcia opowiada
       o codziennych wydarzeniach, czasem zaprasza na herbat\u0119. W pewnym momencie
@@ -137,6 +143,7 @@ MonoBehaviour:
     isQuestCompleter: 0
     isExit: 0
     isEnding: 0
+    isItem: 0
   exposedProperties:
   - propertyName: New String
     propertyValue: New Value

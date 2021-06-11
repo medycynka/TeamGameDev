@@ -23,9 +23,13 @@ MonoBehaviour:
   isEnemyQuest: 0
   enemyToKillName: 
   enemyToKillCount: 0
+  isEndingNotInGiver: 0
+  giverNpcId: 
   moneyReward: 10
   rewardItems: []
-  activateOnGive: []
-  activateOnComplete: []
+  switchActiveStateOnGive:
+  - TeleportFather
+  - Father
+  switchActiveStateOnComplete: []
   changeToNextDialogueOnGive: []
   changeToNextDialogueOnComplete: []

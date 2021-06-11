@@ -20,6 +20,7 @@ namespace SzymonPeszek.Misc
         public const string IsDeadName = "isDead";
         public const string IsBlockingName = "isBlocking";
         public const string CanRotateName = "canRotate";
+        public const string IsRotatingWithRootMotionName = "isRotatingWithRootMotion";
         public const string EmptyName = "Empty";
         public const string LeftArmEmptyName = "Left Arm Empty";
         public const string RightArmEmptyName = "Right Arm Empty";
@@ -54,6 +55,9 @@ namespace SzymonPeszek.Misc
         public const string ChestOpeningName = "Open Chest";
         public const string BowIdleName = "Bow_Idle";
         public const string BlockDamageName = "Block_Guard";
+        public const string TurnBehindName = "Turn Behind";
+        public const string TurnRightName = "Turn Right";
+        public const string TurnLeftName = "Turn Left";
         #endregion
 
         #region Player Attacks

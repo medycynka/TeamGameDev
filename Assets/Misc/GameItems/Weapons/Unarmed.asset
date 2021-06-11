@@ -49,7 +49,7 @@ MonoBehaviour:
   ohHeavyAttackMultiplier: 0
   thLightAttackMultiplier: 0
   thHeavyAttackMultiplier: 0
-  weaponType: 3
+  weaponType: 0
   meleeType: 9
   castingType: 3
   shootingType: 3

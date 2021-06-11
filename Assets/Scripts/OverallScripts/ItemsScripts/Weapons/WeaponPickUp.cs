@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using SzymonPeszek.BaseClasses;
@@ -41,6 +42,8 @@ namespace SzymonPeszek.Items.Weapons
         {
             base.PickUpItem(playerManager);
 
+            List<ItemVisuals> icons = new List<ItemVisuals>();
+            
             for (var i = 0; i < weapons.Length; i++)
             {
                 if (weapons[i] != null)
@@ -57,13 +60,20 @@ namespace SzymonPeszek.Items.Weapons
                         uIManager.GetShieldInventorySlot();
                         uIManager.UpdateShieldInventory();
                     }
+                    
+                    icons.Add(new ItemVisuals
+                    {
+                        itemName = weapons[i].itemName,
+                        itemIcon = weapons[i].itemIcon
+                    });
                 }
             }
 
-            playerManager.itemInteractableGameObject.GetComponentInChildren<TextMeshProUGUI>().text = weapons[0].itemName;
-            playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture = weapons[0].itemIcon.texture;
-
-            playerManager.itemInteractableGameObject.SetActive(true);
+            // playerManager.itemInteractableGameObject.GetComponentInChildren<TextMeshProUGUI>().text = weapons[0].itemName;
+            // playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture = weapons[0].itemIcon.texture;
+            //
+            // playerManager.itemInteractableGameObject.SetActive(true);
+            playerManager.ShowPickUps(icons);
             Destroy(gameObject);
         }
     }

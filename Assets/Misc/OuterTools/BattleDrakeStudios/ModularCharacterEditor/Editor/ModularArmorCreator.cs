@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#if UNITY_EDITOR
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -8,6 +9,7 @@ using System;
 using static BattleDrakeStudios.ModularCharacters.ModularCharacterStatics;
 using BattleDrakeStudios.SimpleIconCreator;
 using System.IO;
+
 
 namespace BattleDrakeStudios.ModularCharacters {
     public class ModularArmorCreator : EditorWindow {
@@ -434,3 +436,4 @@ namespace BattleDrakeStudios.ModularCharacters {
         }
     }
 }
+#endif

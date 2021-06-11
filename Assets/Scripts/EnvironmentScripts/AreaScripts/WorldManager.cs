@@ -10,6 +10,7 @@ using SzymonPeszek.PlayerScripts;
 using SzymonPeszek.Quests;
 using SzymonPeszek.SaveScripts;
 using QuestContainer = SzymonPeszek.PlayerScripts.QuestContainer;
+using Random = System.Random;
 
 
 namespace SzymonPeszek.Environment.Areas
@@ -32,18 +33,26 @@ namespace SzymonPeszek.Environment.Areas
         public EquipmentItem[] feetHolder;
         public EquipmentItem[] ringsHolder;
         public ConsumableItem[] consumableHolder;
-        public QuestContainer[] quests;
+        public List<QuestContainer> quests;
 
         private const int FrameCheckRate = 3;
         private const int BossCheckVal = 0;
         private const int BonfireCheckVal = 1;
+        private static Random _random = new Random();
+        private const string Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{};:<>,./?|";
         
         private void Awake()
         {
             SettingsHolder.worldManager = this;
-            
-            bossAreaManagers = GetComponentsInChildren<BossAreaManager>();
-            bonfireManagers = GetComponentsInChildren<BonfireManager>();
+
+            if (bossAreaManagers.Length == 0)
+            {
+                bossAreaManagers = GetComponentsInChildren<BossAreaManager>();
+            }
+            if (bonfireManagers.Length == 0)
+            {
+                bonfireManagers = GetComponentsInChildren<BonfireManager>();
+            }
 
             DataManager dataManager = SettingsHolder.dataManager;
 
@@ -107,13 +116,20 @@ namespace SzymonPeszek.Environment.Areas
                 foreach (NpcManager npcManager in npcManagers)
                 {
                     npcManager.mainQuests.Clear();
+                    if (tmp.ContainsKey(npcManager.npcId))
+                    {
+                        npcManager.npcId = npcManager.name + GetRandomNpcIdSuffix(5);
+                    }
                     tmp.Add(npcManager.npcId, npcManager);
                 }
                 if (dataManager.npcQuests.Length > 0)
                 {
                     foreach (NpcQuests npcQ in dataManager.npcQuests)
                     {
-                        tmp[npcQ.npcId].mainQuests.Add(quests[npcQ.questId]);
+                        if (quests.Any(q => q.questId == npcQ.questId))
+                        {
+                            tmp[npcQ.npcId].mainQuests.Add(quests.First(q => q.questId == npcQ.questId));
+                        }
                     }
                 }
                 #endregion
@@ -133,14 +149,17 @@ namespace SzymonPeszek.Environment.Areas
             }
         }
 
+        private string GetRandomNpcIdSuffix(int suffixLength = 10, string separator = "_")
+        {
+            return separator + new string(Enumerable.Repeat(Chars, suffixLength).Select(s => s[_random.Next(s.Length)])
+                .ToArray());
+        }
+
         private Quest GetQuestById(int id)
         {
-            for (int i = 0; i < quests.Length; i++)
+            if (quests.Any(q => q.questId == id))
             {
-                if (quests[i].questId == id)
-                {
-                    return quests[i].quest;
-                }
+                return quests.First(q => q.questId == id).quest;
             }
 
             return null;

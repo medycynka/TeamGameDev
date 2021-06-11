@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SzymonPeszek.Environment.Sounds;
+using SzymonPeszek.MainMenuUI;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -23,6 +24,7 @@ namespace SzymonPeszek.GameUI.WindowsManagers
         [Header("Settings Manager", order = 0)]
         public PlayerManager playerManager;
         public CameraHandler cameraHandler;
+        public bool isInMainMenu;
         [Header("Settings Options", order = 1)]
         public TMP_Dropdown resolutionDropdown;
         public Toggle fullScreenToggle;
@@ -32,8 +34,23 @@ namespace SzymonPeszek.GameUI.WindowsManagers
 
         private void Start()
         {
-            _audioSources.Add(playerManager.GetComponent<AnimationSoundManager>());
+            MainMenuManager tmp = FindObjectOfType<MainMenuManager>();
+            if (tmp != null)
+            {
+                isInMainMenu = true;
+            }
+            
+            if (playerManager == null)
+            {
+                playerManager = FindObjectOfType<PlayerManager>();
+            }
 
+            if (cameraHandler == null)
+            {
+                cameraHandler = FindObjectOfType<CameraHandler>();
+            }
+            
+            _audioSources.Add(playerManager.GetComponent<AnimationSoundManager>());
             foreach (var enemy in GameObject.FindGameObjectsWithTag("Enemy"))
             {
                 if (enemy.GetComponent<AnimationSoundManager>() != null)
@@ -65,16 +82,16 @@ namespace SzymonPeszek.GameUI.WindowsManagers
         /// </summary>
         public void LoadSettings()
         {
-            resolutionDropdown.value = SettingsHolder.resolutionID;
+            resolutionDropdown.SetValueWithoutNotify(SettingsHolder.resolutionID);
             resolutionDropdown.RefreshShownValue();
             
-            fullScreenToggle.isOn = SettingsHolder.isFullscreen;
+            fullScreenToggle.SetIsOnWithoutNotify(SettingsHolder.isFullscreen);
             
-            qualityDropdown.value = SettingsHolder.qualityID;
+            qualityDropdown.SetValueWithoutNotify(SettingsHolder.qualityID);
             qualityDropdown.RefreshShownValue();
             
-            mouseSlider.value = SettingsHolder.mouseSensibility;
-            volumeSlider.value = SettingsHolder.soundVolume;
+            mouseSlider.SetValueWithoutNotify(SettingsHolder.mouseSensibility);
+            volumeSlider.SetValueWithoutNotify(SettingsHolder.soundVolume);
         }
 
         /// <summary>
@@ -139,6 +156,12 @@ namespace SzymonPeszek.GameUI.WindowsManagers
         /// </summary>
         public void SaveAndExit()
         {
+            if (!isInMainMenu)
+            {
+                SettingsHolder.isCharacterCreated = true;
+                SettingsHolder.firstStart = false;
+            }
+
             SaveSettings();
             SaveManager.SaveGame(playerManager, playerManager.GetComponent<PlayerStats>(), playerManager.GetComponent<PlayerInventory>());
             Application.Quit();

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3314980}
   - component: {fileID: 2355712}
   - component: {fileID: -2647191297750518745}
+  - component: {fileID: 1128078703241843735}
   m_Layer: 0
   m_Name: SM_Env_TreePine_02
   m_TagString: Untagged
@@ -98,3 +99,17 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 1
   m_AffectedAgents: ffffffff
+--- !u!136 &1128078703241843735
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105616}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}

@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -134,7 +135,7 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
         }
 
         public DialogueNode CreateNode(string nodeName, Vector2 mousePosition, bool questGiver = false, 
-            bool questCompleter = false, bool isExit = false, bool isEnding = false)
+            bool questCompleter = false, bool isExit = false, bool isEnding = false, bool isItem = false)
         {
             DialogueNode newDialogueNode = new DialogueNode
             {
@@ -144,7 +145,8 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
                 isQuestGiver = questGiver,
                 isQuestCompleter = questCompleter,
                 isExitNode = isExit,
-                isEndingDialogueNode = isEnding
+                isEndingDialogueNode = isEnding,
+                isItemGiver = isItem
             };
             
             newDialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("DialogueGraphFiles/Node"));
@@ -190,6 +192,12 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
             isDialogueEnder.SetValueWithoutNotify(newDialogueNode.isEndingDialogueNode);
             isDialogueEnder.text = "Ender";
             newDialogueNode.titleContainer.Add(isDialogueEnder);
+            
+            Toggle isItemGiver = new Toggle();
+            isItemGiver.RegisterValueChangedCallback(evt => newDialogueNode.isItemGiver = evt.newValue);
+            isItemGiver.SetValueWithoutNotify(newDialogueNode.isItemGiver);
+            isItemGiver.text = "Item";
+            newDialogueNode.titleContainer.Add(isItemGiver);
 
             Button button = new Button(() => { AddChoicePort(newDialogueNode); });
             button.text = "Add Choice";
@@ -283,3 +291,4 @@ namespace SzymonPeszek.Npc.DialogueSystem.DialogueGraph
         }
     }
 }
+#endif

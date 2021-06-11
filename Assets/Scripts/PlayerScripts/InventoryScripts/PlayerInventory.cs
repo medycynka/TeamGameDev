@@ -5,6 +5,7 @@ using SzymonPeszek.Items.Weapons;
 using SzymonPeszek.Items.Equipment;
 using SzymonPeszek.Items.Consumable;
 using SzymonPeszek.BaseClasses;
+using SzymonPeszek.Enums;
 using SzymonPeszek.Environment.Areas;
 using SzymonPeszek.SaveScripts;
 using UnityEngine.UI;
@@ -215,14 +216,20 @@ namespace SzymonPeszek.PlayerScripts.Inventory
             _weaponSlotManager.LoadWeaponOnSlot(rightWeapon, false);
             _weaponSlotManager.LoadWeaponOnSlot(leftWeapon, true);
             
-            if (rightWeapon != unarmedWeapon)
+            if (rightWeapon.itemType == ItemType.Weapon && rightWeapon.meleeType != MeleeType.Shield && rightWeapon.meleeType != MeleeType.NotMelee)
             {
-                weaponsInventory.Add(rightWeapon);
+                if (!weaponsInventory.Contains(rightWeapon))
+                {
+                    weaponsInventory.Add(rightWeapon);
+                }
                 weaponIcon.sprite = rightWeapon.itemIcon;
             }
-            if (leftWeapon != unarmedWeapon)
+            if (leftWeapon.itemType == ItemType.Shield && leftWeapon.meleeType == MeleeType.Shield && leftWeapon.meleeType != MeleeType.NotMelee)
             {
-                shieldsInventory.Add(leftWeapon);
+                if (!shieldsInventory.Contains(leftWeapon))
+                {
+                    shieldsInventory.Add(leftWeapon);
+                }
                 shieldIcon.sprite = leftWeapon.itemIcon;
             }
         }
