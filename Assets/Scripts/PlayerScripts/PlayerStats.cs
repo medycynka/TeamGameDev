@@ -104,11 +104,10 @@ namespace SzymonPeszek.PlayerScripts
                 bonusStamina = dataManager.bonusStamina;
                 bonusFocus = dataManager.bonusFocus;
                 playerLevel = dataManager.playerLevel;
-
+                soulsAmount = dataManager.soulsAmount;
+                
                 if (!dataManager.isFirstStart)
                 {
-                    soulsAmount = dataManager.soulsAmount;
-                    
                     gameObject.transform.position = new Vector3(dataManager.spawnPointPosition[0], dataManager.spawnPointPosition[1], dataManager.spawnPointPosition[2]);
                     gameObject.transform.rotation = Quaternion.Euler(dataManager.spawnPointRotation[0], dataManager.spawnPointRotation[1], dataManager.spawnPointRotation[2]);
                     _playerManager.currentSpawnPoint.transform.position = new Vector3(dataManager.spawnPointPosition[0], dataManager.spawnPointPosition[1], dataManager.spawnPointPosition[2]);
@@ -128,7 +127,10 @@ namespace SzymonPeszek.PlayerScripts
                 bonusStamina = SettingsHolder.currentBonusStamina;
                 bonusFocus = SettingsHolder.currentBonusFocus;
                 playerLevel = SettingsHolder.currentLevel;
+                soulsAmount = SettingsHolder.soulsAmount;
             }
+            
+            uiManager.UpdateSouls();
 
             _hpBarTransform = healthBar.GetComponent<RectTransform>();
             _staminaBarTransform = staminaBar.GetComponent<RectTransform>();

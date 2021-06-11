@@ -99,6 +99,7 @@ namespace SzymonPeszek.SaveScripts
             bonusStamina = SettingsHolder.currentBonusStamina;
             bonusFocus = SettingsHolder.currentBonusFocus;
             playerLevel = SettingsHolder.currentLevel;
+            soulsAmount = SettingsHolder.soulsAmount;
 
             partsID = new int[SettingsHolder.partsID.Length];
             partsArmor = new float[SettingsHolder.partsID.Length];

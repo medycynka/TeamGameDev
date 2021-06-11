@@ -115,6 +115,7 @@ namespace SzymonPeszek.GameUI
         public void UpdateSouls()
         {
             currentSoulsAmount.text = playerStats.soulsAmount.ToString();
+            SettingsHolder.soulsAmount = playerStats.soulsAmount;
         }
 
         /// <summary>
