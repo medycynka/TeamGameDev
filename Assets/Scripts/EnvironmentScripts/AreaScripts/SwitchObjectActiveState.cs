@@ -12,7 +12,30 @@ namespace SzymonPeszek.Environment
         public bool currentActiveState = true;
         public GameObject objectToSwitch;
 
+        public static Dictionary<string, SwitchObjectActiveState> activeObjectsMap;
+
         private void Awake()
+        {
+            activeObjectsMap ??= new Dictionary<string, SwitchObjectActiveState>();
+
+            if (!activeObjectsMap.ContainsKey(objectId))
+            {
+                activeObjectsMap.Add(objectId, this);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (activeObjectsMap != null)
+            {
+                if (activeObjectsMap.ContainsKey(objectId))
+                {
+                    activeObjectsMap.Remove(objectId);
+                }
+            }
+        }
+
+        private void Start()
         {
             objectToSwitch.SetActive(currentActiveState);
         }

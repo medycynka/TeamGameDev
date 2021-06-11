@@ -146,6 +146,18 @@ namespace SzymonPeszek.Environment.Areas
                     }
                 }
                 #endregion
+                
+                #region Active Objects Initialization
+                for (int i = 0; i < dataManager.actives.Length; i++)
+                {
+                    if (SwitchObjectActiveState.activeObjectsMap.ContainsKey(dataManager.actives[i].id))
+                    {
+                        SwitchObjectActiveState.activeObjectsMap[dataManager.actives[i].id].currentActiveState =
+                            dataManager.actives[i].isActive;
+                        SwitchObjectActiveState.activeObjectsMap[dataManager.actives[i].id].SwitchActiveState();
+                    }
+                }
+                #endregion
             }
         }
 

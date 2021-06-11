@@ -4,6 +4,7 @@ using System.Linq;
 using SzymonPeszek.PlayerScripts;
 using SzymonPeszek.PlayerScripts.Inventory;
 using SzymonPeszek.Enums;
+using SzymonPeszek.Environment;
 using SzymonPeszek.Environment.Areas;
 using SzymonPeszek.Npc;
 using UnityEngine;
@@ -76,6 +77,9 @@ namespace SzymonPeszek.SaveScripts
         
         // PickUps
         public PickUpsActivation[] pickUps;
+        
+        // Switching active state objects
+        public SwitchObjectActiveStateInfo[] actives;
 
         // Constructor
         /// <summary>
@@ -388,6 +392,19 @@ namespace SzymonPeszek.SaveScripts
             #region Pick Ups
             pickUps = WorldPickUpsManager.instance.SavePickUps();
             #endregion
+            
+            #region Activating items
+            List<SwitchObjectActiveStateInfo> tmp = new List<SwitchObjectActiveStateInfo>();
+            foreach (var aO in SwitchObjectActiveState.activeObjectsMap)
+            {
+                tmp.Add(new SwitchObjectActiveStateInfo
+                {
+                    id = aO.Key,
+                    isActive = aO.Value.currentActiveState
+                });
+            }
+            actives = tmp.ToArray();
+            #endregion
         }
     }
 
@@ -419,5 +436,12 @@ namespace SzymonPeszek.SaveScripts
     {
         public string pickUpId;
         public bool isCollected;
+    }
+
+    [Serializable]
+    public class SwitchObjectActiveStateInfo
+    {
+        public string id;
+        public bool isActive;
     }
 }
