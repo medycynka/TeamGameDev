@@ -14,8 +14,13 @@ namespace SzymonPeszek.EnemyScripts.States
         [Header("Pursue Target State", order = 0)]
         [Header("Possible After States", order = 1)]
         public IdleState idleState;
+        public RotateTowardsTargetState rotateTowardsTargetState;
         public CombatStanceState combatStanceState;
         public DeathState deathState;
+
+        [Header("State Properties", order = 1)] 
+        [Range(-180, 0)] public float minViewableAngleToRotate = -65;
+        [Range(0, 180)] public float maxViewableAngleToRotate = 65;
 
         /// <summary>
         /// Use state behaviour
@@ -30,6 +35,23 @@ namespace SzymonPeszek.EnemyScripts.States
             {
                 if (enemyManager.shouldFollowTarget)
                 {
+                    Vector3 targetDirection = enemyManager.currentTarget.characterTransform.position - enemyManager.characterTransform.position;
+                    float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.characterTransform.position,
+                        enemyManager.characterTransform.position);
+                    float viewableAngle = Vector3.SignedAngle(targetDirection, enemyManager.characterTransform.forward, Vector3.up);
+
+                    HandleRotateTowardsTarget(enemyManager);
+
+                    if (viewableAngle > maxViewableAngleToRotate || viewableAngle < minViewableAngleToRotate)
+                    {
+                        return rotateTowardsTargetState;
+                    }
+                    
+                    if (enemyManager.isInteracting)
+                    {
+                        return this;
+                    }
+                    
                     if (enemyManager.isPreformingAction)
                     {
                         enemyAnimationManager.anim.SetFloat(
@@ -38,11 +60,6 @@ namespace SzymonPeszek.EnemyScripts.States
 
                         return this;
                     }
-
-                    //Vector3 targetDirection = enemyManager.currentTarget.transform.position - enemyManager.enemyTransform.position;
-                    float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position,
-                        enemyManager.characterTransform.position);
-                    //float viewableAngle = Vector3.Angle(targetDirection, enemyManager.enemyTransform.forward);
 
                     if (distanceFromTarget > enemyManager.detectionRadius)
                     {
@@ -58,8 +75,6 @@ namespace SzymonPeszek.EnemyScripts.States
                             StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.VerticalName], 1, 0.1f,
                             Time.deltaTime);
                     }
-
-                    HandleRotateTowardsTarget(enemyManager);
 
                     if (distanceFromTarget <= enemyManager.maximumAttackRange)
                     {

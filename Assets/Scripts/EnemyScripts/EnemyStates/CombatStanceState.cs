@@ -17,6 +17,10 @@ namespace SzymonPeszek.EnemyScripts.States
         public PursueTargetState pursueTargetState;
         public DeathState deathState;
 
+        private bool _randomDestinationSet;
+        private float _verticalMovement;
+        private float _horizontalMovement;
+
         /// <summary>
         /// Use state behaviour
         /// </summary>
@@ -28,29 +32,51 @@ namespace SzymonPeszek.EnemyScripts.States
         {
             if (enemyStats.currentHealth > 0)
             {
+                enemyAnimationManager.anim.SetFloat(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.VerticalName],
+                    _verticalMovement, 0.2f, Time.deltaTime);
+                enemyAnimationManager.anim.SetFloat(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.HorizontalName], 
+                    _horizontalMovement, 0.2f, Time.deltaTime);
+                attackState.hasPerformedAttack = false;
+                
                 if (enemyManager.isInteracting)
                 {
+                    enemyAnimationManager.anim.SetFloat(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.VerticalName], 0);
+                    enemyAnimationManager.anim.SetFloat(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.HorizontalName], 0);
+                    
                     return this;
                 }
                 
-                HandleRotateTowardsTarget(enemyManager);
-                
                 float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.characterTransform.position);
-                
-                if (enemyManager.isPreformingAction)
-                {
-                    enemyAnimationManager.anim.SetFloat(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.VerticalName], 0, 0.1f, Time.deltaTime);
-                }
 
-                if (enemyManager.currentRecoveryTime <= 0 && distanceFromTarget <= enemyManager.maximumAttackRange)
-                {
-                    return attackState;
-                }
-                
                 if (distanceFromTarget > enemyManager.maximumAttackRange)
                 {
                     return pursueTargetState;
                 }
+
+                if (!_randomDestinationSet)
+                {
+                    _randomDestinationSet = true;
+                    DecideCirclingAction(enemyAnimationManager);
+                }
+                
+                HandleRotateTowardsTarget(enemyManager);
+
+                if (enemyManager.currentRecoveryTime <= 0 && !enemyManager.isMagicCaster && attackState.currentAttack != null)
+                {
+                    _randomDestinationSet = false;
+
+                    return attackState;
+                }
+
+                if (enemyManager.currentRecoveryTime <= 0 && enemyManager.isMagicCaster &&
+                    attackState.currentMagicAttack != null)
+                {
+                    _randomDestinationSet = false;
+
+                    return attackState;
+                }
+                
+                attackState.GetNewAttack(enemyManager);
 
                 return this;
             }
@@ -83,6 +109,28 @@ namespace SzymonPeszek.EnemyScripts.States
                 enemyManager.navmeshAgent.SetDestination(enemyManager.currentTarget.transform.position);
                 enemyManager.enemyRigidBody.velocity = targetVelocity;
                 enemyManager.transform.rotation = Quaternion.Slerp(enemyManager.transform.rotation, enemyManager.navmeshAgent.transform.rotation, enemyManager.rotationSpeed / Time.deltaTime);
+            }
+        }
+
+        private void DecideCirclingAction(EnemyAnimationManager enemyAnimationManager)
+        {
+            // Add more circling functions (maybe based on percentage? like 35% to walk and 65% to run etc.)
+            WalkAroundTarget(enemyAnimationManager);
+        }
+        
+        private void WalkAroundTarget(EnemyAnimationManager enemyAnimationManager)
+        {
+            _verticalMovement = 0f;
+            
+            _horizontalMovement = Random.Range(-1, 1);
+            
+            if (_horizontalMovement <= 1 && _horizontalMovement > 0)
+            {
+                _horizontalMovement = 0.5f;
+            }
+            else if (_horizontalMovement >= -1 && _horizontalMovement < 0)
+            {
+                _horizontalMovement = -0.5f;
             }
         }
     }

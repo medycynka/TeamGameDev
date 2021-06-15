@@ -25,6 +25,7 @@ namespace SzymonPeszek.BaseClasses
         
         [Header("Movement Flags", order = 1)]
         public bool isRotatingWithRootMotion;
+        public bool canRotate;
 
         [Header("Combat Colliders", order = 1)]
         public Transform characterTransform;

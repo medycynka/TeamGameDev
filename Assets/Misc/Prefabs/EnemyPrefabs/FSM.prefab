@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba63351200cd7dc4f92bcb1dd32558db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combatStanceState: {fileID: 8295806199885347683}
   deathState: {fileID: 8295806200079788314}
 --- !u!1 &5870707151939828944
 GameObject:
@@ -188,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleState: {fileID: 8295806200324767332}
+  rotateTowardsTargetState: {fileID: 1446514238369717067}
   combatStanceState: {fileID: 8295806199885347683}
   deathState: {fileID: 8295806200079788314}
 --- !u!1 &8295806199885347685
@@ -323,6 +325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleState: {fileID: 8295806200324767332}
+  rotateTowardsTargetState: {fileID: 1446514238369717067}
+  pursueTargetState: {fileID: 8295806199883917013}
   combatStanceState: {fileID: 8295806199885347683}
   deathState: {fileID: 8295806200079788314}
   enemyAttacks:
@@ -332,6 +336,7 @@ MonoBehaviour:
   currentAttack: {fileID: 0}
   enemyMagicAttacks: []
   currentMagicAttack: {fileID: 0}
+  hasPerformedAttack: 0
 --- !u!1 &8295806200324767334
 GameObject:
   m_ObjectHideFlags: 0

@@ -130,6 +130,7 @@ namespace SzymonPeszek.EnemyScripts
 
             isInteracting = _enemyAnimationManager.anim.GetBool(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.IsInteractingName]);
             canDoCombo = _enemyAnimationManager.anim.GetBool(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.CanDoComboName]);
+            canRotate = _enemyAnimationManager.anim.GetBool(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.CanRotateName]);
             _enemyAnimationManager.anim.SetBool(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.IsDeadName], _enemyStats.currentHealth <= 0.0f);
             isNeutral = _enemyStats.currentHealth < _enemyStats.maxHealth;
             isRotatingWithRootMotion = _enemyAnimationManager.anim.GetBool(StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.IsRotatingWithRootMotionName]);

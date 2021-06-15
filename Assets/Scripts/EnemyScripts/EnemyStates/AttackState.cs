@@ -15,6 +15,8 @@ namespace SzymonPeszek.EnemyScripts.States
         [Header("Attack State", order = 0)]
         [Header("Possible After States", order = 1)]
         public IdleState idleState;
+        public RotateTowardsTargetState rotateTowardsTargetState;
+        public PursueTargetState pursueTargetState;
         public CombatStanceState combatStanceState;
         public DeathState deathState;
 
@@ -23,6 +25,8 @@ namespace SzymonPeszek.EnemyScripts.States
         public EnemyAttackAction currentAttack;
         public EnemyMagicAction[] enemyMagicAttacks;
         public EnemyMagicAction currentMagicAttack;
+        
+        public bool hasPerformedAttack;
 
         private bool _willDoComboOnNextAttack;
 
@@ -37,125 +41,159 @@ namespace SzymonPeszek.EnemyScripts.States
         {
             if (enemyStats.currentHealth > 0)
             {
-                if(enemyManager.currentTarget.currentHealth <= 0)
-                {
-                    return idleState;
-                }
+                // if(enemyManager.currentTarget.currentHealth <= 0)
+                // {
+                //     return idleState;
+                // }
+                //
+                // if ((enemyManager.isInteracting || enemyManager.isGettingRiposted) && !enemyManager.canDoCombo)
+                // {
+                //     return this;
+                // }
+                //
+                // if (enemyManager.isInteracting && enemyManager.canDoCombo && !enemyManager.isMagicCaster)
+                // {
+                //     if (_willDoComboOnNextAttack)
+                //     {
+                //         enemyAnimationManager.PlayTargetAnimation(StaticAnimatorIds.enemyAnimationIds[currentAttack.actionAnimation], true);
+                //         _willDoComboOnNextAttack = false;
+                //     }
+                // }
+                //
+                // Vector3 targetDirection = enemyManager.currentTarget.characterTransform.position - enemyManager.characterTransform.position;
+                // float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.characterTransform.position, enemyManager.characterTransform.position);
+                // float viewableAngle = Vector3.Angle(targetDirection, enemyManager.characterTransform.forward);
+                //
+                // HandleRotateTowardsTarget(enemyManager);
+                //
+                // if (enemyManager.isPreformingAction)
+                // {
+                //     return combatStanceState;
+                // }
+                //
+                // if (enemyManager.isMagicCaster)
+                // {
+                //     if (currentMagicAttack != null)
+                //     {
+                //         if (distanceFromTarget < currentMagicAttack.minimumDistanceNeededToAttack)
+                //         {
+                //             return this;
+                //         }
+                //
+                //         if (distanceFromTarget < currentMagicAttack.maximumDistanceNeededToAttack)
+                //         {
+                //             if (viewableAngle <= currentMagicAttack.maximumAttackAngle &&
+                //                 viewableAngle >= currentMagicAttack.minimumAttackAngle)
+                //             {
+                //                 if (enemyManager.currentRecoveryTime <= 0 && enemyManager.isPreformingAction == false)
+                //                 {
+                //                     enemyAnimationManager.anim.SetFloat(
+                //                         StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.VerticalName], 0, 0.1f,
+                //                         Time.deltaTime);
+                //                     enemyAnimationManager.anim.SetFloat(
+                //                         StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.HorizontalName], 0, 0.1f,
+                //                         Time.deltaTime);
+                //                     enemyAnimationManager.currentSpell = currentMagicAttack.spell;
+                //                     currentMagicAttack.spell.EnemyAttemptToCastSpell(enemyAnimationManager, enemyStats);
+                //                     
+                //                     enemyManager.isPreformingAction = true;
+                //                     enemyManager.currentRecoveryTime = currentMagicAttack.recoveryTime;
+                //                     currentMagicAttack = null;
+                //
+                //                     return combatStanceState;
+                //                 }
+                //             }
+                //         }
+                //     }
+                //     else
+                //     {
+                //         GetNewAttack(enemyManager);
+                //     }
+                // }
+                // else
+                // {
+                //     if (currentAttack != null)
+                //     {
+                //         if (distanceFromTarget < currentAttack.minimumDistanceNeededToAttack)
+                //         {
+                //             return this;
+                //         }
+                //
+                //         if (distanceFromTarget < currentAttack.maximumDistanceNeededToAttack)
+                //         {
+                //             if (viewableAngle <= currentAttack.maximumAttackAngle &&
+                //                 viewableAngle >= currentAttack.minimumAttackAngle)
+                //             {
+                //                 if (enemyManager.currentRecoveryTime <= 0 && enemyManager.isPreformingAction == false)
+                //                 {
+                //                     enemyAnimationManager.anim.SetFloat(
+                //                         StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.VerticalName], 0, 0.1f,
+                //                         Time.deltaTime);
+                //                     enemyAnimationManager.anim.SetFloat(
+                //                         StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.HorizontalName], 0, 0.1f,
+                //                         Time.deltaTime);
+                //                     enemyAnimationManager.PlayTargetAnimation(
+                //                         StaticAnimatorIds.enemyAnimationIds[currentAttack.actionAnimation], true);
+                //                     enemyManager.isPreformingAction = true;
+                //
+                //                     RollForComboChance(enemyManager);
+                //
+                //                     if (currentAttack.canCombo && _willDoComboOnNextAttack)
+                //                     {
+                //                         currentAttack = currentAttack.comboAction;
+                //
+                //                         return this;
+                //                     }
+                //
+                //                     enemyManager.currentRecoveryTime = currentAttack.recoveryTime;
+                //                     currentAttack = null;
+                //
+                //                     return combatStanceState;
+                //                 }
+                //             }
+                //         }
+                //     }
+                //     else
+                //     {
+                //         GetNewAttack(enemyManager);
+                //     }
+                // }
+                //
+                // return combatStanceState;
+                RotateTowardsTargetWhilstAttacking(enemyManager);
                 
-                if ((enemyManager.isInteracting || enemyManager.isGettingRiposted) && !enemyManager.canDoCombo)
+                float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.characterTransform.position,
+                    enemyManager.characterTransform.position);
+
+                if (distanceFromTarget > enemyManager.maximumAttackRange)
+                {
+                    return pursueTargetState;
+                }
+
+                if (!enemyManager.isMagicCaster && _willDoComboOnNextAttack && enemyManager.canDoCombo)
+                {
+                    AttackTargetWithCombo(enemyAnimationManager, enemyManager);
+                }
+
+                if (!hasPerformedAttack)
+                {
+                    if (enemyManager.isMagicCaster)
+                    {
+                        MagicAttackTarget(enemyAnimationManager, enemyManager);
+                    }
+                    else
+                    {
+                        AttackTarget(enemyAnimationManager, enemyManager);
+                        RollForComboChance(enemyManager);
+                    }
+                }
+
+                if (_willDoComboOnNextAttack && hasPerformedAttack)
                 {
                     return this;
                 }
-                
-                if (enemyManager.isInteracting && enemyManager.canDoCombo && !enemyManager.isMagicCaster)
-                {
-                    if (_willDoComboOnNextAttack)
-                    {
-                        enemyAnimationManager.PlayTargetAnimation(StaticAnimatorIds.enemyAnimationIds[currentAttack.actionAnimation], true);
-                        _willDoComboOnNextAttack = false;
-                    }
-                }
-                
-                Vector3 targetDirection = enemyManager.currentTarget.characterTransform.position - enemyManager.characterTransform.position;
-                float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.characterTransform.position, enemyManager.characterTransform.position);
-                float viewableAngle = Vector3.Angle(targetDirection, enemyManager.characterTransform.forward);
 
-                HandleRotateTowardsTarget(enemyManager);
-                
-                if (enemyManager.isPreformingAction)
-                {
-                    return combatStanceState;
-                }
-
-                if (enemyManager.isMagicCaster)
-                {
-                    if (currentMagicAttack != null)
-                    {
-                        if (distanceFromTarget < currentMagicAttack.minimumDistanceNeededToAttack)
-                        {
-                            return this;
-                        }
-
-                        if (distanceFromTarget < currentMagicAttack.maximumDistanceNeededToAttack)
-                        {
-                            if (viewableAngle <= currentMagicAttack.maximumAttackAngle &&
-                                viewableAngle >= currentMagicAttack.minimumAttackAngle)
-                            {
-                                if (enemyManager.currentRecoveryTime <= 0 && enemyManager.isPreformingAction == false)
-                                {
-                                    enemyAnimationManager.anim.SetFloat(
-                                        StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.VerticalName], 0, 0.1f,
-                                        Time.deltaTime);
-                                    enemyAnimationManager.anim.SetFloat(
-                                        StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.HorizontalName], 0, 0.1f,
-                                        Time.deltaTime);
-                                    enemyAnimationManager.currentSpell = currentMagicAttack.spell;
-                                    currentMagicAttack.spell.EnemyAttemptToCastSpell(enemyAnimationManager, enemyStats);
-                                    
-                                    enemyManager.isPreformingAction = true;
-                                    enemyManager.currentRecoveryTime = currentMagicAttack.recoveryTime;
-                                    currentMagicAttack = null;
-
-                                    return combatStanceState;
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        GetNewAttack(enemyManager);
-                    }
-                }
-                else
-                {
-                    if (currentAttack != null)
-                    {
-                        if (distanceFromTarget < currentAttack.minimumDistanceNeededToAttack)
-                        {
-                            return this;
-                        }
-
-                        if (distanceFromTarget < currentAttack.maximumDistanceNeededToAttack)
-                        {
-                            if (viewableAngle <= currentAttack.maximumAttackAngle &&
-                                viewableAngle >= currentAttack.minimumAttackAngle)
-                            {
-                                if (enemyManager.currentRecoveryTime <= 0 && enemyManager.isPreformingAction == false)
-                                {
-                                    enemyAnimationManager.anim.SetFloat(
-                                        StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.VerticalName], 0, 0.1f,
-                                        Time.deltaTime);
-                                    enemyAnimationManager.anim.SetFloat(
-                                        StaticAnimatorIds.enemyAnimationIds[StaticAnimatorIds.HorizontalName], 0, 0.1f,
-                                        Time.deltaTime);
-                                    enemyAnimationManager.PlayTargetAnimation(
-                                        StaticAnimatorIds.enemyAnimationIds[currentAttack.actionAnimation], true);
-                                    enemyManager.isPreformingAction = true;
-
-                                    RollForComboChance(enemyManager);
-
-                                    if (currentAttack.canCombo && _willDoComboOnNextAttack)
-                                    {
-                                        currentAttack = currentAttack.comboAction;
-
-                                        return this;
-                                    }
-
-                                    enemyManager.currentRecoveryTime = currentAttack.recoveryTime;
-                                    currentAttack = null;
-
-                                    return combatStanceState;
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        GetNewAttack(enemyManager);
-                    }
-                }
-
-                return combatStanceState;
+                return rotateTowardsTargetState;
             }
             
             return deathState;
@@ -165,11 +203,11 @@ namespace SzymonPeszek.EnemyScripts.States
         /// Helper function for getting random attack from attacks list
         /// </summary>
         /// <param name="enemyManager">Enemy manager</param>
-        private void GetNewAttack(EnemyManager enemyManager)
+        public void GetNewAttack(EnemyManager enemyManager)
         {
-            Vector3 targetsDirection = enemyManager.currentTarget.transform.position - enemyManager.characterTransform.position;
+            Vector3 targetsDirection = enemyManager.currentTarget.characterTransform.position - enemyManager.characterTransform.position;
             float viewableAngle = Vector3.Angle(targetsDirection, enemyManager.characterTransform.forward);
-            float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.characterTransform.position);
+            float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.characterTransform.position, enemyManager.characterTransform.position);
             int maxScore = 0;
 
             if (enemyManager.isMagicCaster)
@@ -259,16 +297,43 @@ namespace SzymonPeszek.EnemyScripts.States
                 }
             }
         }
-        
-        /// <summary>
-        /// Handle rotation
-        /// </summary>
-        /// <param name="enemyManager">Enemy manager</param>
-        private void HandleRotateTowardsTarget(EnemyManager enemyManager)
+
+        private void AttackTarget(EnemyAnimationManager enemyAnimatorManager, EnemyManager enemyManager)
         {
-            if (enemyManager.isPreformingAction)
+            enemyAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.enemyAnimationIds[currentAttack.actionAnimation], true);
+            enemyManager.currentRecoveryTime = currentAttack.recoveryTime;
+            hasPerformedAttack = true;
+        }
+        
+        private void MagicAttackTarget(EnemyAnimationManager enemyAnimatorManager, EnemyManager enemyManager)
+        {
+            enemyAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.enemyAnimationIds[currentMagicAttack.actionAnimation], true);
+            enemyManager.currentRecoveryTime = currentMagicAttack.recoveryTime;
+            hasPerformedAttack = true;
+        }
+
+        private void AttackTargetWithCombo(EnemyAnimationManager enemyAnimatorManager, EnemyManager enemyManager)
+        {
+            _willDoComboOnNextAttack = false;
+            enemyAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.enemyAnimationIds[currentAttack.actionAnimation], true);
+            enemyManager.currentRecoveryTime = currentAttack.recoveryTime;
+            currentAttack = null;
+        }
+        
+        private void AttackTargetWithMagicCombo(EnemyAnimationManager enemyAnimatorManager, EnemyManager enemyManager)
+        {
+            _willDoComboOnNextAttack = false;
+            enemyAnimatorManager.PlayTargetAnimation(StaticAnimatorIds.enemyAnimationIds[currentMagicAttack.actionAnimation], true);
+            enemyManager.currentRecoveryTime = currentMagicAttack.recoveryTime;
+            currentMagicAttack = null;
+        }
+        
+        private void RotateTowardsTargetWhilstAttacking(EnemyManager enemyManager)
+        {
+            //Rotate manually
+            if (enemyManager.canRotate && enemyManager.isInteracting)
             {
-                Vector3 direction = enemyManager.currentTarget.transform.position - enemyManager.characterTransform.position;
+                Vector3 direction = enemyManager.currentTarget.characterTransform.position - enemyManager.characterTransform.position;
                 direction.y = 0;
                 direction.Normalize();
 
@@ -278,18 +343,7 @@ namespace SzymonPeszek.EnemyScripts.States
                 }
 
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
-                enemyManager.transform.rotation = Quaternion.Slerp(enemyManager.characterTransform.rotation, targetRotation,
-                    enemyManager.rotationSpeed / Time.deltaTime);
-            }
-            else
-            {
-                Vector3 targetVelocity = enemyManager.enemyRigidBody.velocity;
-
-                enemyManager.navmeshAgent.enabled = true;
-                enemyManager.navmeshAgent.SetDestination(enemyManager.currentTarget.transform.position);
-                enemyManager.enemyRigidBody.velocity = targetVelocity;
-                enemyManager.transform.rotation = Quaternion.Slerp(enemyManager.characterTransform.rotation,
-                    enemyManager.navmeshAgent.transform.rotation, enemyManager.rotationSpeed / Time.deltaTime);
+                enemyManager.characterTransform.rotation = Quaternion.Slerp(enemyManager.characterTransform.rotation, targetRotation, enemyManager.rotationSpeed / Time.deltaTime);
             }
         }
 
@@ -300,6 +354,12 @@ namespace SzymonPeszek.EnemyScripts.States
             if (enemyManager.allowAIToPerformCombos && comboChance <= enemyManager.comboLikelyHood)
             {
                 _willDoComboOnNextAttack = true;
+                currentAttack = currentAttack.comboAction;
+            }
+            else
+            {
+                _willDoComboOnNextAttack = false;
+                currentAttack = null;
             }
         }
     }
